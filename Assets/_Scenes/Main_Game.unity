@@ -85,7 +85,6 @@ GameObject:
   - 33: {fileID: 12681174}
   - 65: {fileID: 12681173}
   - 23: {fileID: 12681172}
-  - 65: {fileID: 12681176}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -147,19 +146,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 27
---- !u!65 &12681176
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1638828709}
-  m_GameObject: {fileID: 12681171}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &13048110
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +157,6 @@ GameObject:
   - 33: {fileID: 13048113}
   - 65: {fileID: 13048112}
   - 23: {fileID: 13048111}
-  - 65: {fileID: 13048115}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -233,19 +218,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 74
---- !u!65 &13048115
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 2109171174}
-  m_GameObject: {fileID: 13048110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &15072681
 Prefab:
   m_ObjectHideFlags: 0
@@ -301,7 +273,6 @@ GameObject:
   - 33: {fileID: 21485728}
   - 65: {fileID: 21485727}
   - 23: {fileID: 21485726}
-  - 65: {fileID: 21485730}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -363,19 +334,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 3
---- !u!65 &21485730
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1019078019}
-  m_GameObject: {fileID: 21485725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &21958939
 Prefab:
   m_ObjectHideFlags: 0
@@ -596,50 +554,6 @@ Prefab:
   m_RootGameObject: {fileID: 1173764731}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1001 &84908819
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-  m_RootGameObject: {fileID: 862818879}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1001 &99131389
 Prefab:
   m_ObjectHideFlags: 0
@@ -827,7 +741,6 @@ GameObject:
   - 33: {fileID: 152116229}
   - 65: {fileID: 152116228}
   - 23: {fileID: 152116227}
-  - 65: {fileID: 152116231}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -889,19 +802,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 83
---- !u!65 &152116231
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 960010281}
-  m_GameObject: {fileID: 152116226}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &164272066
 Prefab:
   m_ObjectHideFlags: 0
@@ -1001,7 +901,6 @@ GameObject:
   - 33: {fileID: 210302529}
   - 65: {fileID: 210302528}
   - 23: {fileID: 210302527}
-  - 65: {fileID: 210302531}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -1063,19 +962,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 49
---- !u!65 &210302531
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 150328300}
-  m_GameObject: {fileID: 210302526}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &236174753
 Prefab:
   m_ObjectHideFlags: 0
@@ -1175,7 +1061,6 @@ GameObject:
   - 33: {fileID: 243151045}
   - 65: {fileID: 243151044}
   - 23: {fileID: 243151043}
-  - 65: {fileID: 243151047}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -1237,19 +1122,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 1
---- !u!65 &243151047
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1686247354}
-  m_GameObject: {fileID: 243151042}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &244150668
 Prefab:
   m_ObjectHideFlags: 0
@@ -1393,7 +1265,6 @@ GameObject:
   - 33: {fileID: 274001249}
   - 65: {fileID: 274001248}
   - 23: {fileID: 274001247}
-  - 65: {fileID: 274001251}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -1455,19 +1326,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 66
---- !u!65 &274001251
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1108648908}
-  m_GameObject: {fileID: 274001246}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &277989676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1337,6 @@ GameObject:
   - 33: {fileID: 277989679}
   - 65: {fileID: 277989678}
   - 23: {fileID: 277989677}
-  - 65: {fileID: 277989681}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -1541,19 +1398,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 52
---- !u!65 &277989681
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 637072002}
-  m_GameObject: {fileID: 277989676}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &304934599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,7 +1426,7 @@ Transform:
   - {fileID: 853291442}
   - {fileID: 1688386138}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1001 &310090002
 Prefab:
   m_ObjectHideFlags: 0
@@ -1726,7 +1570,6 @@ GameObject:
   - 33: {fileID: 341148879}
   - 65: {fileID: 341148878}
   - 23: {fileID: 341148877}
-  - 65: {fileID: 341148881}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -1788,19 +1631,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 46
---- !u!65 &341148881
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1515140631}
-  m_GameObject: {fileID: 341148876}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &347041166
 Prefab:
   m_ObjectHideFlags: 0
@@ -1856,7 +1686,6 @@ GameObject:
   - 33: {fileID: 348638266}
   - 65: {fileID: 348638265}
   - 23: {fileID: 348638264}
-  - 65: {fileID: 348638268}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -1918,19 +1747,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 7
---- !u!65 &348638268
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 164272066}
-  m_GameObject: {fileID: 348638263}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &351814478
 Prefab:
   m_ObjectHideFlags: 0
@@ -2030,7 +1846,6 @@ GameObject:
   - 33: {fileID: 361267569}
   - 65: {fileID: 361267568}
   - 23: {fileID: 361267567}
-  - 65: {fileID: 361267571}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2092,19 +1907,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 39
---- !u!65 &361267571
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1756180603}
-  m_GameObject: {fileID: 361267566}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &382241179
 Prefab:
   m_ObjectHideFlags: 0
@@ -2160,7 +1962,6 @@ GameObject:
   - 33: {fileID: 395614723}
   - 65: {fileID: 395614722}
   - 23: {fileID: 395614721}
-  - 65: {fileID: 395614725}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2222,19 +2023,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 30
---- !u!65 &395614725
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1942759232}
-  m_GameObject: {fileID: 395614720}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &426456607
 Prefab:
   m_ObjectHideFlags: 0
@@ -2290,7 +2078,6 @@ GameObject:
   - 33: {fileID: 448681450}
   - 65: {fileID: 448681449}
   - 23: {fileID: 448681448}
-  - 65: {fileID: 448681452}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2352,19 +2139,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 51
---- !u!65 &448681452
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 426456607}
-  m_GameObject: {fileID: 448681447}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &454943709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,7 +2150,6 @@ GameObject:
   - 33: {fileID: 454943712}
   - 65: {fileID: 454943711}
   - 23: {fileID: 454943710}
-  - 65: {fileID: 454943714}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2438,19 +2211,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 75
---- !u!65 &454943714
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 240522664}
-  m_GameObject: {fileID: 454943709}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &460399591
 Prefab:
   m_ObjectHideFlags: 0
@@ -2506,7 +2266,6 @@ GameObject:
   - 33: {fileID: 465389318}
   - 65: {fileID: 465389317}
   - 23: {fileID: 465389316}
-  - 65: {fileID: 465389320}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2568,19 +2327,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 32
---- !u!65 &465389320
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 244150668}
-  m_GameObject: {fileID: 465389315}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &472174588
 Prefab:
   m_ObjectHideFlags: 0
@@ -2636,7 +2382,6 @@ GameObject:
   - 33: {fileID: 497433738}
   - 65: {fileID: 497433737}
   - 23: {fileID: 497433736}
-  - 65: {fileID: 497433740}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2698,19 +2443,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 53
---- !u!65 &497433740
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1655326924}
-  m_GameObject: {fileID: 497433735}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &504752390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,7 +2454,6 @@ GameObject:
   - 33: {fileID: 504752393}
   - 65: {fileID: 504752392}
   - 23: {fileID: 504752391}
-  - 65: {fileID: 504752395}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2784,19 +2515,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 38
---- !u!65 &504752395
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1751722149}
-  m_GameObject: {fileID: 504752390}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &525064725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,7 +2526,6 @@ GameObject:
   - 33: {fileID: 525064728}
   - 65: {fileID: 525064727}
   - 23: {fileID: 525064726}
-  - 65: {fileID: 525064730}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -2870,19 +2587,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 43
---- !u!65 &525064730
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1166275553}
-  m_GameObject: {fileID: 525064725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &531412490
 Prefab:
   m_ObjectHideFlags: 0
@@ -2938,7 +2642,6 @@ GameObject:
   - 33: {fileID: 536020638}
   - 65: {fileID: 536020637}
   - 23: {fileID: 536020636}
-  - 65: {fileID: 536020640}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3000,19 +2703,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 23
---- !u!65 &536020640
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 472174588}
-  m_GameObject: {fileID: 536020635}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &564021496
 Prefab:
   m_ObjectHideFlags: 0
@@ -3156,7 +2846,6 @@ GameObject:
   - 33: {fileID: 603833946}
   - 65: {fileID: 603833945}
   - 23: {fileID: 603833944}
-  - 65: {fileID: 603833948}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3218,19 +2907,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 68
---- !u!65 &603833948
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1335853157}
-  m_GameObject: {fileID: 603833943}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &614552804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,7 +2918,6 @@ GameObject:
   - 33: {fileID: 614552807}
   - 65: {fileID: 614552806}
   - 23: {fileID: 614552805}
-  - 65: {fileID: 614552809}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3304,19 +2979,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 29
---- !u!65 &614552809
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1561621108}
-  m_GameObject: {fileID: 614552804}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &627949314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,7 +2990,6 @@ GameObject:
   - 33: {fileID: 627949317}
   - 65: {fileID: 627949316}
   - 23: {fileID: 627949315}
-  - 65: {fileID: 627949319}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3390,19 +3051,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 54
---- !u!65 &627949319
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1098260859}
-  m_GameObject: {fileID: 627949314}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &637072002
 Prefab:
   m_ObjectHideFlags: 0
@@ -3458,7 +3106,6 @@ GameObject:
   - 33: {fileID: 638459515}
   - 65: {fileID: 638459514}
   - 23: {fileID: 638459513}
-  - 65: {fileID: 638459517}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3520,19 +3167,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 56
---- !u!65 &638459517
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 835109258}
-  m_GameObject: {fileID: 638459512}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &669641697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,7 +3178,6 @@ GameObject:
   - 33: {fileID: 669641700}
   - 65: {fileID: 669641699}
   - 23: {fileID: 669641698}
-  - 65: {fileID: 669641702}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3606,19 +3239,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 41
---- !u!65 &669641702
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 270553324}
-  m_GameObject: {fileID: 669641697}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &682395400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,7 +3250,6 @@ GameObject:
   - 33: {fileID: 682395403}
   - 65: {fileID: 682395402}
   - 23: {fileID: 682395401}
-  - 65: {fileID: 682395405}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3692,19 +3311,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 8
---- !u!65 &682395405
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 460399591}
-  m_GameObject: {fileID: 682395400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &686135803
 Prefab:
   m_ObjectHideFlags: 0
@@ -3760,7 +3366,6 @@ GameObject:
   - 33: {fileID: 691747577}
   - 65: {fileID: 691747576}
   - 23: {fileID: 691747575}
-  - 65: {fileID: 691747579}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3822,19 +3427,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 60
---- !u!65 &691747579
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1629187280}
-  m_GameObject: {fileID: 691747574}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &715202291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,7 +3438,6 @@ GameObject:
   - 33: {fileID: 715202294}
   - 65: {fileID: 715202293}
   - 23: {fileID: 715202292}
-  - 65: {fileID: 715202296}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3908,19 +3499,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 24
---- !u!65 &715202296
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1981226679}
-  m_GameObject: {fileID: 715202291}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &725925440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,7 +3510,6 @@ GameObject:
   - 33: {fileID: 725925443}
   - 65: {fileID: 725925442}
   - 23: {fileID: 725925441}
-  - 65: {fileID: 725925445}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -3994,19 +3571,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 78
---- !u!65 &725925445
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 310090002}
-  m_GameObject: {fileID: 725925440}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &729522525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,6 +3602,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  jumpSpeed: 8
+  gravity: 10
+  axes: 1
+  sensitivityX: 15
+  sensitivityY: 15
+  minimumX: -360
+  maximumX: 360
+  minimumY: -60
+  maximumY: 60
 --- !u!54 &729522527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4099,11 +3673,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 729522525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .236000001, z: -4.69799995}
+  m_LocalPosition: {x: 0, y: .391000003, z: -3.62599993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &747680915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,7 +3689,6 @@ GameObject:
   - 33: {fileID: 747680918}
   - 65: {fileID: 747680917}
   - 23: {fileID: 747680916}
-  - 65: {fileID: 747680920}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -4177,19 +3750,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 33
---- !u!65 &747680920
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 121775119}
-  m_GameObject: {fileID: 747680915}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &749681861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,7 +3761,6 @@ GameObject:
   - 33: {fileID: 749681864}
   - 65: {fileID: 749681863}
   - 23: {fileID: 749681862}
-  - 65: {fileID: 749681866}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -4263,19 +3822,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 59
---- !u!65 &749681866
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1374835839}
-  m_GameObject: {fileID: 749681861}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &756814096
 Prefab:
   m_ObjectHideFlags: 0
@@ -4331,7 +3877,6 @@ GameObject:
   - 33: {fileID: 759548676}
   - 65: {fileID: 759548675}
   - 23: {fileID: 759548674}
-  - 65: {fileID: 759548678}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -4393,19 +3938,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 34
---- !u!65 &759548678
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 31599170}
-  m_GameObject: {fileID: 759548673}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &770186524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,7 +3949,6 @@ GameObject:
   - 33: {fileID: 770186527}
   - 65: {fileID: 770186526}
   - 23: {fileID: 770186525}
-  - 65: {fileID: 770186529}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -4479,19 +4010,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 63
---- !u!65 &770186529
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1322128382}
-  m_GameObject: {fileID: 770186524}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &772381637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,7 +4021,6 @@ GameObject:
   - 33: {fileID: 772381640}
   - 65: {fileID: 772381639}
   - 23: {fileID: 772381638}
-  - 65: {fileID: 772381642}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -4565,19 +4082,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 85
---- !u!65 &772381642
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 564021496}
-  m_GameObject: {fileID: 772381637}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &781791822
 Prefab:
   m_ObjectHideFlags: 0
@@ -4677,7 +4181,6 @@ GameObject:
   - 33: {fileID: 840227765}
   - 65: {fileID: 840227764}
   - 23: {fileID: 840227763}
-  - 65: {fileID: 840227767}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -4739,19 +4242,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 19
---- !u!65 &840227767
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 579499750}
-  m_GameObject: {fileID: 840227762}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &853291441
 GameObject:
   m_ObjectHideFlags: 0
@@ -4826,7 +4316,6 @@ GameObject:
   - 33: {fileID: 854831701}
   - 65: {fileID: 854831700}
   - 23: {fileID: 854831699}
-  - 65: {fileID: 854831703}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -4888,105 +4377,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 28
---- !u!65 &854831703
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1394201848}
-  m_GameObject: {fileID: 854831698}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &862818879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-  m_PrefabInternal: {fileID: 84908819}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 862818883}
-  - 33: {fileID: 862818882}
-  - 65: {fileID: 862818881}
-  - 23: {fileID: 862818880}
-  - 65: {fileID: 862818884}
-  m_Layer: 0
-  m_Name: BuildingBlock
-  m_TagString: level
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &862818880
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 84908819}
-  m_GameObject: {fileID: 862818879}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 44d116525ac868e418f4d540fa8820d2, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!65 &862818881
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 84908819}
-  m_GameObject: {fileID: 862818879}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &862818882
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 84908819}
-  m_GameObject: {fileID: 862818879}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &862818883
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-  m_PrefabInternal: {fileID: 84908819}
-  m_GameObject: {fileID: 862818879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
---- !u!65 &862818884
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 84908819}
-  m_GameObject: {fileID: 862818879}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &868652813
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,7 +4388,6 @@ GameObject:
   - 33: {fileID: 868652816}
   - 65: {fileID: 868652815}
   - 23: {fileID: 868652814}
-  - 65: {fileID: 868652818}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5060,19 +4449,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 50
---- !u!65 &868652818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 347041166}
-  m_GameObject: {fileID: 868652813}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &870588670
 GameObject:
   m_ObjectHideFlags: 0
@@ -5084,7 +4460,6 @@ GameObject:
   - 33: {fileID: 870588673}
   - 65: {fileID: 870588672}
   - 23: {fileID: 870588671}
-  - 65: {fileID: 870588675}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5146,19 +4521,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 71
---- !u!65 &870588675
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1594776398}
-  m_GameObject: {fileID: 870588670}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &898240560
 GameObject:
   m_ObjectHideFlags: 0
@@ -5170,7 +4532,6 @@ GameObject:
   - 33: {fileID: 898240563}
   - 65: {fileID: 898240562}
   - 23: {fileID: 898240561}
-  - 65: {fileID: 898240565}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5232,19 +4593,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 42
---- !u!65 &898240565
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 358509815}
-  m_GameObject: {fileID: 898240560}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &925518195
 Prefab:
   m_ObjectHideFlags: 0
@@ -5300,7 +4648,6 @@ GameObject:
   - 33: {fileID: 951145221}
   - 65: {fileID: 951145220}
   - 23: {fileID: 951145219}
-  - 65: {fileID: 951145223}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5362,19 +4709,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 62
---- !u!65 &951145223
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 756814096}
-  m_GameObject: {fileID: 951145218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &960010281
 Prefab:
   m_ObjectHideFlags: 0
@@ -5430,7 +4764,6 @@ GameObject:
   - 33: {fileID: 980070514}
   - 65: {fileID: 980070513}
   - 23: {fileID: 980070512}
-  - 65: {fileID: 980070516}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5492,19 +4825,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 58
---- !u!65 &980070516
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1619824605}
-  m_GameObject: {fileID: 980070511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1001364182
 GameObject:
   m_ObjectHideFlags: 0
@@ -5516,7 +4836,6 @@ GameObject:
   - 33: {fileID: 1001364185}
   - 65: {fileID: 1001364184}
   - 23: {fileID: 1001364183}
-  - 65: {fileID: 1001364187}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5578,19 +4897,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 9
---- !u!65 &1001364187
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1027378891}
-  m_GameObject: {fileID: 1001364182}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1019078019
 Prefab:
   m_ObjectHideFlags: 0
@@ -5778,7 +5084,6 @@ GameObject:
   - 33: {fileID: 1046088698}
   - 65: {fileID: 1046088697}
   - 23: {fileID: 1046088696}
-  - 65: {fileID: 1046088700}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5840,19 +5145,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 61
---- !u!65 &1046088700
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 39025793}
-  m_GameObject: {fileID: 1046088695}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1058617809
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,7 +5156,6 @@ GameObject:
   - 33: {fileID: 1058617812}
   - 65: {fileID: 1058617811}
   - 23: {fileID: 1058617810}
-  - 65: {fileID: 1058617814}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -5926,19 +5217,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 22
---- !u!65 &1058617814
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1664606461}
-  m_GameObject: {fileID: 1058617809}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1083892127
 Prefab:
   m_ObjectHideFlags: 0
@@ -5994,7 +5272,6 @@ GameObject:
   - 33: {fileID: 1096956035}
   - 65: {fileID: 1096956034}
   - 23: {fileID: 1096956033}
-  - 65: {fileID: 1096956037}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6056,19 +5333,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 11
---- !u!65 &1096956037
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1311872280}
-  m_GameObject: {fileID: 1096956032}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1098260859
 Prefab:
   m_ObjectHideFlags: 0
@@ -6124,7 +5388,6 @@ GameObject:
   - 33: {fileID: 1098536282}
   - 65: {fileID: 1098536281}
   - 23: {fileID: 1098536280}
-  - 65: {fileID: 1098536284}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6186,19 +5449,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 47
---- !u!65 &1098536284
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 321634841}
-  m_GameObject: {fileID: 1098536279}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1104906717
 GameObject:
   m_ObjectHideFlags: 0
@@ -6210,7 +5460,6 @@ GameObject:
   - 33: {fileID: 1104906720}
   - 65: {fileID: 1104906719}
   - 23: {fileID: 1104906718}
-  - 65: {fileID: 1104906722}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6272,19 +5521,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 77
---- !u!65 &1104906722
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1255695178}
-  m_GameObject: {fileID: 1104906717}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1108648908
 Prefab:
   m_ObjectHideFlags: 0
@@ -6340,7 +5576,6 @@ GameObject:
   - 33: {fileID: 1116709690}
   - 65: {fileID: 1116709689}
   - 23: {fileID: 1116709688}
-  - 65: {fileID: 1116709692}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6402,19 +5637,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 25
---- !u!65 &1116709692
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1830713182}
-  m_GameObject: {fileID: 1116709687}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1149943035
 GameObject:
   m_ObjectHideFlags: 0
@@ -6426,7 +5648,6 @@ GameObject:
   - 33: {fileID: 1149943038}
   - 65: {fileID: 1149943037}
   - 23: {fileID: 1149943036}
-  - 65: {fileID: 1149943040}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6488,19 +5709,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 40
---- !u!65 &1149943040
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1628947753}
-  m_GameObject: {fileID: 1149943035}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1166275553
 Prefab:
   m_ObjectHideFlags: 0
@@ -6556,7 +5764,6 @@ GameObject:
   - 33: {fileID: 1173764734}
   - 65: {fileID: 1173764733}
   - 23: {fileID: 1173764732}
-  - 65: {fileID: 1173764736}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6618,19 +5825,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 76
---- !u!65 &1173764736
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 45267355}
-  m_GameObject: {fileID: 1173764731}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1173922252
 GameObject:
   m_ObjectHideFlags: 0
@@ -6743,7 +5937,7 @@ Transform:
   - {fileID: 1969632908}
   - {fileID: 772381641}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1180936435
 GameObject:
   m_ObjectHideFlags: 0
@@ -6755,7 +5949,6 @@ GameObject:
   - 33: {fileID: 1180936438}
   - 65: {fileID: 1180936437}
   - 23: {fileID: 1180936436}
-  - 65: {fileID: 1180936440}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6817,19 +6010,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 82
---- !u!65 &1180936440
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 15072681}
-  m_GameObject: {fileID: 1180936435}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1204849045
 GameObject:
   m_ObjectHideFlags: 0
@@ -6841,7 +6021,6 @@ GameObject:
   - 33: {fileID: 1204849048}
   - 65: {fileID: 1204849047}
   - 23: {fileID: 1204849046}
-  - 65: {fileID: 1204849050}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6903,19 +6082,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 73
---- !u!65 &1204849050
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 2025169670}
-  m_GameObject: {fileID: 1204849045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1247390589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6927,7 +6093,6 @@ GameObject:
   - 33: {fileID: 1247390592}
   - 65: {fileID: 1247390591}
   - 23: {fileID: 1247390590}
-  - 65: {fileID: 1247390594}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -6989,19 +6154,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 79
---- !u!65 &1247390594
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 351814478}
-  m_GameObject: {fileID: 1247390589}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1255695178
 Prefab:
   m_ObjectHideFlags: 0
@@ -7057,7 +6209,6 @@ GameObject:
   - 33: {fileID: 1268675395}
   - 65: {fileID: 1268675394}
   - 23: {fileID: 1268675393}
-  - 65: {fileID: 1268675397}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -7119,19 +6270,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 37
---- !u!65 &1268675397
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 99131389}
-  m_GameObject: {fileID: 1268675392}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1295837236
 Prefab:
   m_ObjectHideFlags: 0
@@ -7187,7 +6325,6 @@ GameObject:
   - 33: {fileID: 1301916558}
   - 65: {fileID: 1301916557}
   - 23: {fileID: 1301916556}
-  - 65: {fileID: 1301916560}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -7249,19 +6386,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 55
---- !u!65 &1301916560
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 781791822}
-  m_GameObject: {fileID: 1301916555}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1311872280
 Prefab:
   m_ObjectHideFlags: 0
@@ -7361,7 +6485,6 @@ GameObject:
   - 33: {fileID: 1324043562}
   - 65: {fileID: 1324043561}
   - 23: {fileID: 1324043560}
-  - 65: {fileID: 1324043564}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -7423,19 +6546,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 14
---- !u!65 &1324043564
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1978499998}
-  m_GameObject: {fileID: 1324043559}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1326482326
 GameObject:
   m_ObjectHideFlags: 0
@@ -7447,7 +6557,6 @@ GameObject:
   - 33: {fileID: 1326482329}
   - 65: {fileID: 1326482328}
   - 23: {fileID: 1326482327}
-  - 65: {fileID: 1326482331}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -7509,19 +6618,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 17
---- !u!65 &1326482331
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1354454841}
-  m_GameObject: {fileID: 1326482326}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1335853157
 Prefab:
   m_ObjectHideFlags: 0
@@ -7577,7 +6673,6 @@ GameObject:
   - 33: {fileID: 1339355159}
   - 65: {fileID: 1339355158}
   - 23: {fileID: 1339355157}
-  - 65: {fileID: 1339355161}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -7639,19 +6734,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 4
---- !u!65 &1339355161
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1359681757}
-  m_GameObject: {fileID: 1339355156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1354454841
 Prefab:
   m_ObjectHideFlags: 0
@@ -7883,7 +6965,6 @@ GameObject:
   - 33: {fileID: 1414757400}
   - 65: {fileID: 1414757399}
   - 23: {fileID: 1414757398}
-  - 65: {fileID: 1414757402}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -7945,19 +7026,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 0
---- !u!65 &1414757402
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1601305599}
-  m_GameObject: {fileID: 1414757397}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1432134728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7969,7 +7037,6 @@ GameObject:
   - 33: {fileID: 1432134731}
   - 65: {fileID: 1432134730}
   - 23: {fileID: 1432134729}
-  - 65: {fileID: 1432134733}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -8031,19 +7098,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 72
---- !u!65 &1432134733
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 326349155}
-  m_GameObject: {fileID: 1432134728}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1449526655
 GameObject:
   m_ObjectHideFlags: 0
@@ -8055,7 +7109,6 @@ GameObject:
   - 33: {fileID: 1449526658}
   - 65: {fileID: 1449526657}
   - 23: {fileID: 1449526656}
-  - 65: {fileID: 1449526660}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -8117,19 +7170,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 45
---- !u!65 &1449526660
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 186073294}
-  m_GameObject: {fileID: 1449526655}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1468677106
 GameObject:
   m_ObjectHideFlags: 0
@@ -8141,7 +7181,6 @@ GameObject:
   - 33: {fileID: 1468677109}
   - 65: {fileID: 1468677108}
   - 23: {fileID: 1468677107}
-  - 65: {fileID: 1468677111}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -8203,19 +7242,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 5
---- !u!65 &1468677111
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 255263691}
-  m_GameObject: {fileID: 1468677106}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1497805195
 GameObject:
   m_ObjectHideFlags: 0
@@ -8227,7 +7253,6 @@ GameObject:
   - 33: {fileID: 1497805198}
   - 65: {fileID: 1497805197}
   - 23: {fileID: 1497805196}
-  - 65: {fileID: 1497805200}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -8289,19 +7314,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 15
---- !u!65 &1497805200
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 531412490}
-  m_GameObject: {fileID: 1497805195}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1509062732
 Prefab:
   m_ObjectHideFlags: 0
@@ -8401,7 +7413,6 @@ GameObject:
   - 33: {fileID: 1554284376}
   - 65: {fileID: 1554284375}
   - 23: {fileID: 1554284374}
-  - 65: {fileID: 1554284378}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -8463,19 +7474,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 18
---- !u!65 &1554284378
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 925518195}
-  m_GameObject: {fileID: 1554284373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1561621108
 Prefab:
   m_ObjectHideFlags: 0
@@ -8575,7 +7573,6 @@ GameObject:
   - 33: {fileID: 1579896212}
   - 65: {fileID: 1579896211}
   - 23: {fileID: 1579896210}
-  - 65: {fileID: 1579896214}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -8637,19 +7634,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 70
---- !u!65 &1579896214
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 2090362163}
-  m_GameObject: {fileID: 1579896209}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1594776398
 Prefab:
   m_ObjectHideFlags: 0
@@ -8749,7 +7733,6 @@ GameObject:
   - 33: {fileID: 1606172456}
   - 65: {fileID: 1606172455}
   - 23: {fileID: 1606172454}
-  - 65: {fileID: 1606172458}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -8811,19 +7794,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 65
---- !u!65 &1606172458
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1906659917}
-  m_GameObject: {fileID: 1606172453}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1619573562
 Prefab:
   m_ObjectHideFlags: 0
@@ -9055,7 +8025,6 @@ GameObject:
   - 33: {fileID: 1641634511}
   - 65: {fileID: 1641634510}
   - 23: {fileID: 1641634509}
-  - 65: {fileID: 1641634513}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -9117,19 +8086,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 48
---- !u!65 &1641634513
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 2143559801}
-  m_GameObject: {fileID: 1641634508}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1643171300
 GameObject:
   m_ObjectHideFlags: 0
@@ -9141,7 +8097,6 @@ GameObject:
   - 33: {fileID: 1643171303}
   - 65: {fileID: 1643171302}
   - 23: {fileID: 1643171301}
-  - 65: {fileID: 1643171305}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -9203,19 +8158,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 64
---- !u!65 &1643171305
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1509062732}
-  m_GameObject: {fileID: 1643171300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1655326924
 Prefab:
   m_ObjectHideFlags: 0
@@ -9315,7 +8257,6 @@ GameObject:
   - 33: {fileID: 1682570812}
   - 65: {fileID: 1682570811}
   - 23: {fileID: 1682570810}
-  - 65: {fileID: 1682570814}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -9377,19 +8318,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 44
---- !u!65 &1682570814
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1619573562}
-  m_GameObject: {fileID: 1682570809}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1686247354
 Prefab:
   m_ObjectHideFlags: 0
@@ -9508,7 +8436,6 @@ GameObject:
   - 33: {fileID: 1693588217}
   - 65: {fileID: 1693588216}
   - 23: {fileID: 1693588215}
-  - 65: {fileID: 1693588219}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -9570,19 +8497,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 13
---- !u!65 &1693588219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 570410178}
-  m_GameObject: {fileID: 1693588214}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1710989628
 GameObject:
   m_ObjectHideFlags: 0
@@ -9594,7 +8508,6 @@ GameObject:
   - 33: {fileID: 1710989631}
   - 65: {fileID: 1710989630}
   - 23: {fileID: 1710989629}
-  - 65: {fileID: 1710989633}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -9656,19 +8569,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 20
---- !u!65 &1710989633
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 131237268}
-  m_GameObject: {fileID: 1710989628}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1712796007
 GameObject:
   m_ObjectHideFlags: 0
@@ -9680,7 +8580,6 @@ GameObject:
   - 33: {fileID: 1712796010}
   - 65: {fileID: 1712796009}
   - 23: {fileID: 1712796008}
-  - 65: {fileID: 1712796012}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -9742,19 +8641,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 57
---- !u!65 &1712796012
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1036917290}
-  m_GameObject: {fileID: 1712796007}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1732368599
 Prefab:
   m_ObjectHideFlags: 0
@@ -9810,7 +8696,6 @@ GameObject:
   - 33: {fileID: 1737848125}
   - 65: {fileID: 1737848124}
   - 23: {fileID: 1737848123}
-  - 65: {fileID: 1737848127}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -9872,19 +8757,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 36
---- !u!65 &1737848127
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1940967293}
-  m_GameObject: {fileID: 1737848122}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1751722149
 Prefab:
   m_ObjectHideFlags: 0
@@ -9984,7 +8856,6 @@ GameObject:
   - 33: {fileID: 1756692851}
   - 65: {fileID: 1756692850}
   - 23: {fileID: 1756692849}
-  - 65: {fileID: 1756692853}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -10046,19 +8917,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 6
---- !u!65 &1756692853
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 382241179}
-  m_GameObject: {fileID: 1756692848}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1762970624
 GameObject:
   m_ObjectHideFlags: 0
@@ -10070,7 +8928,6 @@ GameObject:
   - 33: {fileID: 1762970627}
   - 65: {fileID: 1762970626}
   - 23: {fileID: 1762970625}
-  - 65: {fileID: 1762970629}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -10132,19 +8989,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 81
---- !u!65 &1762970629
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1356228793}
-  m_GameObject: {fileID: 1762970624}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1796383705
 GameObject:
   m_ObjectHideFlags: 0
@@ -10156,7 +9000,6 @@ GameObject:
   - 33: {fileID: 1796383708}
   - 65: {fileID: 1796383707}
   - 23: {fileID: 1796383706}
-  - 65: {fileID: 1796383710}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -10218,19 +9061,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 31
---- !u!65 &1796383710
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 2070566062}
-  m_GameObject: {fileID: 1796383705}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1816233092
 GameObject:
   m_ObjectHideFlags: 0
@@ -10242,7 +9072,6 @@ GameObject:
   - 33: {fileID: 1816233095}
   - 65: {fileID: 1816233094}
   - 23: {fileID: 1816233093}
-  - 65: {fileID: 1816233097}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -10304,19 +9133,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 80
---- !u!65 &1816233097
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1732368599}
-  m_GameObject: {fileID: 1816233092}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1830713182
 Prefab:
   m_ObjectHideFlags: 0
@@ -10372,7 +9188,6 @@ GameObject:
   - 33: {fileID: 1834439545}
   - 65: {fileID: 1834439544}
   - 23: {fileID: 1834439543}
-  - 65: {fileID: 1834439547}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -10434,19 +9249,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 69
---- !u!65 &1834439547
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1868054125}
-  m_GameObject: {fileID: 1834439542}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1863724702
 GameObject:
   m_ObjectHideFlags: 0
@@ -10527,11 +9329,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1863724702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .356000006, z: -6.96799994}
+  m_LocalPosition: {x: 0, y: .391000003, z: -4.69799995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1863724708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10550,6 +9352,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -60
   maximumY: 60
+  player: {fileID: 729522525}
 --- !u!1001 &1868054125
 Prefab:
   m_ObjectHideFlags: 0
@@ -10649,7 +9452,6 @@ GameObject:
   - 33: {fileID: 1913492453}
   - 65: {fileID: 1913492452}
   - 23: {fileID: 1913492451}
-  - 65: {fileID: 1913492455}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -10711,19 +9513,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 67
---- !u!65 &1913492455
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 21958939}
-  m_GameObject: {fileID: 1913492450}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1931283455
 Prefab:
   m_ObjectHideFlags: 0
@@ -10867,7 +9656,6 @@ GameObject:
   - 33: {fileID: 1954077313}
   - 65: {fileID: 1954077312}
   - 23: {fileID: 1954077311}
-  - 65: {fileID: 1954077315}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -10929,19 +9717,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 2
---- !u!65 &1954077315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1295837236}
-  m_GameObject: {fileID: 1954077310}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1969632904
 GameObject:
   m_ObjectHideFlags: 0
@@ -10953,7 +9728,6 @@ GameObject:
   - 33: {fileID: 1969632907}
   - 65: {fileID: 1969632906}
   - 23: {fileID: 1969632905}
-  - 65: {fileID: 1969632909}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -11015,19 +9789,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 84
---- !u!65 &1969632909
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1083892127}
-  m_GameObject: {fileID: 1969632904}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1978499998
 Prefab:
   m_ObjectHideFlags: 0
@@ -11127,7 +9888,6 @@ GameObject:
   - 33: {fileID: 1991064717}
   - 65: {fileID: 1991064716}
   - 23: {fileID: 1991064715}
-  - 65: {fileID: 1991064719}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -11189,19 +9949,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 21
---- !u!65 &1991064719
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 236174753}
-  m_GameObject: {fileID: 1991064714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1996002305
 GameObject:
   m_ObjectHideFlags: 0
@@ -11213,7 +9960,6 @@ GameObject:
   - 33: {fileID: 1996002308}
   - 65: {fileID: 1996002307}
   - 23: {fileID: 1996002306}
-  - 65: {fileID: 1996002310}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -11275,19 +10021,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 12
---- !u!65 &1996002310
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1931283455}
-  m_GameObject: {fileID: 1996002305}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2003805634
 GameObject:
   m_ObjectHideFlags: 0
@@ -11299,7 +10032,6 @@ GameObject:
   - 33: {fileID: 2003805637}
   - 65: {fileID: 2003805636}
   - 23: {fileID: 2003805635}
-  - 65: {fileID: 2003805639}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -11361,19 +10093,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 26
---- !u!65 &2003805639
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 686135803}
-  m_GameObject: {fileID: 2003805634}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2025169670
 Prefab:
   m_ObjectHideFlags: 0
@@ -11429,7 +10148,6 @@ GameObject:
   - 33: {fileID: 2041087179}
   - 65: {fileID: 2041087178}
   - 23: {fileID: 2041087177}
-  - 65: {fileID: 2041087181}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -11491,19 +10209,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 35
---- !u!65 &2041087181
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1574720786}
-  m_GameObject: {fileID: 2041087176}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2070566062
 Prefab:
   m_ObjectHideFlags: 0
@@ -11603,7 +10308,6 @@ GameObject:
   - 33: {fileID: 2095029841}
   - 65: {fileID: 2095029840}
   - 23: {fileID: 2095029839}
-  - 65: {fileID: 2095029843}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -11665,19 +10369,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 10
---- !u!65 &2095029843
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 1023304630}
-  m_GameObject: {fileID: 2095029838}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2109171174
 Prefab:
   m_ObjectHideFlags: 0
@@ -11733,7 +10424,6 @@ GameObject:
   - 33: {fileID: 2138526572}
   - 65: {fileID: 2138526571}
   - 23: {fileID: 2138526570}
-  - 65: {fileID: 2138526574}
   m_Layer: 0
   m_Name: BuildingBlock
   m_TagString: level
@@ -11795,19 +10485,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173922253}
   m_RootOrder: 16
---- !u!65 &2138526574
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500002, guid: 3ba9de4768e89804f92518e0baf41428,
-    type: 2}
-  m_PrefabInternal: {fileID: 32034688}
-  m_GameObject: {fileID: 2138526569}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2143559801
 Prefab:
   m_ObjectHideFlags: 0
