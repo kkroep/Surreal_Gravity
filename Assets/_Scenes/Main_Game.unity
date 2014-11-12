@@ -3602,7 +3602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 6
   jumpSpeed: 8
   gravity: 10
   axes: 1
@@ -3612,6 +3612,9 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -60
   maximumY: 60
+  Gravity_Strength: 100
+  Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
+  Gravity_Direction: {x: 0, y: 0, z: 0}
 --- !u!54 &729522527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3633,7 +3636,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 729522525}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255

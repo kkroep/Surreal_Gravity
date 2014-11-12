@@ -22,9 +22,18 @@
 	float rotationY = 0F;
 	#endregion
 
+	#region [init other]
+
+	public float Gravity_Strength = 10f;
+	public Vector3 Initial_Gravity_Direction;
+	public Vector3 Gravity_Direction;
+
+	#endregion
+
 	void Start()
 	{
 		rigidbody.freezeRotation = true;
+		Gravity_Direction = Initial_Gravity_Direction;
 	}
 
 	void Update ()
@@ -53,7 +62,8 @@
 		#endregion
 
 		rigidbody.velocity = transform.forward * speed * Input.GetAxis("Vertical");
-
+		rigidbody.velocity += Vector3.Cross(transform.up, transform.forward)* speed * Input.GetAxis("Horizontal");
+		rigidbody.AddForce(Gravity_Direction * Gravity_Strength);
 	}
 
 }
