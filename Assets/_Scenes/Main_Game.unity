@@ -9356,6 +9356,8 @@ MonoBehaviour:
   minimumY: -60
   maximumY: 60
   player: {fileID: 729522525}
+  reloadTime: 10
+  bullet: {fileID: 5400000, guid: 7828246df885f834ba2a90e3be802d4b, type: 2}
 --- !u!1001 &1868054125
 Prefab:
   m_ObjectHideFlags: 0

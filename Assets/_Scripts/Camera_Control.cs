@@ -18,60 +18,107 @@
 	[AddComponentMenu("Camera-Control/Mouse Look")]
 	public class Camera_Control : MonoBehaviour {
 
-		#region [init for look around]
-		public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
-		public RotationAxes axes = RotationAxes.MouseY;
-		public float sensitivityX = 15F;
-		public float sensitivityY = 15F;
-			
-		public float minimumX = -360F;
-		public float maximumX = 360F;
-			
-		public float minimumY = -60F;
-		public float maximumY = 60F;
-			
-		float rotationY = 0F;
-		#endregion
+	#region [init for look around]
+	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
+	public RotationAxes axes = RotationAxes.MouseY;
+	public float sensitivityX = 15F;
+	public float sensitivityY = 15F;
+		
+	public float minimumX = -360F;
+	public float maximumX = 360F;
+		
+	public float minimumY = -60F;
+	public float maximumY = 60F;
+		
+	float rotationY = 0F;
+	#endregion
+	#region [init other]
+	public GameObject player;
+	private float lastShot;
+	public float reloadTime = 0f;
+	public Rigidbody bullet;
+	float Bullet_Speed = 5f;
 
+	#endregion
 
-		#region [init other]
-		public GameObject player;
+	void Start()
+	{
+		lastShot = Time.time;
+	}
 
-		#endregion
-			void Update ()
-			{
-				if (axes == RotationAxes.MouseXAndY)
-				{
-					float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
-					
-					rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-					rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-					
-					transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-				}
-				else if (axes == RotationAxes.MouseX)
-				{
-					transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
-				}
-				else
-				{
-					rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-					rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-					
-					transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
-				}
-
-			transform.position = player.transform.position;
-
-			}
-			
-			void Start ()
-			{
-				//if(!networkView.isMine)
-				//enabled = false;
-				
-				// Make the rigid body not change rotation
-				//if (rigidbody)
-				//rigidbody.freezeRotation = true;
-			}
+	void Fire_Bullet()
+	{
+		if (Time.time > reloadTime + lastShot)
+						Debug.Log ("Fired");
+		{
+			Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( bullet, transform.position, transform.rotation );
+			instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+			Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
+			lastShot = Time.time;
 		}
+	}
+
+	void Update ()
+	{
+		#region [look around]
+		if (axes == RotationAxes.MouseXAndY)
+		{
+			float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
+			
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+			transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+		}
+		else if (axes == RotationAxes.MouseX)
+		{
+			transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
+		}
+		else
+		{
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
+		}
+		#endregion
+
+		transform.position = player.transform.position;
+
+		if (Input.GetKeyDown("space")) {
+			Debug.Log ("FIRE");
+				Fire_Bullet();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
