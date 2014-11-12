@@ -1,0 +1,22 @@
+character +animatie
+kogels (+ animatie)
+wapens
+blokken voor de map
+achterliggende wereld - skybox
+Enemy
+--concept art voor character, wapens, kogels, blokken, skybox (enemy even laten)
+
+texturing
+-customizable character UV texturing
+
+Menu-UI
+vierkant
+2.5D UI design
+-title bovenaan
+-instructions manual (controls)
+-singleplayer mode (race mode)
+-multiplayer connect
+-options (geluid,difficulty)
+-hiscores/leaderboard
+-credits
+-quit
