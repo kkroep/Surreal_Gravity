@@ -85,8 +85,7 @@
 
 		transform.position = player.transform.position;
 
-		if (Input.GetKeyDown("space")) {
-			Debug.Log ("FIRE");
+		if (Input.GetMouseButtonDown(0)) {
 				Fire_Bullet();
 		}
 	}
