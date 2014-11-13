@@ -6,13 +6,13 @@ public class LevelCreator : MonoBehaviour {
 	public GameObject buildingBlock;
 	public int numberOfLargeSpawns;
 	public int numberOfSmallSpawns;
-	public int approxBlocks;
+	public int approxBlocksPerLargeStack;
+	public int approxBlocksPerSmallStack;
 	public int levelWidth;
 	public int levelHeight;
 	public int levelDepth;
 	public float checkRadius;
-	
-	private int randomNumber;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class LevelCreator : MonoBehaviour {
 			
 		}
 		
-		for(int i = 0; i<numberOfLargeSpawns;i++){
+		for(int i = 0; i<numberOfSmallSpawns;i++){
 			createSmallSpawn();		
 			
 		}
@@ -35,26 +35,35 @@ public class LevelCreator : MonoBehaviour {
 	
 	void createLargeSpawn(){
 		int checkResult;
-		randomNumber = (int)(Random.value)*approxBlocks/numberOfLargeSpawns;
-		checkRadius = randomNumber;
 		Vector3 targetPosition;
+		int iterations = 0;
 		do{
 			targetPosition = new Vector3(Random.value*levelWidth,Random.value*levelHeight,Random.value*levelDepth);
-			checkResult = Physics.OverlapSphere( targetPosition, checkRadius ).Length;		
-			
-		}while (checkResult>0);
+			checkResult = Physics.OverlapSphere( targetPosition, checkRadius ).Length;
+			iterations++;
+
+
+		}while (checkResult>0 && iterations<50);
+
+		GameObject go = (GameObject)Instantiate (buildingBlock, targetPosition, Quaternion.identity);
+		go.SendMessage ("startUp", approxBlocksPerLargeStack);
 		
 		
 	}
 	
 	void createSmallSpawn(){
 		int checkResult;
+		int randomNumber = 0;
 		Vector3 targetPosition;
+		int iterations = 0;
 		do{
 			targetPosition = new Vector3(Random.value*levelWidth,Random.value*levelHeight,Random.value*levelDepth);
-			checkResult = Physics.OverlapSphere( targetPosition, checkRadius ).Length;				
-		}while (checkResult>0);
-		
+			checkResult = Physics.OverlapSphere( targetPosition, checkRadius ).Length;	
+			iterations++;
+		}while (checkResult>0 && iterations<50);
+
+		GameObject go = (GameObject)Instantiate (buildingBlock, targetPosition, Quaternion.identity);
+		go.SendMessage ("startUp", approxBlocksPerSmallStack);
 		
 	}
 	
