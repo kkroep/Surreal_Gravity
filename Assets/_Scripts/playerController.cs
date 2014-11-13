@@ -32,12 +32,16 @@
 
 	void Start()
 	{
+		Screen.lockCursor = true;
 		rigidbody.freezeRotation = true;
 		Gravity_Direction = Initial_Gravity_Direction;
 	}
 
 	void Update ()
 	{
+		transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
+
+
 		#region [look around]
 		if (axes == RotationAxes.MouseXAndY)
 		{

@@ -50,6 +50,8 @@
      <Compile Include="Assets\_Scripts\Camera_Control.cs" />
      <Compile Include="Assets\_Scripts\GameController_Script.cs" />
      <Compile Include="Assets\_Scripts\LevelCreator.cs" />
+     <Compile Include="Assets\_Scripts\SpawnBlock.cs" />
+     <Compile Include="Assets\_Scripts\TestBeunScriptUnit.cs" />
      <Compile Include="Assets\_Scripts\playerController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
