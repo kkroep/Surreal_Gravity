@@ -2,11 +2,12 @@
 using System.Collections;
 
 public class Bullet_Controller : MonoBehaviour {
+	public 
 
-	/*void OnTriggerEnter(Collider other){
+	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "level"){
-			//if colliding with an object with label "Tail" set freezecounter
 			Debug.Log ("Hit a block");
+
 		}
-	}*/
+	}
 }
