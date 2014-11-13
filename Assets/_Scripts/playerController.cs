@@ -39,6 +39,7 @@
 
 	void Update ()
 	{
+		//Debug.Log (Quaternion.LookRotation (transform.forward, -1f * Gravity_Direction));
 		transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
 
 
