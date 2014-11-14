@@ -37,7 +37,7 @@
 	private float lastShot;
 	public float reloadTime = 0f;
 	public Rigidbody bullet;
-	float Bullet_Speed = 5f;
+	public float Bullet_Speed = 5f;
 
 
 	#endregion
