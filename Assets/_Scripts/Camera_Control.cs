@@ -37,7 +37,7 @@
 	private float lastShot;
 	public float reloadTime = 0f;
 	public Rigidbody bullet;
-	float Bullet_Speed = 5f;
+	public float Bullet_Speed = 5f;
 
 
 	#endregion
@@ -49,45 +49,51 @@
 
 	void Fire_Bullet()
 	{
-		if (Time.time > reloadTime + lastShot)
-						Debug.Log ("Fired");
+		if (networkView.isMine)
 		{
-			Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( bullet, transform.position, transform.rotation );
-			instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
-			Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
-			lastShot = Time.time;
+			if (Time.time > reloadTime + lastShot)
+						Debug.Log ("Fired");
+			{
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( bullet, transform.position, transform.rotation );
+				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
+				lastShot = Time.time;
+			}
 		}
 	}
 
 	void Update ()
 	{
-		#region [look around]
-		if (axes == RotationAxes.MouseXAndY)
+		if (networkView.isMine)
 		{
-			float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
+			#region [look around]
+			if (axes == RotationAxes.MouseXAndY)
+			{
+				float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
 			
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 			
-			transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-		}
-		else if (axes == RotationAxes.MouseX)
-		{
-			transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
-		}
-		else
-		{
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+				transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+			}
+			else if (axes == RotationAxes.MouseX)
+			{
+				transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
+			}
+			else
+			{
+				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 			
-			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
-		}
-		#endregion
+				transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
+			}
+			#endregion
 
-		transform.position = player.transform.position;
+			transform.position = player.transform.position;
 
-		if (Input.GetMouseButtonDown(0)) {
-				Fire_Bullet();
+			if (Input.GetMouseButtonDown(0)) {
+					Fire_Bullet();
+			}
 		}
 	}
 }

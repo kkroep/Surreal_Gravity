@@ -11,29 +11,35 @@ public class Bullet_Controller : MonoBehaviour {
 
 	void Start()
 	{
-		//Find player
-		if (Player_Object == null)
+		if (networkView.isMine)
+		{
+			//Find player
+			if (Player_Object == null)
 						Player_Object = GameObject.FindGameObjectWithTag ("Player");
-		//find player script
-		PlayerScript = Player_Object.GetComponent<playerController>();
+			//find player script
+			PlayerScript = Player_Object.GetComponent<playerController>();
 
-		if (Camera_Object == null)
-			Camera_Object = GameObject.FindGameObjectWithTag ("MainCamera");
-		//find player script
-		CameraScript = Camera_Object.GetComponent<Camera_Control>();
+			if (Camera_Object == null)
+				Camera_Object = GameObject.FindGameObjectWithTag ("MainCamera");
+			//find player script
+			CameraScript = Camera_Object.GetComponent<Camera_Control>();
+		}
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		current_normal = collision.contacts[0].normal*0.7f; //zodat rounden altijd goed gaat (BEUNOPLOSSING !!!! WARNING WARNING WARNING)
+		if (networkView.isMine)
+		{
+			current_normal = collision.contacts[0].normal*0.7f; //zodat rounden altijd goed gaat (BEUNOPLOSSING !!!! WARNING WARNING WARNING)
 
-		current_normal.x = Mathf.Round (current_normal.x); 
-		current_normal.y = Mathf.Round (current_normal.y);
-		current_normal.z = Mathf.Round (current_normal.z);
+			current_normal.x = Mathf.Round (current_normal.x); 
+			current_normal.y = Mathf.Round (current_normal.y);
+			current_normal.z = Mathf.Round (current_normal.z);
 
-		Debug.Log (current_normal);
+			Debug.Log (current_normal);
 
-		//CameraScript.transform.localEulerAngles = new Vector3(85, transform.localEulerAngles.y, 0);
-		PlayerScript.Gravity_Direction = -1f*current_normal;
-		Destroy (gameObject);
+			//CameraScript.transform.localEulerAngles = new Vector3(85, transform.localEulerAngles.y, 0);
+			PlayerScript.Gravity_Direction = -1f*current_normal;
+			Destroy (gameObject);
+		}
 	}
 }
