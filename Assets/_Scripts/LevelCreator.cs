@@ -12,6 +12,10 @@ public class LevelCreator : MonoBehaviour {
 	public int levelHeight;
 	public int levelDepth;
 	public float checkRadius;
+	public float xScaling;
+	public float yScaling;
+	public float zScaling;
+	public bool maxOneDirectionOfChange;
 
 	
 	// Use this for initialization
