@@ -50,7 +50,9 @@
      <Compile Include="Assets\_Scripts\Camera_Control.cs" />
      <Compile Include="Assets\_Scripts\GameController_Script.cs" />
      <Compile Include="Assets\_Scripts\LevelCreator.cs" />
+     <Compile Include="Assets\_Scripts\NetworkScript.cs" />
      <Compile Include="Assets\_Scripts\SpawnBlock.cs" />
+     <Compile Include="Assets\_Scripts\TargetScript.cs" />
      <Compile Include="Assets\_Scripts\TestBeunScriptUnit.cs" />
      <Compile Include="Assets\_Scripts\playerController.cs" />
  <Reference Include="UnityEngine.UI">
