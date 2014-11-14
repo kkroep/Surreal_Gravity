@@ -8,12 +8,16 @@ public class NetworkScript : MonoBehaviour {
 	//public Transform parent;
 	public GameObject ServerBtn;
 	public GameObject HostsBtn;
+	public GameObject ShutDBtn;
+	public GameObject DiscBtn;
 	public GameObject playerPrefab;
-	public Transform spawnLocation;
+	public Transform spawnLocation1;
+	public Transform spawnLocation2;
 
 	private string gameName = "SurrGrav_Test_Networking";
 	private bool refreshing = false;
 	private HostData[] hostD;
+	//private int amountPlayers = 0;
 
 	public void startServer ()
 	{
@@ -26,6 +30,18 @@ public class NetworkScript : MonoBehaviour {
 	{
 		MasterServer.RequestHostList (gameName);
 		refreshing = true;
+		Debug.Log("Refreshing Hosts");
+	}
+
+	public void shutDownServer ()
+	{
+		Network.Disconnect ();
+		MasterServer.UnregisterHost();
+	}
+
+	public void disconnectFromServer ()
+	{
+		Network.Disconnect ();
 	}
 
 	//public void showHosts ()
@@ -58,28 +74,55 @@ public class NetworkScript : MonoBehaviour {
 		{
 			ServerBtn.SetActive(false);
 			HostsBtn.SetActive(false);
+			if (Network.isServer)
+				ShutDBtn.SetActive(true);
+			else
+				DiscBtn.SetActive(true);
 		}
 
 		if (!Network.isClient && !Network.isServer)
 		{
 			ServerBtn.SetActive(true);
 			HostsBtn.SetActive(true);
+			ShutDBtn.SetActive(false);
+			DiscBtn.SetActive(false);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (Network.isServer)
+			{
+				shutDownServer ();
+			}
+			if (Network.isClient)
+			{
+				disconnectFromServer ();
+			}
 		}
 	}
 
 	public void spawnPlayer ()
 	{
-		Network.Instantiate (playerPrefab, spawnLocation.position, Quaternion.identity, 0);
+		if (Network.isServer)
+		{
+			Network.Instantiate (playerPrefab, spawnLocation1.position, Quaternion.identity, 0);
+		}
+		else if (Network.isClient)
+		{
+			Network.Instantiate (playerPrefab, spawnLocation2.position, Quaternion.identity, 0);
+		}
 	}
 
 	public void OnServerInitialized () 
 	{
 		Debug.Log ("Server Initialized");
+		//amountPlayers = 1;
 		spawnPlayer ();
 	}
 
 	public void OnConnectedToServer ()
 	{
+		//amountPlayers += 1;
 		spawnPlayer ();
 	}
 
@@ -101,7 +144,7 @@ public class NetworkScript : MonoBehaviour {
 			{
 				for (int i = 0; i < hostD.Length; i++)
 				{
-					if (GUI.Button(new Rect(Screen.width/4, Screen.height/10 + (i * 100), Screen.width*0.1f, Screen.height*0.05f), hostD[i].gameName))
+					if (GUI.Button(new Rect(Screen.width/5, Screen.height/10 + (i * 100), Screen.width*0.1f, Screen.height*0.05f), hostD[i].gameName))
 					{
 						Network.Connect(hostD[i]);
 					}
