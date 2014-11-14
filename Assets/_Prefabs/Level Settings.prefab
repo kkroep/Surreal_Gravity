@@ -48,7 +48,7 @@ MonoBehaviour:
   levelHeight: 100
   levelDepth: 100
   checkRadius: 1
-  xScaling: 3
+  xScaling: 2.99000001
   yScaling: 1
   zScaling: 1
   maxOneDirectionOfChange: 1
