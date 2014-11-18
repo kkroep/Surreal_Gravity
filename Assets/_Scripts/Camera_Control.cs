@@ -49,7 +49,7 @@
 
 	void Fire_Bullet()
 	{
-		if (networkView.isMine)
+		//if (networkView.isMine)
 		{
 			if (Time.time > reloadTime + lastShot)
 						Debug.Log ("Fired");
@@ -64,7 +64,7 @@
 
 	void Update ()
 	{
-		if (networkView.isMine)
+		//if (networkView.isMine)
 		{
 			#region [look around]
 			if (axes == RotationAxes.MouseXAndY)
