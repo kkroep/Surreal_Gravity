@@ -5,9 +5,10 @@
 	#region [init look around]
 	public float speed = 3.0F;
 	public float jumpSpeed = 8.0F; 
-	public float gravity = 20.0F;
 	private Vector3 moveDirection = Vector3.zero;
-	
+	private Vector3 Current_Global_Force;
+
+
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 };
 	public RotationAxes axes = RotationAxes.MouseX;
 	public float sensitivityX = 15F;
@@ -35,12 +36,13 @@
 		Screen.lockCursor = true;
 		rigidbody.freezeRotation = true;
 		Gravity_Direction = Initial_Gravity_Direction;
+		Current_Global_Force = Gravity_Direction * Gravity_Strength;
 	}
 
 	void Update ()
 	{
 		//Debug.Log (Quaternion.LookRotation (transform.forward, -1f * Gravity_Direction));
-		transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
+		//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
 
 		#region [look around]
 		if (axes == RotationAxes.MouseXAndY)
@@ -69,7 +71,14 @@
 
 		rigidbody.velocity = transform.forward * speed * Input.GetAxis("Vertical");
 		rigidbody.velocity += Vector3.Cross(transform.up, transform.forward)* speed * Input.GetAxis("Horizontal");
-		rigidbody.AddForce(Gravity_Direction * Gravity_Strength);
+
+		Current_Global_Force = Vector3.Lerp(Gravity_Direction * Gravity_Strength, Current_Global_Force, 0.94f); 
+		rigidbody.AddForce(Current_Global_Force);
 	}
 
+	void OnCollisionStay(Collision collisionInfo) {
+		if (Input.GetKeyDown ("space")){
+			Current_Global_Force=(Gravity_Direction * jumpSpeed *-1f);
+		}
+	}
 }
