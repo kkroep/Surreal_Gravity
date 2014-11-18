@@ -71,6 +71,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110150480
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 0}
+  m_DstState: {fileID: 110200000}
+  m_TransitionDuration: .100000001
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110186577
 Transition:
   serializedVersion: 2
@@ -97,10 +117,10 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: InnerRot
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 26a1913717a2a22489f5692b50cd2beb, type: 3}
+  - {fileID: 7400000, guid: a7ba7be9fefc52c47b1013f86cc94a22, type: 3}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 276, y: 12, z: 0}
   m_IKOnFeet: 0
@@ -127,10 +147,10 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: OuterRot
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400002, guid: 26a1913717a2a22489f5692b50cd2beb, type: 3}
+  - {fileID: 7400002, guid: a7ba7be9fefc52c47b1013f86cc94a22, type: 3}
   m_ParentStateMachine: {fileID: 110743433}
   m_Position: {x: 252, y: 12, z: 0}
   m_IKOnFeet: 0
@@ -166,7 +186,8 @@ StateMachine:
   m_OrderedTransitions:
     data:
       first: {fileID: 0}
-      second: []
+      second:
+      - {fileID: 110150480}
     data:
       first: {fileID: 110200000}
       second: []
