@@ -40,9 +40,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: b2faca84c3cc4d64fbd0022900a1539b, type: 2}
-  numberOfLargeSpawns: 10
+  numberOfLargeSpawns: 1
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 1000
+  approxBlocksPerLargeStack: 10
   approxBlocksPerSmallStack: 20
   levelWidth: 100
   levelHeight: 100
