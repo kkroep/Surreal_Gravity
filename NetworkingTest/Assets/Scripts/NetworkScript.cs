@@ -5,8 +5,6 @@ using System.IO;
 
 public class NetworkScript : MonoBehaviour {
 
-	//public GameObject buttonPrefab;
-	//public Transform parent;
 	public GameObject ServerBtn;
 	public GameObject HostsBtn;
 	public GameObject RegBtn;
@@ -38,27 +36,19 @@ public class NetworkScript : MonoBehaviour {
 	private bool register = false;
 	private bool login = false;
 	private HostData[] hostD;
-	//private AccountList list_of_accounts;
 	private ArrayList list_name = new ArrayList();
 	private ArrayList list_pw = new ArrayList();
-
-	/*
-	 * ALS REGISTER: Write de accounts file opnieuw, inclusief nieuw account.
-	 * +++++ Add het nieuwe account aan de list.
-	 * ALS LOGIN: Check of het account bestaat, en of wachtwoord juist is! 
-	 */
 
 	void Start ()
 	{
 		amountPlayers = 0;
-		using (StreamReader sread = new StreamReader("Accounts.txt")) //new FileStream (@"C:\Users\Roby\Documents\TU Delft\Minor\Unityprojects\NetworkingTest\Accounts.txt", FileMode.Open)))
+		using (StreamReader sread = new StreamReader("Accounts.txt"))
 		{
 			int i = 0;
 			while (sread.Peek() != -1)
 			{
 				string name = sread.ReadLine();
 				string word = sread.ReadLine();
-				//Debug.Log("Name: " + name + ", Password: " + word);
 				list_name.Add(name);
 				list_pw.Add(word);
 				Debug.Log(list_name[i]);
@@ -84,7 +74,7 @@ public class NetworkScript : MonoBehaviour {
 
 	public void goToRegister ()
 	{
-		if (Network.isServer || /*Network.peerType == NetworkPeerType.Disconnected) */ Network.isClient)
+		if (Network.isServer || Network.isClient)
 			register = true;
 	}
 
@@ -93,21 +83,19 @@ public class NetworkScript : MonoBehaviour {
 		string username = registerField.text.ToString();
 		string password = registerPWField.text.ToString();
 		networkView.RPC("registerAccServer", RPCMode.AllBuffered, username, password);
-		//register = false;
 	}
 
 	public void goToLogin ()
 	{
 		if (Network.isServer || Network.isClient)
 		{
-			using (StreamReader srread = new StreamReader("Accounts.txt")) //new FileStream (@"C:\Users\Roby\Documents\TU Delft\Minor\Unityprojects\NetworkingTest\Accounts.txt", FileMode.Open)))
+			using (StreamReader srread = new StreamReader("Accounts.txt"))
 			{
 				int i = 0;
 				while (srread.Peek() != -1)
 				{
 					string name = srread.ReadLine();
 					string word = srread.ReadLine();
-					//Debug.Log("Name: " + name + ", Password: " + word);
 					list_name.Add(name);
 					list_pw.Add(word);
 					Debug.Log(list_name[i]);
@@ -125,7 +113,6 @@ public class NetworkScript : MonoBehaviour {
 		string username = loginFieldT.text.ToString();
 		string password = loginPWFieldT.text.ToString();
 		networkView.RPC("loginAccServer", RPCMode.AllBuffered, username, password);
-		//login = false;
 	}
 
 	public void cancelLogin ()
@@ -141,20 +128,6 @@ public class NetworkScript : MonoBehaviour {
 			login = false;
 		}
 	}
-
-	//public void showHosts ()
-	//{
-	//	for (int i = 0; i < hostD.Length; i++)
-	//	{
-	//		GameObject button = (GameObject)Instantiate (buttonPrefab, new Vector3(0, 50 * i, 0), Quaternion.identity);
-	//		button.GetComponentInChildren<Text> ().text = hostD[i].gameName;
-	//		int index = i;
-	//		button.GetComponent<Button> ().onClick.AddListener (
-	//			() => {Debug.Log("Connected to " + hostD[index].gameName);}
-	//		);
-	//		button.transform.parent = parent;
-	//	}
-	//}
 
 	void Update ()
 	{
@@ -240,7 +213,7 @@ public class NetworkScript : MonoBehaviour {
 
 	public void OnServerInitialized () 
 	{
-		Debug.Log ("Server Initialized");
+		Debug.Log ("Server Initialized: " + gameName);
 		amountPlayers = 0;
 		player1.text = this.activeName;
 		spawnPlayer ();
@@ -263,61 +236,27 @@ public class NetworkScript : MonoBehaviour {
 	[RPC]
 	public void registerAccServer (string Username, string PassWord)
 	{
-		//if (Network.isServer)
-		//{
-			//PlayerPrefs.SetString(Username, Username);
-			if (!list_name.Contains(Username))
+		if (!list_name.Contains(Username))
+		{
+			using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
 			{
-				using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
-				{
-					swrite.WriteLine(Username);
-					swrite.WriteLine(PassWord);
-				}
-				list_name.Add(Username);
-				list_pw.Add(PassWord);
-				Debug.Log("Account : " + Username + " created");
-				register = false;
+				swrite.WriteLine(Username);
+				swrite.WriteLine(PassWord);
 			}
-			else
-			{
-				Debug.Log("Username not available");
-			}
-		//}
-		//else
-		//{
-		//	register = false;
-		//}
+			list_name.Add(Username);
+			list_pw.Add(PassWord);
+			Debug.Log("Account : " + Username + " created");
+			register = false;
+		}
+		else
+		{
+			Debug.Log("Username not available");
+		}
 	}
 
 	[RPC]
 	public void loginAccServer (string Username, string Password)
 	{
-		//if (Network.isServer)
-		//{
-			//bool checkName = PlayerPrefs.HasKey(Username);
-			//if (checkName)
-			//{
-			//	Debug.Log("Logged in with " + Username);
-			//	login = false;
-			//}
-			//else
-			//{
-			//	Debug.Log("Account doesn't exist");
-			//}
-
-			//Account acc = new Account (Username, Password);
-			//list_of_accounts = AccountList.readAccounts ();
-			//int sizeAccount = list_of_accounts.sizeList;
-			//for (int i = 0; i < sizeAccount; i++)
-			//{
-				//Account acc2 = list_of_accounts[i];
-			//	if (acc.equals(list_of_accounts.indexOf(i)))
-			//	{
-			//		Debug.Log("Account: " + Username + " : " + Password);
-					//break;
-			//	}
-			//}
-
 		if (list_name.Contains(Username))
 		{
 			int index = 0;
@@ -358,8 +297,8 @@ public class NetworkScript : MonoBehaviour {
 					player4.text = this.activeName;
 					amountPlayers = 4;
 				}
-				//Debug.Log(activeName);
-				//Debug.Log(activePW);
+				Debug.Log(activeName);
+				Debug.Log(activePW);
 			}
 			else
 			{
@@ -371,13 +310,6 @@ public class NetworkScript : MonoBehaviour {
 		{
 			Debug.Log("Username not found");
 		}
-
-
-		//}
-		//else
-		//{
-		//	login = false;
-		//}
 	}
 
 	void OnGUI ()

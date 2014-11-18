@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Collections;
 using System.IO;
 
-public class AccountList : MonoBehaviour {
+public class AccountList {
 
 	private List<Account> Acclist;
-    //string pathoffile = @"C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\NetworkingTest\Accounts.txt";
 
 	public AccountList ()
 	{
@@ -31,24 +30,34 @@ public class AccountList : MonoBehaviour {
 		}
 	}
 
-	public static AccountList readAccounts ()
+	public bool containsUsername (Account acc)
 	{
-		FileStream stream = new FileStream (@"C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\NetworkingTest\Accounts.txt", FileMode.Open);
-		BinaryReader bread = new BinaryReader (stream);
-		List<Account> acclijst = new List<Account> ();
-		AccountList al = new AccountList ();
+		bool res = false;
+		string uname = acc.Name;
 		int i = 0;
-		while(i < 3)
+		while (i < Acclist.Count && res == false)
 		{
-			string name = bread.ReadString();
-			string password = bread.ReadString();
-			Debug.Log("Name: " + name + ", Pass: " + password);
-			Account acc = new Account (name, password);
-			acclijst.Add(acc);
-			al.addAccount(acclijst[i]);
+			if (Acclist[i].Name.Equals(uname))
+			{
+				res = true;
+			}
 			i++;
 		}
-		bread.Close();
+
+		return res;
+	}
+
+	public static AccountList readAccounts (StreamReader sread)
+	{
+		AccountList al = new AccountList ();
+		int i = 0;
+		while (sread.Peek() != -1)
+		{
+			Account acc = Account.readAccount(sread);
+			al.addAccount(acc);
+			i++;
+		}
+		sread.Close();
 		return al;
 	}
 
