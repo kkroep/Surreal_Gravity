@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.IO;
 
-public class NetworkScript : MonoBehaviour {
+public class NetworkFancy : MonoBehaviour {
 
 	public GameObject ServerBtn;
 	public GameObject HostsBtn;
@@ -28,33 +28,23 @@ public class NetworkScript : MonoBehaviour {
 	public Text player3;
 	public Text player4;
 
-	private string gameName = "SurrGrav_Test_Networking";
-	private string activeName;
-	private string activePW;
+	private Account activeAccount;
+	private string gameName = "SurrGrav_Multiplayer_Test";
 	private int amountPlayers;
 	private bool refreshing = false;
 	private bool register = false;
 	private bool login = false;
 	private HostData[] hostD;
-	private ArrayList list_name = new ArrayList();
-	private ArrayList list_pw = new ArrayList();
+	private AccountList list_of_accounts;
 
 	void Start ()
 	{
+		list_of_accounts = new AccountList ();
+		activeAccount = new Account ("", "");
 		amountPlayers = 0;
 		using (StreamReader sread = new StreamReader("Accounts.txt"))
 		{
-			int i = 0;
-			while (sread.Peek() != -1)
-			{
-				string name = sread.ReadLine();
-				string word = sread.ReadLine();
-				list_name.Add(name);
-				list_pw.Add(word);
-				Debug.Log(list_name[i]);
-				Debug.Log(list_pw[i]);
-				i++;
-			}
+			list_of_accounts = AccountList.readAccounts(sread);
 			sread.Close ();
 		}
 	}
@@ -63,7 +53,7 @@ public class NetworkScript : MonoBehaviour {
 	{
 		bool NAT = !Network.HavePublicAddress();
 		Network.InitializeServer (4, 25001, NAT);
-		MasterServer.RegisterHost (gameName, "Testing_Game", "Game to test Networking");
+		MasterServer.RegisterHost (gameName, "Multiplayer_Test", "Trying to implement Multiplayer");
 	}
 
 	public void refreshHost ()
@@ -91,17 +81,7 @@ public class NetworkScript : MonoBehaviour {
 		{
 			using (StreamReader srread = new StreamReader("Accounts.txt"))
 			{
-				int i = 0;
-				while (srread.Peek() != -1)
-				{
-					string name = srread.ReadLine();
-					string word = srread.ReadLine();
-					list_name.Add(name);
-					list_pw.Add(word);
-					Debug.Log(list_name[i]);
-					Debug.Log(list_pw[i]);
-					i++;
-				}
+				list_of_accounts = AccountList.readAccounts(srread);
 				srread.Close ();
 			}
 			login = true;
@@ -131,17 +111,6 @@ public class NetworkScript : MonoBehaviour {
 
 	void Update ()
 	{
-		//Debug.Log(activeName);
-		//Debug.Log(activePW);
-		if (!register && !login)
-		{
-			if (Input.GetKeyDown(KeyCode.KeypadEnter))
-			{
-		    	PlayerPrefs.DeleteAll ();
-				Debug.Log("Accounts Deleted");
-			}
-		}
-
 		if (refreshing)
 		{
 			if (MasterServer.PollHostList ().Length > 0)
@@ -158,7 +127,7 @@ public class NetworkScript : MonoBehaviour {
 			HostsBtn.SetActive(false);
 		}
 
-		if (!Network.isClient && !Network.isServer)
+		else if (!Network.isClient && !Network.isServer)
 		{
 			ServerBtn.SetActive(true);
 			HostsBtn.SetActive(true);
@@ -166,8 +135,6 @@ public class NetworkScript : MonoBehaviour {
 
 		if (register)
 		{
-			ServerBtn.SetActive(false);
-			HostsBtn.SetActive(false);
 			RegBtn.SetActive(false);
 			RegABtn.SetActive(true);
 			loginBtn.SetActive(false);
@@ -179,8 +146,6 @@ public class NetworkScript : MonoBehaviour {
 		}
 		else if (login)
 		{
-			ServerBtn.SetActive(false);
-			HostsBtn.SetActive(false);
 			RegBtn.SetActive(false);
 			loginBtn.SetActive(false);
 			loginABtn.SetActive(true);
@@ -192,8 +157,6 @@ public class NetworkScript : MonoBehaviour {
 		}
 		else
 		{
-			ServerBtn.SetActive(true);
-			HostsBtn.SetActive(true);
 			RegBtn.SetActive(true);
 			RegABtn.SetActive(false);
 			loginBtn.SetActive(true);
@@ -215,13 +178,13 @@ public class NetworkScript : MonoBehaviour {
 	{
 		Debug.Log ("Server Initialized: " + gameName);
 		amountPlayers = 0;
-		player1.text = this.activeName;
+		player1.text = this.activeAccount.Name;
 		spawnPlayer ();
 	}
 
 	public void OnConnectedToServer ()
 	{
-		Debug.Log ("Connected to Server");
+		Debug.Log ("Connected to Server: " + gameName);
 		spawnPlayer ();
 	}
 
@@ -229,23 +192,22 @@ public class NetworkScript : MonoBehaviour {
 	{
 		if (MSEvent == MasterServerEvent.RegistrationSucceeded)
 		{
-			Debug.Log("Server is registered!");
+			Debug.Log("Server: " + gameName + " is registered!");
 		}
 	}
 
 	[RPC]
-	public void registerAccServer (string Username, string PassWord)
+	public void registerAccServer (string Uname, string Pword)
 	{
-		if (!list_name.Contains(Username))
+		Account reg_acc = new Account (Uname, Pword);
+		if (!list_of_accounts.containsUsername(reg_acc))
 		{
+			list_of_accounts.addAccount(reg_acc);
 			using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
 			{
-				swrite.WriteLine(Username);
-				swrite.WriteLine(PassWord);
+				Account.writeAccount (reg_acc, swrite);
 			}
-			list_name.Add(Username);
-			list_pw.Add(PassWord);
-			Debug.Log("Account : " + Username + " created");
+			Debug.Log("Account: " + reg_acc.Name + " created");
 			register = false;
 		}
 		else
@@ -255,60 +217,58 @@ public class NetworkScript : MonoBehaviour {
 	}
 
 	[RPC]
-	public void loginAccServer (string Username, string Password)
+	public void loginAccServer (string Uname, string Pword)
 	{
-		if (list_name.Contains(Username))
+		Account log_acc = new Account (Uname, Pword);
+		using (StreamReader slread = new StreamReader("Accounts.txt"))
 		{
-			int index = 0;
-			for (int i = 0; i < list_name.Count; i++)
+			list_of_accounts = AccountList.readAccounts(slread);
+			slread.Close ();
+		}
+		int i = 0;
+		while (i < list_of_accounts.sizeList)
+		{
+			Account acc2 = list_of_accounts.indexOf(i);
+			if (log_acc.equals(acc2))
 			{
-				if (list_name[i].Equals(Username))
-				{
-					Debug.Log(list_name[i]);
-					index = i;
-					break;
-				}
+				Debug.Log("Account: " + log_acc.Name + "; " + log_acc.Word);
+				break;
 			}
-		
-			string pw = (string) list_pw[index];
-			if (pw.Equals(Password))
-			{
-				Debug.Log("Password Correct");
-				login = false;
-				activeName = Username;
-				activePW = Password;
-				if (amountPlayers == 0)
-				{
-					player1.text = this.activeName;
-					amountPlayers = 1;
-				}
-				else if (amountPlayers == 1)
-				{
-					player2.text = this.activeName;
-					amountPlayers = 2;
-				}
-				else if (amountPlayers == 2)
-				{
-					player3.text = this.activeName;
-					amountPlayers = 3;
-				}
-				else if (amountPlayers == 3)
-				{
-					player4.text = this.activeName;
-					amountPlayers = 4;
-				}
-				Debug.Log(activeName);
-				Debug.Log(activePW);
-			}
-			else
-			{
-				Debug.Log("Password Incorrect");
-			}
+			i++;
+		}
 
+		if (i != list_of_accounts.sizeList)
+		{
+			login = false;
+			this.activeAccount.Name = log_acc.Name;
+			this.activeAccount.Word = log_acc.Word;
+			
+			if (amountPlayers == 0)
+			{
+				player1.text = this.activeAccount.Name;
+				amountPlayers = 1;
+			}
+			else if (amountPlayers == 1)
+			{
+				player2.text = this.activeAccount.Name;
+				amountPlayers = 2;
+			}
+			else if (amountPlayers == 2)
+			{
+				player3.text = this.activeAccount.Name;
+				amountPlayers = 3;
+			}
+			else if (amountPlayers == 3)
+			{
+				player4.text = this.activeAccount.Name;
+				amountPlayers = 4;
+			}
+			
+			Debug.Log("Active Player: " + activeAccount.Name);
 		}
 		else
 		{
-			Debug.Log("Username not found");
+			Debug.Log("Login info incorrect");
 		}
 	}
 
