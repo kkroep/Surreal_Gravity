@@ -158,7 +158,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &1729852360
+--- !u!1001 &623796180
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -206,7 +206,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
-  m_PrefabInternal: {fileID: 1729852360}
+  m_PrefabInternal: {fileID: 623796180}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1880284291}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172,
     type: 2}
-  m_PrefabInternal: {fileID: 1729852360}
+  m_PrefabInternal: {fileID: 623796180}
   m_GameObject: {fileID: 1880284289}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -233,21 +233,21 @@ MonoBehaviour:
   buildingBlock: {fileID: 100000, guid: b2faca84c3cc4d64fbd0022900a1539b, type: 2}
   numberOfLargeSpawns: 1
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 10
-  approxBlocksPerSmallStack: 20
-  levelWidth: 100
-  levelHeight: 100
-  levelDepth: 100
+  approxBlocksPerLargeStack: 50
+  approxBlocksPerSmallStack: 1
+  levelWidth: 200
+  levelHeight: 200
+  levelDepth: 200
   checkRadius: 1
-  xScaling: 2.99000001
-  yScaling: 1
+  xScaling: 1
+  yScaling: 2.70000005
   zScaling: 1
   maxOneDirectionOfChange: 1
 --- !u!4 &1880284291
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
-  m_PrefabInternal: {fileID: 1729852360}
+  m_PrefabInternal: {fileID: 623796180}
   m_GameObject: {fileID: 1880284289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.1312504, y: -11.3528948, z: -9.52989197}

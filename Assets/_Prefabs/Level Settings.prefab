@@ -42,14 +42,14 @@ MonoBehaviour:
   buildingBlock: {fileID: 100000, guid: b2faca84c3cc4d64fbd0022900a1539b, type: 2}
   numberOfLargeSpawns: 1
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 10
-  approxBlocksPerSmallStack: 20
-  levelWidth: 100
-  levelHeight: 100
-  levelDepth: 100
+  approxBlocksPerLargeStack: 50
+  approxBlocksPerSmallStack: 1
+  levelWidth: 200
+  levelHeight: 200
+  levelDepth: 200
   checkRadius: 1
-  xScaling: 2.99000001
-  yScaling: 1
+  xScaling: 1
+  yScaling: 2.70000005
   zScaling: 1
   maxOneDirectionOfChange: 1
 --- !u!1001 &100100000
