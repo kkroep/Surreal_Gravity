@@ -12,23 +12,7 @@ public class SpawnBlock : MonoBehaviour {
 	private float zScaling;
 	private bool maxOneDirectionOfChange;
 	private int spawn;
-	/*
-	void startUp1(bool maxOneDirection){
-		maxOneDirectionOfChange = maxOneDirection;
-	}
 
-	void startUp2(float xScale){
-		xScaling = xScale;
-	}
-
-	void startUp3(float yScale){
-		yScaling = yScale;
-	}
-
-	void startUp4(float zScale){
-		zScaling = zScale;
-	}
-	*/
 
 	void startUp(int sp){
 		if (sp>0){
@@ -145,7 +129,8 @@ public class SpawnBlock : MonoBehaviour {
 
 			
 			
-		}while (checkResult>0 && iterations<20);
+		}while (checkResult>0 && iterations<50);
+		Debug.Log (iterations);
 
 		GameObject go = (GameObject)Instantiate (buildingBlock, targetPosition, Quaternion.identity);
 		go.SendMessage ("startUp", spawn);

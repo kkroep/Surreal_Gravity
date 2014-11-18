@@ -19,7 +19,7 @@ public class LevelCreator : MonoBehaviour {
 
 	
 	// Use this for initialization
-	void Start () {
+	void Update () {
 		
 		
 		
