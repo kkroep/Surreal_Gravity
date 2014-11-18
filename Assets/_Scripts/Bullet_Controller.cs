@@ -43,7 +43,8 @@ public class Bullet_Controller : MonoBehaviour {
 			//CameraScript.transform.localEulerAngles = new Vector3(85, transform.localEulerAngles.y, 0);
 			PlayerScript.Gravity_Direction = -1f*current_normal;
 			New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane(-1f*current_normal, Camera_Forward_tmp);
-			PlayerScript.transform.rotation = Quaternion.LookRotation(New_Player_Forward_tmp, -1f*current_normal);
+			PlayerScript.transform.rotation = Quaternion.LookRotation(New_Player_Forward_tmp, current_normal);
+			CameraScript.transform.rotation = Quaternion.LookRotation(Camera_Forward_tmp, current_normal);
 			Destroy (gameObject);
 		}
 	}

@@ -25617,8 +25617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  jumpSpeed: 8
-  gravity: 10
+  jumpSpeed: 600
   axes: 1
   sensitivityX: 15
   sensitivityY: 15
@@ -25626,7 +25625,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Gravity_Strength: 100
+  Gravity_Strength: 200
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
 --- !u!54 &729522527
@@ -68712,7 +68711,7 @@ MonoBehaviour:
   player: {fileID: 729522525}
   reloadTime: 10
   bullet: {fileID: 5400000, guid: 7828246df885f834ba2a90e3be802d4b, type: 2}
-  Bullet_Speed: 5
+  Bullet_Speed: 10
 --- !u!114 &1863724709
 MonoBehaviour:
   m_ObjectHideFlags: 0
