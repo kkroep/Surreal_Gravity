@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class SpawnBlock : MonoBehaviour {
 
@@ -36,6 +38,13 @@ public class SpawnBlock : MonoBehaviour {
 
 		do{
 			if(settings.maxOneDirectionOfChange){
+				List<int> xList = new List<int>();
+				xList.Add (-1);xList.Add (1);
+				List<int> yList = new List<int>();
+				yList.Add (-1);yList.Add (1);
+				List<int> zList = new List<int>();
+				zList.Add (-1);zList.Add (1);
+
 				float positionchange1 = Mathf.CeilToInt (Random.value*100);
 				int positionchange2;
 				float xInterval = (100/3);
@@ -43,12 +52,12 @@ public class SpawnBlock : MonoBehaviour {
 				float zInterval = (100/3);
 
 
-				if(settings.xScaling > 1){
+				if(settings.xScaling > 1 && xList.FindLastIndex>0){
 					xInterval = ((100/3)*settings.xScaling);
 					yInterval = (100-xInterval)/2;
 					zInterval = yInterval;
 				}
-				else if(settings.yScaling > 1){
+				else if(settings.yScaling > 1 && yList.FindLastIndex>0){
 					yInterval = ((100/3)*settings.yScaling);
 					xInterval = (100-yInterval)/2;
 					zInterval = xInterval;
@@ -88,8 +97,10 @@ public class SpawnBlock : MonoBehaviour {
 					add.x = direction;
 				else if(positionchange2 == 2)
 					add.y = direction;
-				else if(positionchange2 == 3)
+				else(positionchange2 == 3)
 					add.z = direction;
+
+
 
 			}
 			
@@ -126,6 +137,7 @@ public class SpawnBlock : MonoBehaviour {
 			targetPosition = this.transform.position + add;
 			checkResult = Physics.OverlapSphere( targetPosition, checkRadius ).Length;
 			iterations++;
+
 
 			
 			
