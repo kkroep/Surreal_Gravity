@@ -8,10 +8,12 @@ public class Bullet_Controller : MonoBehaviour {
 	public GameObject Camera_Object;
 	public Camera_Control CameraScript;
 
+	private Vector3 Camera_Forward_tmp;
+	private Vector3 New_Player_Forward_tmp;
 
 	void Start()
 	{
-		if (networkView.isMine)
+		//if (networkView.isMine)
 		{
 			//Find player
 			if (Player_Object == null)
@@ -27,7 +29,7 @@ public class Bullet_Controller : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		if (networkView.isMine)
+		//if (networkView.isMine)
 		{
 			current_normal = collision.contacts[0].normal*0.7f; //zodat rounden altijd goed gaat (BEUNOPLOSSING !!!! WARNING WARNING WARNING)
 
@@ -36,9 +38,12 @@ public class Bullet_Controller : MonoBehaviour {
 			current_normal.z = Mathf.Round (current_normal.z);
 
 			Debug.Log (current_normal);
+			Camera_Forward_tmp = CameraScript.transform.forward;
 
 			//CameraScript.transform.localEulerAngles = new Vector3(85, transform.localEulerAngles.y, 0);
 			PlayerScript.Gravity_Direction = -1f*current_normal;
+			New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane(-1f*current_normal, Camera_Forward_tmp);
+			PlayerScript.transform.rotation = Quaternion.LookRotation(New_Player_Forward_tmp, -1f*current_normal);
 			Destroy (gameObject);
 		}
 	}

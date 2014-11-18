@@ -42,7 +42,6 @@
 		//Debug.Log (Quaternion.LookRotation (transform.forward, -1f * Gravity_Direction));
 		transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
 
-
 		#region [look around]
 		if (axes == RotationAxes.MouseXAndY)
 		{
@@ -65,6 +64,8 @@
 			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 		}
 		#endregion
+
+		transform.TransformDirection (Vector3.forward);
 
 		rigidbody.velocity = transform.forward * speed * Input.GetAxis("Vertical");
 		rigidbody.velocity += Vector3.Cross(transform.up, transform.forward)* speed * Input.GetAxis("Horizontal");
