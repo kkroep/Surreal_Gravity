@@ -87360,7 +87360,7 @@ MonoBehaviour:
   maximumY: 90
   player: {fileID: 729522525}
   reloadTime: 10
-  bullet: {fileID: 5400000, guid: 41e5355208efb9f41bfec8baab274a01, type: 2}
+  bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   Bullet_Speed: 10
 --- !u!114 &1863724709
 MonoBehaviour:
