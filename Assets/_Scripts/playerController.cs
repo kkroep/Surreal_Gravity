@@ -77,12 +77,10 @@
 	}
 
 
-	void OnCollisionExit(Collision collisionInfo){
-		speed = initspeed * 0.3f;
-	}
+
 
 	void OnCollisionStay(Collision collisionInfo) {
-		speed = initspeed;
+
 		if (Input.GetMouseButtonDown(1)){
 			Current_Global_Force=(Gravity_Direction * jumpSpeed *-1f);
 		}
