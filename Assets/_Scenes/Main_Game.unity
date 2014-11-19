@@ -87352,7 +87352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eb65da49944484c9473cc244fa0a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshairImage: {fileID: 2800000, guid: 8f6458ef4e2d0744a8bc9f51f65a6889, type: 3}
+  crosshairImage: {fileID: 2800000, guid: fc2fe5178e594694ea2c8b49aa320035, type: 3}
   axes: 2
   sensitivityX: 15
   sensitivityY: 15
