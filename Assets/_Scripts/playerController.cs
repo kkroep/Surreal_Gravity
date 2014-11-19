@@ -3,7 +3,8 @@
 
 	public class playerController : MonoBehaviour {
 	#region [init look around]
-	public float speed = 3.0F;
+	public float initspeed = 3.0F;
+	public float speed;
 	public float jumpSpeed = 8.0F; 
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 Current_Global_Force;
@@ -41,7 +42,6 @@
 
 	void FixedUpdate ()
 	{
-		//Debug.Log (Quaternion.LookRotation (transform.forward, -1f * Gravity_Direction));
 		//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
 
 		#region [look around]
@@ -76,7 +76,13 @@
 		rigidbody.AddForce(Current_Global_Force);
 	}
 
+
+	void OnCollisionExit(Collision collisionInfo){
+		speed = initspeed * 0.3f;
+	}
+
 	void OnCollisionStay(Collision collisionInfo) {
+		speed = initspeed;
 		if (Input.GetMouseButtonDown(1)){
 			Current_Global_Force=(Gravity_Direction * jumpSpeed *-1f);
 		}

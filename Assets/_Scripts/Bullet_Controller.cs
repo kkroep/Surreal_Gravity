@@ -37,7 +37,6 @@ public class Bullet_Controller : MonoBehaviour {
 			current_normal.y = Mathf.Round (current_normal.y);
 			current_normal.z = Mathf.Round (current_normal.z);
 
-			Debug.Log (current_normal);
 			Camera_Forward_tmp = CameraScript.transform.forward;
 
 			//CameraScript.transform.localEulerAngles = new Vector3(85, transform.localEulerAngles.y, 0);

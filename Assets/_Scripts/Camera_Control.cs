@@ -19,6 +19,7 @@
 	public class Camera_Control : MonoBehaviour {
 
 	#region [init for look around]
+	public Texture2D crosshairImage;
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseY;
 	public float sensitivityX = 15F;
@@ -95,6 +96,13 @@
 					Fire_Bullet();
 			}
 		}
+	}
+
+	void OnGUI()
+	{
+		float xMin = (Screen.width / 2) - (crosshairImage.width / 2);
+		float yMin = (Screen.height / 2) - (crosshairImage.height / 2);
+		GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
 	}
 }
 

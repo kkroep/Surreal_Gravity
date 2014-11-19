@@ -32944,7 +32944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  initspeed: 10
+  speed: 10
   jumpSpeed: 600
   axes: 1
   sensitivityX: 15
@@ -87351,6 +87352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eb65da49944484c9473cc244fa0a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshairImage: {fileID: 2800000, guid: 8f6458ef4e2d0744a8bc9f51f65a6889, type: 3}
   axes: 2
   sensitivityX: 15
   sensitivityY: 15
