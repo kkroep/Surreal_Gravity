@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.1312504, y: -11.3528948, z: -9.52989197}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,18 +39,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b5c1733cbe6a24abd18a5a8c332108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingBlock: {fileID: 100000, guid: b2faca84c3cc4d64fbd0022900a1539b, type: 2}
+  buildingBlock: {fileID: 100000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
   numberOfLargeSpawns: 1
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 50
-  approxBlocksPerSmallStack: 1
-  levelWidth: 200
-  levelHeight: 200
-  levelDepth: 200
-  checkRadius: 1
+  approxBlocksPerLargeStack: 300
+  approxBlocksPerSmallStack: 100
+  levelWidth: 500
+  levelHeight: 500
+  levelDepth: 500
+  checkRadius: 0
   xScaling: 1
-  yScaling: 2.70000005
-  zScaling: 1
+  yScaling: 0
+  zScaling: 0
   maxOneDirectionOfChange: 1
 --- !u!1001 &100100000
 Prefab:
