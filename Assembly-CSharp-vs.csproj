@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Scripts\BasicFunctions.cs" />
      <Compile Include="Assets\_Scripts\Bullet_Controller.cs" />
      <Compile Include="Assets\_Scripts\Bullet_ControllerTest.cs" />
      <Compile Include="Assets\_Scripts\Camera_Control.cs" />

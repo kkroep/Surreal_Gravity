@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000}
   Settings: {fileID: 100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
-  checkRadius: .5
+  checkRadius: .100000001
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

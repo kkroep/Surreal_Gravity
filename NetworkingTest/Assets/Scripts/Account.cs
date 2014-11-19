@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.IO;
 
-public class Account : MonoBehaviour {
+public class Account {
 
 	private string Username;
 	private string Password;
@@ -17,11 +17,13 @@ public class Account : MonoBehaviour {
 	public string Name
 	{
 		get { return Username; }
+		set { Username = value; }
 	}
 
 	public string Word
 	{
 		get { return Password; }
+		set { Password = value; }
 	}
 
 	public bool equals (Account acc)
@@ -35,19 +37,21 @@ public class Account : MonoBehaviour {
 		return res;
 	}
 
-	public static Account readAccount (BinaryReader bread)
+	public static Account readAccount (StreamReader sread)
 	{
-		string Uname = bread.ReadString();
-		string Pword = bread.ReadString();
+		string Uname = sread.ReadLine();
+		string Pword = sread.ReadLine();
+		Debug.Log("Username: " + Uname);
+		Debug.Log("Password: " + Pword);
 		Account newAccount = new Account (Uname, Pword);
 		return newAccount;
 	}
 
-	public static void writeAccount (Account acc, BinaryWriter bwrite)
+	public static void writeAccount (Account acc, StreamWriter swrite)
 	{
 		string Uname = acc.Username;
 		string Pword = acc.Password;
-		bwrite.Write (Uname);
-		bwrite.Write (Pword);
+		swrite.WriteLine (Uname);
+		swrite.WriteLine (Pword);
 	}
 }
