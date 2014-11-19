@@ -32945,7 +32945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initspeed: 10
-  speed: 10
+  speed: 6
   jumpSpeed: 600
   axes: 1
   sensitivityX: 15
