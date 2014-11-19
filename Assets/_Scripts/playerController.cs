@@ -39,7 +39,7 @@
 		Current_Global_Force = Gravity_Direction * Gravity_Strength;
 	}
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		//Debug.Log (Quaternion.LookRotation (transform.forward, -1f * Gravity_Direction));
 		//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
@@ -72,8 +72,7 @@
 		rigidbody.velocity = transform.forward * speed * Input.GetAxis("Vertical");
 		rigidbody.velocity += Vector3.Cross(transform.up, transform.forward)* speed * Input.GetAxis("Horizontal");
 
-		Current_Global_Force = Vector3.Lerp(Gravity_Direction * Gravity_Strength, Current_Global_Force, 0.94f); 
-		Debug.Log(Time.deltaTime);
+		Current_Global_Force = Vector3.Lerp(Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime*4f); 
 		rigidbody.AddForce(Current_Global_Force);
 	}
 

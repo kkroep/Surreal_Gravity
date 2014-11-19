@@ -32953,7 +32953,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Gravity_Strength: 200
+  Gravity_Strength: 300
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
 --- !u!54 &729522527
