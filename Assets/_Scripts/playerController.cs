@@ -73,6 +73,7 @@
 		rigidbody.velocity += Vector3.Cross(transform.up, transform.forward)* speed * Input.GetAxis("Horizontal");
 
 		Current_Global_Force = Vector3.Lerp(Gravity_Direction * Gravity_Strength, Current_Global_Force, 0.94f); 
+		Debug.Log(Time.deltaTime);
 		rigidbody.AddForce(Current_Global_Force);
 	}
 
