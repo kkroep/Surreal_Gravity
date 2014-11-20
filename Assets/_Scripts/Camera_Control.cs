@@ -37,7 +37,8 @@
 	public GameObject player;
 	private float lastShot;
 	public float reloadTime = 0f;
-	public Rigidbody bullet;
+	public Rigidbody Gravity_Bullet;
+	public Rigidbody Kill_Bullet;
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
 
@@ -49,7 +50,23 @@
 		transform.rotation = player.transform.rotation;
 	}
 
-	void Fire_Bullet()
+	void Fire_Kill_Bullet()
+	{
+		//if (networkView.isMine)
+		{
+			
+			if (Time.time > reloadTime + lastShot)
+				Debug.Log ("Fired");
+			{
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
+				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
+				lastShot = Time.time;
+			}
+		}
+	}
+
+	void Fire_Gravity_Bullet()
 	{
 		//if (networkView.isMine)
 		{
@@ -57,7 +74,7 @@
 			if (Time.time > reloadTime + lastShot)
 						Debug.Log ("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( bullet, transform.position, transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Gravity_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
 				lastShot = Time.time;
@@ -100,8 +117,11 @@
 
 			transform.position = player.transform.position;
 
+			if (Input.GetMouseButtonDown(1)) {
+				Fire_Gravity_Bullet();
+			}
 			if (Input.GetMouseButtonDown(0)) {
-					Fire_Bullet();
+				Fire_Kill_Bullet();
 			}
 		}
 	}

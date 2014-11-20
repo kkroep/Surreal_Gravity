@@ -52,7 +52,7 @@ GameObject:
   - 135: {fileID: 13500000}
   - 54: {fileID: 5400000}
   m_Layer: 0
-  m_Name: SpaceBulletFix
+  m_Name: Gravity_Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
   PlayerScript: {fileID: 0}
   Camera_Object: {fileID: 0}
   CameraScript: {fileID: 0}
+  GravityBullet: 1
 --- !u!122 &12200000
 Halo:
   m_ObjectHideFlags: 1
@@ -232,7 +233,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4278255506
+    rgba: 4294953472
   m_Size: -.200000003
 --- !u!135 &13500000
 SphereCollider:
@@ -420,7 +421,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4278255506
+        rgba: 4294953472
       minMaxState: 0
     startSize:
       scalar: .300000012

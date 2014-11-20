@@ -81,7 +81,7 @@
 
 	void OnCollisionStay(Collision collisionInfo) {
 
-		if (Input.GetMouseButtonDown(1)){
+		if (Input.GetKeyDown("space")){
 			Current_Global_Force=(Gravity_Direction * jumpSpeed *-1f);
 		}
 	}

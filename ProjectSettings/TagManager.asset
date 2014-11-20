@@ -4,6 +4,9 @@
 TagManager:
   tags:
   - level
+  - Gravity_Bullet
+  - Kill_Bullet
+  - 
   - Bullet
   - 
   Builtin Layer 0: Default

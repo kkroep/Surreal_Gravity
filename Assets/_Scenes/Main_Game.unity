@@ -87362,7 +87362,8 @@ MonoBehaviour:
   maximumY: 90
   player: {fileID: 729522525}
   reloadTime: 10
-  bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
+  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
+  Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
   Bullet_Speed: 30
   Gravity_Switch_Timer: 0
 --- !u!114 &1863724709
