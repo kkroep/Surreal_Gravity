@@ -32948,8 +32948,8 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 600
   axes: 1
-  sensitivityX: 15
-  sensitivityY: 15
+  sensitivityX: 10
+  sensitivityY: 10
   minimumX: -360
   maximumX: 360
   minimumY: -90
@@ -87336,7 +87336,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1863724702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .00499999989}
+  m_LocalPosition: {x: 0, y: 0, z: .00500011444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 729522531}
@@ -87354,8 +87354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairImage: {fileID: 2800000, guid: fc2fe5178e594694ea2c8b49aa320035, type: 3}
   axes: 2
-  sensitivityX: 15
-  sensitivityY: 15
+  sensitivityX: 10
+  sensitivityY: 10
   minimumX: -360
   maximumX: 360
   minimumY: -90
@@ -87363,7 +87363,8 @@ MonoBehaviour:
   player: {fileID: 729522525}
   reloadTime: 10
   bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
-  Bullet_Speed: 10
+  Bullet_Speed: 30
+  Gravity_Switch_Timer: 0
 --- !u!114 &1863724709
 MonoBehaviour:
   m_ObjectHideFlags: 0
