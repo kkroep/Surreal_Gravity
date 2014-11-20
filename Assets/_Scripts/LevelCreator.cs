@@ -46,7 +46,8 @@ public class LevelCreator : MonoBehaviour {
 	
 	void createLargeSpawn(){
 		int checkResult;
-		int Blocks = approxBlocksPerLargeStack;
+		int delta = Random.Range (Mathf.FloorToInt (approxBlocksPerLargeStack * -0.1f), Mathf.CeilToInt (approxBlocksPerLargeStack * 0.1f+1f));
+		int Blocks = approxBlocksPerLargeStack + delta;
 
 		int iterations = 0;
 		do{
@@ -72,7 +73,8 @@ public class LevelCreator : MonoBehaviour {
 
 	void createSmallSpawn(){
 		int checkResult;
-		int Blocks = approxBlocksPerSmallStack;
+		int delta = Random.Range (Mathf.FloorToInt (approxBlocksPerSmallStack * -0.1f), Mathf.CeilToInt (approxBlocksPerSmallStack * 0.1f+1f));
+		int Blocks = approxBlocksPerSmallStack + delta;
 		
 		int iterations = 0;
 		do{
@@ -125,13 +127,15 @@ public class LevelCreator : MonoBehaviour {
 
 		float positionchange1 = Random.value;
 		int positionchange2 = 0;
-		int[] temp = targetPosition;
-		int checkResult = 1;
+		//int[] temp = targetPosition;
+		int checkResult = 0;
 		int iterations = 0;
 
 		float xInterval = xScaling/(xScaling+yScaling+zScaling);
 		float yInterval = yScaling /(xScaling + yScaling + zScaling);
 		float zInterval = zScaling /(xScaling + yScaling + zScaling);
+
+		int direction;
 
 
 	
@@ -139,9 +143,9 @@ public class LevelCreator : MonoBehaviour {
 		do{
 				
 			int temprandom = 0;
-			int direction = 0;
+			direction = 0;
 				
-				
+
 			if(positionchange1<xInterval && xList.Count>0){
 				temprandom = Random.Range(0,xList.Count);
 				positionchange2 = 1;
@@ -160,6 +164,7 @@ public class LevelCreator : MonoBehaviour {
 				direction = zList[temprandom];
 				zList.RemoveAt(temprandom);
 			}
+
 				
 				
 				
@@ -167,23 +172,24 @@ public class LevelCreator : MonoBehaviour {
 				
 				
 			if(positionchange2 == 1)
-				temp[0] += direction;
+				checkResult = grid[targetPosition[0]+direction,targetPosition[1],targetPosition[2]];
 			else if(positionchange2 == 2)
-				temp[1] += direction;
+				checkResult = grid[targetPosition[0],targetPosition[1]+direction,targetPosition[2]];
 			else if(positionchange2 == 3)
-				temp[2] += direction;
+				checkResult = grid[targetPosition[0],targetPosition[1],targetPosition[2]+direction];
 				
-				
-				
-				
-		
+			if(positionchange2 == 1 && checkResult<1)
+				targetPosition[0] += direction;
+			else if(positionchange2 == 2 && checkResult<1)
+				targetPosition[1] += direction;
+			else if(positionchange2 == 3 && checkResult<1)
+				targetPosition[2] += direction;
 
-			checkResult = grid[temp[0],temp[1],temp[2]];
-			iterations++;			
+			iterations++;	
+
 			
 		}while (checkResult>0 && iterations<50);
-
-		targetPosition = temp;
+		
 		grid[targetPosition[0],targetPosition[1],targetPosition[2]]=1;
 
 
@@ -201,20 +207,10 @@ public class LevelCreator : MonoBehaviour {
 					if(grid[width,height,depth]>0){
 						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
-
-
 				}
-
-
 			}
-		
-
-
 		}
-
-
-
 	}
-	
-	
+
+
 }
