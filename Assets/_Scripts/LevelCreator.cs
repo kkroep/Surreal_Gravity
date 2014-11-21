@@ -196,7 +196,7 @@ public class LevelCreator : MonoBehaviour {
 				for (int depth=0;depth<levelDepth;depth++){
 
 
-					if(grid[width,height,depth]>0){
+					if(grid[width,height,depth]>0 || height == 0){
 						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 				}
