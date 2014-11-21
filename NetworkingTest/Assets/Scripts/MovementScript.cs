@@ -2,22 +2,23 @@
 using System.Collections;
 
 public class MovementScript : MonoBehaviour{
-
+	/* Wordt ingewisseld voor movement script van de echte game
+	 */
 	public int speed;
 	public int gravity;
+	public static Color teamColor;
 
 	private CharacterController charcontr;
 
-	// Use this for initialization
-	void Start () {
-
+	void Start () 
+	{
+		//renderer.material.color = teamColor;
 		charcontr = GetComponent<CharacterController>();
-	
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+	void Update () 
+	{
+		//renderer.material.color = teamColor;
 		if (networkView.isMine)
 		{
 			Vector3 input = new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, -gravity * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime);
@@ -27,6 +28,5 @@ public class MovementScript : MonoBehaviour{
 		{
 			enabled = false;
 		}
-	
 	}
 }

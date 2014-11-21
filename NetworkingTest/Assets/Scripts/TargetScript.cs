@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class TargetScript : MonoBehaviour {
-
+	/* Testing the RPC function
+	 */
 	public void OnTriggerEnter () {
 		Debug.Log("Target Reached");
 		Vector3 newCol = new Vector3 (0, 0, 1);
