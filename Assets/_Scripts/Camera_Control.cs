@@ -118,10 +118,10 @@
 			transform.position = player.transform.position;
 
 			if (Input.GetMouseButtonDown(1)) {
-				Fire_Gravity_Bullet();
+				//Fire_Gravity_Bullet();
 			}
 			if (Input.GetMouseButtonDown(0)) {
-				Fire_Kill_Bullet();
+				//Fire_Kill_Bullet();
 			}
 		}
 	}
