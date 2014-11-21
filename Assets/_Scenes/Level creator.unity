@@ -162,7 +162,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
-  m_PrefabInternal: {fileID: 1961835842}
+  m_PrefabInternal: {fileID: 2016492923}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1880284291}
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172,
     type: 2}
-  m_PrefabInternal: {fileID: 1961835842}
+  m_PrefabInternal: {fileID: 2016492923}
   m_GameObject: {fileID: 1880284289}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -187,9 +187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
-  numberOfLargeSpawns: 10
+  numberOfLargeSpawns: 1
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 200
+  approxBlocksPerLargeStack: 300
   approxBlocksPerSmallStack: 100
   levelWidth: 100
   levelHeight: 100
@@ -203,7 +203,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
-  m_PrefabInternal: {fileID: 1961835842}
+  m_PrefabInternal: {fileID: 2016492923}
   m_GameObject: {fileID: 1880284289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -211,7 +211,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1001 &1961835842
+--- !u!1001 &2016492923
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2

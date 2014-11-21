@@ -27,30 +27,38 @@ public class LevelCreator : MonoBehaviour {
 		grid = new int[levelWidth,levelHeight,levelDepth];
 		
 
+		//Fills the grid matrix with 1s, representing large spawns
+		//createLargeSpawn() is called numberOfLargeSpawns times, each time creating a separate spawn
 		for(int i = 0; i<numberOfLargeSpawns;i++){
 			
-			createLargeSpawn();
+			createMainSpawn(approxBlocksPerLargeStack);
 			
 		}
 
-
+		//fills the grid matrix with 1s, representing small spawns
+		//createSmallSpawn() is called numberOfSmallSpawns times, each time creating a separate spawn
 		for(int i = 0; i<numberOfSmallSpawns;i++){
-			createSmallSpawn();		
+			createMainSpawn(approxBlocksPerSmallStack);		
 			
 		}
 
+		//loop through the grid matrix, drawing a building block every time a 1 is encountered
 		draw();
 		
 		
 	}
-	
-	void createLargeSpawn(){
+
+	//function responsible for filling the grid matrix with spawns
+	void createMainSpawn(int approxBlocks){
 		int checkResult;
-		int delta = Random.Range (Mathf.FloorToInt (approxBlocksPerLargeStack * -0.1f), Mathf.CeilToInt (approxBlocksPerLargeStack * 0.1f+1f));
+
+		//random offset for the blocks per spawn
+		int delta = Random.Range (Mathf.FloorToInt (approxBlocks * -0.1f), Mathf.CeilToInt (approxBlocksPerLargeStack * 0.1f+1f));
 		int Blocks = approxBlocksPerLargeStack + delta;
 
 		int iterations = 0;
 		do{
+			//determine a random intial targetposition to start a spawn, the location is checked to see whether it already contains a 1
 			targetPosition = new int[3]{Random.Range(0,levelWidth),Random.Range(0,levelHeight),Random.Range(0,levelDepth)};
 			checkResult = grid[targetPosition[0],targetPosition[1],targetPosition[2]];
 			iterations++;
@@ -58,8 +66,10 @@ public class LevelCreator : MonoBehaviour {
 
 		}while (checkResult>0 && iterations<50);
 
+		//Make the grid at position targetposition equal to 1
 		grid [targetPosition[0],targetPosition[1],targetPosition[2]] = 1;
 
+		//Create the secondary spawns for the main spawn
 		for(int i=0; i<Blocks; i++){
 			createSpawn();
 
@@ -70,35 +80,11 @@ public class LevelCreator : MonoBehaviour {
 		
 	}
 
-
-	void createSmallSpawn(){
-		int checkResult;
-		int delta = Random.Range (Mathf.FloorToInt (approxBlocksPerSmallStack * -0.1f), Mathf.CeilToInt (approxBlocksPerSmallStack * 0.1f+1f));
-		int Blocks = approxBlocksPerSmallStack + delta;
-		
-		int iterations = 0;
-		do{
-			targetPosition = new int[3]{Random.Range(0,levelWidth),Random.Range(0,levelHeight),Random.Range(0,levelDepth)};
-			checkResult = grid[targetPosition[0],targetPosition[1],targetPosition[2]];
-			iterations++;
-			
-			
-		}while (checkResult>0 && iterations<50);
-		
-		grid [targetPosition[0],targetPosition[1],targetPosition[2]] = 1;
-		
-		for(int i=0; i<Blocks; i++){
-			createSpawn();
-			
-		}
-		
-	}
-
-
+	//function responsible for creating secondary spawn
 	void createSpawn(){
 		
 
-
+		//lists that contain the forward and backward direction
 		List<int> xList = new List<int>();
 		xList.Add (-1);xList.Add (1);
 		List<int> yList = new List<int>();
@@ -106,6 +92,7 @@ public class LevelCreator : MonoBehaviour {
 		List<int> zList = new List<int>();
 		zList.Add (-1);zList.Add (1);
 
+		//make sure the algorithm cant move out of the defined grid
 		if(targetPosition[0] == 0){
 			xList.RemoveAt (0);
 		}
@@ -125,13 +112,15 @@ public class LevelCreator : MonoBehaviour {
 			zList.RemoveAt (1);
 		}
 
+		//variables used in the selection of the next direction of the building block
 		float positionchange1 = Random.value;
 		int positionchange2 = 0;
-		//int[] temp = targetPosition;
+
 		int checkResult = 0;
 		int iterations = 0;
 
-		float xInterval = xScaling/(xScaling+yScaling+zScaling);
+		//define the probability intervals for each direction.
+		float xInterval = xScaling/(xScaling + yScaling + zScaling);
 		float yInterval = yScaling /(xScaling + yScaling + zScaling);
 		float zInterval = zScaling /(xScaling + yScaling + zScaling);
 
@@ -140,12 +129,11 @@ public class LevelCreator : MonoBehaviour {
 
 	
 
-		do{
-				
+		do{				
 			int temprandom = 0;
 			direction = 0;
 				
-
+			//determine which direction the next block should go
 			if(positionchange1<xInterval && xList.Count>0){
 				temprandom = Random.Range(0,xList.Count);
 				positionchange2 = 1;
@@ -170,32 +158,36 @@ public class LevelCreator : MonoBehaviour {
 				
 
 				
-				
-			if(positionchange2 == 1)
+			//if a certain direction is chosen, check if that direction is not already filled with a 1	
+			if(positionchange2 == 1){
 				checkResult = grid[targetPosition[0]+direction,targetPosition[1],targetPosition[2]];
-			else if(positionchange2 == 2)
+				if(checkResult<1)
+					targetPosition[0] += direction;
+			}
+			else if(positionchange2 == 2){
 				checkResult = grid[targetPosition[0],targetPosition[1]+direction,targetPosition[2]];
-			else if(positionchange2 == 3)
+				if(checkResult<1)
+					targetPosition[1] += direction;
+			}
+			else if(positionchange2 == 3){
 				checkResult = grid[targetPosition[0],targetPosition[1],targetPosition[2]+direction];
-				
-			if(positionchange2 == 1 && checkResult<1)
-				targetPosition[0] += direction;
-			else if(positionchange2 == 2 && checkResult<1)
-				targetPosition[1] += direction;
-			else if(positionchange2 == 3 && checkResult<1)
-				targetPosition[2] += direction;
+				if(checkResult<1)
+					targetPosition[2] += direction;
+			}
 
 			iterations++;	
 
 			
 		}while (checkResult>0 && iterations<50);
-		
+
+		//Set the grid at the new targetposition equal to 1		
 		grid[targetPosition[0],targetPosition[1],targetPosition[2]]=1;
 
 
 
 	}
 
+	//function that loops through the gread and instanciates a building block when it encounters a 1
 	void draw(){
 
 
