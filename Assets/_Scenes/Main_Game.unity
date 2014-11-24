@@ -45012,6 +45012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eb65da49944484c9473cc244fa0a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LigntingLine: {fileID: 2018816169}
   crosshairImage: {fileID: 2800000, guid: fc2fe5178e594694ea2c8b49aa320035, type: 3}
   axes: 2
   sensitivityX: 10
@@ -45020,7 +45021,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  player: {fileID: 729522525}
+  player: {fileID: 729522526}
   reloadTime: 10
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
@@ -49008,6 +49009,67 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1674507610}
   m_GameObject: {fileID: 2015685140}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2018816168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2018816170}
+  - 120: {fileID: 2018816169}
+  m_Layer: 0
+  m_Name: Raytrace_Laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!120 &2018816169
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018816168}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 5da1ea9ba24a7ec46bbe908dc3fc36bf, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: .00999999978
+    endWidth: .00999999978
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
+--- !u!4 &2018816170
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018816168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.50316811, y: -1.93689632, z: -13.1170473}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &2019375164
 GameObject:
   m_ObjectHideFlags: 0

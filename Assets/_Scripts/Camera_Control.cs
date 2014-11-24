@@ -19,6 +19,8 @@
 	public class Camera_Control : MonoBehaviour {
 
 	#region [init for look around]
+	public LineRenderer LigntingLine;
+
 	public Texture2D crosshairImage;
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseY;
@@ -34,7 +36,7 @@
 	float rotationY = 0F;
 	#endregion
 	#region [init other]
-	public GameObject player;
+	public playerController player;
 	private float lastShot;
 	public float reloadTime = 0f;
 	public Rigidbody Gravity_Bullet;
@@ -68,24 +70,21 @@
 
 	void Fire_Gravity_Bullet()
 	{
-		//if (networkView.isMine)
-		{
-
-			if (Time.time > reloadTime + lastShot)
-						Debug.Log ("Fired");
-			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Gravity_Bullet, transform.position, transform.rotation );
-				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
-				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
-				lastShot = Time.time;
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
+			if (Physics.Raycast(ray, out hit)) {
+				Vector3 incomingVec = hit.point - transform.position;
+			LigntingLine.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+			LigntingLine.SetPosition(0, hit.point);
+			player.Switch_Gravity(hit.normal*-1f);
 			}
-		}
 	}
 
 	void Update ()
 	{
 		//if (networkView.isMine)
 		{
+
 			if(Gravity_Switch_Timer>0f)
 			{
 
@@ -118,10 +117,10 @@
 			transform.position = player.transform.position;
 
 			if (Input.GetMouseButtonDown(1)) {
-				//Fire_Gravity_Bullet();
+				Fire_Gravity_Bullet();
 			}
 			if (Input.GetMouseButtonDown(0)) {
-				//Fire_Kill_Bullet();
+				Fire_Kill_Bullet();
 			}
 		}
 	}

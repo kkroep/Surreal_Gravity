@@ -40,6 +40,11 @@
 		Current_Global_Force = Gravity_Direction * Gravity_Strength;
 	}
 
+	public void Switch_Gravity(Vector3 new_Gravity)
+	{
+		Gravity_Direction = new_Gravity;
+	}
+
 	void FixedUpdate ()
 	{
 		//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
