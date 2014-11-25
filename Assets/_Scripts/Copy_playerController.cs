@@ -43,10 +43,14 @@ public class Copy_playerController : MonoBehaviour
 	public Vector3 Gravity_Direction;
 	
 	#endregion
+
+	public GameObject networkmanager;
+	public bool playOffline;
 	
 	void Start ()
 	{
-		if (networkView.isMine)
+		Main_Camera.GetComponent<Copy_Camera_Control>().playOffline = playOffline;
+		if (networkView.isMine || playOffline)
 		{
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
@@ -57,7 +61,7 @@ public class Copy_playerController : MonoBehaviour
 	
 	public void Switch_Gravity (Vector3 new_Gravity)
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			before_shift = transform.rotation;
 			Gravity_Direction = new_Gravity;
@@ -69,7 +73,7 @@ public class Copy_playerController : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			if (Gravity_Shift_Counter > 1f) {
 				Gravity_Shift_Counter--;
@@ -114,7 +118,7 @@ public class Copy_playerController : MonoBehaviour
 	
 	void OnCollisionStay (Collision collisionInfo)
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			if (Input.GetKeyDown ("space")) {
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
