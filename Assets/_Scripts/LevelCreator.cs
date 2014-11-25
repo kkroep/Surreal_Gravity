@@ -17,6 +17,12 @@ public class LevelCreator : MonoBehaviour {
 	public float yScaling;
 	public float zScaling;
 	public bool maxOneDirectionOfChange;
+	public bool ceiling;
+	public bool floor;
+	public bool plusx;
+	public bool negx;
+	public bool plusz;
+	public bool negz;
 
 	private int[,,] grid;
 	private int[] targetPosition;
@@ -92,7 +98,7 @@ public class LevelCreator : MonoBehaviour {
 		List<int> zList = new List<int>();
 		zList.Add (-1);zList.Add (1);
 
-		//make sure the algorithm cant move out of the defined grid
+		//make sure the algorithm can not move out of the defined grid
 		if(targetPosition[0] == 0){
 			xList.RemoveAt (0);
 		}
@@ -196,7 +202,25 @@ public class LevelCreator : MonoBehaviour {
 				for (int depth=0;depth<levelDepth;depth++){
 
 
-					if(grid[width,height,depth]>0 || height == 0){
+					if(grid[width,height,depth]>0){
+						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+					}
+					else if(floor && height ==0){
+						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+					}
+					else if(ceiling && height == levelHeight-1){
+						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+					}
+					else if(plusx && width == levelWidth-1){
+						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+					}
+					else if(negx && width == 0){
+						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+					}
+					else if(plusz && depth == levelDepth-1){
+						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+					}
+					else if(negz && depth == 0){
 						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 				}
