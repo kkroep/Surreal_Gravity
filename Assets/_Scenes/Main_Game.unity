@@ -17714,6 +17714,7 @@ GameObject:
   - 54: {fileID: 729522527}
   - 114: {fileID: 729522526}
   - 135: {fileID: 729522529}
+  - 65: {fileID: 729522532}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -17760,7 +17761,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!23 &729522528
 Renderer:
@@ -17790,7 +17791,7 @@ SphereCollider:
   m_GameObject: {fileID: 729522525}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: .500000119
   m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
@@ -17814,6 +17815,18 @@ Transform:
   - {fileID: 1863724707}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!65 &729522532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 729522525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .5, y: .899999976, z: .5}
+  m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
 --- !u!1 &730950202
 GameObject:
   m_ObjectHideFlags: 0
@@ -44975,7 +44988,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: .00999999978
   far clip plane: 1000
   field of view: 60
   orthographic: 0
