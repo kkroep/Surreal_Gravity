@@ -17731,7 +17731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 729522525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0e916132d0737498d368a6df05a09d, type: 3}
+  m_Script: {fileID: 11500000, guid: c58409f82ea613d4fbc6360cdf981107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initspeed: 10
@@ -45066,7 +45066,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1863724702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ad833e3a897f174b837cec21474ac9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 09037110735a080478c92754e4c0e903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LigntingLine: {fileID: 2018816169}
@@ -45079,6 +45079,7 @@ MonoBehaviour:
   minimumY: -90
   maximumY: 90
   player: {fileID: 729522526}
+  playercam: {fileID: 1863724702}
   reloadTime: 10
   Gravity_Bullet: {fileID: 5400000, guid: 7a51ed45f139fd74cb1ff81757ace88d, type: 2}
   Kill_Bullet: {fileID: 5400000, guid: 529e197f2adff56448010bc3861fcff0, type: 2}
