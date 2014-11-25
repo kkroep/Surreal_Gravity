@@ -16,11 +16,12 @@
 	///   -> Set the mouse look to use LookY. (You want the camera to tilt up and down like a head. The character already turns.)
 
 	[AddComponentMenu("Camera-Control/Mouse Look")]
-	public class Camera_ControlTest : MonoBehaviour {
-
-	public GameObject mCamera;
+	public class Copy_Camera_Control : MonoBehaviour {
 
 	#region [init for look around]
+	public LineRenderer LigntingLine;
+
+	public Texture2D crosshairImage;
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseY;
 	public float sensitivityX = 15F;
@@ -35,35 +36,31 @@
 	float rotationY = 0F;
 	#endregion
 	#region [init other]
-	public GameObject player;
+	public playerController player;
 	private float lastShot;
 	public float reloadTime = 0f;
-	public Rigidbody bullet;
-	float Bullet_Speed = 5f;
-
+	public Rigidbody Gravity_Bullet;
+	public Rigidbody Kill_Bullet;
+	public float Bullet_Speed = 5f;
+	public float Gravity_Switch_Timer= 0f;
 
 	#endregion
 
 	void Start()
 	{
 		lastShot = Time.time;
-
-		if (!networkView.isMine)
-		{
-			GetComponent<Camera_ControlTest>().enabled = false;
-			GetComponent<AudioListener>().enabled = false;
-			mCamera.gameObject.SetActive(false);
-		}
+		transform.rotation = player.transform.rotation;
 	}
 
-	void Fire_Bullet()
+	void Fire_Kill_Bullet()
 	{
-		if (networkView.isMine)
+		//if (networkView.isMine)
 		{
+			
 			if (Time.time > reloadTime + lastShot)
-						Debug.Log ("Fired");
+				Debug.Log ("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( bullet, transform.position, transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
 				lastShot = Time.time;
@@ -71,10 +68,28 @@
 		}
 	}
 
+	void Fire_Gravity_Bullet()
+	{
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
+			if (Physics.Raycast(ray, out hit)) {
+				Vector3 incomingVec = hit.point - transform.position;
+			LigntingLine.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+			LigntingLine.SetPosition(0, hit.point);
+			player.Switch_Gravity(hit.normal*-1f);
+			}
+	}
+
 	void Update ()
 	{
-		if (networkView.isMine)
+		//if (networkView.isMine)
 		{
+
+			if(Gravity_Switch_Timer>0f)
+			{
+
+			}else
+			{
 			#region [look around]
 			if (axes == RotationAxes.MouseXAndY)
 			{
@@ -96,14 +111,29 @@
 			
 				transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 			}
+			}
 			#endregion
 
 			transform.position = player.transform.position;
 
+			if (Input.GetMouseButtonDown(1)) {
+				Fire_Gravity_Bullet();
+			}
 			if (Input.GetMouseButtonDown(0)) {
-					Fire_Bullet();
+				Fire_Kill_Bullet();
 			}
 		}
+	}
+
+	void OnGUI()
+	{
+		float xMin = (Screen.width / 2) - (crosshairImage.width / 2);
+		float yMin = (Screen.height / 2) - (crosshairImage.height / 2);
+		GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
+	}
+
+	void Gravity_Switch(){
+
 	}
 }
 
