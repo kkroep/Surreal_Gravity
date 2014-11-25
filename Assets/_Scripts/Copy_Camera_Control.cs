@@ -36,7 +36,7 @@
 	float rotationY = 0F;
 	#endregion
 	#region [init other]
-	public playerController player;
+	public Copy_playerController player;
 	private float lastShot;
 	public float reloadTime = 0f;
 	public Rigidbody Gravity_Bullet;
@@ -48,15 +48,17 @@
 
 	void Start()
 	{
-		lastShot = Time.time;
-		transform.rotation = player.transform.rotation;
+		if (networkView.isMine)
+		{
+			lastShot = Time.time;
+			transform.rotation = player.transform.rotation;
+		}
 	}
 
 	void Fire_Kill_Bullet()
 	{
-		//if (networkView.isMine)
+		if (networkView.isMine)
 		{
-			
 			if (Time.time > reloadTime + lastShot)
 				Debug.Log ("Fired");
 			{
@@ -70,6 +72,8 @@
 
 	void Fire_Gravity_Bullet()
 	{
+		if (networkView.isMine)
+		{
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
@@ -78,13 +82,13 @@
 			LigntingLine.SetPosition(0, hit.point);
 			player.Switch_Gravity(hit.normal*-1f);
 			}
+		}
 	}
 
 	void Update ()
 	{
-		//if (networkView.isMine)
+		if (networkView.isMine)
 		{
-
 			if(Gravity_Switch_Timer>0f)
 			{
 
@@ -127,9 +131,12 @@
 
 	void OnGUI()
 	{
-		float xMin = (Screen.width / 2) - (crosshairImage.width / 2);
-		float yMin = (Screen.height / 2) - (crosshairImage.height / 2);
-		GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
+		if (networkView.isMine)
+		{
+			float xMin = (Screen.width / 2) - (crosshairImage.width / 2);
+			float yMin = (Screen.height / 2) - (crosshairImage.height / 2);
+			GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
+		}
 	}
 
 	void Gravity_Switch(){

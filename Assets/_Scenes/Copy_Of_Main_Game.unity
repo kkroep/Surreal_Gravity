@@ -17715,6 +17715,7 @@ GameObject:
   - 114: {fileID: 729522526}
   - 135: {fileID: 729522529}
   - 65: {fileID: 729522532}
+  - 148: {fileID: 729522533}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -17730,13 +17731,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 729522525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0e916132d0737498d368a6df05a09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initspeed: 10
   speed: 6
   jumpSpeed: 1200
-  Main_Camera: {fileID: 1863724708}
+  Main_Camera: {fileID: 1863724710}
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
@@ -17827,6 +17828,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .5, y: .899999976, z: .5}
   m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
+--- !u!148 &729522533
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 729522525}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 729522531}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
 --- !u!1 &730950202
 GameObject:
   m_ObjectHideFlags: 0
@@ -35321,7 +35334,12 @@ MonoBehaviour:
   xScaling: 1
   yScaling: 1
   zScaling: 1
-  maxOneDirectionOfChange: 1
+  ceiling: 0
+  floor: 0
+  plusx: 0
+  negx: 0
+  plusz: 0
+  negz: 0
 --- !u!4 &1444913545
 Transform:
   m_ObjectHideFlags: 0
@@ -44942,8 +44960,9 @@ GameObject:
   - 92: {fileID: 1863724705}
   - 124: {fileID: 1863724704}
   - 81: {fileID: 1863724703}
-  - 114: {fileID: 1863724708}
+  - 114: {fileID: 1863724710}
   - 114: {fileID: 1863724709}
+  - 148: {fileID: 1863724708}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -45016,7 +45035,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 729522531}
   m_RootOrder: 0
---- !u!114 &1863724708
+--- !u!148 &1863724708
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1863724702}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 2
+    m_Type: 1
+--- !u!114 &1863724709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1863724702}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36078abafc855a046a82aeb127e7d4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1863724710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -45024,7 +45066,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1863724702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2eb65da49944484c9473cc244fa0a59, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ad833e3a897f174b837cec21474ac9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LigntingLine: {fileID: 2018816169}
@@ -45038,21 +45080,10 @@ MonoBehaviour:
   maximumY: 90
   player: {fileID: 729522526}
   reloadTime: 10
-  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
-  Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
+  Gravity_Bullet: {fileID: 5400000, guid: 7a51ed45f139fd74cb1ff81757ace88d, type: 2}
+  Kill_Bullet: {fileID: 5400000, guid: 529e197f2adff56448010bc3861fcff0, type: 2}
   Bullet_Speed: 30
   Gravity_Switch_Timer: 0
---- !u!114 &1863724709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1863724702}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36078abafc855a046a82aeb127e7d4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1864072986
 GameObject:
   m_ObjectHideFlags: 0

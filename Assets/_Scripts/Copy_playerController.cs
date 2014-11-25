@@ -9,7 +9,7 @@ public class Copy_playerController : MonoBehaviour
 		public float jumpSpeed = 8.0F; 
 		private Vector3 moveDirection = Vector3.zero;
 		private Vector3 Current_Global_Force;
-		public Camera_Control Main_Camera;
+		public Copy_Camera_Control Main_Camera;
 
 		public float Gravity_Shift_Time = 10f;
 
@@ -44,70 +44,81 @@ public class Copy_playerController : MonoBehaviour
 
 	#endregion
 
-		void Start ()
+	void Start ()
+	{
+		if (networkView.isMine)
 		{
-				Screen.lockCursor = true;
-				rigidbody.freezeRotation = true;
-				Gravity_Direction = Initial_Gravity_Direction;
-				Current_Global_Force = Gravity_Direction * Gravity_Strength;
+			Screen.lockCursor = true;
+			rigidbody.freezeRotation = true;
+			Gravity_Direction = Initial_Gravity_Direction;
+			Current_Global_Force = Gravity_Direction * Gravity_Strength;
 		}
+	}
 
-		public void Switch_Gravity (Vector3 new_Gravity)
+	public void Switch_Gravity (Vector3 new_Gravity)
+	{
+		if (networkView.isMine)
 		{
-				before_shift = transform.rotation;
-				Gravity_Direction = new_Gravity;
-				Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, Main_Camera.transform.forward);
-				after_shift = Quaternion.LookRotation (New_Player_Forward_tmp, Gravity_Direction * -1f);
-				Gravity_Shift_Counter = Gravity_Shift_Time;
+			before_shift = transform.rotation;
+			Gravity_Direction = new_Gravity;
+			Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, Main_Camera.transform.forward);
+			after_shift = Quaternion.LookRotation (New_Player_Forward_tmp, Gravity_Direction * -1f);
+			Gravity_Shift_Counter = Gravity_Shift_Time;
 		}
+	}
 
-		void FixedUpdate ()
+	void FixedUpdate ()
+	{
+		if (networkView.isMine)
 		{
-				if (Gravity_Shift_Counter > 1f) {
-						Gravity_Shift_Counter--;
-						transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
-				} else if (Gravity_Shift_Counter == 1f) {
-						Gravity_Shift_Counter = 0f;
-						transform.rotation = after_shift;
-				} else {
-						//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
+			if (Gravity_Shift_Counter > 1f) {
+					Gravity_Shift_Counter--;
+					transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
+			} else if (Gravity_Shift_Counter == 1f) {
+					Gravity_Shift_Counter = 0f;
+					transform.rotation = after_shift;
+			} else {
+					//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
 
-						#region [look around]
-						if (axes == RotationAxes.MouseXAndY) {
-								float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
+				#region [look around]
+				if (axes == RotationAxes.MouseXAndY) {
+					float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
 			
-								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+					rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+					rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 			
-								transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
-						} else if (axes == RotationAxes.MouseX) {
-								transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
-						} else {
-								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+					transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
+			} else if (axes == RotationAxes.MouseX) {
+					transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
+			} else {
+					rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+					rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 			
-								transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
-						}
+					transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
 				}
+			}
 				#endregion
 
-				transform.TransformDirection (Vector3.forward);
+			transform.TransformDirection (Vector3.forward);
 
-				rigidbody.velocity = transform.forward * speed * Input.GetAxis ("Vertical");
-				rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
+			rigidbody.velocity = transform.forward * speed * Input.GetAxis ("Vertical");
+			rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
 
-				Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
-				rigidbody.AddForce (Current_Global_Force);
+			Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
+			rigidbody.AddForce (Current_Global_Force);
 		}
+	}
 
 
 
 
-		void OnCollisionStay (Collision collisionInfo)
+	void OnCollisionStay (Collision collisionInfo)
+	{
+		if (networkView.isMine)
 		{
-
-				if (Input.GetKeyDown ("space")) {
-						Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
-				}
+			if (Input.GetKeyDown ("space")) {
+				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
+			}
 		}
+	}
 }
