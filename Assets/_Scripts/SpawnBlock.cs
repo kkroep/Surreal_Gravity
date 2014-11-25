@@ -67,7 +67,7 @@ public class SpawnBlock : MonoBehaviour {
 		}
 		
 		do{
-			if(settings.maxOneDirectionOfChange){
+			if(true){
 
 
 
