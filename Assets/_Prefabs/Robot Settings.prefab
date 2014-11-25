@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Level Settings
+  m_Name: Robot Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 42.8571014, y: 19.4284248, z: -25.7267532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -36,27 +36,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b5c1733cbe6a24abd18a5a8c332108, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d4ed0c043003a6479b4febd47378d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
-  numberOfLargeSpawns: 10
-  numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 250
-  approxBlocksPerSmallStack: 100
-  levelWidth: 30
-  levelHeight: 30
-  levelDepth: 30
-  checkRadius: 0
-  xScaling: 1
-  yScaling: 1
-  zScaling: 1
-  ceiling: 0
-  floor: 0
-  plusx: 0
-  negx: 0
-  plusz: 0
-  negz: 0
+  numberRobots: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
