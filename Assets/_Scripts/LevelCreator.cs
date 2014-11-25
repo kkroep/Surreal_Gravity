@@ -16,7 +16,6 @@ public class LevelCreator : MonoBehaviour {
 	public float xScaling;
 	public float yScaling;
 	public float zScaling;
-	public bool maxOneDirectionOfChange;
 	public bool ceiling;
 	public bool floor;
 	public bool plusx;
