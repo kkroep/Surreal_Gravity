@@ -17715,7 +17715,6 @@ GameObject:
   - 54: {fileID: 729522527}
   - 114: {fileID: 729522526}
   - 135: {fileID: 729522529}
-  - 65: {fileID: 729522532}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -17736,7 +17735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initspeed: 10
   speed: 6
-  jumpSpeed: 1200
+  jumpSpeed: 12
   Main_Camera: {fileID: 1863724708}
   Gravity_Shift_Time: 12
   axes: 1
@@ -17746,7 +17745,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Gravity_Strength: 300
+  Gravity_Strength: 5
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
 --- !u!54 &729522527
@@ -17790,9 +17789,9 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 729522525}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 943589f7069f1d742998448d4fa88863, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: .500000119
   m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
@@ -17816,18 +17815,6 @@ Transform:
   - {fileID: 1863724707}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!65 &729522532
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 729522525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .5, y: .899999976, z: .5}
-  m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
 --- !u!1 &730950202
 GameObject:
   m_ObjectHideFlags: 0
