@@ -8,6 +8,8 @@ public class MenuButtons : MonoBehaviour {
 	public bool MultiPlayer = false;
 	public bool Back = false;
 	public bool QuitGame = false;
+	public bool StartServer = false;
+	public bool Refresh = false;
 
 	public GameObject Main_Menu;
 	public GameObject Multiplayer_Menu;
@@ -40,6 +42,14 @@ public class MenuButtons : MonoBehaviour {
 
 		if (QuitGame) {
 			Application.Quit ();
+		}
+
+		if (StartServer) {
+			Debug.Log ("Started The server");
+		}
+
+		if (Refresh) {
+			Debug.Log ("Refreshed");
 		}
 	}
 
