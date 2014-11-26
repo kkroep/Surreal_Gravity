@@ -37,10 +37,11 @@ public class BlockSelector : MonoBehaviour {
 
 
 	}
-
+	/*
 	public GameObject getSelection(float[] xInterval, float[] yInterval, float[] zInterval){
 		
 
 	}
+	*/
 
 }
