@@ -12,11 +12,12 @@ public class MenuButtons : MonoBehaviour {
 	public bool StartServer = false;
 	public bool Refresh = false;
 	public bool Disconnect = false;
-
+	public bool Account = false;
 
 	public GameObject Main_Menu;
 	public GameObject Multiplayer_Menu;
 	public GameObject Server_Menu;
+	public GameObject Account_Menu;
 
 	
 	// Use this for initialization
@@ -65,6 +66,12 @@ public class MenuButtons : MonoBehaviour {
 		if (Disconnect) {
 			Server_Menu.SetActive(false);
 			Multiplayer_Menu.SetActive(true);
+			renderer.material.color = Button_Idle;
+		}
+
+		if (Account) {
+			Main_Menu.SetActive(false);
+			Account_Menu.SetActive(true);
 			renderer.material.color = Button_Idle;
 		}
 	}

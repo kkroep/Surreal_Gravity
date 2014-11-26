@@ -77,7 +77,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 65
+  m_FontSize: 55
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
@@ -97,11 +97,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  HoverEffects: 1
   MultiPlayer: 0
   Back: 0
   QuitGame: 0
+  StartServer: 0
+  Refresh: 0
+  Disconnect: 0
+  Account: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
+  Server_Menu: {fileID: 0}
+  Account_Menu: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
