@@ -26,6 +26,10 @@ public class NetworkFancy : MonoBehaviour {
 	public GameObject switchTeamF;
 	public GameObject switchTeamField;
 	public Transform spawnLocation;
+	public Transform spawn1;
+	public Transform spawn2;
+	public Transform spawn3;
+	public Transform spawn4;
 	public Text registerField;
 	public Text registerPWField;
 	public Text loginFieldT;
@@ -46,10 +50,12 @@ public class NetworkFancy : MonoBehaviour {
 	private bool register;
 	private bool login;
 	private bool switching;
+	private Transform randomSpawnPoint;
 	private HostData[] hostD;
 	private AccountList list_of_accounts;
 	private List<string> activeAccounts;
 	private List<string> teamAccounts;
+	private static List<Transform> spawnLocations;
 	private Account log_acc;
 	private Account activeAccount;
 
@@ -72,6 +78,13 @@ public class NetworkFancy : MonoBehaviour {
 			this.list_of_accounts = AccountList.readAccounts(sread); //Reading in all the Accounts
 			sread.Close ();
 		}
+		spawnLocations = new List<Transform> ();
+		spawnLocations.Add(spawn1);
+		spawnLocations.Add(spawn2);
+		spawnLocations.Add(spawn3);
+		spawnLocations.Add(spawn4);
+		for (int i = 0; i < spawnLocations.Count; i++)
+			testZooi2.text = testZooi2.text + "\n" +  "Spawn[" + i + "]: " + spawnLocations[i];
 	}
 
 	/*********************
@@ -81,8 +94,8 @@ public class NetworkFancy : MonoBehaviour {
 	 */
 	public void startServer ()
 	{
-		bool NAT = !Network.HavePublicAddress();
-		Network.InitializeServer (4, 25001, NAT); //Initialiseer Server; max connecties  = 4, port = 25001 
+		//bool NAT = !Network.HavePublicAddress();
+		Network.InitializeServer (4, 25001, true); //Initialiseer Server; max connecties  = 4, port = 25001 
 		MasterServer.RegisterHost (gameName, "Multiplayer_Test", "Trying to implement Multiplayer"); //Registreer de Server
 	}
 	/* Zoek (een) Server(s)
@@ -631,12 +644,38 @@ public class NetworkFancy : MonoBehaviour {
 			}
 		}
 	}
+	/*********************
+	 * Spawning Functions
+	 *********************/
 	/* Spawn een player
 	 */
 	public void spawnPlayer ()
 	{
-		Network.Instantiate (playerPrefab, spawnLocation.position, Quaternion.identity, 0);
+		/*if (activeAccount.Number == 1)
+			Network.Instantiate (playerPrefab, spawn1.position, Quaternion.identity, 0);
+		if (activeAccount.Number == 2)
+			Network.Instantiate (playerPrefab, spawn2.position, Quaternion.identity, 0);
+		if (activeAccount.Number == 3)
+			Network.Instantiate (playerPrefab, spawn3.position, Quaternion.identity, 0);
+		if (activeAccount.Number == 4)
+			Network.Instantiate (playerPrefab, spawn4.position, Quaternion.identity, 0);
+		*/
+		int index = Random.Range (0, spawnLocations.Count); //Take random integer
+		randomSpawnPoint = spawnLocations[index]; //Pick random spawnpoint (because of random int)
+		Network.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity, 0); //Instantiate player on the spawn point
+		networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 	}
+	/* Verwijder het spawnpoint waar net een player gespawned is
+	 */
+	[RPC]
+	public void removeSpawnPoint (int index)
+	{
+		spawnLocations.RemoveAt(index);
+		testZooi2.text = "";
+		for (int i = 0; i < spawnLocations.Count; i++)
+			testZooi2.text = testZooi2.text + "\n" + "newSpawn[" + i + "]: " + spawnLocations[i];
+	}
+
 	/* Verhoog het aantal spelers met 1
 	 */
 	[RPC]

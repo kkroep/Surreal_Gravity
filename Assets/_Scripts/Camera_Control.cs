@@ -37,6 +37,8 @@
 	#endregion
 	#region [init other]
 	public playerController player;
+	public GameObject playerObject;
+
 	private float lastShot;
 	public float reloadTime = 0f;
 	public Rigidbody Gravity_Bullet;
@@ -62,7 +64,7 @@
 			{
 				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
-				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
+				Physics.IgnoreCollision( instantiatedProjectile.collider, playerObject.transform.root.collider );
 				lastShot = Time.time;
 			}
 		}

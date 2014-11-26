@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
 		private Vector3 Current_Global_Force;
 		public Camera_Control Main_Camera;
 
+		private bool On_Ground = false;
 		public float Gravity_Shift_Time = 10f;
 
 		private Quaternion before_shift;
@@ -97,7 +98,7 @@ public class playerController : MonoBehaviour
 				rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
 
 				Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
-				rigidbody.AddForce (Current_Global_Force);
+				rigidbody.velocity += (Current_Global_Force);
 		}
 
 

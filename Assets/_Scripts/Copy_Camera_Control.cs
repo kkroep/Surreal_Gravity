@@ -44,32 +44,14 @@ public class Copy_Camera_Control : MonoBehaviour {
 	public Rigidbody Kill_Bullet;
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
+
+	public bool playOffline;
 	
 	#endregion
 
-	void Awake()
-	{
-		bool NAT = !Network.HavePublicAddress();
-		Network.InitializeServer (4, 25001, NAT); //Initialiseer Server; max connecties  = 4, port = 25001 
-		MasterServer.RegisterHost ("YOLO_Test_Main_Game", "Multiplayer_Test", "Trying to implement Multiplayer"); //Registreer de Server
-	}
-
-	public void OnServerInitialized () 
-	{
-		Debug.Log ("Server Initialized: " + "YOLO_Test_Main_Game");
-	}
-
-	public void OnMasterServerEvent (MasterServerEvent MSEvent)
-	{
-		if (MSEvent == MasterServerEvent.RegistrationSucceeded)
-		{
-			Debug.Log("Server: " + "YOLO_Test_Main_Game" + " is registered!");
-		}
-	}
-
 	void Start()
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			lastShot = Time.time;
 			transform.rotation = player.transform.rotation;
@@ -84,7 +66,7 @@ public class Copy_Camera_Control : MonoBehaviour {
 	
 	void Fire_Kill_Bullet()
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			if (Time.time > reloadTime + lastShot)
 				Debug.Log ("Fired");
@@ -99,7 +81,7 @@ public class Copy_Camera_Control : MonoBehaviour {
 	
 	void Fire_Gravity_Bullet()
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
@@ -114,7 +96,7 @@ public class Copy_Camera_Control : MonoBehaviour {
 	
 	void Update ()
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			if(Gravity_Switch_Timer>0f)
 			{
@@ -158,7 +140,7 @@ public class Copy_Camera_Control : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		if (networkView.isMine)
+		if (networkView.isMine || playOffline)
 		{
 			float xMin = (Screen.width / 2) - (crosshairImage.width / 2);
 			float yMin = (Screen.height / 2) - (crosshairImage.height / 2);

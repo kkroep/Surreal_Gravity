@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b5c1733cbe6a24abd18a5a8c332108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingBlock: {fileID: 100000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
+  buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
   numberOfLargeSpawns: 10
   numberOfSmallSpawns: 0
   approxBlocksPerLargeStack: 250
@@ -51,7 +51,12 @@ MonoBehaviour:
   xScaling: 1
   yScaling: 1
   zScaling: 1
-  maxOneDirectionOfChange: 1
+  ceiling: 0
+  floor: 0
+  plusx: 0
+  negx: 0
+  plusz: 0
+  negz: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
