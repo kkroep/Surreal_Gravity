@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8744c2bec45b2cf498daabafb0f65d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button_Color: {r: 0, g: 0, b: 0, a: 0}
+  Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
+  Button_Active: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
