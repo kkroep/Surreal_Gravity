@@ -44,12 +44,13 @@ public class Copy_playerController : MonoBehaviour
 	
 	#endregion
 
-	public GameObject networkmanager;
-	public bool playOffline;
+	//public GameObject networkmanager;
+	public GameObject playerPrefab;
+	private bool playOffline;
 	
 	void Start ()
 	{
-		Main_Camera.GetComponent<Copy_Camera_Control>().playOffline = playOffline;
+		playOffline = Networkmanager2.playOffline;
 		if (networkView.isMine || playOffline)
 		{
 			Screen.lockCursor = true;

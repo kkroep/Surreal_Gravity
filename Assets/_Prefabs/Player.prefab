@@ -182,7 +182,8 @@ MonoBehaviour:
   Gravity_Strength: 300
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
-  networkmanager: {fileID: 100000, guid: b77d1417488c8c74bb77f83a17d14b3b, type: 2}
+  playerPrefab: {fileID: 100000}
+  playOffline: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,7 +211,7 @@ MonoBehaviour:
   Kill_Bullet: {fileID: 5400000, guid: 529e197f2adff56448010bc3861fcff0, type: 2}
   Bullet_Speed: 30
   Gravity_Switch_Timer: 0
-  networkmanager: {fileID: 100000, guid: b77d1417488c8c74bb77f83a17d14b3b, type: 2}
+  playOffline: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
