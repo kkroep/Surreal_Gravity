@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.38199997, y: 57.730999, z: -101.019997}
+  m_LocalPosition: {x: 9.39999962, y: 46.5, z: -101}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Text: MultiPlayer
+  m_Text: SinglePlayer
   m_OffsetZ: 0
   m_CharacterSize: .100000001
   m_LineSpacing: 1
@@ -97,6 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  MultiPlayer: 0
+  Back: 0
+  QuitGame: 0
+  Main_Menu: {fileID: 0}
+  Multiplayer_Menu: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
