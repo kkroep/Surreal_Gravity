@@ -31,7 +31,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playOffline = Networkmanager2.playOffline;
-		if (Network.isServer || Network.isClient || playOffline)
+		if (Network.isServer || playOffline)
 		{
 			grid = new int[levelWidth,levelHeight,levelDepth];
 		
