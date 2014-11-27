@@ -2,14 +2,15 @@
 using System.Collections;
 
 public class RobotScript : MonoBehaviour {
-	public GameObject levelcreator;
 
-
+	private GameObject levelcreator;
 	private LevelCreator levelSettings;
 	private bool needsSelection;
 	private GameObject target;
+	private bool quitting = false;
 	
 	void Start () {
+		levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
 		levelSettings = levelcreator.GetComponent<LevelCreator>();
 		needsSelection = true;
 	
@@ -33,6 +34,8 @@ public class RobotScript : MonoBehaviour {
 		int selector;
 		int iterations = 500;
 
+		bool isedge = false;
+
 		if(cubes.Length>0){
 			do{
 			
@@ -44,9 +47,14 @@ public class RobotScript : MonoBehaviour {
 
 				iterations--;
 
-			}while((target.transform.position.x<xInterval[0] || target.transform.position.x>xInterval[1] ||
-			       target.transform.position.y<yInterval[0] || target.transform.position.y>yInterval[1] ||
-			       target.transform.position.z<zInterval[0] || target.transform.position.z>zInterval[1]) && iterations>0);
+				isedge = levelSettings.isEdge (target.transform.position);
+
+			}while(iterations>0 && !isedge);
+			if(iterations<=20){
+				Debug.Log ("Couldnt find appropriate edge");
+			}
+
+
 
 			if(selectbool){
 				needsSelection = false;
@@ -60,9 +68,20 @@ public class RobotScript : MonoBehaviour {
 	void setNeedsSelection(bool set){
 		needsSelection = set;
 	}
+	
+	void OnApplicationQuit() {
+		quitting = true;
+	}
 
 	void OnDestroy(){
-		BlockDestroy selectboolget = target.GetComponent<BlockDestroy>();
-		selectboolget.canBeSelected = true;
+		if(!quitting){
+			BlockDestroy selectboolget = target.GetComponent<BlockDestroy>();
+			selectboolget.canBeSelected = true;
+		}
 	}
 }
+/*
+(target.transform.position.x<xInterval[0] || target.transform.position.x>xInterval[1] ||
+ target.transform.position.y<yInterval[0] || target.transform.position.y>yInterval[1] ||
+ target.transform.position.z<zInterval[0] || target.transform.position.z>zInterval[1]) 
+ */

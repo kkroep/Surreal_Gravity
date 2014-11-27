@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class LevelCreator : MonoBehaviour {
 	
 	public GameObject buildingBlock;
+	public GameObject MainRobotSettings;
 	public int numberOfLargeSpawns;
 	public int numberOfSmallSpawns;
 	public int approxBlocksPerLargeStack;
@@ -49,7 +50,7 @@ public class LevelCreator : MonoBehaviour {
 
 		//loop through the grid matrix, drawing a building block every time a 1 is encountered
 		draw();
-		
+
 		
 	}
 
@@ -260,18 +261,31 @@ public class LevelCreator : MonoBehaviour {
 		return temp;
 
 	}
-	/*
+
+	//function that determines if a certain cube in a certain position is an edge cube
 	public bool isEdge(Vector3 position){
-		if(grid[position.x-1,position.y,position.z] == 1 && grid[position.x+1,position.y,position.z] == 1)
-			return false;
-		else if(grid[position.x,position.y-1,position.z] == 1 && grid[position.x,position.y+1,position.z] == 1)
-			return false;
-		else if(grid[position.x,position.y,position.z-1] == 1 && grid[position.x,position.y,position.z+1] == 1)
-			return false;
+		if(grid != null){
+			int x = Mathf.RoundToInt(position.x);
+			int y = Mathf.RoundToInt(position.y);
+			int z = Mathf.RoundToInt(position.z);
+			if(x<=0 || x>=levelWidth-1 || y<=0 || y>=levelHeight-1 || z<=0 || z>=levelDepth-1)
+				return true;
+			else if(grid[x-1,y,z] == 1 && grid[x+1,y,z] == 1)
+				return false;
+			else if(grid[x,y-1,z] == 1 && grid[x,y+1,z] == 1)
+				return false;
+			else if(grid[x,y,z-1] == 1 && grid[x,y,z+1] == 1)
+				return false;
+			else
+				return true;
+		}
 		else
-			return true;
+			return false;
 	}
-	*/
+
+	public int[,,] getGrid(){
+		return grid;
+	}
 
 	
 

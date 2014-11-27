@@ -6,6 +6,7 @@ public class BlockDestroy : MonoBehaviour {
 	public bool canBeSelected = true;
 
 	private GameObject robot;
+	private bool quitting = false;
 
 
 	void Kill(float lifetime){
@@ -19,7 +20,13 @@ public class BlockDestroy : MonoBehaviour {
 		this.renderer.material.color = Color.red;
 	}
 
+	void OnApplicationQuit() {
+		quitting = true;
+	}
+
 	void OnDestroy(){
-		robot.SendMessage ("setNeedsSelection", true);
+		if(!quitting){
+			robot.SendMessage ("setNeedsSelection", true);
+		}
 	}
 }
