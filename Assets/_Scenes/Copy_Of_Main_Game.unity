@@ -11357,7 +11357,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 459718609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f8c2f350e6c56e45a5413801f40a741, type: 3}
+  m_Script: {fileID: 11500000, guid: e746f7ea0d8354342bb01bf3edc8ca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
@@ -36074,6 +36074,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1444913545}
   - 114: {fileID: 1444913544}
+  - 148: {fileID: 1444913546}
   m_Layer: 0
   m_Name: Level Settings
   m_TagString: Untagged
@@ -36104,7 +36105,7 @@ MonoBehaviour:
   xScaling: 1
   yScaling: 1
   zScaling: 1
-  ceiling: 0
+  ceiling: 1
   floor: 0
   plusx: 0
   negx: 0
@@ -36122,6 +36123,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!148 &1444913546
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444913543}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 4
+    m_Type: 1
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0
@@ -50115,8 +50128,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 20.562027, y: 6.5, z: 25.0180874}
-  - {x: -1.64490747, y: -12.5049801, z: 8.58846474}
+  - {x: 11.0880032, y: .5, z: 11.7708035}
+  - {x: 6.18100023, y: -39.0250244, z: -19.2639999}
   m_Parameters:
     startWidth: .00999999978
     endWidth: .00999999978

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Networkmanager2 : MonoBehaviour {
+public class NW_Server : MonoBehaviour {
 
 	public GameObject serverBtn;
 	public GameObject hostsBtn;
