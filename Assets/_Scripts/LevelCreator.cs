@@ -192,8 +192,8 @@ public class LevelCreator : MonoBehaviour {
 
 	}
 
-	//function that loops through the gread and instanciates a building block when it encounters a 1
-	void draw(){
+	//function that loops through the grid and instanciates a building block when it encounters a 1
+	public void draw(){
 
 
 		for(int width=0;width<levelWidth;width++){
@@ -225,6 +225,40 @@ public class LevelCreator : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	//function that loops through the grid and transforms the grid into a list of Vector3 positions
+	public List<Vector3> getPositions(){
+		List<Vector3> temp = new List<Vector3>();
+		for(int width=0;width<levelWidth;width++){
+			for (int height=0;height<levelHeight;height++){
+				for (int depth=0;depth<levelDepth;depth++){
+					if(grid[width,height,depth]>0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(floor && height ==0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(ceiling && height == levelHeight-1){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(plusx && width == levelWidth-1){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(negx && width == 0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(plusz && depth == levelDepth-1){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(negz && depth == 0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+				}
+			}
+		}
+		return temp;
+
 	}
 	/*
 	public bool isEdge(Vector3 position){
