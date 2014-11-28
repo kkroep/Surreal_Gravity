@@ -79,11 +79,245 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|Bone
+        weight: 1
+      - path: Armature/Armature|Neck
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL/Armature|HandL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL/Armature|ThumbL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR/Armature|HandR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR/Armature|ThumbR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL/Armature|LowerLegL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL/Armature|LowerLegL/Armature|FeetL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR/Armature|LowerLegR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR/Armature|LowerLegR/Armature|FeetR
+        weight: 1
+      - path: Circle
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump
+      takeName: Jump
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|Bone
+        weight: 1
+      - path: Armature/Armature|Neck
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL/Armature|HandL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL/Armature|ThumbL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR/Armature|HandR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR/Armature|ThumbR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL/Armature|LowerLegL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL/Armature|LowerLegL/Armature|FeetL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR/Armature|LowerLegR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR/Armature|LowerLegR/Armature|FeetR
+        weight: 1
+      - path: Circle
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|Bone
+        weight: 1
+      - path: Armature/Armature|Neck
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL/Armature|HandL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderL/Armature|UpperArmL/Armature|LowerArmL/Armature|ThumbL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR/Armature|HandR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|ShoulderR/Armature|UpperArmR/Armature|LowerArmR/Armature|ThumbR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL/Armature|LowerLegL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupL/Armature|UpperLegL/Armature|LowerLegL/Armature|FeetL
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR/Armature|LowerLegR
+        weight: 1
+      - path: Armature/Armature|Neck/Armature|UpperBody/Armature|MidBody/Armature|LowerBody/Armature|HeupR/Armature|UpperLegR/Armature|LowerLegR/Armature|FeetR
+        weight: 1
+      - path: Circle
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: .200000003
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
