@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MenuButtons : MonoBehaviour {
@@ -13,12 +14,21 @@ public class MenuButtons : MonoBehaviour {
 	public bool Refresh = false;
 	public bool Disconnect = false;
 	public bool Account = false;
+	public bool Register = false;
+	public bool Login = false;
 
 	public GameObject Main_Menu;
 	public GameObject Multiplayer_Menu;
 	public GameObject Server_Menu;
 	public GameObject Account_Menu;
 
+	public InputField regU;
+	public InputField regP;
+	public InputField regPC;
+	public InputField logU;
+	public InputField logP;
+
+	public AccountManagement AccManager;
 	
 	// Use this for initialization
 	void OnMouseEnter(){
@@ -74,6 +84,13 @@ public class MenuButtons : MonoBehaviour {
 			Account_Menu.SetActive(true);
 			renderer.material.color = Button_Idle;
 		}
-	}
 
+		if (Register) {
+			AccManager.registerAccount();
+		}
+
+		if (Login) {
+			AccManager.loginAccount();
+		}
+	}
 }
