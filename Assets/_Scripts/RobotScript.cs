@@ -30,8 +30,7 @@ public class RobotScript : MonoBehaviour {
 	void selectBlock(float[] xInterval, float[] yInterval, float[] zInterval){
 		GameObject[] cubes = GameObject.FindGameObjectsWithTag ("level");
 		BlockDestroy selectboolget;
-		bool selectbool;
-		int selector;
+		bool selectbool = false;
 		int iterations = 500;
 
 		bool isedge = false;
@@ -39,24 +38,31 @@ public class RobotScript : MonoBehaviour {
 		if(cubes.Length>0){
 			do{
 			
-				selector = Random.Range (0, cubes.Length);
+				int selector = Random.Range (0, cubes.Length);
 
 				target = cubes[selector];
-				selectboolget = target.GetComponent<BlockDestroy>();
-				selectbool = selectboolget.canBeSelected;
+
+				if(target!=null){
+					selectboolget = target.GetComponent<BlockDestroy>();
+					selectbool = selectboolget.canBeSelected;
+				}
+				else{
+					break;
+				}
 
 				iterations--;
 
 				isedge = levelSettings.isEdge (target.transform.position);
 
 			}while(iterations>0 && !isedge);
-			if(iterations<=20){
+			if(iterations<=0){
 				Debug.Log ("Couldnt find appropriate edge");
 			}
 
 
 
 			if(selectbool){
+				levelSettings.setGrid (Mathf.RoundToInt(target.transform.position.x),Mathf.RoundToInt(target.transform.position.y),Mathf.RoundToInt(target.transform.position.z),0);
 				needsSelection = false;
 				target.SendMessage ("Kill", 4.0f);
 				target.SendMessage ("attachedRobot", this.gameObject);

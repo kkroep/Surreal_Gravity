@@ -26,10 +26,13 @@ public class LevelCreator : MonoBehaviour {
 
 	private int[,,] grid;
 	private int[] targetPosition;
+	private int seedint;
 
 	
 	// Use this for initialization
 	void Start () {
+		seedint = System.Environment.TickCount;
+		Random.seed = seedint;
 		grid = new int[levelWidth,levelHeight,levelDepth];
 		
 
@@ -65,7 +68,7 @@ public class LevelCreator : MonoBehaviour {
 		int iterations = 0;
 		do{
 			//determine a random intial targetposition to start a spawn, the location is checked to see whether it already contains a 1
-			targetPosition = new int[3]{Random.Range(0,levelWidth),Random.Range(0,levelHeight),Random.Range(0,levelDepth)};
+			targetPosition = new int[3]{Random.Range(1,levelWidth-1),Random.Range(1,levelHeight-1),Random.Range(1,levelDepth-1)};
 			checkResult = grid[targetPosition[0],targetPosition[1],targetPosition[2]];
 			iterations++;
 
@@ -99,22 +102,23 @@ public class LevelCreator : MonoBehaviour {
 		zList.Add (-1);zList.Add (1);
 
 		//make sure the algorithm can not move out of the defined grid
-		if(targetPosition[0] == 0){
+		//added a translation to make my life easier when working with the robots
+		if(targetPosition[0] == 1){
 			xList.RemoveAt (0);
 		}
-		if(targetPosition[1] == 0){
+		if(targetPosition[1] == 1){
 			yList.RemoveAt (0);
 		}
-		if(targetPosition[2] == 0){
+		if(targetPosition[2] == 1){
 			zList.RemoveAt (0);
 		}
-		if(targetPosition[0] == levelWidth-1){
+		if(targetPosition[0] == levelWidth-2){
 			xList.RemoveAt (1);
 		}
-		if(targetPosition[1] == levelHeight-1){
+		if(targetPosition[1] == levelHeight-2){
 			yList.RemoveAt (1);
 		}
-		if(targetPosition[2] == levelDepth-1){
+		if(targetPosition[2] == levelDepth-2){
 			zList.RemoveAt (1);
 		}
 
@@ -193,6 +197,7 @@ public class LevelCreator : MonoBehaviour {
 
 	}
 
+
 	//function that loops through the grid and instanciates a building block when it encounters a 1
 	public void draw(){
 
@@ -228,6 +233,7 @@ public class LevelCreator : MonoBehaviour {
 		}
 	}
 
+	/*
 	//function that loops through the grid and transforms the grid into a list of Vector3 positions
 	public List<Vector3> getPositions(){
 		List<Vector3> temp = new List<Vector3>();
@@ -261,6 +267,8 @@ public class LevelCreator : MonoBehaviour {
 		return temp;
 
 	}
+	*/
+
 
 	//function that determines if a certain cube in a certain position is an edge cube
 	public bool isEdge(Vector3 position){
@@ -268,9 +276,12 @@ public class LevelCreator : MonoBehaviour {
 			int x = Mathf.RoundToInt(position.x);
 			int y = Mathf.RoundToInt(position.y);
 			int z = Mathf.RoundToInt(position.z);
-			if(x<=0 || x>=levelWidth-1 || y<=0 || y>=levelHeight-1 || z<=0 || z>=levelDepth-1)
+			/*
+			if(x<=0 || x>=levelWidth-1 || y<=0 || y>=levelHeight-1 || z<=0 || z>=levelDepth-1){
+				Debug.Log ("Whyyy??");
 				return true;
-			else if(grid[x-1,y,z] == 1 && grid[x+1,y,z] == 1)
+			}*/
+			if(grid[x-1,y,z] == 1 && grid[x+1,y,z] == 1)
 				return false;
 			else if(grid[x,y-1,z] == 1 && grid[x,y+1,z] == 1)
 				return false;
@@ -283,8 +294,13 @@ public class LevelCreator : MonoBehaviour {
 			return false;
 	}
 
+
 	public int[,,] getGrid(){
 		return grid;
+	}
+
+	public void setGrid(int x, int y, int z, int to){
+		this.grid[x,y,z] = to;
 	}
 
 	
