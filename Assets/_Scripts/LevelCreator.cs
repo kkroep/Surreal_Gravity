@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class LevelCreator : MonoBehaviour {
 	
 	public GameObject buildingBlock;
+	public GameObject MainRobotSettings;
 	public int numberOfLargeSpawns;
 	public int numberOfSmallSpawns;
 	public int approxBlocksPerLargeStack;
@@ -49,7 +50,7 @@ public class LevelCreator : MonoBehaviour {
 
 		//loop through the grid matrix, drawing a building block every time a 1 is encountered
 		draw();
-		
+
 		
 	}
 
@@ -192,8 +193,8 @@ public class LevelCreator : MonoBehaviour {
 
 	}
 
-	//function that loops through the gread and instanciates a building block when it encounters a 1
-	void draw(){
+	//function that loops through the grid and instanciates a building block when it encounters a 1
+	public void draw(){
 
 
 		for(int width=0;width<levelWidth;width++){
@@ -202,30 +203,91 @@ public class LevelCreator : MonoBehaviour {
 
 
 					if(grid[width,height,depth]>0){
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(floor && height ==0){
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(ceiling && height == levelHeight-1){
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(plusx && width == levelWidth-1){
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(negx && width == 0){
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(plusz && depth == levelDepth-1){
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(negz && depth == 0){
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 				}
 			}
 		}
 	}
+
+	//function that loops through the grid and transforms the grid into a list of Vector3 positions
+	public List<Vector3> getPositions(){
+		List<Vector3> temp = new List<Vector3>();
+		for(int width=0;width<levelWidth;width++){
+			for (int height=0;height<levelHeight;height++){
+				for (int depth=0;depth<levelDepth;depth++){
+					if(grid[width,height,depth]>0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(floor && height ==0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(ceiling && height == levelHeight-1){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(plusx && width == levelWidth-1){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(negx && width == 0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(plusz && depth == levelDepth-1){
+						temp.Add(new Vector3(width,height,depth));
+					}
+					else if(negz && depth == 0){
+						temp.Add(new Vector3(width,height,depth));
+					}
+				}
+			}
+		}
+		return temp;
+
+	}
+
+	//function that determines if a certain cube in a certain position is an edge cube
+	public bool isEdge(Vector3 position){
+		if(grid != null){
+			int x = Mathf.RoundToInt(position.x);
+			int y = Mathf.RoundToInt(position.y);
+			int z = Mathf.RoundToInt(position.z);
+			if(x<=0 || x>=levelWidth-1 || y<=0 || y>=levelHeight-1 || z<=0 || z>=levelDepth-1)
+				return true;
+			else if(grid[x-1,y,z] == 1 && grid[x+1,y,z] == 1)
+				return false;
+			else if(grid[x,y-1,z] == 1 && grid[x,y+1,z] == 1)
+				return false;
+			else if(grid[x,y,z-1] == 1 && grid[x,y,z+1] == 1)
+				return false;
+			else
+				return true;
+		}
+		else
+			return false;
+	}
+
+	public int[,,] getGrid(){
+		return grid;
+	}
+
+	
 
 
 }

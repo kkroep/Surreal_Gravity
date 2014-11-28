@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{BF9B8A3D-AE96-663B-975C-CAB18D8F7E85}</ProjectGuid>
+	<ProjectGuid>{E16B3FB4-3589-16DB-8DE7-F89502551D99}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -39,31 +39,35 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BlockSelector.cs" />
-     <Compile Include="Assets\MainRobotSettings.cs" />
-     <Compile Include="Assets\RobotScript.cs" />
      <Compile Include="Assets\_Scripts\BasicFunctions.cs" />
+     <Compile Include="Assets\_Scripts\BlockDestroy.cs" />
+     <Compile Include="Assets\_Scripts\BlockSelector.cs" />
      <Compile Include="Assets\_Scripts\Bullet_Controller.cs" />
      <Compile Include="Assets\_Scripts\Camera_Control.cs" />
      <Compile Include="Assets\_Scripts\Copy_Bullet_Controller.cs" />
      <Compile Include="Assets\_Scripts\Copy_Camera_Control.cs" />
+     <Compile Include="Assets\_Scripts\Copy_LevelCreator.cs" />
      <Compile Include="Assets\_Scripts\Copy_playerController.cs" />
      <Compile Include="Assets\_Scripts\GameController_Script.cs" />
      <Compile Include="Assets\_Scripts\LevelCreator.cs" />
-     <Compile Include="Assets\_Scripts\NetworkManager.cs" />
+     <Compile Include="Assets\_Scripts\MainRobotSettings.cs" />
+     <Compile Include="Assets\_Scripts\MenuButtons.cs" />
+     <Compile Include="Assets\_Scripts\NW_Server.cs" />
+     <Compile Include="Assets\_Scripts\NW_Spawning.cs" />
+     <Compile Include="Assets\_Scripts\RobotScript.cs" />
      <Compile Include="Assets\_Scripts\SpawnBlock.cs" />
      <Compile Include="Assets\_Scripts\TargetScript.cs" />
      <Compile Include="Assets\_Scripts\TestBeunScriptUnit.cs" />
      <Compile Include="Assets\_Scripts\playerController.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

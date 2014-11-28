@@ -45,12 +45,13 @@ public class Copy_Camera_Control : MonoBehaviour {
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
 
-	public bool playOffline;
+	private bool playOffline;
 	
 	#endregion
 
 	void Start()
 	{
+		playOffline = NW_Server.playOffline;
 		if (networkView.isMine || playOffline)
 		{
 			lastShot = Time.time;

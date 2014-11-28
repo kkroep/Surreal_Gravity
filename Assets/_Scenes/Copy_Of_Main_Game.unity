@@ -11061,7 +11061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &449925957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11340,6 +11340,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459718611}
   - 114: {fileID: 459718610}
+  - 148: {fileID: 459718612}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -11356,19 +11357,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 459718609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4720aaed0a3d7d4438f59d4f92c58686, type: 3}
+  m_Script: {fileID: 11500000, guid: e746f7ea0d8354342bb01bf3edc8ca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverBtn: {fileID: 1686697717}
-  hostsBtn: {fileID: 796159638}
-  offlineBtn: {fileID: 1140541498}
   playerPrefab: {fileID: 100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
   spawn1: {fileID: 303664281}
   spawn2: {fileID: 369626798}
   spawn3: {fileID: 1864625688}
   spawn4: {fileID: 822139364}
   spawn5: {fileID: 261081748}
-  playOffline: 0
 --- !u!4 &459718611
 Transform:
   m_ObjectHideFlags: 0
@@ -11381,6 +11378,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!148 &459718612
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 459718609}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 3
+    m_Type: 1
 --- !u!1 &462081995
 GameObject:
   m_ObjectHideFlags: 0
@@ -16740,7 +16749,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
   m_RootGameObject: {fileID: 1444913543}
   m_IsPrefabParent: 0
@@ -18149,8 +18159,7 @@ MonoBehaviour:
   Gravity_Strength: 300
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
-  networkmanager: {fileID: 0}
-  playOffline: 0
+  playerPrefab: {fileID: 0}
 --- !u!54 &729522527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21968,7 +21977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &879226873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36065,6 +36074,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1444913545}
   - 114: {fileID: 1444913544}
+  - 148: {fileID: 1444913546}
   m_Layer: 0
   m_Name: Level Settings
   m_TagString: Untagged
@@ -36075,16 +36085,15 @@ GameObject:
 --- !u!114 &1444913544
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172,
-    type: 2}
-  m_PrefabInternal: {fileID: 683534516}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444913543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b5c1733cbe6a24abd18a5a8c332108, type: 3}
+  m_Script: {fileID: 11500000, guid: f57e522924807284c81a072edeb0fef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingBlock: {fileID: 100000, guid: 3ba9de4768e89804f92518e0baf41428, type: 2}
+  buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
   numberOfLargeSpawns: 10
   numberOfSmallSpawns: 0
   approxBlocksPerLargeStack: 250
@@ -36096,7 +36105,7 @@ MonoBehaviour:
   xScaling: 1
   yScaling: 1
   zScaling: 1
-  ceiling: 0
+  ceiling: 1
   floor: 0
   plusx: 0
   negx: 0
@@ -36114,6 +36123,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!148 &1444913546
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444913543}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 4
+    m_Type: 1
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0
@@ -46071,7 +46092,6 @@ MonoBehaviour:
   Kill_Bullet: {fileID: 5400000, guid: 529e197f2adff56448010bc3861fcff0, type: 2}
   Bullet_Speed: 30
   Gravity_Switch_Timer: 0
-  playOffline: 0
 --- !u!1 &1864072986
 GameObject:
   m_ObjectHideFlags: 0
@@ -50108,8 +50128,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 25.5, y: 16.748724, z: 8.09315014}
-  - {x: 25.9893246, y: 16.9699993, z: 8.02999115}
+  - {x: 11.0880032, y: .5, z: 11.7708035}
+  - {x: 6.18100023, y: -39.0250244, z: -19.2639999}
   m_Parameters:
     startWidth: .00999999978
     endWidth: .00999999978
