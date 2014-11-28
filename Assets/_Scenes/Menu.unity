@@ -442,7 +442,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1674761471}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 488400874}
+  serverStuff: {fileID: 0}
 --- !u!102 &74754156
 TextMesh:
   serializedVersion: 3
@@ -558,7 +564,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &109901224
 TextMesh:
   serializedVersion: 3
@@ -888,7 +900,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &278205879
 TextMesh:
   serializedVersion: 3
@@ -1004,7 +1022,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &320054232
 TextMesh:
   serializedVersion: 3
@@ -1120,7 +1144,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &349838381
 TextMesh:
   serializedVersion: 3
@@ -1236,7 +1266,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &375905546
 TextMesh:
   serializedVersion: 3
@@ -1416,6 +1452,59 @@ Prefab:
   m_RootGameObject: {fileID: 1097752436}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &419670178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 419670180}
+  - 114: {fileID: 419670179}
+  - 148: {fileID: 419670181}
+  m_Layer: 0
+  m_Name: Networking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &419670179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 419670178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec84cdc62d765849b4f30e270ac08ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AccManager: {fileID: 488400874}
+--- !u!4 &419670180
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 419670178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1413178064}
+  m_RootOrder: 1
+--- !u!148 &419670181
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 419670178}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
 --- !u!1 &441941049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1577,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &441941053
 TextMesh:
   serializedVersion: 3
@@ -1604,7 +1699,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &450501731
 TextMesh:
   serializedVersion: 3
@@ -1657,6 +1758,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 488400875}
   - 114: {fileID: 488400874}
+  - 148: {fileID: 488400876}
   m_Layer: 0
   m_Name: AccountManagement
   m_TagString: Untagged
@@ -1672,7 +1774,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 488400873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb69a622b8921f44883ef897200e0f69, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ac35efc99226ad479a8646cba48e4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   registerU: {fileID: 1031667083}
@@ -1688,11 +1790,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 488400873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 251.361603, y: 190.109055, z: 138.409607}
+  m_LocalPosition: {x: 221.902481, y: 214.765381, z: 34.5388947}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1413178064}
+  m_RootOrder: 0
+--- !u!148 &488400876
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 488400873}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 2
+    m_Type: 1
 --- !u!1 &496393788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,7 +1824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &496393789
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1934,7 +2048,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &538545962
 TextMesh:
   serializedVersion: 3
@@ -2194,7 +2314,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 1674761471}
+  regU: {fileID: 1031667081}
+  regP: {fileID: 1727162460}
+  regPC: {fileID: 1311821292}
+  logU: {fileID: 496393788}
+  logP: {fileID: 759025410}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &607044607
 TextMesh:
   serializedVersion: 3
@@ -2370,7 +2496,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &664547633
 TextMesh:
   serializedVersion: 3
@@ -2485,6 +2617,10 @@ Prefab:
       propertyPath: Multiplayer_Menu
       value: 
       objectReference: {fileID: 1573688855}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: serverStuff
+      value: 
+      objectReference: {fileID: 419670179}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1945961594}
@@ -2562,7 +2698,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 419670179}
 --- !u!102 &734412066
 TextMesh:
   serializedVersion: 3
@@ -2681,7 +2823,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 488400874}
+  serverStuff: {fileID: 0}
 --- !u!102 &741662244
 TextMesh:
   serializedVersion: 3
@@ -2797,7 +2945,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &755613496
 TextMesh:
   serializedVersion: 3
@@ -2924,7 +3078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &759025411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3106,7 +3260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &785842076
 Transform:
   m_ObjectHideFlags: 0
@@ -3198,7 +3352,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &822332439
 TextMesh:
   serializedVersion: 3
@@ -3451,7 +3611,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &901283764
 TextMesh:
   serializedVersion: 3
@@ -3702,6 +3868,34 @@ Prefab:
       propertyPath: Multiplayer_Menu
       value: 
       objectReference: {fileID: 1573688855}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regU
+      value: 
+      objectReference: {fileID: 1031667081}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regP
+      value: 
+      objectReference: {fileID: 1727162460}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regPC
+      value: 
+      objectReference: {fileID: 1311821292}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: logU
+      value: 
+      objectReference: {fileID: 496393788}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: logP
+      value: 
+      objectReference: {fileID: 759025410}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Server_Menu
+      value: 
+      objectReference: {fileID: 1608761050}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Account_Menu
+      value: 
+      objectReference: {fileID: 1674761471}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1359816339}
@@ -3777,9 +3971,15 @@ MonoBehaviour:
   Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1674761471}
-  Server_Menu: {fileID: 0}
-  Account_Menu: {fileID: 0}
+  Server_Menu: {fileID: 1608761050}
+  Account_Menu: {fileID: 1674761471}
+  regU: {fileID: 1031667081}
+  regP: {fileID: 1727162460}
+  regPC: {fileID: 1311821292}
+  logU: {fileID: 496393788}
+  logP: {fileID: 759025410}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1029594883
 TextMesh:
   serializedVersion: 3
@@ -3908,7 +4108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1031667082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4076,7 +4276,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1095099509
 TextMesh:
   serializedVersion: 3
@@ -4192,7 +4398,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1097752440
 TextMesh:
   serializedVersion: 3
@@ -4287,6 +4499,10 @@ Prefab:
       propertyPath: Refresh
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: serverStuff
+      value: 
+      objectReference: {fileID: 419670179}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 734412062}
@@ -4423,6 +4639,10 @@ Prefab:
       propertyPath: Disconnect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: serverStuff
+      value: 
+      objectReference: {fileID: 419670179}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1786789732}
@@ -4485,6 +4705,34 @@ Prefab:
       objectReference: {fileID: 785842075}
     - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
       propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1674761471}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regU
+      value: 
+      objectReference: {fileID: 1031667081}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regP
+      value: 
+      objectReference: {fileID: 1727162460}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regPC
+      value: 
+      objectReference: {fileID: 1311821292}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: logU
+      value: 
+      objectReference: {fileID: 496393788}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: logP
+      value: 
+      objectReference: {fileID: 759025410}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Server_Menu
+      value: 
+      objectReference: {fileID: 1608761050}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Account_Menu
       value: 
       objectReference: {fileID: 1674761471}
     m_RemovedComponents: []
@@ -4651,7 +4899,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1284462386
 TextMesh:
   serializedVersion: 3
@@ -5007,7 +5261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1311821293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5175,7 +5429,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1326813946
 TextMesh:
   serializedVersion: 3
@@ -5345,9 +5605,15 @@ MonoBehaviour:
   Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1573688855}
-  Server_Menu: {fileID: 0}
-  Account_Menu: {fileID: 0}
+  Server_Menu: {fileID: 1608761050}
+  Account_Menu: {fileID: 1674761471}
+  regU: {fileID: 1031667081}
+  regP: {fileID: 1727162460}
+  regPC: {fileID: 1311821292}
+  logU: {fileID: 496393788}
+  logP: {fileID: 759025410}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1359816343
 TextMesh:
   serializedVersion: 3
@@ -5611,7 +5877,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1411589252
 TextMesh:
   serializedVersion: 3
@@ -5655,6 +5927,35 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &1413178063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1413178064}
+  m_Layer: 0
+  m_Name: ServerStuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413178064
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1413178063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.459116, y: -24.6563263, z: 103.870712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 488400875}
+  - {fileID: 419670180}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1418721595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5727,7 +6028,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1418721599
 TextMesh:
   serializedVersion: 3
@@ -5834,6 +6141,26 @@ Prefab:
       propertyPath: Account_Menu
       value: 
       objectReference: {fileID: 1674761471}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regP
+      value: 
+      objectReference: {fileID: 1727162460}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regU
+      value: 
+      objectReference: {fileID: 1031667081}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: regPC
+      value: 
+      objectReference: {fileID: 1311821292}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: logU
+      value: 
+      objectReference: {fileID: 496393788}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: logP
+      value: 
+      objectReference: {fileID: 759025410}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 607044603}
@@ -5978,7 +6305,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1508728156
 TextMesh:
   serializedVersion: 3
@@ -6174,7 +6507,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1519849137
 TextMesh:
   serializedVersion: 3
@@ -6392,7 +6731,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1587470044
 TextMesh:
   serializedVersion: 3
@@ -6488,7 +6833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1674761472
 Transform:
   m_ObjectHideFlags: 0
@@ -6734,7 +7079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1727162461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6902,7 +7247,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 419670179}
 --- !u!102 &1786789736
 TextMesh:
   serializedVersion: 3
@@ -7102,7 +7453,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1852787966
 TextMesh:
   serializedVersion: 3
@@ -7286,7 +7643,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1868187355
 TextMesh:
   serializedVersion: 3
@@ -7402,7 +7765,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &1908868734
 TextMesh:
   serializedVersion: 3
@@ -7518,7 +7887,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 419670179}
 --- !u!102 &1945961598
 TextMesh:
   serializedVersion: 3
@@ -7992,7 +8367,13 @@ MonoBehaviour:
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
   AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
 --- !u!102 &2071036684
 TextMesh:
   serializedVersion: 3

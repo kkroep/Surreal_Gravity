@@ -11,18 +11,18 @@ public class AccountManagement : MonoBehaviour {
 	public InputField loginU;
 	public InputField loginP;
 	public TextMesh currentUName;
-
+	
 	public Account activeAccount;
-
+	
 	private AccountList list_of_accounts;
 	private Account log_acc;
-
+	
 	void Start ()
 	{
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
 		activeAccount = new Account ("", "");
-
+		
 		using (StreamReader sread = new StreamReader("Accounts.txt"))
 		{
 			list_of_accounts = AccountList.readAccounts(sread); //Reading in all the Accounts
@@ -50,7 +50,7 @@ public class AccountManagement : MonoBehaviour {
 				registerU.value = "";
 				registerP.value = "";
 				registerPC.value = "";
-
+				
 				list_of_accounts.addAccount(reg_acc);
 				using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
 				{
@@ -90,7 +90,7 @@ public class AccountManagement : MonoBehaviour {
 			list_of_accounts = AccountList.readAccounts(slread);
 			slread.Close ();
 		}
-
+		
 		int i = 0;
 		while (i < list_of_accounts.sizeList)
 		{
@@ -102,7 +102,7 @@ public class AccountManagement : MonoBehaviour {
 			}
 			i++;
 		}
-
+		
 		if (i != this.list_of_accounts.sizeList) //Dus account bestaat en password is correct
 		{
 			loginU.value = "";

@@ -22,13 +22,14 @@ public class MenuButtons : MonoBehaviour {
 	public GameObject Server_Menu;
 	public GameObject Account_Menu;
 
-	public InputField regU;
-	public InputField regP;
-	public InputField regPC;
-	public InputField logU;
-	public InputField logP;
+	public GameObject regU;
+	public GameObject regP;
+	public GameObject regPC;
+	public GameObject logU;
+	public GameObject logP;
 
 	public AccountManagement AccManager;
+	public NW_Server serverStuff;
 	
 	// Use this for initialization
 	void OnMouseEnter(){
@@ -56,7 +57,14 @@ public class MenuButtons : MonoBehaviour {
 		if (Back) {
 			Main_Menu.SetActive(true);
 			Multiplayer_Menu.SetActive(false);
+			Server_Menu.SetActive(false);
+			Account_Menu.SetActive(false);
 			renderer.material.color = Button_Idle;
+			regU.SetActive(false);
+			regP.SetActive(false);
+			regPC.SetActive(false);
+			logU.SetActive(false);
+			logP.SetActive(false);
 		}
 
 		if (QuitGame) {
@@ -64,16 +72,18 @@ public class MenuButtons : MonoBehaviour {
 		}
 
 		if (StartServer) {
+			serverStuff.startServer();
 			Server_Menu.SetActive(true);
 			Multiplayer_Menu.SetActive(false);
 			renderer.material.color = Button_Idle;
 		}
 
 		if (Refresh) {
-			Debug.Log ("Refreshed");
+			serverStuff.refreshHost();
 		}
 
 		if (Disconnect) {
+			serverStuff.closeServer();
 			Server_Menu.SetActive(false);
 			Multiplayer_Menu.SetActive(true);
 			renderer.material.color = Button_Idle;
@@ -82,6 +92,11 @@ public class MenuButtons : MonoBehaviour {
 		if (Account) {
 			Main_Menu.SetActive(false);
 			Account_Menu.SetActive(true);
+			regU.SetActive(true);
+			regP.SetActive(true);
+			regPC.SetActive(true);
+			logU.SetActive(true);
+			logP.SetActive(true);
 			renderer.material.color = Button_Idle;
 		}
 
