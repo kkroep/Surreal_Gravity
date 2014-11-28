@@ -51,7 +51,7 @@ public class Copy_Camera_Control : MonoBehaviour {
 
 	void Start()
 	{
-		playOffline = Networkmanager2.playOffline;
+		playOffline = NW_Server.playOffline;
 		if (networkView.isMine || playOffline)
 		{
 			lastShot = Time.time;

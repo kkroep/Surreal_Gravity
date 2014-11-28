@@ -50,7 +50,7 @@ public class Copy_playerController : MonoBehaviour
 	
 	void Start ()
 	{
-		playOffline = Networkmanager2.playOffline;
+		playOffline = NW_Server.playOffline;
 		if (networkView.isMine || playOffline)
 		{
 			Screen.lockCursor = true;

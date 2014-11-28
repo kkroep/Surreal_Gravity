@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Networkmanager2 : MonoBehaviour {
+public class NW_Server : MonoBehaviour {
 
+	public GameObject serverBtn;
+	public GameObject hostsBtn;
+	public GameObject offlineBtn;
+	public GameObject startGameBtn;
 	public static bool playOffline = false;
 
 	private string gameName = "YOLO_Test_Main_Game";
@@ -16,7 +20,7 @@ public class Networkmanager2 : MonoBehaviour {
 		bool NAT = !Network.HavePublicAddress();
 		Network.InitializeServer (4, 25001, NAT); //Initialiseer Server; max connecties  = 4, port = 25001 
 		MasterServer.RegisterHost (gameName, "Multiplayer_Test", "Trying to implement Multiplayer"); //Registreer de Server
-		Application.LoadLevel(1);
+		//Application.LoadLevel(1);
 	}
 
 	public void refreshHost ()
@@ -28,7 +32,20 @@ public class Networkmanager2 : MonoBehaviour {
 	public void playOfflineFunction ()
 	{
 		playOffline = true;
-		Application.LoadLevel(1); //"Copy_Of_Main_Game");
+		Application.LoadLevel(1);
+	}
+	public void startGame ()
+	{
+		if (Network.isServer)
+		{
+			networkView.RPC("beginGame", RPCMode.AllBuffered);
+		}
+	}
+
+	[RPC]
+	public void beginGame ()
+	{
+		Application.LoadLevel(1);
 	}
 
 	void Update ()
@@ -42,7 +59,17 @@ public class Networkmanager2 : MonoBehaviour {
 				hostD = MasterServer.PollHostList ();
 			}
 		}
-		if (goOn)
+		if (Network.isServer || Network.isClient)
+		{
+			serverBtn.SetActive(false);
+			hostsBtn.SetActive(false);
+			offlineBtn.SetActive(false);
+			if (Network.isServer)
+			{
+				startGameBtn.SetActive(true);
+			}
+		}
+		/*if (goOn)
 		{
 			timer -= Time.deltaTime;
 			if (timer <= 0)
@@ -50,7 +77,7 @@ public class Networkmanager2 : MonoBehaviour {
 				timer = 0;
 				Application.LoadLevel(1);
 			}
-		}
+		}*/
 	}
 
 	void OnGUI ()
@@ -66,7 +93,7 @@ public class Networkmanager2 : MonoBehaviour {
 					if (GUI.Button(new Rect(Screen.width/4, Screen.height/10 + (i * 100), Screen.width*0.1f, Screen.height*0.05f), hostD[i].gameName))
 					{
 						Network.Connect(hostD[i]);
-						goOn = true;
+						//goOn = true;
 					}
 				}
 			}

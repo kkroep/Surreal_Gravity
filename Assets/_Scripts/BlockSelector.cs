@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class BlockSelector : MonoBehaviour {
+	/*
 	public GameObject robotSettings;
 
 	private MainRobotSettings settings;
@@ -14,6 +15,7 @@ public class BlockSelector : MonoBehaviour {
 	}
 
 	void Update(){
+
 		float selector = Random.value;
 		float timer = 0;
 		if(selector>0.99 && settings.numberRobots>0){
@@ -29,19 +31,24 @@ public class BlockSelector : MonoBehaviour {
 
 		}
 
+
 	}
 
 	public void isSelectorFunction(){
+
 		settings.numberRobots -= 1;
 		Destroy (this.gameObject, 0.1f);
 
 
+
 	}
-	/*
+
 	public GameObject getSelection(float[] xInterval, float[] yInterval, float[] zInterval){
 		
 
 	}
 	*/
+
+
 
 }

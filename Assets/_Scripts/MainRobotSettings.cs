@@ -4,12 +4,18 @@ using System.Collections;
 public class MainRobotSettings : MonoBehaviour {
 	
 	public int numberRobots;
+	public GameObject robot;
 
 	private int selectBlock;
 
+
 	void Start(){
-		selectBlock = numberRobots;
+		for(int i=0;i<numberRobots;i++){
+			Instantiate (robot, new Vector3(0,0,0), Quaternion.identity);
+
+		}
+	
+	
 	}
-	
-	
+
 }
