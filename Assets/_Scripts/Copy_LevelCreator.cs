@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Copy_LevelCreator : MonoBehaviour {
 	
 	public GameObject buildingBlock;
+	public GameObject MainRobotSettings;
 	public int numberOfLargeSpawns;
 	public int numberOfSmallSpawns;
 	public int approxBlocksPerLargeStack;
@@ -23,18 +24,18 @@ public class Copy_LevelCreator : MonoBehaviour {
 	public bool plusz;
 	public bool negz;
 
-	private int[,,] grid; //Can't be send with RPC -> Must be a matrix of Vector3
+	private int[,,] grid;
 	private int[] targetPosition;
-
-	private bool playOffline;
+	private int seedint;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		playOffline = NW_Server.playOffline;
 
-		if (Network.isServer || playOffline)
+		if (Network.isServer || BasicFunctions.playOffline)
 		{
+			seedint = System.Environment.TickCount;
+			Random.seed = seedint;
 			grid = new int[levelWidth,levelHeight,levelDepth];
 			
 			//Fills the grid matrix with 1s, representing large spawns
@@ -52,19 +53,43 @@ public class Copy_LevelCreator : MonoBehaviour {
 			}
 			
 			//loop through the grid matrix, drawing a building block every time a 1 is encountered
-			draw(levelWidth, levelHeight, levelDepth, grid);
+			//draw(levelWidth, levelHeight, levelDepth, grid);
+			draw ();
 
 			if (Network.isServer)
 			{
-				networkView.RPC("generateLevel", RPCMode.OthersBuffered, levelWidth, levelHeight, levelDepth, grid);
+				networkView.RPC("generateLevel", RPCMode.OthersBuffered, seedint);
 			}
 		}
 	}
 
 	[RPC]
-	public void generateLevel (int width, int height, int depth, int[,,] level)
+	public void generateLevel (int seed)
 	{
-		draw(width, height, depth, level);
+		if (Network.isClient)
+		{
+			Random.seed = seed;
+			grid = new int[levelWidth,levelHeight,levelDepth];
+			
+			//Fills the grid matrix with 1s, representing large spawns
+			//createLargeSpawn() is called numberOfLargeSpawns times, each time creating a separate spawn
+			for(int i = 0; i<numberOfLargeSpawns;i++)
+			{
+				createMainSpawn(approxBlocksPerLargeStack);
+			}
+			
+			//fills the grid matrix with 1s, representing small spawns
+			//createSmallSpawn() is called numberOfSmallSpawns times, each time creating a separate spawn
+			for(int i = 0; i<numberOfSmallSpawns;i++)
+			{
+				createMainSpawn(approxBlocksPerSmallStack);			
+			}
+			
+			//loop through the grid matrix, drawing a building block every time a 1 is encountered
+			//draw(levelWidth, levelHeight, levelDepth, grid);
+			draw ();
+		}
+		draw();
 	}
 
 	//function responsible for filling the grid matrix with spawns
@@ -203,7 +228,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	}
 
 	//function that loops through the gread and instanciates a building block when it encounters a 1
-	void draw(int levelWidth, int levelHeight, int levelDepth, int[,,] grid)
+	void draw() //int levelWidth, int levelHeight, int levelDepth, int[,,] grid)
 	{
 		for(int width=0;width<levelWidth;width++)
 		{

@@ -19,7 +19,6 @@ public class NW_Spawning : MonoBehaviour {
 	
 	void Start ()
 	{
-		playOffline = NW_Server.playOffline;
 		spawnLocations = new List<Transform> ();
 		spawnLocations.Add(spawn1);
 		spawnLocations.Add(spawn2);
@@ -34,14 +33,14 @@ public class NW_Spawning : MonoBehaviour {
 		int index = Random.Range (0, spawnLocations.Count-1); //Take random integer
 		randomSpawnPoint = spawnLocations[index]; //Pick random spawnpoint (because of random int)
 		Debug.Log(randomSpawnPoint);
-		if (playOffline)
+		if (BasicFunctions.playOffline)
 		{
 			Object.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity);
 		}
 		else
 		{
 			Network.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity, 0); //Instantiate player on the spawn point
-			networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
+			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
 		//player.GetComponent<Copy_playerController>().playOffline = playOffline;
 	}

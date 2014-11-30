@@ -13,6 +13,8 @@ public class AccountManagement : MonoBehaviour {
 	public TextMesh currentUName;
 	
 	public Account activeAccount;
+
+	public static bool loggedIn;
 	
 	private AccountList list_of_accounts;
 	private Account log_acc;
@@ -22,6 +24,7 @@ public class AccountManagement : MonoBehaviour {
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
 		activeAccount = new Account ("", "");
+		loggedIn = false;
 		
 		using (StreamReader sread = new StreamReader("Accounts.txt"))
 		{
@@ -110,6 +113,7 @@ public class AccountManagement : MonoBehaviour {
 			activeAccount.Name = log_acc.Name;
 			activeAccount.Word = log_acc.Word;
 			currentUName.text = activeAccount.Name;
+			loggedIn = true;
 		}
 		else
 		{

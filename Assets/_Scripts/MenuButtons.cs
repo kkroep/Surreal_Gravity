@@ -8,11 +8,13 @@ public class MenuButtons : MonoBehaviour {
 
 	public bool HoverEffects = true;
 	public bool MultiPlayer = false;
+	public bool SinglePlayer = false;
 	public bool Back = false;
 	public bool QuitGame = false;
 	public bool StartServer = false;
 	public bool Refresh = false;
 	public bool Disconnect = false;
+	public bool startGame = false;
 	public bool Account = false;
 	public bool Register = false;
 	public bool Login = false;
@@ -21,6 +23,8 @@ public class MenuButtons : MonoBehaviour {
 	public GameObject Multiplayer_Menu;
 	public GameObject Server_Menu;
 	public GameObject Account_Menu;
+
+	public GameObject multiBtn;
 
 	public GameObject regU;
 	public GameObject regP;
@@ -34,7 +38,7 @@ public class MenuButtons : MonoBehaviour {
 	// Use this for initialization
 	void OnMouseEnter(){
 		if(HoverEffects)
-		renderer.material.color = Color.white;
+			renderer.material.color = Color.white;
 	}
 
 	void Start(){
@@ -49,9 +53,17 @@ public class MenuButtons : MonoBehaviour {
 	void OnMouseUp(){
 
 		if (MultiPlayer) {
-			Main_Menu.SetActive(false);
-			Multiplayer_Menu.SetActive(true);
-			renderer.material.color = Button_Idle;
+			if (AccountManagement.loggedIn)
+			{
+				Main_Menu.SetActive(false);
+				Multiplayer_Menu.SetActive(true);
+				renderer.material.color = Button_Idle;
+			}
+		}
+
+		if (SinglePlayer) {
+			BasicFunctions.playOffline = true;
+			Application.LoadLevel("Copy_Of_Main_Game");
 		}
 		
 		if (Back) {
@@ -65,6 +77,8 @@ public class MenuButtons : MonoBehaviour {
 			regPC.SetActive(false);
 			logU.SetActive(false);
 			logP.SetActive(false);
+			if (AccountManagement.loggedIn)
+				multiBtn.GetComponent<MenuButtons>().HoverEffects = true;
 		}
 
 		if (QuitGame) {
@@ -87,6 +101,10 @@ public class MenuButtons : MonoBehaviour {
 			Server_Menu.SetActive(false);
 			Multiplayer_Menu.SetActive(true);
 			renderer.material.color = Button_Idle;
+		}
+
+		if (startGame) {
+			serverStuff.startGame();
 		}
 
 		if (Account) {

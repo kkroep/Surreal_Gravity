@@ -4,9 +4,14 @@ using System.Collections.Generic;
 
 public class NW_Server : MonoBehaviour {
 
-	public static bool playOffline = false;
+	//public static bool playOffline = false;
 
 	public AccountManagement AccManager;
+
+	public TextMesh p1;
+	public TextMesh p2;
+	public TextMesh p3;
+	public TextMesh p4;
 
 	private static int amountPlayers;
 
@@ -36,12 +41,7 @@ public class NW_Server : MonoBehaviour {
 		MasterServer.RequestHostList (gameName);
 		refreshing = true;
 	}
-	
-	public void playOfflineFunction ()
-	{
-		playOffline = true;
-		Application.LoadLevel(1);
-	}
+
 	public void startGame ()
 	{
 		if (Network.isServer)
@@ -76,6 +76,7 @@ public class NW_Server : MonoBehaviour {
 			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
 			activeAccounts.Add(this.AccManager.activeAccount.Name); //Zet username in de lijst
+			setTexts1();
 			Debug.Log("AA: " + activeAccounts[0]);
 		}
 		else if (amountPlayers == 1)
@@ -104,7 +105,7 @@ public class NW_Server : MonoBehaviour {
 	[RPC]
 	public void beginGame ()
 	{
-		Application.LoadLevel(1);
+		Application.LoadLevel("Copy_Of_Main_Game");
 	}
 	/* Stuur UI data naar de Server
 	 */
@@ -132,15 +133,58 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isClient)
 		{
-			if (!activeAccounts.Contains(UN))
+			if (!this.activeAccounts.Contains(UN))
 			{
-				activeAccounts.Add(UN);
+				this.activeAccounts.Add(UN);
 			}
 		}
-		//networkView.RPC("setTexts", RPCMode.AllBuffered);
+		networkView.RPC("setTexts", RPCMode.AllBuffered);
 		for (int i = 0; i < activeAccounts.Count; i++)
 		{
 			Debug.Log("CLIENT: Active Accounts[i]: " + activeAccounts[i]);
+		}
+	}
+	/* Zet de text op de Server
+	 */
+	public void setTexts1 ()
+	{
+		p1.text = "-> " + activeAccounts[0];
+		//player1.color = setColors(teamAccounts[0]);
+	}
+	/* Zet de text op de Clients
+	 */
+	[RPC]
+	public void setTexts ()
+	{
+		for (int i = 0; i < activeAccounts.Count; i++)
+		{
+			if (activeAccounts.Count == 2)
+			{
+				p1.text = "-> " + activeAccounts[0];
+				//player1.color = setColors(teamAccounts[0]);
+				p2.text = activeAccounts[1];
+				//player2.color = setColors(teamAccounts[1]);
+			}
+			else if (activeAccounts.Count == 3)
+			{
+				p1.text = "-> " + activeAccounts[0];
+				//player1.color = setColors(teamAccounts[0]);
+				p2.text = activeAccounts[1];
+				//player2.color = setColors(teamAccounts[1]);
+				p3.text = activeAccounts[2];
+				//player3.color = setColors(teamAccounts[2]);
+			}
+			else if (activeAccounts.Count == 4)
+			{
+				p1.text = "-> " + activeAccounts[0];
+				//player1.color = setColors(teamAccounts[0]);
+				p2.text = activeAccounts[1];
+				//player2.color = setColors(teamAccounts[1]);
+				p3.text = activeAccounts[2];
+				//player3.color = setColors(teamAccounts[2]);
+				p4.text = activeAccounts[3];
+				//player4.color = setColors(teamAccounts[3]);
+			}
 		}
 	}
 
