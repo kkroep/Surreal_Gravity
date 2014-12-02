@@ -1356,7 +1356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &359459700
 Transform:
   m_ObjectHideFlags: 0
@@ -2226,7 +2226,7 @@ RectTransform:
   m_Children:
   - {fileID: 255917895}
   m_Father: {fileID: 1520158318}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 47.4640007, y: 75.4759979}
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   validation: 0
   characterLimit: 0
   multiLine: 1
-  activeTextColor: {r: 1, g: 1, b: 1, a: 1}
+  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
   onSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -3650,7 +3650,7 @@ RectTransform:
   m_Children:
   - {fileID: 1705652727}
   m_Father: {fileID: 1520158318}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 47.4639893, y: 37.473999}
@@ -3693,12 +3693,12 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 759025413}
   m_Interactable: 1
   m_TextComponent: {fileID: 1705652728}
-  inputType: 0
+  inputType: 2
   keyboardType: 0
   validation: 0
   characterLimit: 0
   multiLine: 1
-  activeTextColor: {r: 1, g: 1, b: 1, a: 1}
+  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
   onSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -3819,7 +3819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &785842076
 Transform:
   m_ObjectHideFlags: 0
@@ -5026,7 +5026,7 @@ MonoBehaviour:
   validation: 0
   characterLimit: 0
   multiLine: 1
-  activeTextColor: {r: 1, g: 1, b: 1, a: 1}
+  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
   onSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -6392,12 +6392,12 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1311821295}
   m_Interactable: 1
   m_TextComponent: {fileID: 758707992}
-  inputType: 0
+  inputType: 2
   keyboardType: 0
   validation: 0
   characterLimit: 0
   multiLine: 1
-  activeTextColor: {r: 1, g: 1, b: 1, a: 1}
+  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
   onSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -8018,8 +8018,8 @@ RectTransform:
   - {fileID: 1031667082}
   - {fileID: 1727162461}
   - {fileID: 1311821293}
-  - {fileID: 496393789}
   - {fileID: 759025411}
+  - {fileID: 496393789}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
@@ -8649,12 +8649,12 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1727162463}
   m_Interactable: 1
   m_TextComponent: {fileID: 883233346}
-  inputType: 0
+  inputType: 2
   keyboardType: 0
   validation: 0
   characterLimit: 0
   multiLine: 1
-  activeTextColor: {r: 1, g: 1, b: 1, a: 1}
+  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
   onSubmit:
     m_PersistentCalls:
       m_Calls: []

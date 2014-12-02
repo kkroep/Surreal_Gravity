@@ -51,6 +51,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 135: {fileID: 13500000}
   - 54: {fileID: 5400000}
+  - 148: {fileID: 14800000}
   m_Layer: 0
   m_Name: Gravity_Bullet
   m_TagString: Bullet
@@ -247,6 +248,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .100000024
   m_Center: {x: -1.86264515e-08, y: 1.86264515e-08, z: 0}
+--- !u!148 &14800000
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 0
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 400004}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

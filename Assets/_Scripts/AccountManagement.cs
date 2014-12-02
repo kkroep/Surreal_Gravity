@@ -112,6 +112,8 @@ public class AccountManagement : MonoBehaviour {
 			loginP.value = "";
 			activeAccount.Name = log_acc.Name;
 			activeAccount.Word = log_acc.Word;
+			BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
+			Debug.Log("BF: " + BasicFunctions.activeAccount.Name + ", " + BasicFunctions.activeAccount.Word);
 			currentUName.text = activeAccount.Name;
 			loggedIn = true;
 		}
