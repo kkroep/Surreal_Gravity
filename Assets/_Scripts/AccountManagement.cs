@@ -36,9 +36,9 @@ public class AccountManagement : MonoBehaviour {
 	 */
 	public void registerAccount ()
 	{
-		string username = registerU.text.text.ToString();
-		string password = registerP.text.text.ToString();
-		string passwordC = registerPC.text.text.ToString();
+		string username = registerU.text.ToString();
+		string password = registerP.text.ToString();
+		string passwordC = registerPC.text.ToString();
 		registerAccount (username, password, passwordC);
 	}
 	/* Lokaal registreren van account; dit doet alleen de Server
@@ -50,9 +50,9 @@ public class AccountManagement : MonoBehaviour {
 			Account reg_acc = new Account (Uname, Pword);
 			if (!list_of_accounts.containsUsername(reg_acc))
 			{
-				registerU.value = "";
-				registerP.value = "";
-				registerPC.value = "";
+				registerU.text = "";
+				registerP.text = "";
+				registerPC.text = "";
 				
 				list_of_accounts.addAccount(reg_acc);
 				using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
@@ -76,8 +76,8 @@ public class AccountManagement : MonoBehaviour {
 	 */
 	public void loginAccount ()
 	{
-		string username = loginU.text.text.ToString();
-		string password = loginP.text.text.ToString();
+		string username = loginU.text.ToString();
+		string password = loginP.text.ToString();
 		//string team = chooseTeamText.text.ToString();
 		loginAccount (username, password);
 		//networkView.RPC("loginAccServer", RPCMode.AllBuffered, username, password);
@@ -108,8 +108,8 @@ public class AccountManagement : MonoBehaviour {
 		
 		if (i != this.list_of_accounts.sizeList) //Dus account bestaat en password is correct
 		{
-			loginU.value = "";
-			loginP.value = "";
+			loginU.text = "";
+			loginP.text = "";
 			activeAccount.Name = log_acc.Name;
 			activeAccount.Word = log_acc.Word;
 			BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
