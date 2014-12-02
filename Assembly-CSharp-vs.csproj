@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Unity/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Unity/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,13 +64,15 @@
      <Compile Include="Assets\_Scripts\MenuButtons.cs" />
      <Compile Include="Assets\_Scripts\NW_Server.cs" />
      <Compile Include="Assets\_Scripts\NW_Spawning.cs" />
+     <Compile Include="Assets\_Scripts\Node.cs" />
+     <Compile Include="Assets\_Scripts\Pathfinder.cs" />
      <Compile Include="Assets\_Scripts\RobotScript.cs" />
      <Compile Include="Assets\_Scripts\SpawnBlock.cs" />
      <Compile Include="Assets\_Scripts\TargetScript.cs" />
      <Compile Include="Assets\_Scripts\TestBeunScriptUnit.cs" />
      <Compile Include="Assets\_Scripts\playerController.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
