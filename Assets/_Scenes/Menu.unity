@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -430,28 +430,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 1
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 1674761471}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 488400874}
-  serverStuff: {fileID: 0}
 --- !u!102 &74754156
 TextMesh:
   serializedVersion: 3
@@ -481,6 +469,119 @@ Renderer:
     type: 2}
   m_PrefabInternal: {fileID: 1725795077}
   m_GameObject: {fileID: 74754152}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!1 &93121316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 708658687}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 93121317}
+  - 23: {fileID: 93121321}
+  - 102: {fileID: 93121320}
+  - 114: {fileID: 93121319}
+  - 65: {fileID: 93121318}
+  m_Layer: 0
+  m_Name: Player4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &93121317
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 708658687}
+  m_GameObject: {fileID: 93121316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0333334617, y: -2.2166667, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 808454968}
+  m_RootOrder: 3
+--- !u!65 &93121318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 708658687}
+  m_GameObject: {fileID: 93121316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.48000026, y: .793650031, z: 0}
+  m_Center: {x: -5.58793545e-09, y: -2.40280002e-07, z: 0}
+--- !u!114 &93121319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 708658687}
+  m_GameObject: {fileID: 93121316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8744c2bec45b2cf498daabafb0f65d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
+  Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  HoverEffects: 0
+  MultiPlayer: 0
+  Back: 0
+  QuitGame: 0
+  StartServer: 0
+  Refresh: 0
+  Disconnect: 0
+  Account: 0
+  Main_Menu: {fileID: 359459699}
+  Multiplayer_Menu: {fileID: 1573688855}
+  Server_Menu: {fileID: 0}
+  Account_Menu: {fileID: 0}
+--- !u!102 &93121320
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 708658687}
+  m_GameObject: {fileID: 93121316}
+  m_Text: Open
+  m_OffsetZ: 0
+  m_CharacterSize: .100000001
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 45
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &93121321
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 708658687}
+  m_GameObject: {fileID: 93121316}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
@@ -555,28 +656,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &109901224
 TextMesh:
   serializedVersion: 3
@@ -821,7 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -902,28 +991,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &278205879
 TextMesh:
   serializedVersion: 3
@@ -1027,28 +1104,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 1
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 419670179}
 --- !u!102 &320054232
 TextMesh:
   serializedVersion: 3
@@ -1152,28 +1217,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &349838381
 TextMesh:
   serializedVersion: 3
@@ -1217,6 +1270,37 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &359459699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 359459700}
+  m_Layer: 0
+  m_Name: Client_in_Server
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &359459700
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359459699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1022819965}
+  - {fileID: 1376198553}
+  - {fileID: 808454968}
+  - {fileID: 1347657563}
+  m_Father: {fileID: 2146656443}
+  m_RootOrder: 4
 --- !u!1 &375905542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,28 +1361,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &375905546
 TextMesh:
   serializedVersion: 3
@@ -1342,6 +1414,191 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &376492038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 1159751850}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 376492039}
+  - 23: {fileID: 376492043}
+  - 102: {fileID: 376492042}
+  - 114: {fileID: 376492041}
+  - 65: {fileID: 376492040}
+  m_Layer: 0
+  m_Name: ServerPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &376492039
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 1159751850}
+  m_GameObject: {fileID: 376492038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0333334617, y: -.766666412, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 808454968}
+  m_RootOrder: 1
+--- !u!65 &376492040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159751850}
+  m_GameObject: {fileID: 376492038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.48000026, y: .793650031, z: 0}
+  m_Center: {x: -5.58793545e-09, y: -2.40280002e-07, z: 0}
+--- !u!114 &376492041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159751850}
+  m_GameObject: {fileID: 376492038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8744c2bec45b2cf498daabafb0f65d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
+  Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  HoverEffects: 0
+  MultiPlayer: 0
+  Back: 0
+  QuitGame: 0
+  StartServer: 0
+  Refresh: 0
+  Disconnect: 0
+  Account: 0
+  Main_Menu: {fileID: 359459699}
+  Multiplayer_Menu: {fileID: 1573688855}
+  Server_Menu: {fileID: 0}
+  Account_Menu: {fileID: 0}
+--- !u!102 &376492042
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159751850}
+  m_GameObject: {fileID: 376492038}
+  m_Text: Server
+  m_OffsetZ: 0
+  m_CharacterSize: .100000001
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 45
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &376492043
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159751850}
+  m_GameObject: {fileID: 376492038}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!1001 &391936618
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 808454968}
+    m_Modifications:
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0333334617
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.76666641
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Name
+      value: Player3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Text
+      value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Main_Menu
+      value: 
+      objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1573688855}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: HoverEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_RootGameObject: {fileID: 1123375409}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &398712759
 Prefab:
   m_ObjectHideFlags: 0
@@ -1595,28 +1852,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &441941053
 TextMesh:
   serializedVersion: 3
@@ -1720,28 +1965,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &450501731
 TextMesh:
   serializedVersion: 3
@@ -1913,22 +2146,30 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_TargetGraphic: {fileID: 496393791}
   m_Interactable: 1
+  m_TargetGraphic: {fileID: 496393791}
   m_TextComponent: {fileID: 255917896}
-  inputType: 0
-  keyboardType: 0
-  validation: 0
-  characterLimit: 0
-  multiLine: 1
-  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
-  onSubmit:
+  m_Placeholder: {fileID: 0}
+  m_ContentType: 0
+  m_InputType: 0
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 0
+  m_EndEdit:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  selectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
-  m_Value: 
+  m_OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_Text: 
+  m_CaretBlinkRate: 1.70000005
 --- !u!114 &496393791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1940,7 +2181,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: .588}
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
@@ -2072,28 +2313,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &538545962
 TextMesh:
   serializedVersion: 3
@@ -2215,6 +2444,78 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 450501727}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
+--- !u!1001 &576307742
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 808454968}
+    m_Modifications:
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0333334617
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.28333282
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Name
+      value: Open2
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Text
+      value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Main_Menu
+      value: 
+      objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1573688855}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: HoverEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_RootGameObject: {fileID: 1502158795}
   m_IsPrefabParent: 0
   m_IsExploded: 1
 --- !u!1001 &595178537
@@ -2349,28 +2650,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 1
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 1674761471}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 1031667081}
-  regP: {fileID: 1727162460}
-  regPC: {fileID: 1311821292}
-  logU: {fileID: 496393788}
-  logP: {fileID: 759025410}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &607044607
 TextMesh:
   serializedVersion: 3
@@ -2534,28 +2823,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 1
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &664547633
 TextMesh:
   serializedVersion: 3
@@ -2611,6 +2888,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 785842076}
   m_RootOrder: 3
+--- !u!1001 &708658687
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 808454968}
+    m_Modifications:
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0333334617
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.2166667
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Name
+      value: Player4
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Text
+      value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Main_Menu
+      value: 
+      objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1573688855}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: HoverEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_RootGameObject: {fileID: 93121316}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &731983480
 Prefab:
   m_ObjectHideFlags: 0
@@ -2739,28 +3088,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 1
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 419670179}
 --- !u!102 &734412066
 TextMesh:
   serializedVersion: 3
@@ -2867,28 +3204,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 1
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 488400874}
-  serverStuff: {fileID: 0}
 --- !u!102 &741662244
 TextMesh:
   serializedVersion: 3
@@ -2992,28 +3317,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &755613496
 TextMesh:
   serializedVersion: 3
@@ -3085,7 +3398,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -3193,22 +3506,30 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_TargetGraphic: {fileID: 759025413}
   m_Interactable: 1
+  m_TargetGraphic: {fileID: 759025413}
   m_TextComponent: {fileID: 1705652728}
-  inputType: 2
-  keyboardType: 0
-  validation: 0
-  characterLimit: 0
-  multiLine: 1
-  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
-  onSubmit:
+  m_Placeholder: {fileID: 0}
+  m_ContentType: 0
+  m_InputType: 0
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 0
+  m_EndEdit:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  selectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
-  m_Value: 
+  m_OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_Text: 
+  m_CaretBlinkRate: 1.70000005
 --- !u!114 &759025413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3220,7 +3541,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: .588}
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
@@ -3322,7 +3643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &785842076
 Transform:
   m_ObjectHideFlags: 0
@@ -3342,6 +3663,123 @@ Transform:
   - {fileID: 1095099506}
   m_Father: {fileID: 2146656443}
   m_RootOrder: 0
+--- !u!1 &808454967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 1653303575}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 808454968}
+  - 23: {fileID: 808454972}
+  - 102: {fileID: 808454971}
+  - 114: {fileID: 808454970}
+  - 65: {fileID: 808454969}
+  m_Layer: 0
+  m_Name: 'Players:'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808454968
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 1653303575}
+  m_GameObject: {fileID: 808454967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.569999993, y: 51.0999985, z: -101}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_Children:
+  - {fileID: 1502158796}
+  - {fileID: 376492039}
+  - {fileID: 1123375410}
+  - {fileID: 93121317}
+  m_Father: {fileID: 359459700}
+  m_RootOrder: 2
+--- !u!65 &808454969
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1653303575}
+  m_GameObject: {fileID: 808454967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.48000026, y: .793650031, z: 0}
+  m_Center: {x: -5.58793545e-09, y: -2.40280002e-07, z: 0}
+--- !u!114 &808454970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1653303575}
+  m_GameObject: {fileID: 808454967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8744c2bec45b2cf498daabafb0f65d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button_Idle: {r: .0588235259, g: .335640162, b: 1, a: 1}
+  Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  HoverEffects: 0
+  MultiPlayer: 0
+  Back: 0
+  QuitGame: 0
+  StartServer: 0
+  Refresh: 0
+  Disconnect: 0
+  Account: 0
+  Main_Menu: {fileID: 359459699}
+  Multiplayer_Menu: {fileID: 1573688855}
+  Server_Menu: {fileID: 0}
+  Account_Menu: {fileID: 0}
+--- !u!102 &808454971
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1653303575}
+  m_GameObject: {fileID: 808454967}
+  m_Text: 'Players:'
+  m_OffsetZ: 0
+  m_CharacterSize: .100000001
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 45
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &808454972
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 1653303575}
+  m_GameObject: {fileID: 808454967}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &822332435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,28 +3840,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &822332439
 TextMesh:
   serializedVersion: 3
@@ -3512,7 +3938,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -3592,6 +4018,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!4 &900477384
 Transform:
   m_ObjectHideFlags: 0
@@ -3664,28 +4092,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &901283764
 TextMesh:
   serializedVersion: 3
@@ -3877,6 +4293,82 @@ Prefab:
   m_RootGameObject: {fileID: 1418721595}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &972807340
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 359459700}
+    m_Modifications:
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 29.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -101
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Name
+      value: Disconnect
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Text
+      value: Disconnect
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Main_Menu
+      value: 
+      objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1573688855}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: QuitGame
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Server_Menu
+      value: 
+      objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Disconnect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: serverStuff
+      value: 
+      objectReference: {fileID: 419670179}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_RootGameObject: {fileID: 1347657562}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &1017731763
 Prefab:
   m_ObjectHideFlags: 0
@@ -3969,6 +4461,90 @@ Prefab:
   m_RootGameObject: {fileID: 1359816339}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1022819964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1022819965}
+  - 64: {fileID: 1022819968}
+  - 23: {fileID: 1022819967}
+  - 102: {fileID: 1022819966}
+  m_Layer: 0
+  m_Name: Waiting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022819965
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022819964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.3000002, y: 72.0999985, z: -101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 359459700}
+  m_RootOrder: 0
+--- !u!102 &1022819966
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022819964}
+  m_Text: Waiting
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 72
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286578751
+--- !u!23 &1022819967
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022819964}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &1022819968
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022819964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1029594879
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,28 +4605,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 1
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1674761471}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 1674761471}
-  multiBtn: {fileID: 1411589248}
-  regU: {fileID: 1031667081}
-  regP: {fileID: 1727162460}
-  regPC: {fileID: 1311821292}
-  logU: {fileID: 496393788}
-  logP: {fileID: 759025410}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1029594883
 TextMesh:
   serializedVersion: 3
@@ -4232,22 +4796,30 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_TargetGraphic: {fileID: 1031667084}
   m_Interactable: 1
+  m_TargetGraphic: {fileID: 1031667084}
   m_TextComponent: {fileID: 49895478}
-  inputType: 0
-  keyboardType: 0
-  validation: 0
-  characterLimit: 0
-  multiLine: 1
-  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
-  onSubmit:
+  m_Placeholder: {fileID: 0}
+  m_ContentType: 0
+  m_InputType: 0
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 0
+  m_EndEdit:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  selectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
-  m_Value: 
+  m_OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_Text: 
+  m_CaretBlinkRate: 1.70000005
 --- !u!114 &1031667084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4259,7 +4831,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: .588}
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
@@ -4335,28 +4907,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 1
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1095099509
 TextMesh:
   serializedVersion: 3
@@ -4460,28 +5020,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1097752440
 TextMesh:
   serializedVersion: 3
@@ -4647,6 +5195,191 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1095099505}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
+--- !u!1 &1123375409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 391936618}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1123375410}
+  - 23: {fileID: 1123375414}
+  - 102: {fileID: 1123375413}
+  - 114: {fileID: 1123375412}
+  - 65: {fileID: 1123375411}
+  m_Layer: 0
+  m_Name: Player3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1123375410
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 391936618}
+  m_GameObject: {fileID: 1123375409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0333334617, y: -1.76666641, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 808454968}
+  m_RootOrder: 2
+--- !u!65 &1123375411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 391936618}
+  m_GameObject: {fileID: 1123375409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.48000026, y: .793650031, z: 0}
+  m_Center: {x: -5.58793545e-09, y: -2.40280002e-07, z: 0}
+--- !u!114 &1123375412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 391936618}
+  m_GameObject: {fileID: 1123375409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8744c2bec45b2cf498daabafb0f65d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
+  Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  HoverEffects: 0
+  MultiPlayer: 0
+  Back: 0
+  QuitGame: 0
+  StartServer: 0
+  Refresh: 0
+  Disconnect: 0
+  Account: 0
+  Main_Menu: {fileID: 359459699}
+  Multiplayer_Menu: {fileID: 1573688855}
+  Server_Menu: {fileID: 0}
+  Account_Menu: {fileID: 0}
+--- !u!102 &1123375413
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 391936618}
+  m_GameObject: {fileID: 1123375409}
+  m_Text: Open
+  m_OffsetZ: 0
+  m_CharacterSize: .100000001
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 45
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1123375414
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 391936618}
+  m_GameObject: {fileID: 1123375409}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!1001 &1159751850
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 808454968}
+    m_Modifications:
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0333334617
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.766666412
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Main_Menu
+      value: 
+      objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1573688855}
+    - target: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Name
+      value: ServerPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Text
+      value: Server
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: HoverEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_RootGameObject: {fileID: 376492038}
   m_IsPrefabParent: 0
   m_IsExploded: 1
 --- !u!1001 &1225063652
@@ -4976,28 +5709,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1284462386
 TextMesh:
   serializedVersion: 3
@@ -5406,22 +6127,30 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_TargetGraphic: {fileID: 1311821295}
   m_Interactable: 1
+  m_TargetGraphic: {fileID: 1311821295}
   m_TextComponent: {fileID: 758707992}
-  inputType: 2
-  keyboardType: 0
-  validation: 0
-  characterLimit: 0
-  multiLine: 1
-  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
-  onSubmit:
+  m_Placeholder: {fileID: 0}
+  m_ContentType: 0
+  m_InputType: 0
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 0
+  m_EndEdit:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  selectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
-  m_Value: 
+  m_OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_Text: 
+  m_CaretBlinkRate: 1.70000005
 --- !u!114 &1311821295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5433,7 +6162,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: .588}
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
@@ -5509,28 +6238,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1326813946
 TextMesh:
   serializedVersion: 3
@@ -5634,6 +6351,119 @@ Prefab:
   m_RootGameObject: {fileID: 664547630}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1347657562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 972807340}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1347657563}
+  - 23: {fileID: 1347657567}
+  - 102: {fileID: 1347657566}
+  - 114: {fileID: 1347657565}
+  - 65: {fileID: 1347657564}
+  m_Layer: 0
+  m_Name: Disconnect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1347657563
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 972807340}
+  m_GameObject: {fileID: 1347657562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .300000012, y: 29.6000004, z: -101}
+  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 359459700}
+  m_RootOrder: 3
+--- !u!65 &1347657564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 972807340}
+  m_GameObject: {fileID: 1347657562}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.48000026, y: .793650031, z: 0}
+  m_Center: {x: -5.58793545e-09, y: -2.40280002e-07, z: 0}
+--- !u!114 &1347657565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 972807340}
+  m_GameObject: {fileID: 1347657562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8744c2bec45b2cf498daabafb0f65d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
+  Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  HoverEffects: 1
+  MultiPlayer: 0
+  Back: 0
+  QuitGame: 0
+  StartServer: 0
+  Refresh: 0
+  Disconnect: 1
+  Account: 0
+  Main_Menu: {fileID: 359459699}
+  Multiplayer_Menu: {fileID: 1573688855}
+  Server_Menu: {fileID: 359459699}
+  Account_Menu: {fileID: 0}
+--- !u!102 &1347657566
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 972807340}
+  m_GameObject: {fileID: 1347657562}
+  m_Text: Disconnect
+  m_OffsetZ: 0
+  m_CharacterSize: .100000001
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 45
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1347657567
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 972807340}
+  m_GameObject: {fileID: 1347657562}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &1359816339
 GameObject:
   m_ObjectHideFlags: 0
@@ -5694,28 +6524,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 1
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 1674761471}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 1031667081}
-  regP: {fileID: 1727162460}
-  regPC: {fileID: 1311821292}
-  logU: {fileID: 496393788}
-  logP: {fileID: 759025410}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1359816343
 TextMesh:
   serializedVersion: 3
@@ -5835,6 +6653,90 @@ Prefab:
   m_RootGameObject: {fileID: 1284462382}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1376198552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1376198553}
+  - 64: {fileID: 1376198556}
+  - 23: {fileID: 1376198555}
+  - 102: {fileID: 1376198554}
+  m_Layer: 0
+  m_Name: For_server
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376198553
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376198552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.8000002, y: 65.3000031, z: -101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 359459700}
+  m_RootOrder: 1
+--- !u!102 &1376198554
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376198552}
+  m_Text: For server...
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 72
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286578751
+--- !u!23 &1376198555
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376198552}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &1376198556
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376198552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1388568540
 Prefab:
   m_ObjectHideFlags: 0
@@ -5967,28 +6869,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 1
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 785842075}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1411589252
 TextMesh:
   serializedVersion: 3
@@ -6121,28 +7011,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1418721599
 TextMesh:
   serializedVersion: 3
@@ -6338,6 +7216,119 @@ Prefab:
   m_RootGameObject: {fileID: 755613492}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1502158795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 576307742}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1502158796}
+  - 23: {fileID: 1502158800}
+  - 102: {fileID: 1502158799}
+  - 114: {fileID: 1502158798}
+  - 65: {fileID: 1502158797}
+  m_Layer: 0
+  m_Name: Open2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502158796
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_PrefabInternal: {fileID: 576307742}
+  m_GameObject: {fileID: 1502158795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0333334617, y: -1.28333282, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 808454968}
+  m_RootOrder: 0
+--- !u!65 &1502158797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 576307742}
+  m_GameObject: {fileID: 1502158795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.48000026, y: .793650031, z: 0}
+  m_Center: {x: -5.58793545e-09, y: -2.40280002e-07, z: 0}
+--- !u!114 &1502158798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 576307742}
+  m_GameObject: {fileID: 1502158795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8744c2bec45b2cf498daabafb0f65d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
+  Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  HoverEffects: 0
+  MultiPlayer: 0
+  Back: 0
+  QuitGame: 0
+  StartServer: 0
+  Refresh: 0
+  Disconnect: 0
+  Account: 0
+  Main_Menu: {fileID: 359459699}
+  Multiplayer_Menu: {fileID: 1573688855}
+  Server_Menu: {fileID: 0}
+  Account_Menu: {fileID: 0}
+--- !u!102 &1502158799
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 576307742}
+  m_GameObject: {fileID: 1502158795}
+  m_Text: Open
+  m_OffsetZ: 0
+  m_CharacterSize: .100000001
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 45
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1502158800
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: be0920e2c986253489edf7e1ebe37477,
+    type: 2}
+  m_PrefabInternal: {fileID: 576307742}
+  m_GameObject: {fileID: 1502158795}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &1508728152
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,28 +7392,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1508728156
 TextMesh:
   serializedVersion: 3
@@ -6606,28 +7585,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1519849137
 TextMesh:
   serializedVersion: 3
@@ -6740,6 +7707,8 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!1 &1573688855
@@ -6833,28 +7802,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1587470044
 TextMesh:
   serializedVersion: 3
@@ -6936,6 +7893,86 @@ Transform:
   - {fileID: 1786789733}
   m_Father: {fileID: 2146656443}
   m_RootOrder: 2
+--- !u!1001 &1653303575
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 359459700}
+    m_Modifications:
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.569999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 51.0999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -101
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Name
+      value: 'Players:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: m_Text
+      value: 'Players:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Main_Menu
+      value: 
+      objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1573688855}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: MultiPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: HoverEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Button_Idle.r
+      value: .0588235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Button_Idle.g
+      value: .335640162
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Button_Idle.b
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+  m_RootGameObject: {fileID: 808454967}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1674761471
 GameObject:
   m_ObjectHideFlags: 0
@@ -7014,7 +8051,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -7249,22 +8286,30 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_TargetGraphic: {fileID: 1727162463}
   m_Interactable: 1
+  m_TargetGraphic: {fileID: 1727162463}
   m_TextComponent: {fileID: 883233346}
-  inputType: 2
-  keyboardType: 0
-  validation: 0
-  characterLimit: 0
-  multiLine: 1
-  activeTextColor: {r: .247058824, g: 0, b: .501960814, a: 1}
-  onSubmit:
+  m_Placeholder: {fileID: 0}
+  m_ContentType: 0
+  m_InputType: 0
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 0
+  m_EndEdit:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  selectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
-  m_Value: 
+  m_OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_Text: 
+  m_CaretBlinkRate: 1.70000005
 --- !u!114 &1727162463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7276,7 +8321,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mat: {fileID: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: .588}
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
@@ -7352,28 +8397,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 1
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 419670179}
 --- !u!102 &1786789736
 TextMesh:
   serializedVersion: 3
@@ -7561,28 +8594,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1852787966
 TextMesh:
   serializedVersion: 3
@@ -7754,28 +8775,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1868187355
 TextMesh:
   serializedVersion: 3
@@ -7879,28 +8888,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &1908868734
 TextMesh:
   serializedVersion: 3
@@ -8004,28 +9001,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 1
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 1
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 419670179}
 --- !u!102 &1945961598
 TextMesh:
   serializedVersion: 3
@@ -8487,28 +9472,16 @@ MonoBehaviour:
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   HoverEffects: 0
   MultiPlayer: 0
-  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
-  startGame: 0
   Account: 0
-  Register: 0
-  Login: 0
   Main_Menu: {fileID: 1608761050}
   Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
-  regU: {fileID: 0}
-  regP: {fileID: 0}
-  regPC: {fileID: 0}
-  logU: {fileID: 0}
-  logP: {fileID: 0}
-  AccManager: {fileID: 0}
-  serverStuff: {fileID: 0}
 --- !u!102 &2071036684
 TextMesh:
   serializedVersion: 3
@@ -8704,5 +9677,6 @@ Transform:
   - {fileID: 1573688856}
   - {fileID: 1608761051}
   - {fileID: 1674761472}
+  - {fileID: 359459700}
   m_Father: {fileID: 0}
   m_RootOrder: 3
