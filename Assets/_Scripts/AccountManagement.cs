@@ -13,7 +13,7 @@ public class AccountManagement : MonoBehaviour {
 	public TextMesh currentUName;
 	
 	public Account activeAccount;
-
+	
 	public static bool loggedIn;
 	
 	private AccountList list_of_accounts;
