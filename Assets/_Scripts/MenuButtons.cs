@@ -6,6 +6,8 @@ public class MenuButtons : MonoBehaviour {
 	public Color Button_Idle = Color.green;
 	public Color Button_Active = Color.red;
 
+	public TextMesh currentUname;
+
 	public bool HoverEffects = true;
 	public bool MultiPlayer = false;
 	public bool SinglePlayer = false;
@@ -23,6 +25,7 @@ public class MenuButtons : MonoBehaviour {
 	public GameObject Multiplayer_Menu;
 	public GameObject Server_Menu;
 	public GameObject Account_Menu;
+	public GameObject Client_Menu;
 
 	public GameObject multiBtn;
 
@@ -116,6 +119,8 @@ public class MenuButtons : MonoBehaviour {
 			logU.SetActive(true);
 			logP.SetActive(true);
 			renderer.material.color = Button_Idle;
+			if (BasicFunctions.activeAccount != null)
+				currentUname.text = BasicFunctions.activeAccount.Name;
 		}
 
 		if (Register) {

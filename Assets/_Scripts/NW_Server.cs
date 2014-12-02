@@ -12,6 +12,12 @@ public class NW_Server : MonoBehaviour {
 	public TextMesh p2;
 	public TextMesh p3;
 	public TextMesh p4;
+	public TextMesh p1c;
+	public TextMesh p2c;
+	public TextMesh p3c;
+	public TextMesh p4c;
+
+	public bool connected = false;
 
 	private static int amountPlayers;
 
@@ -158,32 +164,65 @@ public class NW_Server : MonoBehaviour {
 	{
 		for (int i = 0; i < activeAccounts.Count; i++)
 		{
-			if (activeAccounts.Count == 2)
+			if (Network.isServer)
 			{
-				p1.text = "-> " + activeAccounts[0];
-				//player1.color = setColors(teamAccounts[0]);
-				p2.text = activeAccounts[1];
-				//player2.color = setColors(teamAccounts[1]);
+				if (activeAccounts.Count == 2)
+				{
+					p1.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+				}
+				else if (activeAccounts.Count == 3)
+				{
+					p1.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+				}
+				else if (activeAccounts.Count == 4)
+				{
+					p1.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+					p4.text = activeAccounts[3];
+					//player4.color = setColors(teamAccounts[3]);
+				}
 			}
-			else if (activeAccounts.Count == 3)
+			if (Network.isClient)
 			{
-				p1.text = "-> " + activeAccounts[0];
-				//player1.color = setColors(teamAccounts[0]);
-				p2.text = activeAccounts[1];
-				//player2.color = setColors(teamAccounts[1]);
-				p3.text = activeAccounts[2];
-				//player3.color = setColors(teamAccounts[2]);
-			}
-			else if (activeAccounts.Count == 4)
-			{
-				p1.text = "-> " + activeAccounts[0];
-				//player1.color = setColors(teamAccounts[0]);
-				p2.text = activeAccounts[1];
-				//player2.color = setColors(teamAccounts[1]);
-				p3.text = activeAccounts[2];
-				//player3.color = setColors(teamAccounts[2]);
-				p4.text = activeAccounts[3];
-				//player4.color = setColors(teamAccounts[3]);
+				if (activeAccounts.Count == 2)
+				{
+					p1c.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2c.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+				}
+				else if (activeAccounts.Count == 3)
+				{
+					p1c.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2c.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3c.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+				}
+				else if (activeAccounts.Count == 4)
+				{
+					p1c.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2c.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3c.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+					p4c.text = activeAccounts[3];
+					//player4.color = setColors(teamAccounts[3]);
+				}
 			}
 		}
 	}
@@ -220,6 +259,7 @@ public class NW_Server : MonoBehaviour {
 		if (ClientUpdate)
 		{
 			ClientIsConnected();
+			connected = true;
 			ClientUpdate = false;
 		}
 	}
