@@ -141,7 +141,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!81 &8100000
 AudioListener:
   m_ObjectHideFlags: 1
@@ -179,7 +179,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Gravity_Strength: 300
+  Gravity_Strength: 200
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
