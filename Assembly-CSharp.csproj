@@ -54,10 +54,7 @@
      <Compile Include="Assets\_Scripts\BlockSelector.cs" />
      <Compile Include="Assets\_Scripts\Bullet_Controller.cs" />
      <Compile Include="Assets\_Scripts\Camera_Control.cs" />
-     <Compile Include="Assets\_Scripts\Copy_Bullet_Controller.cs" />
-     <Compile Include="Assets\_Scripts\Copy_Camera_Control.cs" />
      <Compile Include="Assets\_Scripts\Copy_LevelCreator.cs" />
-     <Compile Include="Assets\_Scripts\Copy_playerController.cs" />
      <Compile Include="Assets\_Scripts\GameController_Script.cs" />
      <Compile Include="Assets\_Scripts\LevelCreator.cs" />
      <Compile Include="Assets\_Scripts\MainRobotSettings.cs" />
@@ -69,8 +66,11 @@
      <Compile Include="Assets\_Scripts\RobotScript.cs" />
      <Compile Include="Assets\_Scripts\SpawnBlock.cs" />
      <Compile Include="Assets\_Scripts\TargetScript.cs" />
-     <Compile Include="Assets\_Scripts\TestBeunScriptUnit.cs" />
      <Compile Include="Assets\_Scripts\playerController.cs" />
+     <Compile Include="Assets\_Scripts_Backup\Copy_Bullet_Controller.cs" />
+     <Compile Include="Assets\_Scripts_Backup\Copy_Camera_Control.cs" />
+     <Compile Include="Assets\_Scripts_Backup\Copy_playerController.cs" />
+     <Compile Include="Assets\_Scripts_Backup\TestBeunScriptUnit.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

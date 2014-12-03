@@ -111,7 +111,7 @@ public class NW_Server : MonoBehaviour {
 	[RPC]
 	public void beginGame ()
 	{
-		Application.LoadLevel("Copy_Of_Main_Game");
+		Application.LoadLevel("Main_Game");
 	}
 	/* Stuur UI data naar de Server
 	 */
