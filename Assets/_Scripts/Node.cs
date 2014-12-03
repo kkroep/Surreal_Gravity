@@ -5,9 +5,9 @@ public class Node{
 
 
 
-	public int heuristicValue = 0;
-	public int movementCost = 0;
-	public int totalCost = 0;
+	public int hValue = 0;
+	public int gValue = 0;
+	public int totalValue = 0;
 	public Node parentNode = null;
 	public Node widthneg = null;
 	public Node widthpos = null;
@@ -28,6 +28,10 @@ public class Node{
 		yPosition = y;
 		zPosition = z;
 
+	}
+
+	public void calculatetotalValue(){
+		totalValue = hValue + gValue;
 	}
 
 
