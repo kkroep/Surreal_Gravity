@@ -35,7 +35,7 @@
 		{
 			float4 pos : SV_POSITION;
 			half2 uv : TEXCOORD0;
-			half uv2 : TEXCOORD1;
+			half2 uv2 : TEXCOORD1;
 		};
 		
 		fragmentInput vert( vertexInput i )
@@ -51,7 +51,7 @@
 		half4 frag( fragmentInput i ) : COLOR
 		{
 			fixed4 mainTexColor = tex2D( _MainTex, i.uv );
-			fixed4 secondTexColor = tex2D( _SecondTex, i.uv );
+			fixed4 secondTexColor = tex2D( _SecondTex, i.uv2 );
 			
 			return lerp( mainTexColor, secondTexColor, _TextureMix);
 		}
