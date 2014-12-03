@@ -66,7 +66,7 @@ public class MenuButtons : MonoBehaviour {
 
 		if (SinglePlayer) {
 			BasicFunctions.playOffline = true;
-			Application.LoadLevel("Copy_Of_Main_Game");
+			Application.LoadLevel("Main_Game");
 		}
 		
 		if (Back) {
