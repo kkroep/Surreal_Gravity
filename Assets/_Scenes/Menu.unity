@@ -2738,7 +2738,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
       propertyPath: HoverEffects
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
       propertyPath: Test
@@ -4727,6 +4727,10 @@ Prefab:
       propertyPath: Account_Menu
       value: 
       objectReference: {fileID: 1674761471}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: multiBtn
+      value: 
+      objectReference: {fileID: 1411589248}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1359816339}
@@ -6913,7 +6917,7 @@ MonoBehaviour:
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 1674761471}
   Client_Menu: {fileID: 0}
-  multiBtn: {fileID: 0}
+  multiBtn: {fileID: 1411589248}
   regU: {fileID: 1031667081}
   regP: {fileID: 1727162460}
   regPC: {fileID: 1311821292}
@@ -7255,7 +7259,7 @@ MonoBehaviour:
   Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
   currentUname: {fileID: 0}
-  HoverEffects: 0
+  HoverEffects: 1
   MultiPlayer: 1
   SinglePlayer: 0
   Back: 0

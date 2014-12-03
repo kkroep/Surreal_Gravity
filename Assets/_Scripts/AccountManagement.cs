@@ -23,8 +23,11 @@ public class AccountManagement : MonoBehaviour {
 	{
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
-		activeAccount = new Account ("", "");
-		loggedIn = false;
+		//activeAccount = new Account ("", "");
+		activeAccount = new Account ("Debug", "-");
+		loggedIn = true;
+		BasicFunctions.activeAccount = activeAccount;
+		//loggedIn = false;
 		
 		using (StreamReader sread = new StreamReader("Accounts.txt"))
 		{
