@@ -67,7 +67,7 @@ public class playerController : MonoBehaviour
 		{
 			before_shift = transform.rotation;
 			Gravity_Direction = new_Gravity;
-			Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, Main_Camera.transform.forward);
+			Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, transform.forward);
 			after_shift = Quaternion.LookRotation (New_Player_Forward_tmp, Gravity_Direction * -1f);
 			Gravity_Shift_Counter = Gravity_Shift_Time;
 		}
@@ -80,11 +80,11 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Network.Instantiate( Kill_Bullet, transform.position, transform.rotation, 2 );
-				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+				Rigidbody instantiatedProjectile = (Rigidbody)Network.Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation, 2 );
+				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, instantiatedProjectile.networkView.viewID, transform.position, transform.forward); //instantiatedProjectile.networkView.viewID
+				networkView.RPC("fireKillBulletS", RPCMode.Others, instantiatedProjectile.networkView.viewID, Main_Camera.transform.position, Main_Camera.transform.forward);
 			}
 		}
 		else if (BasicFunctions.playOffline)
@@ -92,8 +92,8 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log ("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
-				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation );
+				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
 			}

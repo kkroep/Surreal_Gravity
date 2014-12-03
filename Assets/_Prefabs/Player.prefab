@@ -171,6 +171,7 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 1200
   Main_Camera: {fileID: 11400006}
+  Cam: {fileID: 100002}
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
