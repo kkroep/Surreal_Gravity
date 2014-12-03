@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: block
-  m_Shader: {fileID: 13, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 083606fc4295519408437fb9f4c6e92f, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,8 +17,8 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 98d15dcbaba7a35459fca4394e3b47cb, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Texture: {fileID: 2800000, guid: 0b04e22bd9dde3a4fa4bf83c50d2186d, type: 3}
+          m_Scale: {x: 8, y: 8}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -32,6 +32,13 @@ Material:
           name: _Illum
         second:
           m_Texture: {fileID: 2800000, guid: 85bc98a270bb40443ae49ee54d12cbb3, type: 3}
+          m_Scale: {x: 4, y: 4}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 98d15dcbaba7a35459fca4394e3b47cb, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -43,6 +50,10 @@ Material:
         first:
           name: _EmissionLM
         second: 0
+      data:
+        first:
+          name: _TextureMix
+        second: .553571403
     m_Colors:
       data:
         first:
