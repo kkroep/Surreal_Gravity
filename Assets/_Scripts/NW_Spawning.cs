@@ -30,8 +30,8 @@ public class NW_Spawning : MonoBehaviour {
 	
 	public void spawnPlayer ()
 	{
-		//int index = Random.Range (0, spawnLocations.Count-1); //Take random integer
-		randomSpawnPoint = spawn1; //spawnLocations[index]; //Pick random spawnpoint (because of random int)
+		int index = Random.Range (0, spawnLocations.Count-1); //Take random integer
+		randomSpawnPoint = spawnLocations[index]; //Pick random spawnpoint (because of random int)
 		//Debug.Log(randomSpawnPoint);
 		if (BasicFunctions.playOffline)
 		{

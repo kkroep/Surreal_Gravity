@@ -41,7 +41,7 @@ public class Camera_Control : MonoBehaviour {
 	private float lastShot;
 	public float reloadTime = 0f;
 	public Rigidbody Gravity_Bullet;
-	public Rigidbody Kill_Bullet;
+	//public Rigidbody Kill_Bullet;
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
 	
@@ -62,28 +62,22 @@ public class Camera_Control : MonoBehaviour {
 		}
 	}
 	
-	void Fire_Kill_Bullet()
+	/*void Fire_Kill_Bullet()
 	{
-		/*if (networkView.isMine)
+		if (networkView.isMine)
 		{
 			if (Time.time > reloadTime + lastShot)
+				Debug.Log("Fired");
 			{
-				//Rigidbody instantiatedProjectile = Network.Instantiate( Kill_Bullet, transform.position, transform.rotation, 0 ) as Rigidbody;
-				//Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
-				//lastShot = Time.time;
-				if (!Network.isServer)
-					networkView.RPC("fireKillBulletS", RPCMode.Server, transform.position); //instantiatedProjectile.networkView.viewID, transform.forward);
-				else
-				{
-					Rigidbody instantiatedProjectile = Object.Instantiate( Kill_Bullet, transform.position, transform.rotation ) as Rigidbody;
-					instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
-					Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
-					lastShot = Time.time;
-					networkView.RPC("fireKillBulletC", RPCMode.Others, transform.position, transform.forward);
-				}
+				//Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Network.Instantiate( Kill_Bullet, transform.position, transform.rotation, 2 );
+				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
+				lastShot = Time.time;
+				networkView.RPC("fireKillBulletS", RPCMode.Others, transform.position, transform.forward); //instantiatedProjectile.networkView.viewID
 			}
 		}
-		else*/ if (BasicFunctions.playOffline)
+		else if (BasicFunctions.playOffline)
 		{
 			if (Time.time > reloadTime + lastShot)
 				Debug.Log ("Fired");
@@ -97,29 +91,30 @@ public class Camera_Control : MonoBehaviour {
 	}
 
 	[RPC]
-	void fireKillBulletS(Vector3 startPos)
+	void fireKillBulletS(Vector3 pos, Vector3 dir)
 	{
-		//NetworkView bulletN = NetworkView.Find(id);
-		//Rigidbody cloneB = bulletN.rigidbody;
-		//if (cloneB != null)
-		//{
-		//	cloneB.velocity = dir*Bullet_Speed;
-		//}
-		Rigidbody instantiatedProjectile = Object.Instantiate( Kill_Bullet, startPos, transform.rotation ) as Rigidbody;
-		instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
-		Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
+		NetworkView bulletN = NetworkView.Find(id);
+		Rigidbody cloneB = bulletN.rigidbody;
+		if (cloneB != null)
+		{
+			cloneB.velocity = dir*Bullet_Speed;
+		}
+		//networkView.RPC("fireKillBulletC", RPCMode.Others, startPos, dir);
+		//Rigidbody instantiatedProjectileN = (Rigidbody)Instantiate( Kill_Bullet, pos, transform.rotation );
+		Rigidbody instantiatedProjectileN = (Rigidbody)Network.Instantiate( Kill_Bullet, pos, transform.rotation, 2 );
+		instantiatedProjectileN.velocity = dir*Bullet_Speed;
+		Physics.IgnoreCollision( instantiatedProjectileN.collider, player.transform.root.collider );
 		lastShot = Time.time;
-		networkView.RPC("fireKillBulletC", RPCMode.Others, startPos, transform.forward);
 	}
-
-	[RPC]
+	
+	/*[RPC]
 	void fireKillBulletC(Vector3 startPos, Vector3 dir)
 	{
-		Rigidbody instantiatedProjectile = Object.Instantiate( Kill_Bullet, startPos, transform.rotation ) as Rigidbody;
-		instantiatedProjectile.velocity = dir*Bullet_Speed;
-		Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
+		GameObject instantiatedProjectile = Object.Instantiate( Kill_Bullet, startPos, transform.rotation ) as GameObject;
+		instantiatedProjectile.rigidbody.velocity = dir*Bullet_Speed;
+		Physics.IgnoreCollision( instantiatedProjectile.rigidbody.collider, player.transform.root.collider );
 		lastShot = Time.time;
-	}
+	}*/
 	
 	void Fire_Gravity_Bullet()
 	{
@@ -174,9 +169,9 @@ public class Camera_Control : MonoBehaviour {
 			if (Input.GetMouseButtonDown(1)) {
 				Fire_Gravity_Bullet();
 			}
-			if (Input.GetMouseButtonDown(0)) {
-				Fire_Kill_Bullet();
-			}
+			/*if (Input.GetMouseButtonDown(0)) {
+				player.GetComponent<playerController>().Fire_Kill_Bullet();
+			}*/
 		}
 	}
 	

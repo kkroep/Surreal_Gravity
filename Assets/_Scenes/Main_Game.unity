@@ -35457,6 +35457,7 @@ GameObject:
   - 4: {fileID: 1444913545}
   - 114: {fileID: 1444913544}
   - 114: {fileID: 1444913546}
+  - 148: {fileID: 1444913547}
   m_Layer: 0
   m_Name: Level Settings
   m_TagString: levelSettings
@@ -35537,6 +35538,18 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
+--- !u!148 &1444913547
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444913543}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 4
+    m_Type: 1
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0

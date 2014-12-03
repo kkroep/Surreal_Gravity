@@ -41,6 +41,9 @@ public class playerController : MonoBehaviour
 	public float Gravity_Strength = 10f;
 	public Vector3 Initial_Gravity_Direction;
 	public Vector3 Gravity_Direction;
+	public Rigidbody Kill_Bullet;
+
+	private float Bullet_Speed = 5f;
 	
 	#endregion
 	
@@ -70,10 +73,55 @@ public class playerController : MonoBehaviour
 		}
 	}
 
+	void Fire_Kill_Bullet()
+	{
+		if (networkView.isMine)
+		{
+			//if (Time.time > reloadTime + lastShot)
+				//Debug.Log("Fired");
+			{
+				Rigidbody instantiatedProjectile = (Rigidbody)Network.Instantiate( Kill_Bullet, transform.position, transform.rotation, 2 );
+				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
+				//lastShot = Time.time;
+				networkView.RPC("fireKillBulletS", RPCMode.Others, instantiatedProjectile.networkView.viewID, transform.position, transform.forward); //instantiatedProjectile.networkView.viewID
+			}
+		}
+		else if (BasicFunctions.playOffline)
+		{
+			//if (Time.time > reloadTime + lastShot)
+				//Debug.Log ("Fired");
+			{
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
+				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
+				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
+				//lastShot = Time.time;
+			}
+		}
+	}
+	
+	[RPC]
+	void fireKillBulletS(NetworkViewID id, Vector3 pos, Vector3 dir)
+	{
+		NetworkView bulletN = NetworkView.Find(id);
+		Rigidbody cloneB = bulletN.rigidbody;
+		if (cloneB != null)
+		{
+			cloneB.velocity = dir*Bullet_Speed;
+		}
+		//networkView.RPC("fireKillBulletC", RPCMode.Others, startPos, dir);
+		//Rigidbody instantiatedProjectileN = (Rigidbody)Instantiate( Kill_Bullet, pos, transform.rotation );
+		//Rigidbody instantiatedProjectileN = (Rigidbody)Network.Instantiate( Kill_Bullet, pos, transform.rotation, 2 );
+		//instantiatedProjectileN.velocity = dir*Bullet_Speed;
+	}
+
 	void Update ()
 	{
 		if (Input.GetKeyDown(KeyCode.Q))
 		    Application.LoadLevel("Menu");
+		if (Input.GetMouseButtonDown(0)) {
+			Fire_Kill_Bullet();
+		}
 	}
 	
 	void FixedUpdate ()
