@@ -12,7 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.049 seconds
+- Completed reload, in  0.091 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -23,6 +23,10 @@ INLEZEN: Earless; WADAFA
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 INLEZEN: Mongol; JONGUH
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+INLEZEN: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -51,13 +55,73 @@ CLIENT: Active Accounts[i]: Debug
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 2.160185 ms
+UnloadTime: 2.244522 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 3396.
-Total: 0.797854 ms (FindLiveObjects: 0.090584 ms CreateObjectMapping: 0.017402 ms MarkObjects: 0.207049 ms  DeleteObjects: 0.070057 ms)
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 3397.
+Total: 0.833552 ms (FindLiveObjects: 0.091030 ms CreateObjectMapping: 0.017402 ms MarkObjects: 0.221774 ms  DeleteObjects: 0.069165 ms)
 
 The server has disconnected from the client. Most likely the server has shut down.
  
 (Filename:  Line: 745)
+
+Failed Network.Instantiate because we are not connected.
+ 
+(Filename:  Line: 2463)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at playerController.Fire_Kill_Bullet () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Failed Network.Instantiate because we are not connected.
+ 
+(Filename:  Line: 2463)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at playerController.Fire_Kill_Bullet () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Failed Network.Instantiate because we are not connected.
+ 
+(Filename:  Line: 2463)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at playerController.Fire_Kill_Bullet () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Failed Network.Instantiate because we are not connected.
+ 
+(Filename:  Line: 2463)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at playerController.Fire_Kill_Bullet () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Failed Network.Instantiate because we are not connected.
+ 
+(Filename:  Line: 2463)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at playerController.Fire_Kill_Bullet () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Failed Network.Instantiate because we are not connected.
+ 
+(Filename:  Line: 2463)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at playerController.Fire_Kill_Bullet () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
