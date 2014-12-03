@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -49,13 +49,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-<<<<<<< HEAD
-  - {x: 4.93414783, y: 8.5, z: 28.9216976}
-  - {x: 6.01648951, y: 12.8705835, z: 28.9710693}
-=======
-  - {x: 19.5, y: 6.09783316, z: 9.41021538}
-  - {x: 19.0234394, y: 5.58933496, z: 8.98974133}
->>>>>>> 98135164c0ebf6dc8f43cbcb3631d88c8a61d76a
+  - {x: 26.5, y: 14.8599415, z: 25.580122}
+  - {x: 14.4727383, y: 13.6108952, z: 24.1043167}
   m_Parameters:
     startWidth: .00999999978
     endWidth: .00999999978
