@@ -12,7 +12,7 @@ public class RobotMovement : MonoBehaviour {
 		pathfind = this.GetComponent<Pathfinder>();
 		if(pathfind.tracedBack == true){
 			path = pathfind.path;
-			for (int i=0;i<Pathfinder.Count;i++){
+			for (int i=0;i<path.Count;i++){
 
 			}
 		}
