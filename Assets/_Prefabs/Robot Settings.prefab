@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4ed0c043003a6479b4febd47378d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRobots: 100
+  numberRobots: 0
   robot: {fileID: 100000, guid: 42f56b3ec0a3c53489a5f44867a4288d, type: 2}
 --- !u!1001 &100100000
 Prefab:
