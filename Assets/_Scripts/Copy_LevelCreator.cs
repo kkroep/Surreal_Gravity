@@ -89,6 +89,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 			//draw(levelWidth, levelHeight, levelDepth, grid);
 			draw ();
 		}
+		draw();
 	}
 
 	//function responsible for filling the grid matrix with spawns

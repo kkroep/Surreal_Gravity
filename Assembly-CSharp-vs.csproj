@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\RobotMovement.cs" />
      <Compile Include="Assets\_Scripts\Account.cs" />
      <Compile Include="Assets\_Scripts\AccountList.cs" />
      <Compile Include="Assets\_Scripts\AccountManagement.cs" />
