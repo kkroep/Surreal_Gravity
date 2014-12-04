@@ -31,8 +31,8 @@ public class LevelCreator : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		if (Network.isServer || BasicFunctions.playOffline)
-		{
+		//if (Network.isServer || BasicFunctions.playOffline)
+		//{
 			seedint = System.Environment.TickCount;
 			Random.seed = seedint;
 			grid = new int[levelWidth,levelHeight,levelDepth];
@@ -56,14 +56,14 @@ public class LevelCreator : MonoBehaviour {
 			//loop through the grid matrix, drawing a building block every time a 1 is encountered
 			draw();
 
-			if (Network.isServer)
-			{
-				networkView.RPC("generateLevel", RPCMode.OthersBuffered, seedint);
-			}
-		}
+			//if (Network.isServer)
+			//{
+			//	networkView.RPC("generateLevel", RPCMode.OthersBuffered, seedint);
+			//}
+		//}
 	}
 
-	[RPC]
+	/*[RPC]
 	public void generateLevel (int seed)
 	{
 		if (Network.isClient)
@@ -89,7 +89,7 @@ public class LevelCreator : MonoBehaviour {
 			//draw(levelWidth, levelHeight, levelDepth, grid);
 			draw ();
 		}
-	}
+	}*/
 
 	//function responsible for filling the grid matrix with spawns
 	void createMainSpawn(int approxBlocks){
