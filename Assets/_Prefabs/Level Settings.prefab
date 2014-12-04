@@ -41,13 +41,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
-  numberOfLargeSpawns: 1
+  numberOfLargeSpawns: 2
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 20
+  approxBlocksPerLargeStack: 2
   approxBlocksPerSmallStack: 100
-  levelWidth: 30
-  levelHeight: 30
-  levelDepth: 30
+  levelWidth: 10
+  levelHeight: 10
+  levelDepth: 10
   checkRadius: 0
   xScaling: 1
   yScaling: 1
