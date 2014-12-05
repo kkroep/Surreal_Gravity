@@ -17,13 +17,15 @@ public class Pathfinder : MonoBehaviour{
 
 	public bool tracedBack = false;
 
+	public RobotMovement robotmovement;
 	private GameObject levelcreator;
 	private int[,,] grid;
 	private Node[,,] nodeGrid;
 	public bool findPath = false;
+	public bool reset = true;
 
 	void Start(){
-
+		robotmovement = this.GetComponent<RobotMovement>();
 
 		nodeGrid = new Node[level.levelWidth,level.levelHeight,level.levelDepth];
 
@@ -57,6 +59,9 @@ public class Pathfinder : MonoBehaviour{
 				}
 			}
 		}
+
+
+
 		
 
 
@@ -71,19 +76,36 @@ public class Pathfinder : MonoBehaviour{
 
 	void Update(){
 
+
+
 		if(findPath){
+			if(reset){
+			if(openList != null && closedList != null){
+				for (int i=0; i<openList.Count;i++){
+					openList[i].parentNode = null;
+				}
+				for (int i=0; i<closedList.Count;i++){
+					closedList[i].parentNode = null;
+				}
+			}
+
 			path = new List<Node>();
 			openList = new List<Node>();
 			closedList = new List<Node>();
-			tracedBack = false;
 			startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
 			checkingNode = startNode;
 			CalculateAllHeuristics();
-			while(foundTarget == false){
 
-				levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-				level = levelcreator.GetComponent<LevelCreator>();
-				grid = level.getGrid ();
+			levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
+			level = levelcreator.GetComponent<LevelCreator>();
+			grid = level.getGrid ();
+			reset = false;
+			}
+
+			int j = 0;
+
+			while(j<50){
+
 
 				if (foundTarget == false){
 
@@ -92,10 +114,13 @@ public class Pathfinder : MonoBehaviour{
 				}
 
 				if (foundTarget == true){
+
 					if(tracedBack == false){
 						TraceBackPath ();
+						reset = true;
 					}
 				}
+				j++;
 			}
 
 		}
@@ -150,13 +175,16 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	private void TraceBackPath(){
-		Node node = targetNode;
+		Node node = targetNode.parentNode;
+		path.Add (startNode);
 		do{
 			path.Add(node);
 			node = node.parentNode;
+
 		}while(node != null);
+
+		robotmovement.starting = true;
 		tracedBack = true;
-		Debug.Log (path.Count);
 
 	}
 
