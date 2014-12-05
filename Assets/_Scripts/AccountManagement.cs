@@ -13,7 +13,7 @@ public class AccountManagement : MonoBehaviour {
 	public TextMesh currentUName;
 	public NW_Server networkServer;
 	
-	public Account activeAccount;
+	//public Account activeAccount;
 	
 	public static bool loggedIn;
 	
@@ -25,9 +25,11 @@ public class AccountManagement : MonoBehaviour {
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
 		//activeAccount = new Account ("", "");
-		activeAccount = new Account ("Debug", "-");
+		//activeAccount = new Account ("Debug", "-");
+		//activeAccount.Number = 1;
 		loggedIn = true;
-		BasicFunctions.activeAccount = activeAccount;
+		BasicFunctions.activeAccount = new Account("Debug", "-");
+		BasicFunctions.activeAccount.Number = 1;
 		//loggedIn = false;
 		
 		using (StreamReader sread = new StreamReader("Accounts.txt"))
@@ -114,11 +116,10 @@ public class AccountManagement : MonoBehaviour {
 		{
 			loginU.text = "";
 			loginP.text = "";
-			activeAccount.Name = log_acc.Name;
-			activeAccount.Word = log_acc.Word;
+			//activeAccount.Name = log_acc.Name;
+			//activeAccount.Word = log_acc.Word;
 			BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
-			Debug.Log("BF: " + BasicFunctions.activeAccount.Name + ", " + BasicFunctions.activeAccount.Word);
-			currentUName.text = activeAccount.Name;
+			currentUName.text = BasicFunctions.activeAccount.Name;
 			loggedIn = true;
 		}
 		else

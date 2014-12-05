@@ -7,7 +7,7 @@ public class NW_Server : MonoBehaviour {
 
 	//public static bool playOffline = false;
 
-	public AccountManagement AccManager;
+	//public AccountManagement AccManager;
 
 	public TextMesh p1;
 	public TextMesh p2;
@@ -32,7 +32,7 @@ public class NW_Server : MonoBehaviour {
 	private bool ClientUpdate = false;
 	private bool refreshing = false;
 	private float timer = 0.5f;
-	private float refreshT = 3f;
+	private float refreshT = 2f;
 	private int serverPort;
 	private int index;
 	private bool xx = false;
@@ -129,34 +129,38 @@ public class NW_Server : MonoBehaviour {
 		Debug.Log("#players: " + amountPlayers);
 		if (amountPlayers == 0)
 		{
-			this.AccManager.activeAccount.Number = 1;
+			//this.AccManager.activeAccount.Number = 1;
+			BasicFunctions.activeAccount.Number = 1;
 			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			accountNumbers.Add(this.AccManager.activeAccount.Number);
-			activeAccounts.Add(this.AccManager.activeAccount.Name); //Zet username in de lijst
+			accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
+			activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
 			setTexts1();
 			Debug.Log("AA: " + activeAccounts[0]);
 		}
 		else if (amountPlayers == 1)
 		{
-			this.AccManager.activeAccount.Number = 2;
+			//this.AccManager.activeAccount.Number = 2;
+			BasicFunctions.activeAccount.Number = 2;
 			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 2)
 		{
-			this.AccManager.activeAccount.Number = 3;
+			//this.AccManager.activeAccount.Number = 3;
+			BasicFunctions.activeAccount.Number = 3;
 			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 3)
 		{
-			this.AccManager.activeAccount.Number = 4;
+			//this.AccManager.activeAccount.Number = 4;
+			BasicFunctions.activeAccount.Number = 4;
 			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
 	}
 
@@ -301,7 +305,7 @@ public class NW_Server : MonoBehaviour {
 			//if (MasterServer.PollHostList ().Length > 0)
 			if (refreshT <= 0)
 			{
-				refreshT = 3;
+				refreshT = 2;
 				refreshing = false;
 				Debug.Log (MasterServer.PollHostList ().Length);
 				showServers = true;

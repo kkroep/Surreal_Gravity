@@ -2,16 +2,17 @@
 using System.Collections;
 
 public class Bullet_Controller : MonoBehaviour {
-	public Vector3 current_normal;
+	/*public Vector3 current_normal;
 	public GameObject Player_Object;
 	public playerController PlayerScript;
 	public GameObject Camera_Object;
-	public Camera_Control CameraScript;
+	public Camera_Control CameraScript;*/
 
 	public bool GravityBullet = false;
+	public int shooterNumber;
 
-	private Vector3 Camera_Forward_tmp;
-	private Vector3 New_Player_Forward_tmp;
+	/*private Vector3 Camera_Forward_tmp;
+	private Vector3 New_Player_Forward_tmp;*/
 
 	void Start()
 	{
