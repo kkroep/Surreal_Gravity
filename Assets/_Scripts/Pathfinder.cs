@@ -17,12 +17,18 @@ public class Pathfinder : MonoBehaviour{
 
 	public bool tracedBack = false;
 
+	public RobotMovement robotmovement;
 	private GameObject levelcreator;
 	private int[,,] grid;
 	private Node[,,] nodeGrid;
+<<<<<<< HEAD
+	public bool findPath = false;
+	public bool reset = true;
+=======
+>>>>>>> origin/master
 
 	void Start(){
-
+		robotmovement = this.GetComponent<RobotMovement>();
 
 		nodeGrid = new Node[level.levelWidth,level.levelHeight,level.levelDepth];
 
@@ -56,6 +62,13 @@ public class Pathfinder : MonoBehaviour{
 				}
 			}
 		}
+<<<<<<< HEAD
+
+
+
+		
+=======
+>>>>>>> origin/master
 
 		targetNode = nodeGrid[20,10,5];
 
@@ -71,22 +84,67 @@ public class Pathfinder : MonoBehaviour{
 
 	void Update(){
 
+<<<<<<< HEAD
+
+
+		if(findPath){
+			if(reset){
+			if(openList != null && closedList != null){
+				for (int i=0; i<openList.Count;i++){
+					openList[i].parentNode = null;
+				}
+				for (int i=0; i<closedList.Count;i++){
+					closedList[i].parentNode = null;
+				}
+			}
+
+			path = new List<Node>();
+			openList = new List<Node>();
+			closedList = new List<Node>();
+			startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
+			checkingNode = startNode;
+			CalculateAllHeuristics();
+
+			levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
+			level = levelcreator.GetComponent<LevelCreator>();
+			grid = level.getGrid ();
+			reset = false;
+			}
+
+			int j = 0;
+
+			while(j<50){
+
+=======
 		while(foundTarget == false){
 			levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
 			level = levelcreator.GetComponent<LevelCreator>();
 			grid = level.getGrid ();
 
 			if (foundTarget == false){
+>>>>>>> origin/master
 
 				FindPath();
 				//Debug.Log (checkingNode.xPosition + "," + checkingNode.yPosition + "," + checkingNode.zPosition);
 
 			}
 
+<<<<<<< HEAD
+				}
+
+				if (foundTarget == true){
+
+					if(tracedBack == false){
+						TraceBackPath ();
+						reset = true;
+					}
+=======
 			if (foundTarget == true){
 				if(tracedBack == false){
 					TraceBackPath ();
+>>>>>>> origin/master
 				}
+				j++;
 			}
 		}
 
@@ -140,15 +198,23 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	private void TraceBackPath(){
-		Node node = targetNode;
+		Node node = targetNode.parentNode;
+		path.Add (startNode);
 		do{
 			path.Add(node);
 			node = node.parentNode;
+
 		}while(node != null);
+
+		robotmovement.starting = true;
 		tracedBack = true;
+<<<<<<< HEAD
+
+=======
 		for(int i=0;i<path.Count;i++){
 			Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
 		}
+>>>>>>> origin/master
 	}
 
 	private void DetermineNodeValues(Node currentNode, Node testing){
