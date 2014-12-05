@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class Pathfinder : MonoBehaviour{
 
-	private List<Node> openList = new List<Node>();
-	private List<Node> closedList = new List<Node>();
+	private List<Node> openList;
+	private List<Node> closedList;
 	private Node checkingNode = null;
 	public Node startNode = null;
 	public Node targetNode = null;
@@ -13,7 +13,7 @@ public class Pathfinder : MonoBehaviour{
 	public int baseMovementCost = 10;
 	public LevelCreator level;
 
-	public List<Node> path = new List<Node>();
+	public List<Node> path;
 
 	public bool tracedBack = false;
 
@@ -21,11 +21,8 @@ public class Pathfinder : MonoBehaviour{
 	private GameObject levelcreator;
 	private int[,,] grid;
 	private Node[,,] nodeGrid;
-<<<<<<< HEAD
 	public bool findPath = false;
 	public bool reset = true;
-=======
->>>>>>> origin/master
 
 	void Start(){
 		robotmovement = this.GetComponent<RobotMovement>();
@@ -33,9 +30,9 @@ public class Pathfinder : MonoBehaviour{
 		nodeGrid = new Node[level.levelWidth,level.levelHeight,level.levelDepth];
 
 
-		for(int width=0;width<30;width++){
-			for (int height=0;height<30;height++){
-				for (int depth=0;depth<30;depth++){
+		for(int width=0;width<level.levelWidth;width++){
+			for (int height=0;height<level.levelHeight;height++){
+				for (int depth=0;depth<level.levelDepth;depth++){
 
 					Node temp =  new Node(width,height,depth);
 					nodeGrid[width,height,depth] = temp;
@@ -62,21 +59,16 @@ public class Pathfinder : MonoBehaviour{
 				}
 			}
 		}
-<<<<<<< HEAD
 
 
 
 		
-=======
->>>>>>> origin/master
-
-		targetNode = nodeGrid[20,10,5];
-
-		CalculateAllHeuristics();
 
 
-		checkingNode = nodeGrid[2,2,2];
-		startNode = checkingNode;
+
+
+		//checkingNode = nodeGrid[2,2,2];
+		//startNode = checkingNode;
 
 
 
@@ -84,7 +76,6 @@ public class Pathfinder : MonoBehaviour{
 
 	void Update(){
 
-<<<<<<< HEAD
 
 
 		if(findPath){
@@ -115,21 +106,11 @@ public class Pathfinder : MonoBehaviour{
 
 			while(j<50){
 
-=======
-		while(foundTarget == false){
-			levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-			level = levelcreator.GetComponent<LevelCreator>();
-			grid = level.getGrid ();
 
-			if (foundTarget == false){
->>>>>>> origin/master
+				if (foundTarget == false){
 
-				FindPath();
-				//Debug.Log (checkingNode.xPosition + "," + checkingNode.yPosition + "," + checkingNode.zPosition);
+					FindPath();
 
-			}
-
-<<<<<<< HEAD
 				}
 
 				if (foundTarget == true){
@@ -138,14 +119,10 @@ public class Pathfinder : MonoBehaviour{
 						TraceBackPath ();
 						reset = true;
 					}
-=======
-			if (foundTarget == true){
-				if(tracedBack == false){
-					TraceBackPath ();
->>>>>>> origin/master
 				}
 				j++;
 			}
+
 		}
 
 
@@ -161,9 +138,9 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	public void CalculateAllHeuristics(){		
-		for(int width=0;width<30;width++){
-			for (int height=0;height<30;height++){
-				for (int depth=0;depth<30;depth++){
+		for(int width=0;width<level.levelWidth;width++){
+			for (int height=0;height<level.levelHeight;height++){
+				for (int depth=0;depth<level.levelDepth;depth++){
 					nodeGrid[width,height,depth].hValue = CalculateHeuristicValue (nodeGrid[width,height,depth]);
 				}
 			}
@@ -208,13 +185,7 @@ public class Pathfinder : MonoBehaviour{
 
 		robotmovement.starting = true;
 		tracedBack = true;
-<<<<<<< HEAD
 
-=======
-		for(int i=0;i<path.Count;i++){
-			Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
-		}
->>>>>>> origin/master
 	}
 
 	private void DetermineNodeValues(Node currentNode, Node testing){
@@ -224,6 +195,7 @@ public class Pathfinder : MonoBehaviour{
 		if (testing == targetNode){
 			targetNode.parentNode = currentNode;
 			foundTarget = true;
+			findPath = false;
 			return;
 		}
 		if(grid[testing.xPosition,testing.yPosition,testing.zPosition] == 1){
@@ -278,6 +250,13 @@ public class Pathfinder : MonoBehaviour{
 		return smallest;
 	}
 
+	public void setTargetNode(Vector3 position){
+		targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
+	}
+
+	void setFindPath(bool bo){
+		findPath = bo;
+	}
 
 
 

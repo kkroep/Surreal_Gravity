@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce497be5d7b0264aa675c110602f0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   starting: 0
   arrived: 0
 --- !u!114 &11400002
@@ -103,6 +103,7 @@ MonoBehaviour:
   tracedBack: 0
   robotmovement: {fileID: 0}
   findPath: 0
+  reset: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

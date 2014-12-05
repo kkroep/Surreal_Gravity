@@ -31,65 +31,31 @@ public class LevelCreator : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		//if (Network.isServer || BasicFunctions.playOffline)
-		//{
-			seedint = System.Environment.TickCount;
-			Random.seed = seedint;
-			grid = new int[levelWidth,levelHeight,levelDepth];
+		seedint = System.Environment.TickCount;
+		Random.seed = seedint;
+		grid = new int[levelWidth,levelHeight,levelDepth];
+		
+
+		//Fills the grid matrix with 1s, representing large spawns
+		//createLargeSpawn() is called numberOfLargeSpawns times, each time creating a separate spawn
+		for(int i = 0; i<numberOfLargeSpawns;i++){
 			
-
-			//Fills the grid matrix with 1s, representing large spawns
-			//createLargeSpawn() is called numberOfLargeSpawns times, each time creating a separate spawn
-			for(int i = 0; i<numberOfLargeSpawns;i++){
-				
-				createMainSpawn(approxBlocksPerLargeStack);
-				
-			}
-
-			//fills the grid matrix with 1s, representing small spawns
-			//createSmallSpawn() is called numberOfSmallSpawns times, each time creating a separate spawn
-			for(int i = 0; i<numberOfSmallSpawns;i++){
-				createMainSpawn(approxBlocksPerSmallStack);		
-				
-			}
-
-			//loop through the grid matrix, drawing a building block every time a 1 is encountered
-			draw();
-
-			//if (Network.isServer)
-			//{
-			//	networkView.RPC("generateLevel", RPCMode.OthersBuffered, seedint);
-			//}
-		//}
-	}
-
-	/*[RPC]
-	public void generateLevel (int seed)
-	{
-		if (Network.isClient)
-		{
-			Random.seed = seed;
-			grid = new int[levelWidth,levelHeight,levelDepth];
+			createMainSpawn(approxBlocksPerLargeStack);
 			
-			//Fills the grid matrix with 1s, representing large spawns
-			//createLargeSpawn() is called numberOfLargeSpawns times, each time creating a separate spawn
-			for(int i = 0; i<numberOfLargeSpawns;i++)
-			{
-				createMainSpawn(approxBlocksPerLargeStack);
-			}
-			
-			//fills the grid matrix with 1s, representing small spawns
-			//createSmallSpawn() is called numberOfSmallSpawns times, each time creating a separate spawn
-			for(int i = 0; i<numberOfSmallSpawns;i++)
-			{
-				createMainSpawn(approxBlocksPerSmallStack);			
-			}
-			
-			//loop through the grid matrix, drawing a building block every time a 1 is encountered
-			//draw(levelWidth, levelHeight, levelDepth, grid);
-			draw ();
 		}
-	}*/
+
+		//fills the grid matrix with 1s, representing small spawns
+		//createSmallSpawn() is called numberOfSmallSpawns times, each time creating a separate spawn
+		for(int i = 0; i<numberOfSmallSpawns;i++){
+			createMainSpawn(approxBlocksPerSmallStack);		
+			
+		}
+
+		//loop through the grid matrix, drawing a building block every time a 1 is encountered
+		draw();
+
+		
+	}
 
 	//function responsible for filling the grid matrix with spawns
 	void createMainSpawn(int approxBlocks){
