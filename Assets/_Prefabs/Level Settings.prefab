@@ -44,10 +44,10 @@ MonoBehaviour:
   numberOfLargeSpawns: 0
   numberOfSmallSpawns: 0
   approxBlocksPerLargeStack: 0
-  approxBlocksPerSmallStack: 100
-  levelWidth: 30
-  levelHeight: 30
-  levelDepth: 30
+  approxBlocksPerSmallStack: 18
+  levelWidth: 15
+  levelHeight: 15
+  levelDepth: 15
   checkRadius: 0
   xScaling: 1
   yScaling: 1
