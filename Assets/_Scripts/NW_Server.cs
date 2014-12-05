@@ -39,6 +39,7 @@ public class NW_Server : MonoBehaviour {
 
 	private HostData[] hostD;
 	private List<string> activeAccounts = new List<string>();
+	private List<int> accountNumbers = new List<int>();
 	private static List<int> serverPorts;
 
 	void Start ()
@@ -128,8 +129,9 @@ public class NW_Server : MonoBehaviour {
 		if (amountPlayers == 0)
 		{
 			this.AccManager.activeAccount.Number = 1;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
+			accountNumbers.Add(this.AccManager.activeAccount.Number);
 			activeAccounts.Add(this.AccManager.activeAccount.Name); //Zet username in de lijst
 			setTexts1();
 			Debug.Log("AA: " + activeAccounts[0]);
@@ -137,23 +139,23 @@ public class NW_Server : MonoBehaviour {
 		else if (amountPlayers == 1)
 		{
 			this.AccManager.activeAccount.Number = 2;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 2)
 		{
 			this.AccManager.activeAccount.Number = 3;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 3)
 		{
 			this.AccManager.activeAccount.Number = 4;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
 		}
 	}
 
@@ -165,38 +167,42 @@ public class NW_Server : MonoBehaviour {
 	/* Stuur UI data naar de Server
 	 */
 	[RPC]
-	public void sendUNtoServer (string UN)
+	public void sendUNtoServer (string UN, int Number)
 	{
 		if (Network.isServer)
 		{
 			if (!this.activeAccounts.Contains(UN))
 			{
 				this.activeAccounts.Add(UN);
+				this.accountNumbers.Add (Number);
 			}
 			
 			for(int i = 0; i < activeAccounts.Count; i++)
 			{
-				Debug.Log("SERVER: Active Accounts[i]: " + activeAccounts[i]);
-				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, this.activeAccounts[i]);
+				Debug.Log("SERVER: Active Accounts["+i+"]: " + activeAccounts[i]);
+				Debug.Log("SERVER: Account Numbers["+i+"]: " + accountNumbers[i]);
+				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, this.activeAccounts[i], this.accountNumbers[i]);
 			}
 		}
 	}
 	/* Stuur UI data naar de Clients
 	 */
 	[RPC]
-	public void sendUNtoClients (string UN)
+	public void sendUNtoClients (string UN, int Number)
 	{
 		if (Network.isClient)
 		{
 			if (!this.activeAccounts.Contains(UN))
 			{
 				this.activeAccounts.Add(UN);
+				this.accountNumbers.Add(Number);
 			}
 		}
 		networkView.RPC("setTexts", RPCMode.AllBuffered);
 		for (int i = 0; i < activeAccounts.Count; i++)
 		{
-			Debug.Log("CLIENT: Active Accounts[i]: " + activeAccounts[i]);
+			Debug.Log("CLIENT: Active Accounts["+i+"]: " + activeAccounts[i]);
+			Debug.Log("CLIENT: Account Numbers["+i+"]: " + accountNumbers[i]);
 		}
 	}
 	/* Zet de text op de Server

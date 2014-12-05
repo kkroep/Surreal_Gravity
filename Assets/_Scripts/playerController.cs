@@ -44,11 +44,12 @@ public class playerController : MonoBehaviour
 	public Rigidbody Kill_Bullet;
 
 	public float Bullet_Speed = 15f;
-	
+
 	#endregion
 	
 	//public GameObject networkmanager;
 	public GameObject playerPrefab;
+	private int hitCounter = 0;
 	
 	void Start ()
 	{
@@ -117,6 +118,12 @@ public class playerController : MonoBehaviour
 		Physics.IgnoreCollision( cloneB.collider, cloneP.root.collider);*/
 	}
 
+	[RPC]
+	void updateHitCounter ()
+	{
+		hitCounter = hitCounter + 1;
+	}
+
 	void Update ()
 	{
 		if (Input.GetKeyDown(KeyCode.Q))
@@ -178,6 +185,7 @@ public class playerController : MonoBehaviour
 			}
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
+			Destroy(collisionInfo.gameObject);
 			Debug.Log ("AAAAAAAH, im DEAD!!!");
 		}
 	}
