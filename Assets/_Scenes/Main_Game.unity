@@ -16397,7 +16397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
       propertyPath: numberOfLargeSpawns
@@ -35481,7 +35481,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 683534516}
   m_GameObject: {fileID: 1444913543}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b5c1733cbe6a24abd18a5a8c332108, type: 3}
   m_Name: 
@@ -35523,7 +35523,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444913543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57e522924807284c81a072edeb0fef9, type: 3}
   m_Name: 
@@ -49507,8 +49507,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: .868820071, y: 1.5, z: 3.0449903}
-  - {x: -.664577067, y: .0950097665, z: 2.91996169}
+  - {x: -.5, y: .573081374, z: 2.19273877}
+  - {x: -.970926702, y: .25500977, z: 2.25328636}
   m_Parameters:
     startWidth: .00999999978
     endWidth: .00999999978

@@ -11,7 +11,6 @@ public class AccountManagement : MonoBehaviour {
 	public InputField loginU;
 	public InputField loginP;
 	public TextMesh currentUName;
-	public NW_Server networkServer;
 	
 	public Account activeAccount;
 	

@@ -4,12 +4,12 @@ using System.Collections;
 public class BasicFunctions : MonoBehaviour {
 
 	public static bool playOffline;
-	public static Account serverAccount;
 	public static Account activeAccount;
 
 	void Awake ()
 	{
 		DontDestroyOnLoad(this);
+		//activeAccount = new Account("", "");
 	}
 
 	public static Vector3 ProjectVectorOnPlane(Vector3 Normal, Vector3 Vector){

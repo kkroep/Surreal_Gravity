@@ -254,7 +254,7 @@ NetworkView:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 0
+  m_Enabled: 1
   m_StateSynchronization: 0
   m_Observed: {fileID: 0}
   m_ViewID:

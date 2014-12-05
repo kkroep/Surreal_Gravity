@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class NW_Server : MonoBehaviour {
 
@@ -17,71 +16,25 @@ public class NW_Server : MonoBehaviour {
 	public TextMesh p2c;
 	public TextMesh p3c;
 	public TextMesh p4c;
-	public Text yolo; 
-
-	private string gameTypeName = "Surreal_Gravity: The Game";
-	private string gameName;
 
 	public bool connected = false;
 
 	private static int amountPlayers;
 
-	//private string gameName = "Surreal Gravity NOTYETFINISHED";
+	private string gameName = "Surreal Gravity NOTYETFINISHED";
 	private bool ClientConn = false;
 	private bool ClientUpdate = false;
 	private bool refreshing = false;
 	private float timer = 0.5f;
-	private float refreshT = 3f;
-	private int serverPort;
-	private int index;
-	private bool xx = false;
 
 	private HostData[] hostD;
 	private List<string> activeAccounts = new List<string>();
-	private static List<int> serverPorts;
-
-	void Start ()
-	{
-		serverPorts = new List<int> ();
-		serverPorts.Add (25001);
-		serverPorts.Add (25002);
-		serverPorts.Add (25003);
-		/*serverPorts.Add (25004);
-		serverPorts.Add (250005);
-		serverPorts.Add (250006);
-		serverPorts.Add (250007);
-		serverPorts.Add (250008);
-		serverPorts.Add (250009);
-		serverPorts.Add (250010);*/
-	}
 
 	public void startServer ()
 	{
-		BasicFunctions.serverAccount = BasicFunctions.activeAccount;
-		gameName = BasicFunctions.serverAccount.Name + "'s Server";
-		index = Random.Range (0, serverPorts.Count); //Take random integer
-		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
-
-		if (!xx)
-			yolo.text = "PORT: " + serverPort;
-		startServer2 ();
-	}
-
-	public void startServer2 ()
-	{
 		bool NAT = !Network.HavePublicAddress();
-		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4, port = 25001
-		MasterServer.RegisterHost (gameTypeName, gameName, "Implementing Multiplayer in the Menu"); //Registreer de Server
-	}
-
-	void OnFailedToConnectToMasterServer ()
-	{
-		xx = true;
-		serverPorts.RemoveAt(index);
-		index = Random.Range (0, serverPorts.Count); //Take random integer
-		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
-		yolo.text = "SHIT, NEWPORT: " + serverPort;
-		startServer2();
+		Network.InitializeServer (4, 25001, NAT); //Initialiseer Server; max connecties  = 4, port = 25001 
+		MasterServer.RegisterHost (gameName, "Testing the Menu", "Implementing Multiplayer in the Menu"); //Registreer de Server
 	}
 
 	public void closeServer ()
@@ -91,7 +44,7 @@ public class NW_Server : MonoBehaviour {
 
 	public void refreshHost ()
 	{
-		MasterServer.RequestHostList (gameTypeName);
+		MasterServer.RequestHostList (gameName);
 		refreshing = true;
 	}
 
@@ -284,11 +237,8 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (refreshing)
 		{
-			refreshT -= Time.deltaTime;
-			//if (MasterServer.PollHostList ().Length > 0)
-			if (refreshT <= 0)
+			if (MasterServer.PollHostList ().Length > 0)
 			{
-				refreshT = 3;
 				refreshing = false;
 				Debug.Log (MasterServer.PollHostList ().Length);
 				hostD = MasterServer.PollHostList ();
