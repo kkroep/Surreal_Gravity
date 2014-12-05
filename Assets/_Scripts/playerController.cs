@@ -187,6 +187,7 @@ public class playerController : MonoBehaviour
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
 			Destroy(collisionInfo.gameObject);
 			Debug.Log ("AAAAAAAH, im DEAD!!!");
+			//networkView.RPC("updateHitCounter", RPCM
 		}
 	}
 }
