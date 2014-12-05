@@ -80,11 +80,11 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, Main_Camera.transform.position, Main_Camera.transform.rotation, Main_Camera.transform.forward);
+				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward);
 			}
 		}
 		else if (BasicFunctions.playOffline)
@@ -92,7 +92,7 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log ("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
