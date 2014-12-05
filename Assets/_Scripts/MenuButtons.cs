@@ -80,6 +80,7 @@ public class MenuButtons : MonoBehaviour {
 			regPC.SetActive(false);
 			logU.SetActive(false);
 			logP.SetActive(false);
+			NW_Server.showServers = false;
 			if (AccountManagement.loggedIn)
 				multiBtn.GetComponent<MenuButtons>().HoverEffects = true;
 		}
