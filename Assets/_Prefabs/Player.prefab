@@ -12,7 +12,7 @@ GameObject:
   - 135: {fileID: 13500000}
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   - 148: {fileID: 14800000}
   m_Layer: 0
   m_Name: Player
@@ -33,7 +33,7 @@ GameObject:
   - 92: {fileID: 9200000}
   - 124: {fileID: 12400000}
   - 81: {fileID: 8100000}
-  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   - 148: {fileID: 14800002}
   m_Layer: 0
@@ -141,7 +141,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!81 &8100000
 AudioListener:
   m_ObjectHideFlags: 1
@@ -156,7 +156,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
---- !u!114 &11400000
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -164,13 +164,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58409f82ea613d4fbc6360cdf981107, type: 3}
+  m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initspeed: 10
   speed: 6
   jumpSpeed: 1200
-  Main_Camera: {fileID: 11400002}
+  Main_Camera: {fileID: 11400006}
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
@@ -179,39 +179,12 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Gravity_Strength: 300
+  Gravity_Strength: 200
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
+  Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
+  Bullet_Speed: 15
   playerPrefab: {fileID: 100000}
-  playOffline: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09037110735a080478c92754e4c0e903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LigntingLine: {fileID: 12000000, guid: 4fe19adba02820a48baedb6e7a7e6d84, type: 2}
-  crosshairImage: {fileID: 2800000, guid: fc2fe5178e594694ea2c8b49aa320035, type: 3}
-  axes: 2
-  sensitivityX: 10
-  sensitivityY: 10
-  minimumX: -360
-  maximumX: 360
-  minimumY: -90
-  maximumY: 90
-  player: {fileID: 11400000}
-  playercam: {fileID: 100002}
-  reloadTime: 10
-  Gravity_Bullet: {fileID: 5400000, guid: 7a51ed45f139fd74cb1ff81757ace88d, type: 2}
-  Kill_Bullet: {fileID: 5400000, guid: 529e197f2adff56448010bc3861fcff0, type: 2}
-  Bullet_Speed: 30
-  Gravity_Switch_Timer: 0
-  playOffline: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,6 +196,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36078abafc855a046a82aeb127e7d4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2eb65da49944484c9473cc244fa0a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LigntingLine: {fileID: 12000000, guid: 4fe19adba02820a48baedb6e7a7e6d84, type: 2}
+  crosshairImage: {fileID: 2800000, guid: fc2fe5178e594694ea2c8b49aa320035, type: 3}
+  axes: 2
+  sensitivityX: 10
+  sensitivityY: 10
+  minimumX: -360
+  maximumX: 360
+  minimumY: -90
+  maximumY: 90
+  player: {fileID: 11400002}
+  playercam: {fileID: 100002}
+  reloadTime: 10
+  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
+  Bullet_Speed: 200
+  Gravity_Switch_Timer: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

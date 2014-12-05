@@ -1,4 +1,4 @@
-Initialize engine version: 4.6.0b17 (2d43734a3870)
+Initialize engine version: 4.6.0f3 (30840d631a27)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
@@ -12,158 +12,89 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.045 seconds
+- Completed reload, in  0.096 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.Core.dll (this message is harmless)
-IsolatedStorageException: Could not find file "C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Accounts.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at AccountManagement.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-IsolatedStorageException: Could not find file "C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Accounts.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount (System.String Uname, System.String Pword) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount () [0x00000] in <filename unknown>:0 
-  at MenuButtons.OnMouseUp () [0x00000] in <filename unknown>:0 
-UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
-UnityEngine.HitInfo:SendMessage(String)
-UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo)
-UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32)
- 
-(Filename:  Line: -1)
-
-IsolatedStorageException: Could not find file "C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Accounts.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount (System.String Uname, System.String Pword) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount () [0x00000] in <filename unknown>:0 
-  at MenuButtons.OnMouseUp () [0x00000] in <filename unknown>:0 
-UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
-UnityEngine.HitInfo:SendMessage(String)
-UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo)
-UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32)
- 
-(Filename:  Line: -1)
-
-IsolatedStorageException: Could not find file "C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Accounts.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount (System.String Uname, System.String Pword) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount () [0x00000] in <filename unknown>:0 
-  at MenuButtons.OnMouseUp () [0x00000] in <filename unknown>:0 
-UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
-UnityEngine.HitInfo:SendMessage(String)
-UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo)
-UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32)
- 
-(Filename:  Line: -1)
-
-IsolatedStorageException: Could not find file "C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Accounts.txt".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.IO.File.OpenRead (System.String path) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in <filename unknown>:0 
-  at System.IO.StreamReader..ctor (System.String path) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount (System.String Uname, System.String Pword) [0x00000] in <filename unknown>:0 
-  at AccountManagement.loginAccount () [0x00000] in <filename unknown>:0 
-  at MenuButtons.OnMouseUp () [0x00000] in <filename unknown>:0 
-UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
-UnityEngine.HitInfo:SendMessage(String)
-UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo)
-UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32)
- 
-(Filename:  Line: -1)
-
-Account: Earless created
+Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.dll (this message is harmless)
+INLEZEN: Earless; WADAFA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Earless; WADAFA
+INLEZEN: Mongol; JONGUH
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Account: Earless; WADAFA
+INLEZEN: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Server: Surreal Gravity NOTYETFINISHED registered
+INLEZEN: Earless; WADAFA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-#players: 0
+INLEZEN: Mongol; JONGUH
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Active Account #1: Earless
+INLEZEN: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-AA: Earless
+Account: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SERVER: Active Accounts[i]: Earless
+BF: AB, BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[i]: Earless
+1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[i]: Kees
+Received pong from 145.94.198.200:25001
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.56.1:25001
+ 
+(Filename:  Line: 836)
+
+#players: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SERVER: Active Accounts[i]: Kees
+CLIENT: Active Accounts[0]: Earless
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[i]: Earless
+CLIENT: Account Numbers[0]: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[i]: Kees
+CLIENT: Active Accounts[0]: Earless
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 2.211501 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 3409.
-Total: 0.959834 ms (FindLiveObjects: 0.096385 ms CreateObjectMapping: 0.022311 ms MarkObjects: 0.263274 ms  DeleteObjects: 0.148147 ms)
-
-Spawn4 (UnityEngine.Transform)
+CLIENT: Account Numbers[0]: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Fired
+CLIENT: Active Accounts[1]: AB
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Look rotation viewing vector is zero
+CLIENT: Account Numbers[1]: 2
  
-(Filename:  Line: 57)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Look rotation viewing vector is zero
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename:  Line: 57)
+(Filename:  Line: 745)
+
+Server disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

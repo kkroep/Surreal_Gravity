@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class NW_Server : MonoBehaviour {
 
@@ -12,23 +13,79 @@ public class NW_Server : MonoBehaviour {
 	public TextMesh p2;
 	public TextMesh p3;
 	public TextMesh p4;
+	public TextMesh p1c;
+	public TextMesh p2c;
+	public TextMesh p3c;
+	public TextMesh p4c;
+	public Text yolo; 
 
+	private string gameTypeName = "Surreal_Gravity: The Game";
+	private string gameName;
+
+	public bool connected = false;
+
+	public static bool showServers;
 	private static int amountPlayers;
 
-	private string gameName = "Surreal Gravity NOTYETFINISHED";
+	//private string gameName = "Surreal Gravity NOTYETFINISHED";
 	private bool ClientConn = false;
 	private bool ClientUpdate = false;
 	private bool refreshing = false;
 	private float timer = 0.5f;
+	private float refreshT = 3f;
+	private int serverPort;
+	private int index;
+	private bool xx = false;
 
 	private HostData[] hostD;
 	private List<string> activeAccounts = new List<string>();
+	private List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
+	private List<int> accountNumbers = new List<int>();
+	private static List<int> serverPorts;
+
+	void Start ()
+	{
+		showServers = false;
+		serverPorts = new List<int> ();
+		serverPorts.Add (25001);
+		serverPorts.Add (25002);
+		serverPorts.Add (25003);
+		/*serverPorts.Add (25004);
+		serverPorts.Add (250005);
+		serverPorts.Add (250006);
+		serverPorts.Add (250007);
+		serverPorts.Add (250008);
+		serverPorts.Add (250009);
+		serverPorts.Add (250010);*/
+	}
 
 	public void startServer ()
 	{
+		BasicFunctions.serverAccount = BasicFunctions.activeAccount;
+		gameName = BasicFunctions.serverAccount.Name + "'s Server";
+		index = Random.Range (0, serverPorts.Count); //Take random integer
+		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
+
+		if (!xx)
+			yolo.text = "PORT: " + serverPort;
+		startServer2 ();
+	}
+
+	public void startServer2 ()
+	{
 		bool NAT = !Network.HavePublicAddress();
-		Network.InitializeServer (4, 25001, NAT); //Initialiseer Server; max connecties  = 4, port = 25001 
-		MasterServer.RegisterHost (gameName, "Testing the Menu", "Implementing Multiplayer in the Menu"); //Registreer de Server
+		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4, port = 25001
+		MasterServer.RegisterHost (gameTypeName, gameName, "Implementing Multiplayer in the Menu"); //Registreer de Server
+	}
+
+	void OnFailedToConnectToMasterServer ()
+	{
+		xx = true;
+		serverPorts.RemoveAt(index);
+		index = Random.Range (0, serverPorts.Count); //Take random integer
+		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
+		yolo.text = "SHIT, NEWPORT: " + serverPort;
+		startServer2();
 	}
 
 	public void closeServer ()
@@ -38,7 +95,7 @@ public class NW_Server : MonoBehaviour {
 
 	public void refreshHost ()
 	{
-		MasterServer.RequestHostList (gameName);
+		MasterServer.RequestHostList (gameTypeName);
 		refreshing = true;
 	}
 
@@ -73,8 +130,9 @@ public class NW_Server : MonoBehaviour {
 		if (amountPlayers == 0)
 		{
 			this.AccManager.activeAccount.Number = 1;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
+			accountNumbers.Add(this.AccManager.activeAccount.Number);
 			activeAccounts.Add(this.AccManager.activeAccount.Name); //Zet username in de lijst
 			setTexts1();
 			Debug.Log("AA: " + activeAccounts[0]);
@@ -82,66 +140,74 @@ public class NW_Server : MonoBehaviour {
 		else if (amountPlayers == 1)
 		{
 			this.AccManager.activeAccount.Number = 2;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 2)
 		{
 			this.AccManager.activeAccount.Number = 3;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 3)
 		{
 			this.AccManager.activeAccount.Number = 4;
-			Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
+			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name); //Geef je username mee aan de Server
+			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
 		}
 	}
 
 	[RPC]
 	public void beginGame ()
 	{
-		Application.LoadLevel("Copy_Of_Main_Game");
+		Application.LoadLevel("Main_Game");
 	}
 	/* Stuur UI data naar de Server
 	 */
 	[RPC]
-	public void sendUNtoServer (string UN)
+	public void sendUNtoServer (string UN, int Number)
 	{
 		if (Network.isServer)
 		{
 			if (!this.activeAccounts.Contains(UN))
 			{
 				this.activeAccounts.Add(UN);
+				this.accountNumbers.Add (Number);
 			}
 			
 			for(int i = 0; i < activeAccounts.Count; i++)
 			{
-				Debug.Log("SERVER: Active Accounts[i]: " + activeAccounts[i]);
-				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, this.activeAccounts[i]);
+				Debug.Log("SERVER: Active Accounts["+i+"]: " + activeAccounts[i]);
+				Debug.Log("SERVER: Account Numbers["+i+"]: " + accountNumbers[i]);
+				Account adding = new Account (activeAccounts[i], "");
+				adding.Number = accountNumbers[i];
+				connectedPlayers.Add(adding);
+				Debug.Log("SERVER: Connected Players["+i+"]: " + connectedPlayers[i].toString());
+				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, this.activeAccounts[i], this.accountNumbers[i]);
 			}
 		}
 	}
 	/* Stuur UI data naar de Clients
 	 */
 	[RPC]
-	public void sendUNtoClients (string UN)
+	public void sendUNtoClients (string UN, int Number)
 	{
 		if (Network.isClient)
 		{
 			if (!this.activeAccounts.Contains(UN))
 			{
 				this.activeAccounts.Add(UN);
+				this.accountNumbers.Add(Number);
 			}
 		}
 		networkView.RPC("setTexts", RPCMode.AllBuffered);
 		for (int i = 0; i < activeAccounts.Count; i++)
 		{
-			Debug.Log("CLIENT: Active Accounts[i]: " + activeAccounts[i]);
+			Debug.Log("CLIENT: Active Accounts["+i+"]: " + activeAccounts[i]);
+			Debug.Log("CLIENT: Account Numbers["+i+"]: " + accountNumbers[i]);
 		}
 	}
 	/* Zet de text op de Server
@@ -158,32 +224,65 @@ public class NW_Server : MonoBehaviour {
 	{
 		for (int i = 0; i < activeAccounts.Count; i++)
 		{
-			if (activeAccounts.Count == 2)
+			if (Network.isServer)
 			{
-				p1.text = "-> " + activeAccounts[0];
-				//player1.color = setColors(teamAccounts[0]);
-				p2.text = activeAccounts[1];
-				//player2.color = setColors(teamAccounts[1]);
+				if (activeAccounts.Count == 2)
+				{
+					p1.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+				}
+				else if (activeAccounts.Count == 3)
+				{
+					p1.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+				}
+				else if (activeAccounts.Count == 4)
+				{
+					p1.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+					p4.text = activeAccounts[3];
+					//player4.color = setColors(teamAccounts[3]);
+				}
 			}
-			else if (activeAccounts.Count == 3)
+			if (Network.isClient)
 			{
-				p1.text = "-> " + activeAccounts[0];
-				//player1.color = setColors(teamAccounts[0]);
-				p2.text = activeAccounts[1];
-				//player2.color = setColors(teamAccounts[1]);
-				p3.text = activeAccounts[2];
-				//player3.color = setColors(teamAccounts[2]);
-			}
-			else if (activeAccounts.Count == 4)
-			{
-				p1.text = "-> " + activeAccounts[0];
-				//player1.color = setColors(teamAccounts[0]);
-				p2.text = activeAccounts[1];
-				//player2.color = setColors(teamAccounts[1]);
-				p3.text = activeAccounts[2];
-				//player3.color = setColors(teamAccounts[2]);
-				p4.text = activeAccounts[3];
-				//player4.color = setColors(teamAccounts[3]);
+				if (activeAccounts.Count == 2)
+				{
+					p1c.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2c.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+				}
+				else if (activeAccounts.Count == 3)
+				{
+					p1c.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2c.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3c.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+				}
+				else if (activeAccounts.Count == 4)
+				{
+					p1c.text = "-> " + activeAccounts[0];
+					//player1.color = setColors(teamAccounts[0]);
+					p2c.text = activeAccounts[1];
+					//player2.color = setColors(teamAccounts[1]);
+					p3c.text = activeAccounts[2];
+					//player3.color = setColors(teamAccounts[2]);
+					p4c.text = activeAccounts[3];
+					//player4.color = setColors(teamAccounts[3]);
+				}
 			}
 		}
 	}
@@ -198,10 +297,14 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (refreshing)
 		{
-			if (MasterServer.PollHostList ().Length > 0)
+			refreshT -= Time.deltaTime;
+			//if (MasterServer.PollHostList ().Length > 0)
+			if (refreshT <= 0)
 			{
+				refreshT = 3;
 				refreshing = false;
 				Debug.Log (MasterServer.PollHostList ().Length);
+				showServers = true;
 				hostD = MasterServer.PollHostList ();
 			}
 		}
@@ -220,6 +323,7 @@ public class NW_Server : MonoBehaviour {
 		if (ClientUpdate)
 		{
 			ClientIsConnected();
+			connected = true;
 			ClientUpdate = false;
 		}
 	}
@@ -230,13 +334,16 @@ public class NW_Server : MonoBehaviour {
 		GUI.contentColor = Color.black;
 		if (!Network.isClient && !Network.isServer)
 		{
-			if (hostD != null)
+			if (showServers)
 			{
-				for (int i = 0; i < hostD.Length; i++)
+				if (hostD != null)
 				{
-					if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 100), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
+					for (int i = 0; i < hostD.Length; i++)
 					{
-						Network.Connect(hostD[i]);
+						if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 100), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
+						{
+							Network.Connect(hostD[i]);
+						}
 					}
 				}
 			}

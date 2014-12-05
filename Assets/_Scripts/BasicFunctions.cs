@@ -4,6 +4,8 @@ using System.Collections;
 public class BasicFunctions : MonoBehaviour {
 
 	public static bool playOffline;
+	public static Account serverAccount;
+	public static Account activeAccount;
 
 	void Awake ()
 	{

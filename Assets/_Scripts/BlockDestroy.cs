@@ -17,7 +17,6 @@ public class BlockDestroy : MonoBehaviour {
 
 	void attachedRobot(GameObject rob){
 		robot = rob;
-		this.renderer.material.color = Color.red;
 	}
 
 	void OnApplicationQuit() {

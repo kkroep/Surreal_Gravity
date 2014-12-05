@@ -6,6 +6,8 @@ public class MenuButtons : MonoBehaviour {
 	public Color Button_Idle = Color.green;
 	public Color Button_Active = Color.red;
 
+	public TextMesh currentUname;
+
 	public bool HoverEffects = true;
 	public bool MultiPlayer = false;
 	public bool SinglePlayer = false;
@@ -23,6 +25,7 @@ public class MenuButtons : MonoBehaviour {
 	public GameObject Multiplayer_Menu;
 	public GameObject Server_Menu;
 	public GameObject Account_Menu;
+	public GameObject Client_Menu;
 
 	public GameObject multiBtn;
 
@@ -63,7 +66,7 @@ public class MenuButtons : MonoBehaviour {
 
 		if (SinglePlayer) {
 			BasicFunctions.playOffline = true;
-			Application.LoadLevel("Copy_Of_Main_Game");
+			Application.LoadLevel("Main_Game");
 		}
 		
 		if (Back) {
@@ -77,6 +80,7 @@ public class MenuButtons : MonoBehaviour {
 			regPC.SetActive(false);
 			logU.SetActive(false);
 			logP.SetActive(false);
+			NW_Server.showServers = false;
 			if (AccountManagement.loggedIn)
 				multiBtn.GetComponent<MenuButtons>().HoverEffects = true;
 		}
@@ -116,6 +120,8 @@ public class MenuButtons : MonoBehaviour {
 			logU.SetActive(true);
 			logP.SetActive(true);
 			renderer.material.color = Button_Idle;
+			if (BasicFunctions.activeAccount != null)
+				currentUname.text = BasicFunctions.activeAccount.Name;
 		}
 
 		if (Register) {

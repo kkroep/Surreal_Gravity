@@ -32,7 +32,7 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		int index = Random.Range (0, spawnLocations.Count-1); //Take random integer
 		randomSpawnPoint = spawnLocations[index]; //Pick random spawnpoint (because of random int)
-		Debug.Log(randomSpawnPoint);
+		//Debug.Log(randomSpawnPoint);
 		if (BasicFunctions.playOffline)
 		{
 			Object.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity);

@@ -42,6 +42,11 @@ public class Account {
 		get { return playerNumb; }
 		set { playerNumb = value; }
 	}
+
+	public string toString ()
+	{
+		return Username + ", " + Number;
+	}
 	/* Checkt of 2 accounts gelijk zijn
 	 */
 	public bool equals (Account acc)
@@ -60,7 +65,7 @@ public class Account {
 	{
 		string Uname = sread.ReadLine();
 		string Pword = sread.ReadLine();
-		Debug.Log(Uname + "; " + Pword);
+		Debug.Log("INLEZEN: " + Uname + "; " + Pword);
 		Account newAccount = new Account (Uname, Pword);
 		return newAccount;
 	}

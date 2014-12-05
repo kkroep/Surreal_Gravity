@@ -11,9 +11,10 @@ public class MainRobotSettings : MonoBehaviour {
 
 	void Start(){
 		for(int i=0;i<numberRobots;i++){
-			Instantiate (robot, new Vector3(0,0,0), Quaternion.identity);
+			Instantiate (robot, new Vector3(15,15,15), Quaternion.identity);
 
 		}
+
 	
 	
 	}
