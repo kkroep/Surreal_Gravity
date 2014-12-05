@@ -42,6 +42,11 @@ public class Account {
 		get { return playerNumb; }
 		set { playerNumb = value; }
 	}
+
+	public string toString ()
+	{
+		return Username + ", " + Number;
+	}
 	/* Checkt of 2 accounts gelijk zijn
 	 */
 	public bool equals (Account acc)

@@ -39,6 +39,7 @@ public class NW_Server : MonoBehaviour {
 
 	private HostData[] hostD;
 	private List<string> activeAccounts = new List<string>();
+	private List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
 	private List<int> accountNumbers = new List<int>();
 	private static List<int> serverPorts;
 
@@ -181,6 +182,10 @@ public class NW_Server : MonoBehaviour {
 			{
 				Debug.Log("SERVER: Active Accounts["+i+"]: " + activeAccounts[i]);
 				Debug.Log("SERVER: Account Numbers["+i+"]: " + accountNumbers[i]);
+				Account adding = new Account (activeAccounts[i], "");
+				adding.Number = accountNumbers[i];
+				connectedPlayers.Add(adding);
+				Debug.Log("SERVER: Connected Players["+i+"]: " + connectedPlayers[i].toString());
 				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, this.activeAccounts[i], this.accountNumbers[i]);
 			}
 		}
