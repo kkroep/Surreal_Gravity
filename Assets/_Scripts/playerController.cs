@@ -43,12 +43,13 @@ public class playerController : MonoBehaviour
 	public Vector3 Gravity_Direction;
 	public Rigidbody Kill_Bullet;
 
-	private float Bullet_Speed = 5f;
-	
+	public float Bullet_Speed = 15f;
+
 	#endregion
 	
 	//public GameObject networkmanager;
 	public GameObject playerPrefab;
+	private int hitCounter = 0;
 	
 	void Start ()
 	{
@@ -80,11 +81,11 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Network.Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation, 2 );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, instantiatedProjectile.networkView.viewID, Main_Camera.transform.position, Main_Camera.transform.forward);
+				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward);
 			}
 		}
 		else if (BasicFunctions.playOffline)
@@ -92,7 +93,7 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log ("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
@@ -101,18 +102,26 @@ public class playerController : MonoBehaviour
 	}
 	
 	[RPC]
-	void fireKillBulletS(NetworkViewID id, Vector3 pos, Vector3 dir)
+	void fireKillBulletS(/*NetworkViewID id, */NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir)
 	{
-		NetworkView bulletN = NetworkView.Find(id);
-		Rigidbody cloneB = bulletN.rigidbody;
-		if (cloneB != null)
+		//NetworkView bulletN = NetworkView.Find(id);
+		NetworkView playerN = NetworkView.Find (player);
+		//Rigidbody cloneB = bulletN.rigidbody;
+		Transform cloneP = playerN.transform;
+		Rigidbody instantiatedProjectileN = (Rigidbody)Instantiate( Kill_Bullet, pos, rot );
+		instantiatedProjectileN.velocity = dir*Bullet_Speed;
+		Physics.IgnoreCollision( instantiatedProjectileN.collider, cloneP.root.collider );
+		/*if (cloneB != null)
 		{
 			cloneB.velocity = dir*Bullet_Speed;
 		}
-		//networkView.RPC("fireKillBulletC", RPCMode.Others, startPos, dir);
-		//Rigidbody instantiatedProjectileN = (Rigidbody)Instantiate( Kill_Bullet, pos, transform.rotation );
-		//Rigidbody instantiatedProjectileN = (Rigidbody)Network.Instantiate( Kill_Bullet, pos, transform.rotation, 2 );
-		//instantiatedProjectileN.velocity = dir*Bullet_Speed;
+		Physics.IgnoreCollision( cloneB.collider, cloneP.root.collider);*/
+	}
+
+	[RPC]
+	void updateHitCounter ()
+	{
+		hitCounter = hitCounter + 1;
 	}
 
 	void Update ()
@@ -170,9 +179,14 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			if (Input.GetKeyDown ("space")) {
+			if (Input.GetKeyDown ("space")) 
+			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
 			}
+		}
+		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
+			Destroy(collisionInfo.gameObject);
+			Debug.Log ("AAAAAAAH, im DEAD!!!");
 		}
 	}
 }

@@ -11,12 +11,8 @@ public class BlockDestroy : MonoBehaviour {
 
 	void Kill(float lifetime){
 		canBeSelected = false;
-		Destroy (this.gameObject,lifetime);
+		Destroy (this.gameObject, lifetime);
 
-	}
-
-	void canSelect(bool can){
-		canBeSelected = can;
 	}
 
 	void attachedRobot(GameObject rob){
@@ -30,8 +26,6 @@ public class BlockDestroy : MonoBehaviour {
 	void OnDestroy(){
 		if(!quitting){
 			robot.SendMessage ("setNeedsSelection", true);
-			Pathfinder pathfinder = robot.GetComponent<Pathfinder>();
-			pathfinder.foundTarget = false;
 		}
 	}
 }

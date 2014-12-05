@@ -6,15 +6,13 @@ public class RobotScript : MonoBehaviour {
 	private GameObject levelcreator;
 	private LevelCreator levelSettings;
 	private bool needsSelection;
-	public GameObject target;
+	private GameObject target;
 	private bool quitting = false;
-	private Pathfinder pathfinder;
 	
 	void Start () {
 		levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
 		levelSettings = levelcreator.GetComponent<LevelCreator>();
 		needsSelection = true;
-		pathfinder = this.GetComponent<Pathfinder>();
 	
 	}
 
@@ -66,11 +64,8 @@ public class RobotScript : MonoBehaviour {
 			if(selectbool){
 				levelSettings.setGrid (Mathf.RoundToInt(target.transform.position.x),Mathf.RoundToInt(target.transform.position.y),Mathf.RoundToInt(target.transform.position.z),0);
 				needsSelection = false;
-				target.SendMessage ("canSelect", false);
+				target.SendMessage ("Kill", 4.0f);
 				target.SendMessage ("attachedRobot", this.gameObject);
-				pathfinder.setTargetNode (target.transform.position);
-				//Debug.Log (target.transform.position.x + "," + target.transform.position.y + "," + target.transform.position.z);
-				pathfinder.findPath = true;
 			}
 		}
 

@@ -16399,6 +16399,14 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: numberOfLargeSpawns
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: approxBlocksPerLargeStack
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
   m_RootGameObject: {fileID: 1444913543}
@@ -35483,10 +35491,10 @@ MonoBehaviour:
   numberOfLargeSpawns: 10
   numberOfSmallSpawns: 0
   approxBlocksPerLargeStack: 250
-  approxBlocksPerSmallStack: 100
-  levelWidth: 30
-  levelHeight: 30
-  levelDepth: 30
+  approxBlocksPerSmallStack: 18
+  levelWidth: 15
+  levelHeight: 15
+  levelDepth: 15
   checkRadius: 0
   xScaling: 1
   yScaling: 1
@@ -35522,13 +35530,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: ed9dbfd64edc7be4fb49c637446735ee, type: 2}
   MainRobotSettings: {fileID: 0}
-  numberOfLargeSpawns: 10
+  numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 250
-  approxBlocksPerSmallStack: 100
-  levelWidth: 30
-  levelHeight: 30
-  levelDepth: 30
+  approxBlocksPerLargeStack: 20
+  approxBlocksPerSmallStack: 0
+  levelWidth: 15
+  levelHeight: 15
+  levelDepth: 15
   checkRadius: 0
   xScaling: 1
   yScaling: 1
@@ -49499,8 +49507,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: -100}
-  - {x: 0, y: 0, z: -100}
+  - {x: 12.8336363, y: 3.17168808, z: 1.5}
+  - {x: 12.0232487, y: -8.88686562, z: 10.8875465}
   m_Parameters:
     startWidth: .00999999978
     endWidth: .00999999978
