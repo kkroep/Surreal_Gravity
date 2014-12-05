@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abb068fb73db717428d290c65c5a7cba
+guid: 5823b7f35bed8014f91072e19ecce458
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -91,7 +91,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -162,7 +162,7 @@ ModelImporter:
       name: Jump
       takeName: Jump
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -247,7 +247,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
