@@ -177,7 +177,7 @@ public class playerController : MonoBehaviour
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
 			}
 		}
-		if (collisionInfo.gameObject.tag == "kill_bullet") {
+		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
 			Debug.Log ("AAAAAAAH, im DEAD!!!");
 		}
 	}

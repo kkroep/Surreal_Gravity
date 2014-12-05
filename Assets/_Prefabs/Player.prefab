@@ -171,7 +171,6 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 1200
   Main_Camera: {fileID: 11400006}
-  Cam: {fileID: 100002}
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
@@ -220,7 +219,7 @@ MonoBehaviour:
   playercam: {fileID: 100002}
   reloadTime: 10
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
-  Bullet_Speed: 30
+  Bullet_Speed: 60
   Gravity_Switch_Timer: 0
 --- !u!124 &12400000
 Behaviour:
