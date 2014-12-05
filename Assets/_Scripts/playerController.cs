@@ -80,11 +80,11 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, Main_Camera.transform.position, Main_Camera.transform.rotation, Main_Camera.transform.forward);
+				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward);
 			}
 		}
 		else if (BasicFunctions.playOffline)
@@ -92,7 +92,7 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log ("Fired");
 			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, Main_Camera.transform.position, Main_Camera.transform.rotation );
+				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
@@ -172,12 +172,18 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			if (Input.GetKeyDown ("space")) {
+			if (Input.GetKeyDown ("space")) 
+			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
 			}
 		}
+<<<<<<< HEAD
 		if (collisionInfo.gameObject.tag == "kill_bullet") {
 						Debug.Log ("AAAAAAAH, im DEAD!!!");
 				}
+=======
+		if(collisionInfo.gameObject.tag.Equals ("kill_bullet"))
+			Debug.Log ("AAAAAAAH, im DEAD!!!");
+>>>>>>> f2893aaa3be2c370eeecee11768522cf57ef8c07
 	}
 }

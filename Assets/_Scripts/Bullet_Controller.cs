@@ -50,9 +50,9 @@ public class Bullet_Controller : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
-		else if (collision.gameObject.tag.Equals ("Player"))
+		/*else if (collision.gameObject.tag.Equals ("Player"))
 		{
 			Debug.Log("Player hit");
-		}
+		}*/
 	}
 }
