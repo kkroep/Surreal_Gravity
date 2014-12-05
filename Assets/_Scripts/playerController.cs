@@ -43,7 +43,7 @@ public class playerController : MonoBehaviour
 	public Vector3 Gravity_Direction;
 	public Rigidbody Kill_Bullet;
 
-	private float Bullet_Speed = 5f;
+	public float Bullet_Speed = 15f;
 	
 	#endregion
 	

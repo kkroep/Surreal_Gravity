@@ -183,6 +183,7 @@ MonoBehaviour:
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
+  Bullet_Speed: 15
   playerPrefab: {fileID: 100000}
 --- !u!114 &11400004
 MonoBehaviour:
@@ -219,7 +220,7 @@ MonoBehaviour:
   playercam: {fileID: 100002}
   reloadTime: 10
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
-  Bullet_Speed: 60
+  Bullet_Speed: 200
   Gravity_Switch_Timer: 0
 --- !u!124 &12400000
 Behaviour:
