@@ -24,7 +24,6 @@ public class NW_Server : MonoBehaviour {
 
 	public bool connected = false;
 
-	public static bool showServers;
 	private static int amountPlayers;
 
 	//private string gameName = "Surreal Gravity NOTYETFINISHED";
@@ -43,7 +42,6 @@ public class NW_Server : MonoBehaviour {
 
 	void Start ()
 	{
-		showServers = false;
 		serverPorts = new List<int> ();
 		serverPorts.Add (25001);
 		serverPorts.Add (25002);
@@ -293,7 +291,6 @@ public class NW_Server : MonoBehaviour {
 				refreshT = 3;
 				refreshing = false;
 				Debug.Log (MasterServer.PollHostList ().Length);
-				showServers = true;
 				hostD = MasterServer.PollHostList ();
 			}
 		}
@@ -323,16 +320,13 @@ public class NW_Server : MonoBehaviour {
 		GUI.contentColor = Color.black;
 		if (!Network.isClient && !Network.isServer)
 		{
-			if (showServers)
+			if (hostD != null)
 			{
-				if (hostD != null)
+				for (int i = 0; i < hostD.Length; i++)
 				{
-					for (int i = 0; i < hostD.Length; i++)
+					if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 100), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
 					{
-						if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 30), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
-						{
-							Network.Connect(hostD[i]);
-						}
+						Network.Connect(hostD[i]);
 					}
 				}
 			}

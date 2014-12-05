@@ -31,28 +31,25 @@ public class Bullet_Controller : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		/*current_normal = collision.contacts[0].normal*0.7f; //zodat rounden altijd goed gaat (BEUNOPLOSSING !!!! WARNING WARNING WARNING)
-
-		current_normal.x = Mathf.Round (current_normal.x); 
-		current_normal.y = Mathf.Round (current_normal.y);
-		current_normal.z = Mathf.Round (current_normal.z);
-
-		Camera_Forward_tmp = CameraScript.transform.forward;
-
-		if(GravityBullet){
-		//CameraScript.transform.localEulerAngles = new Vector3(85, transform.localEulerAngles.y, 0);
-		PlayerScript.Gravity_Direction = -1f*current_normal;
-		New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane(-1f*current_normal, Camera_Forward_tmp);
-		PlayerScript.transform.rotation = Quaternion.LookRotation(New_Player_Forward_tmp, current_normal);
-		CameraScript.transform.rotation = Quaternion.LookRotation(Camera_Forward_tmp, current_normal);
-		}*/
-		if (collision.gameObject.tag.Equals ("level"))
-	    {
-			Destroy (gameObject);
-		}
-		else if (collision.gameObject.tag.Equals ("Player"))
+		//if (networkView.isMine)
 		{
-			Debug.Log("PLAYER");
+			/*current_normal = collision.contacts[0].normal*0.7f; //zodat rounden altijd goed gaat (BEUNOPLOSSING !!!! WARNING WARNING WARNING)
+
+			current_normal.x = Mathf.Round (current_normal.x); 
+			current_normal.y = Mathf.Round (current_normal.y);
+			current_normal.z = Mathf.Round (current_normal.z);
+
+			Camera_Forward_tmp = CameraScript.transform.forward;
+
+			if(GravityBullet){
+			//CameraScript.transform.localEulerAngles = new Vector3(85, transform.localEulerAngles.y, 0);
+			PlayerScript.Gravity_Direction = -1f*current_normal;
+			New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane(-1f*current_normal, Camera_Forward_tmp);
+			PlayerScript.transform.rotation = Quaternion.LookRotation(New_Player_Forward_tmp, current_normal);
+			CameraScript.transform.rotation = Quaternion.LookRotation(Camera_Forward_tmp, current_normal);
+			}*/
+			Destroy (gameObject);
+			
 		}
 	}
 }
