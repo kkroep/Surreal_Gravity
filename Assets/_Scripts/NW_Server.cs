@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class NW_Server : MonoBehaviour {
 
-	//public static bool playOffline = false;
-
-	//public AccountManagement AccManager;
+	public MenuButtons menuBtns;
 
 	public TextMesh p1;
 	public TextMesh p2;
@@ -140,6 +138,8 @@ public class NW_Server : MonoBehaviour {
 		}
 		else if (amountPlayers == 1)
 		{
+			menuBtns.Multiplayer_Menu.SetActive(false);
+			menuBtns.Client_Menu.SetActive(true);
 			//this.AccManager.activeAccount.Number = 2;
 			BasicFunctions.activeAccount.Number = 2;
 			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
@@ -148,6 +148,8 @@ public class NW_Server : MonoBehaviour {
 		}
 		else if (amountPlayers == 2)
 		{
+			menuBtns.Multiplayer_Menu.SetActive(false);
+			menuBtns.Client_Menu.SetActive(true);
 			//this.AccManager.activeAccount.Number = 3;
 			BasicFunctions.activeAccount.Number = 3;
 			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
@@ -156,12 +158,19 @@ public class NW_Server : MonoBehaviour {
 		}
 		else if (amountPlayers == 3)
 		{
+			menuBtns.Multiplayer_Menu.SetActive(false);
+			menuBtns.Client_Menu.SetActive(true);
 			//this.AccManager.activeAccount.Number = 4;
 			BasicFunctions.activeAccount.Number = 4;
 			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
+	}
+
+	public void setClientTexts ()
+	{
+		//networkView.RPC("setTexts", RPCMode.AllBuffered);
 	}
 
 	[RPC]
@@ -219,7 +228,6 @@ public class NW_Server : MonoBehaviour {
 	public void setTexts1 ()
 	{
 		p1.text = "-> " + activeAccounts[0];
-		//player1.color = setColors(teamAccounts[0]);
 	}
 	/* Zet de text op de Clients
 	 */
@@ -233,29 +241,20 @@ public class NW_Server : MonoBehaviour {
 				if (activeAccounts.Count == 2)
 				{
 					p1.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 				}
 				else if (activeAccounts.Count == 3)
 				{
 					p1.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 				}
 				else if (activeAccounts.Count == 4)
 				{
 					p1.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 					p4.text = activeAccounts[3];
-					//player4.color = setColors(teamAccounts[3]);
 				}
 			}
 			if (Network.isClient)
@@ -263,29 +262,20 @@ public class NW_Server : MonoBehaviour {
 				if (activeAccounts.Count == 2)
 				{
 					p1c.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2c.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 				}
 				else if (activeAccounts.Count == 3)
 				{
 					p1c.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2c.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3c.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 				}
 				else if (activeAccounts.Count == 4)
 				{
 					p1c.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2c.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3c.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 					p4c.text = activeAccounts[3];
-					//player4.color = setColors(teamAccounts[3]);
 				}
 			}
 		}

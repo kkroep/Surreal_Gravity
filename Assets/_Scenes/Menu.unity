@@ -2027,6 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec84cdc62d765849b4f30e270ac08ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuBtns: {fileID: 734412065}
   p1: {fileID: 1418721599}
   p2: {fileID: 755613496}
   p3: {fileID: 2071036684}
@@ -3442,7 +3443,7 @@ MonoBehaviour:
   Register: 0
   Login: 0
   Main_Menu: {fileID: 0}
-  Multiplayer_Menu: {fileID: 0}
+  Multiplayer_Menu: {fileID: 1573688855}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
   Client_Menu: {fileID: 359459699}
@@ -5604,6 +5605,10 @@ Prefab:
       propertyPath: Client_Menu
       value: 
       objectReference: {fileID: 359459699}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Multiplayer_Menu
+      value: 
+      objectReference: {fileID: 1573688855}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 734412062}
