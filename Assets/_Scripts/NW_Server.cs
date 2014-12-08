@@ -32,6 +32,7 @@ public class NW_Server : MonoBehaviour {
 	private float refreshT = 2f;
 	private int serverPort;
 	private int index;
+	private int maxPlayers = 3; //maxPlayers = # of clients
 	private bool xx = false;
 
 	private HostData[] hostD;
@@ -62,7 +63,7 @@ public class NW_Server : MonoBehaviour {
 		gameName = BasicFunctions.serverAccount.Name + "'s Server";
 		index = Random.Range (0, serverPorts.Count); //Take random integer
 		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
-
+		xx = false;
 		if (!xx)
 			yolo.text = "PORT: " + serverPort;
 		startServer2 ();
@@ -72,6 +73,7 @@ public class NW_Server : MonoBehaviour {
 	{
 		bool NAT = !Network.HavePublicAddress();
 		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4, port = 25001
+		Network.maxConnections = maxPlayers;
 		MasterServer.RegisterHost (gameTypeName, gameName, "Implementing Multiplayer in the Menu"); //Registreer de Server
 	}
 
@@ -83,6 +85,11 @@ public class NW_Server : MonoBehaviour {
 		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
 		yolo.text = "SHIT, NEWPORT: " + serverPort;
 		startServer2();
+	}
+
+	void OnFailedToConnect ()
+	{
+		yolo.text = "Game is FULL";
 	}
 
 	public void closeServer ()
@@ -139,7 +146,6 @@ public class NW_Server : MonoBehaviour {
 		Debug.Log("#players: " + amountPlayers);
 		if (amountPlayers == 0)
 		{
-			Debug.Log(Network.connections);
 			BasicFunctions.activeAccount.Number = 1;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
@@ -149,7 +155,6 @@ public class NW_Server : MonoBehaviour {
 		}
 		else if (amountPlayers == 1)
 		{
-			Debug.Log(Network.connections.ToString());
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
 			BasicFunctions.activeAccount.Number = 2;
@@ -183,10 +188,13 @@ public class NW_Server : MonoBehaviour {
 			p3.text = "Open";
 			p4.text = "Open";
 		}
-		p1c.text = "Server";
-		p2c.text = "Open";
-		p3c.text = "Open";
-		p4c.text = "Open";
+		else
+		{
+			p1c.text = "Server";
+			p2c.text = "Open";
+			p3c.text = "Open";
+			p4c.text = "Open";
+		}
 	}
 
 	[RPC]
@@ -273,7 +281,7 @@ public class NW_Server : MonoBehaviour {
 			this.accountNumbers.Remove(Number);
 			for (int i = 0; i < this.activeAccounts.Count; i++)
 				Debug.Log("["+i+"]: " + this.activeAccounts[i]);
-			clearTexts(true);
+			clearTexts(false);
 			networkView.RPC("setTexts", RPCMode.AllBuffered);
 		}
 	}
