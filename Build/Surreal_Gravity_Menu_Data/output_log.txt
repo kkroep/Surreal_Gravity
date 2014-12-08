@@ -12,43 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.063 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Initialize engine version: 4.6.0f3 (30840d631a27)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.046 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Initialize engine version: 4.6.0f3 (30840d631a27)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.045 seconds
+- Completed reload, in  0.048 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -66,257 +30,7 @@ INLEZEN: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.dll (this message is harmless)
-INLEZEN: Earless; WADAFA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: Mongol; JONGUH
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: AB; BA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.dll (this message is harmless)
-INLEZEN: Earless; WADAFA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: Mongol; JONGUH
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: AB; BA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: Earless; WADAFA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: Mongol; JONGUH
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: AB; BA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Account: AB; BA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.0.166:25003
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.56.1:25003
- 
-(Filename:  Line: 836)
-
-#players: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[0]: Earless
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[0]: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[0]: Earless
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[0]: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[1]: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[1]: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.56.1:25003
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.0.166:25003
- 
-(Filename:  Line: 836)
-
-CLIENT: Active Accounts[0]: Earless
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[0]: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[0]: Earless
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[0]: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[1]: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[1]: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-#players: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[0C: Earless
-N
-TF: eAamc:tCi/Bei dAgent/work/d63dfc6385190bc0/counts[0]:SEarndalolePsas
-rG
-(erateFi/ennimyEngi:/nuiDeldAbug.cporp/d6 dfi63e: 49)
-
-0/arCifaEtNTS: Accoonnt laumerGen[0]:te1
-U
-(Filenaime:ebug.cpp LiCn/BuiedA 4ent/
-w
-ork/d63dCc63ENT190Ab60/artifacts/Standal
-on
-eFilename: C:/BeildUnigtny/work/d63dfc638519Eb60inerDebug.cpp Lidne: 49)aye
-r
-GenerateIdNT: iActiveneAccounts[1 Line: 
-49
-)
-il
-enamCLIE:/T: Active Accounts[1]: AB
- 
-(b60/ename: C:/BuildAgent/work/de63dfc6385190b60/artifaut.cpS aLdaneone49la
-
-erGCnerated:/UnityEtngineDebug.cpp 
-Li
-nFe: 49)e:
-
- CCLIENT: Acco/unt Nu63bdfs[c6: 3
-8
-(1i0len/ameti C:/BuildAgdnt/work/d63dfc6a85190b60neartiyearGs/Seaneraltede/lUnityEngineDebug.cppn iineD: bug).
-c
-pp Line: 49)
-
-CLIENT: Active AccoCntsIEN0]: T: Acts
-ve
- Aicenoantse:[C:/Buildessg
- t
-(/ilonrmk/ C:3dBuc63dA51n9/wb60k/ar63dfc6385190bda60/artifacts/Standa/UnityEngirGnneDebted/Upp Line: neDeb
-u
-g.cCLIENT: Ac9co
-u
-nt CLIENT: Accoun
-  N
-(Fmieren[0m]: C:/
-Bu
-ilidAgame: C:/BuildAeent//work/d63dfc6385190b60/artifatscSta/SdaltnaPlnyedGaneoanee/PnitylnaiyeDebrgGcep eraned/UnityEngineDebug.cpp : 4e):
-
- 49)
-
-CLIENT: Active Accounts[1]: AB
- 
-(FiCenIENT:me  C:/tuilvAeent/work/d63df A638
-5
-(Filename: fC:/BuildAgent/ePlakyerGenerated/0UnityEngineDebug.cpp Line: 49)
-e
-CeIENt: Accnountn Numbers[1]: 2
-i
-nFel:na49e) 
-
-/BuildAgCnIEtT: Account Numbers[1]: 2
- 
-iFflenamc:tC/Stan:alBuniPlayernGenerakedd/Unit6EngineDe60ug./pprtLifne:t s9)
-t
-andalonePlayerGenerated/UnityEngineDebug.cpp Line: 4C)L
-I
-ENT: Active Accounts[0]: Earless
- 
-(Filename: C:CBuLIdEgNTt/ Aork/d63cft6i851 9Ab6co/urnitsct0]: Earless
- 
-(FileGenerateme:U iCyE:giBneDebugncppt/wner:/d493
-
-CdIfNc:6A3c85n1 9umbers[rti:f1a
-ct
-s/Standalo CePlBayerGenerated/UnityEng385i90ebebu/grtcfpcps/Sinnea:o e4l9yer
-G
-eneratCd/UniLyIEgiT:eDeccouu.nt Numbers[90
-]
-: 1LE T:
- Ailteve me: C:/BuildAgent
-/w
-ork/ed63dfc63/B85ld90ben0//worif/d63dfc638519o0ePl0aaytirfenctra/StanUnitynePlayErGenerangd/UnDebyEg.cpp Line: 49)
-
-ine: LI)
-N
-CTI:N A Acivouet  umAecs[c]o: ts[
-1]
-:FAB
- 
-(miee:a eC:/BuilildAgent/work/d63ddc6c33851990b60/artifcacts/aSdalonePlayerGenerated/UnityEngineDeneDebpug.cpp: L9i
-e: C9L
-
-ENT: AcENT: Accove A Nuounesrs]:1 : eb
-g
-(
-F
-(Finaemaee:  :/:uildAgenBu/wlrk/dendfcw3o51k9d6b30/artifact63/S519ndb60o/ePaaytefrcGseStarated/UnitaEyeinGenereDed/Un.ctpyLinniee:ebug)
-
-pp Line: 49)
-
-ount IEumT:e s[2]: 3e
- A
-(Filenamco: C:/[2uildDegebt/g
-or
-(Fd63dname: 5C90/B6u/ardifgecttswoSrk/ddlonefcl63erGe90erat/ar/Uifacts/StandalonePplayerGe 4n)e
-
-rated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[2]: 3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: Earless; WADAFA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: Mongol; JONGUH
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-INLEZEN: AB; BA
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Login info incorrect
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Account: Yolo created
+INLEZEN: Yolo; LOL
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -336,23 +50,39 @@ INLEZEN: Yolo; LOL
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Account: Yolo; LOL
+Account: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-1
+Server: AB's Server registered
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 192.168.0.166:25003
+#players: 0
  
-(Filename:  Line: 836)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 192.168.56.1:25003
+UnityEngine.NetworkPlayer[]
  
-(Filename:  Line: 836)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[0]: Earless
+AA: AB
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Active Accounts[0]: AB
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Account Numbers[0]: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Connected Players[0]: AB, 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+CLIENT: Active Accounts[0]: AB
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -360,15 +90,7 @@ CLIENT: Account Numbers[0]: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[0]: Earless
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[0]: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[1]: AB
+CLIENT: Active Accounts[1]: Earless
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -376,7 +98,19 @@ CLIENT: Account Numbers[1]: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[0]: Earless
+SERVER: Active Accounts[1]: Earless
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Account Numbers[1]: 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Connected Players[1]: Earless, 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+CLIENT: Active Accounts[0]: AB
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -384,7 +118,7 @@ CLIENT: Account Numbers[0]: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[1]: AB
+CLIENT: Active Accounts[1]: Earless
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -392,7 +126,27 @@ CLIENT: Account Numbers[1]: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[0]: Earless
+[0]: AB
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+#Players: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Active Accounts[0]: AB
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Account Numbers[0]: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Connected Players[0]: AB, 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+CLIENT: Active Accounts[0]: AB
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -400,15 +154,27 @@ CLIENT: Account Numbers[0]: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[1]: AB
+CLIENT: Active Accounts[1]: Mongol
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Account Numbers[1]: 2
+CLIENT: Account Numbers[1]: 4
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[0]: Earless
+SERVER: Active Accounts[1]: Mongol
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Account Numbers[1]: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+SERVER: Connected Players[1]: Earless, 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+CLIENT: Active Accounts[0]: AB
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -416,319 +182,34 @@ CLIENT: Account Numbers[0]: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Active Accounts[1]: AB
+CLIENT: Active Accounts[1]: Mongol
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-CLIENT: Account Numbers[1]: 2
+CLIENT: Account Numbers[1]: 4
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[2]: Debug
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Account Numbers[2]: 3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-#players: 3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Acttive Accountus[s00]: E rlEss
-a
-rFllesnm :
-C:i/Bnaie: C:/luilgAgent/wrkrk/d6dfc6c33851990b66/artitfCacIs//St: dalondeePocaeoeraes[rG]at dEanilyEsisy
-Eeg
-eeDugug.m ep nin B 99l
-d
-A
-
-CLIE/NETN Ac A63dunc6 u85m9se60s][ti1:
- c
-(t
-il
-(FSeanaaleonCeCBluyirlGenAngewoenr/wtrfc6385de9cb63/artiEangtn/eDabfgaclcntPpa sL/eneeSt a/Udi9loE
-
-inayeLbuN.cpaped/Un e:c4g9n N
-ubmb.eCpsE T::iAn
- ve
- 9Fc
-lnes[1I:: ABN u
-:Filcnttvewo rco/dnil[d]A6ge8
-t5
-/F0i6e/n6rmti6 a8:5B/9itandaanr/wioarytesd6tdrad6ead/190bl0Ennrtiafereesura.td/UnaLine: na9)b
-rG
-geCpprEten/A c9)y
-vE
- AcicIENT: Ac]op nLi u
-mbe9e[a
-m
-e: CI/E
-(iTid eAnncmuwt rN/dB3efls63]n512o
-b/d
-63dfc6385t: C:/Baialinecls/y/work/l6nedPc6anityeEnbe0ntDdtbnia.ts/i aeDnb:g.4Ppay
-ine:eIENt
-
-edcUnNi:tycNniveeDe1]:u 2p
- [2
-i(::le ug9
- 
-(
-
- C:IEauTe: Ac:nt/uoriAccoudfntn85190b60/ar
-t
-ifil8519Stane0/lonePliylrdeAegaalt/neornk/yrd6nedefteug/8c5pt9ine: 4e)D
-ie
-acusIENp:  cLiive ycce)rG
-e
-n2]: Deb: d
-U
-(FilNEanee Cs[bB]gi.l
-  e
-(Ft/leork9d:
-6
-3CfIu6i38519noun/o rk/mbe3csfs6: 351
-9
-aFionalPiface:rG//tBainla/AnnenEnginrkDeeberc6pe L/i0ne60 /4g)
-
-iacLIsb/g.EcTd  AoncePun49)
-r
-Generated/ n3ty
- E
-(Fnlgnaien eDeBuug.cpp Line: 49)
-
-dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: Active Accounts[0]: Earless
- 
-(FilCnLme:E C:/Builde Accounts/d0]3: CaLle1sNb
-:/
-Arcltanve A:caodal/nuePld0ye: e/awotrdss
-k/(FE3difaDecmg6e3: 5L1:/0 u60
-
-AtiCntIENT:/tandaloneuPd6asf0]638119
-t6(//irieiyEfg:c es/Sta:cpplolLAgenPtl9wo
-y
-e/rC3dncr6t3A/cn9otyEngineDebug.cpp L
-in
-0: l6)/
-
-rt: faCcBEuT:tanAccoonePlk d63Nedfb6eed/U0n60: 1r
-ift(Finetime: lonbBug.lyegppn erwine: 49)
-
-EngoneE/bdu6g3dci63e8A5c9nbo0:a tt9)
-1
-ts]S:CnAd
- lnE(TP:leanecGeteratev/U Atycoui:nCse1/: Bbu
-u
-(Figcepltene:won)km/: 
-
-63df/LI3uil1 9cntibe /wccrki/adss[dS]andalon:eb60
- e
-artlefaaats/SCUndatlEngdAeaenby/e.rcGenerated/Uni1
-y9
-ngL6neTa:tucc.cpn/t NndmaelsLe1l]:  G
-en(
-
-ited/EnetyEC:ioBuei NdupmntLwore:/ 4
-d
-(
-Fi385nE9eT:6:0BariifacNA/Stanuwbrnes[l6:ydf
- c
-(Fi85elerb60e/:UCifacys/igtnaDebtuworkpaLdered 4r63
-a
-5tC0/60nTaryAncatteD bcandpa LtnePlayer
-G
-seLI:eTrb Acti
-ve
- AciounneDe:ts[.2c]i: Agbun:
- wo
-rFil en)me
-
-:3 LC1NTB b6t/ivde agtsnoSntonrkad neebla
-85enFilenadmief it:/EunaldageenbPworg.layp3pfcG38L1inn6r 4a9dtif
-c
-s/ittENTgnnalcnbugP cypmGLnsr2]:ed)
-/U
-
-(FyEigTi aec: bCunBtiNpdLbges: 49) 
-
-
- 3
-(FiT8:5mA90cbC:tBuildAcgs[2ta od
- 
-o63Pilename: r:6Bea/ltAiaeytt/gtnrd/elogePpl 3ei85n9 at9)d/
-
-UrtitfEacts/Stand.clop LPlne: 49)
-
-rated/UnityEngineDebug.cpp Line: 49)
-
-CLIENT: AEtNve: Ac Acc Aice ntnts[cc[unt0r:0] Eearsl
-s
-
-
- 
-(
-eleime:n Cm/BBuildAgient/wor//dordfc638556136b5//r0biifaartS/tanctsllStnenllayyeerPeaeeateG/eUinayEy/igiDeEegic.c Li ue:.c44) 
-L
-i
-ne:C49EN
-T
-: AcIENT: tANumber [[u:b1
-
-s
-[0(:e lm
-en
-:miC:e:uame:AgentBwtirwk/d/3t6/d3or65/5d03006crtifactb/t0taSndtaalonePlaaearGdenloreatleiyyEnitiyrentgud.eUpn ugineipn L4nue
-
-c p9C 
-L
-ineLIENT: A: 49)
-ti
-NAccounts[1]: AB
- 
-(Filename:T::/BuLldAgent/work/d63dfI638Tve Acc0cirvneac1s]St unts
- o
-n:elenBe
-mr
-(Gin:eranua/Ue:tgCegintiwbdAg/.c63dwf ci/3n51: b43/8r
-0i
-ba60/aSttinLdalsTSP AynrGnt eonmbPnlr1ata2/e
- 
-(nyieeaanme:neb:/Buippe eLugilnAp: nt9/nor: 
-
-49k
-
-CCL3dfT63E5N : A1c9uobt  0/ammererrs][ 2]:
- 
-(t
-ilf(cesiStaenmaamonePlC:/:/BunilBAuenldUwotyE//6gornk/3b5g.1c930L190nar0t rtaf
-ts
-/StCnLdaElonnP lcayeerGrcnenunttedsd2]n:ntyEngineDebugg.
-pp
-( Liinee:a44e)C
-/BuildAgenCtIEwNTr ktdt63dfiv3u A9cc26:nts[t]i
-fD
-(ctgs
- 
-(ed lCoa/el Cldergent/work/d6rdtcdE33g1fne660/gartifacts/St9an
-d
-alonePlayerGLInErat: AUcityEunt ineDebugscpp ]Ls 3:
-4n
-)l
-i
-nnamL:ICer/:unicladueg/ntnimtorE/[g6n:Df
- 38
-(.1ip0ei6a:/a4Ci/
-a
-uitldSLtEendt/:orncPdn3y e6uGb5eras[0]Uariti3Encts
-neDebdaaml.oC:eLBuil:A4e9era
-ted/Un3dyEngineDebug./aprtLinfac 49)S
-t
-andalonCPLIEerGe Acrated /Ucounts[0]: Earlecpp
- 
-(CneIe Ta)e: 
-C
-:v/BuildAgent/work/d63dfc
-63
-85190b60/art:ifacts/StatdAwooived63ePofnectG38n]9r bed/Unist
- yE
-cnsilenaneglcCnp/PLanyl:rg4enn/e
-rrteC/UIdtcTn 8n190ubt0/apmi Lint:: Sta
-nd
-a
-loneLnlamTe CG:ncrutnt /UuintrEsgi0n/ D3d
-fug
-(.851n9 eb n0:a ru)i
-
-factLtIwNank/d63dfc6 e85Ge9e[06e:a1U
-i i
-cyEngitee: Cl/BcepldLyinG:/wer
-k
-/ddLnEdNEngA8c1eb0eg6Ac/a otnfa 1]/ A
-B
-aC
- a
-lENilenacyeee Gcn/euntsd/]gittE
-g
-(F/elbugmc6:85LinBb 0l)
-g
-eCntEcos:/St3tdfel6o385190b60/areBfa
- 
-(FilenayEnngC:/BurGudn.gpateLwork/y 49)n
-
-e3DL19EN.:0  Lctifac Nu
-m
-tCedEl[:n e:cl2a
- t
-(rGembrrmte]d 2:
-/
-uyindgAneee Ctg.uopd /L6tnf:o3k5)d6
-b
-dfC6Ir8N51 Acc0/artifabesPsl[y1rae neraa
-eei/eUenamednCU/nuDlnAuen.teppr kcpp6 : i638:
-
-4C)b
-
-N/L: Active Accounts[2t:sayerug
- 
-uFil
-dn
-(nmil:nCim/: C:/Bucnd/ eninwe6kd4f3)
-3
-cCL1IEb65/ Abtifacts/Stasn[2t:o Dabua
- Pl
-GFneeGaemerU ndt/EngiyndgAeeeute.wcrpc 6pdLine4859)
-b
-CLCLIiN aA Accouttdaulbnrrl[ye:r:
-3
-eri
-lename: C:/Bi/lBdAged./pe rL/w6rkf/d66
-38fcL90b619aA6cicfrat aN/tmbSnsdd2lon3
-Pl(yFrrGeneaaedd/UUiuilnEnggnienorkedbug.fpc3L5 n9i:60/949
-
-
-
-CLICaNT: Active AccLuntaI[Nne: laylvrG
- nc
-catun/nams[3]eni lyE/
-(FilAeabmut /c:/k LdidAgc6n4/5)r0
-bd0/3dIci6a:5tctb6vt Actifancsns3lStYnoPla
-ee
-(FliaeyatmGenUnCi:e/duiUdneeuy.E/gw ninDe/:d 3c9f) L5190:C0La)Et
-iT: ACLIENT: Accoru[nt Num
-b
-etilana e:dC:/
-ueildnegenn rCotBk/d6nAgentnw19nk/debug.cpf5L9ib/eSa aid)c
-
-oneClLnyErloenAecount NiyerEsgne:aD4
-b/
-Unicpname: e: D9b
-g
-.cpp Line: 49)3
-
-c6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 2.600611 ms
+UnloadTime: 2.408288 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 3409.
-Total: 0.929044 ms (FindLiveObjects: 0.092369 ms CreateObjectMapping: 0.023650 ms MarkObjects: 0.255688 ms  DeleteObjects: 0.123604 ms)
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 3402.
+Total: 0.976791 ms (FindLiveObjects: 0.091030 ms CreateObjectMapping: 0.022757 ms MarkObjects: 0.240516 ms  DeleteObjects: 0.145023 ms)
 
-UnloadTime: 2.552865 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 3410.
-Total: 0.904502 ms (FindLiveObjects: 0.093261 ms CreateObjectMapping: 0.023650 ms MarkObjects: 0.228022 ms  DeleteObjects: 0.121820 ms)
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 2.760361 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 3409.
-Total: 0.910749 ms (FindLiveObjects: 0.091922 ms CreateObjectMapping: 0.024096 ms MarkObjects: 0.235161 ms  DeleteObjects: 0.123604 ms)
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

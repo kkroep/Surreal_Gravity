@@ -101,10 +101,20 @@ public class MenuButtons : MonoBehaviour {
 		}
 
 		if (Disconnect) {
-			serverStuff.closeServer();
-			Server_Menu.SetActive(false);
-			Multiplayer_Menu.SetActive(true);
-			renderer.material.color = Button_Idle;
+			if (Network.isServer)
+			{
+				serverStuff.closeServer();
+				Server_Menu.SetActive(false);
+				Multiplayer_Menu.SetActive(true);
+				renderer.material.color = Button_Idle;
+			}
+			if (Network.isClient)
+			{
+				serverStuff.closeClient();
+				Client_Menu.SetActive(false);
+				Multiplayer_Menu.SetActive(true);
+				renderer.material.color = Button_Idle;
+			}
 		}
 
 		if (startGame) {
