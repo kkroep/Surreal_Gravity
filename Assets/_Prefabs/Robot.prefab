@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55c754faa82de42bacfc1895cd07a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,6 +57,9 @@ MonoBehaviour:
   baseMovementCost: 10
   level: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
   tracedBack: 0
+  robotmovement: {fileID: 0}
+  findPath: 0
+  reset: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce497be5d7b0264aa675c110602f0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4
+  starting: 0
+  arrived: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -32,16 +32,11 @@ public class RobotMovement : MonoBehaviour {
 
 		if(pathfind.tracedBack == true){
 
-
-
-
-
-
 			if(starting){
 				path = pathfind.path;
 				start = new Vector3(path[path.Count-1].xPosition,path[path.Count-1].yPosition,path[path.Count-1].zPosition);
 				end = new Vector3(path[path.Count-2].xPosition,path[path.Count-2].yPosition,path[path.Count-2].zPosition);
-				target = path.Count-3;
+				target = path.Count-2;
 				starting = false;
 				startTime = Time.time;
 				length = Vector3.Distance(start, end);
@@ -49,35 +44,32 @@ public class RobotMovement : MonoBehaviour {
 
 
 
-				float distCovered = (Time.time - startTime) * speed;
-				float fracJourney = distCovered / length;
+			float distCovered = (Time.time - startTime) * speed;
+			float fracJourney = distCovered / length;
 			if(path.Count > 2){
 				transform.position = Vector3.Lerp(start, end, fracJourney);
 			}
 
-				if (target<=0 && fracJourney>0.99){
-					robotscript.target.SendMessage("Kill",1.0f);
-					pathfind.tracedBack = false;
-				}
-
-				if (fracJourney>0.99 && target>=0){
-					selectNext ();
-				}
-			
-
-
-
-
-
-
-		
+			if (target<=0 && fracJourney>0.99){
+				robotscript.target.SendMessage("Kill",1.0f);
+				pathfind.tracedBack = false;
+			}
+			/*
+			if(target == 0){
+				Debug.Log (path[target].xPosition + "," + path[target].yPosition + "," + path[target].zPosition);
+			}
+			*/
+			if (fracJourney>0.99 && target>0){
+				selectNext ();
+			}		
 		}
 	}
 
 	void selectNext(){
+		target--;
 		start = new Vector3(path[target+1].xPosition,path[target+1].yPosition,path[target+1].zPosition);
 		end = new Vector3(path[target].xPosition,path[target].yPosition,path[target].zPosition);
-		target--;
+
 		startTime = Time.time;
 	}
 

@@ -162,7 +162,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
-  m_PrefabInternal: {fileID: 1221039960}
+  m_PrefabInternal: {fileID: 1134142922}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1127152373}
@@ -179,20 +179,20 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 52231b29c8af7df48b6ce7596b358c52,
     type: 2}
-  m_PrefabInternal: {fileID: 1221039960}
+  m_PrefabInternal: {fileID: 1134142922}
   m_GameObject: {fileID: 1127152371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d4ed0c043003a6479b4febd47378d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRobots: 3
-  robot: {fileID: 100000, guid: 3a80042c2f79a4b43aef9981f50e906b, type: 2}
+  numberRobots: 1
+  robot: {fileID: 100000, guid: 025775fcfc541df4bb0300610d60e7d8, type: 2}
 --- !u!4 &1127152373
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
-  m_PrefabInternal: {fileID: 1221039960}
+  m_PrefabInternal: {fileID: 1134142922}
   m_GameObject: {fileID: 1127152371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 42.8571014, y: 19.4284248, z: -25.7267532}
@@ -200,7 +200,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1001 &1221039960
+--- !u!1001 &1134142922
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
