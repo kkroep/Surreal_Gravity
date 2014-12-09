@@ -29,7 +29,7 @@ public class NW_Spawning : MonoBehaviour {
 		spawnLocations.Add(spawn5);
 		spawnPlayer();
 		if (!playOffline)
-			networkView.RPC("showScores", RPCMode.AllBuffered, BasicFunctions.amountPlayers);
+			networkView.RPC("showScores", RPCMode.AllBuffered);
 	}
 	
 	public void spawnPlayer ()
@@ -56,20 +56,12 @@ public class NW_Spawning : MonoBehaviour {
 	}
 
 	[RPC]
-	public void showScores (int players)
+	public void showScores ()
 	{
-		if (players == 2)
+		debugScore.text = "";
+		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
-			debugScore.text = "Player 1: " + BasicFunctions.activeAccounts[0] + "\n Player 2: " + BasicFunctions.activeAccounts[1];
-		}
-		else if (players == 3)
-		{
-			debugScore.text = "Player 1: " + BasicFunctions.activeAccounts[0] + "\n Player 2: " + BasicFunctions.activeAccounts[1] + "\n Player 3: " + BasicFunctions.activeAccounts[2];
-		}
-		else if (players == 4)
-		{
-			debugScore.text = "Player 1: " + BasicFunctions.activeAccounts[0] + "\n Player 2: " + BasicFunctions.activeAccounts[1] + "\n Player 3: " + BasicFunctions.activeAccounts[2]
-			+ "\n Player 4: " + BasicFunctions.activeAccounts[3];
+			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + BasicFunctions.gamePoints[i] + "\n";
 		}
 	}
 	

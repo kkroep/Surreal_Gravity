@@ -150,6 +150,7 @@ public class NW_Server : MonoBehaviour {
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
+			BasicFunctions.gamePoints.Add(0);
 			setTexts1();
 			Debug.Log("AA: " + BasicFunctions.activeAccounts[0]);
 		}
@@ -208,6 +209,7 @@ public class NW_Server : MonoBehaviour {
 	{
 		BasicFunctions.activeAccounts.Clear();
 		BasicFunctions.accountNumbers.Clear();
+		BasicFunctions.gamePoints.Clear();
 	}
 	/* Stuur UI data naar de Server
 	 */
@@ -220,6 +222,7 @@ public class NW_Server : MonoBehaviour {
 			{
 				BasicFunctions.activeAccounts.Add(UN);
 				BasicFunctions.accountNumbers.Add (Number);
+				BasicFunctions.gamePoints.Add(0);
 			}
 			
 			for(int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
@@ -230,6 +233,7 @@ public class NW_Server : MonoBehaviour {
 				adding.Number = BasicFunctions.accountNumbers[i];
 				BasicFunctions.connectedPlayers.Add(adding);
 				Debug.Log("SERVER: Connected Players["+i+"]: " + BasicFunctions.connectedPlayers[i].toString());
+				Debug.Log("Score["+i+"]: " + BasicFunctions.gamePoints[i]);
 				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);
 			}
 		}
@@ -245,6 +249,7 @@ public class NW_Server : MonoBehaviour {
 			{
 				BasicFunctions.activeAccounts.Add(UN);
 				BasicFunctions.accountNumbers.Add(Number);
+				BasicFunctions.gamePoints.Add(0);
 			}
 		}
 		networkView.RPC("setTexts", RPCMode.AllBuffered);
@@ -262,6 +267,7 @@ public class NW_Server : MonoBehaviour {
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
+			BasicFunctions.gamePoints.RemoveAt(Number);
 			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
@@ -279,6 +285,7 @@ public class NW_Server : MonoBehaviour {
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
+			BasicFunctions.gamePoints.RemoveAt(Number);
 			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			clearTexts(false);

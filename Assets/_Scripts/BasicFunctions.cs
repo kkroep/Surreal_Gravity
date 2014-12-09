@@ -11,6 +11,7 @@ public class BasicFunctions : MonoBehaviour {
 	public static List<string> activeAccounts = new List<string>();
 	public static List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
 	public static List<int> accountNumbers = new List<int>();
+	public static List<int> gamePoints = new List<int>();
 
 	void Awake ()
 	{
