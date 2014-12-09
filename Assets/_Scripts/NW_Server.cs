@@ -147,10 +147,11 @@ public class NW_Server : MonoBehaviour {
 		if (BasicFunctions.amountPlayers == 0)
 		{
 			BasicFunctions.activeAccount.Number = 1;
+			BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
-			BasicFunctions.gamePoints.Add(0);
+			BasicFunctions.gamePoints.Add(BasicFunctions.activeAccount.Points);
 			setTexts1();
 			Debug.Log("AA: " + BasicFunctions.activeAccounts[0]);
 		}
@@ -159,6 +160,7 @@ public class NW_Server : MonoBehaviour {
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
 			BasicFunctions.activeAccount.Number = 2;
+			BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
@@ -167,6 +169,7 @@ public class NW_Server : MonoBehaviour {
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
 			BasicFunctions.activeAccount.Number = 3;
+			BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
@@ -175,6 +178,7 @@ public class NW_Server : MonoBehaviour {
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
 			BasicFunctions.activeAccount.Number = 4;
+			BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
@@ -231,9 +235,10 @@ public class NW_Server : MonoBehaviour {
 				Debug.Log("SERVER: Account Numbers["+i+"]: " + BasicFunctions.accountNumbers[i]);
 				Account adding = new Account (BasicFunctions.activeAccounts[i], "");
 				adding.Number = BasicFunctions.accountNumbers[i];
+				adding.Points = 0;
 				BasicFunctions.connectedPlayers.Add(adding);
 				Debug.Log("SERVER: Connected Players["+i+"]: " + BasicFunctions.connectedPlayers[i].toString());
-				Debug.Log("Score["+i+"]: " + BasicFunctions.gamePoints[i]);
+				//Debug.Log("Score["+i+"]: " + BasicFunctions.gamePoints[i]);
 				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);
 			}
 		}

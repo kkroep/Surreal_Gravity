@@ -124,7 +124,7 @@ public class playerController : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetKeyDown(KeyCode.Q))
+		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 		    Application.LoadLevel("Menu");
 			Screen.lockCursor = false;
