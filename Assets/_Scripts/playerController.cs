@@ -125,7 +125,10 @@ public class playerController : MonoBehaviour
 	void Update ()
 	{
 		if (Input.GetKeyDown(KeyCode.Q))
+		{
 		    Application.LoadLevel("Menu");
+			Screen.lockCursor = false;
+		}
 		if (Input.GetMouseButtonDown(0)) {
 			Fire_Kill_Bullet();
 		}

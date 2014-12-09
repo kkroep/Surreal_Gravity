@@ -23,7 +23,7 @@ public class NW_Server : MonoBehaviour {
 	public bool connected = false;
 
 	public static bool showServers;
-	private static int amountPlayers;
+	//private static int amountPlayers;
 
 	private bool ClientConn = false;
 	private bool ClientUpdate = false;
@@ -36,9 +36,9 @@ public class NW_Server : MonoBehaviour {
 	private bool xx = false;
 
 	private HostData[] hostD;
-	private List<string> activeAccounts = new List<string>();
-	private List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
-	private List<int> accountNumbers = new List<int>();
+	//private List<string> activeAccounts = new List<string>();
+	//private List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
+	//private List<int> accountNumbers = new List<int>();
 	private static List<int> serverPorts;
 
 	void Start ()
@@ -123,7 +123,7 @@ public class NW_Server : MonoBehaviour {
 
 	void OnServerInitialized ()
 	{
-		amountPlayers = 0;
+		BasicFunctions.amountPlayers = 0;
 		Debug.Log ("Server: " + gameName + " registered");
 		ClientConn = true;
 	}
@@ -143,17 +143,17 @@ public class NW_Server : MonoBehaviour {
 
 	public void ClientIsConnected ()
 	{
-		Debug.Log("#players: " + amountPlayers);
-		if (amountPlayers == 0)
+		Debug.Log("#players: " + BasicFunctions.amountPlayers);
+		if (BasicFunctions.amountPlayers == 0)
 		{
 			BasicFunctions.activeAccount.Number = 1;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
-			accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
-			activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
+			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
+			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
 			setTexts1();
-			Debug.Log("AA: " + activeAccounts[0]);
+			Debug.Log("AA: " + BasicFunctions.activeAccounts[0]);
 		}
-		else if (amountPlayers == 1)
+		else if (BasicFunctions.amountPlayers == 1)
 		{
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
@@ -161,7 +161,7 @@ public class NW_Server : MonoBehaviour {
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
-		else if (amountPlayers == 2)
+		else if (BasicFunctions.amountPlayers == 2)
 		{
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
@@ -169,7 +169,7 @@ public class NW_Server : MonoBehaviour {
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
-		else if (amountPlayers == 3)
+		else if (BasicFunctions.amountPlayers == 3)
 		{
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
@@ -206,8 +206,8 @@ public class NW_Server : MonoBehaviour {
 	[RPC]
 	public void clearAccounts ()
 	{
-		this.activeAccounts.Clear();
-		this.accountNumbers.Clear();
+		BasicFunctions.activeAccounts.Clear();
+		BasicFunctions.accountNumbers.Clear();
 	}
 	/* Stuur UI data naar de Server
 	 */
@@ -216,21 +216,21 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isServer)
 		{
-			if (!this.activeAccounts.Contains(UN))
+			if (!BasicFunctions.activeAccounts.Contains(UN))
 			{
-				this.activeAccounts.Add(UN);
-				this.accountNumbers.Add (Number);
+				BasicFunctions.activeAccounts.Add(UN);
+				BasicFunctions.accountNumbers.Add (Number);
 			}
 			
-			for(int i = 0; i < activeAccounts.Count; i++)
+			for(int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 			{
-				Debug.Log("SERVER: Active Accounts["+i+"]: " + activeAccounts[i]);
-				Debug.Log("SERVER: Account Numbers["+i+"]: " + accountNumbers[i]);
-				Account adding = new Account (activeAccounts[i], "");
-				adding.Number = accountNumbers[i];
-				connectedPlayers.Add(adding);
-				Debug.Log("SERVER: Connected Players["+i+"]: " + connectedPlayers[i].toString());
-				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, this.activeAccounts[i], this.accountNumbers[i]);
+				Debug.Log("SERVER: Active Accounts["+i+"]: " + BasicFunctions.activeAccounts[i]);
+				Debug.Log("SERVER: Account Numbers["+i+"]: " + BasicFunctions.accountNumbers[i]);
+				Account adding = new Account (BasicFunctions.activeAccounts[i], "");
+				adding.Number = BasicFunctions.accountNumbers[i];
+				BasicFunctions.connectedPlayers.Add(adding);
+				Debug.Log("SERVER: Connected Players["+i+"]: " + BasicFunctions.connectedPlayers[i].toString());
+				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);
 			}
 		}
 	}
@@ -241,17 +241,17 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isClient)
 		{
-			if (!this.activeAccounts.Contains(UN))
+			if (!BasicFunctions.activeAccounts.Contains(UN))
 			{
-				this.activeAccounts.Add(UN);
-				this.accountNumbers.Add(Number);
+				BasicFunctions.activeAccounts.Add(UN);
+				BasicFunctions.accountNumbers.Add(Number);
 			}
 		}
 		networkView.RPC("setTexts", RPCMode.AllBuffered);
-		for (int i = 0; i < activeAccounts.Count; i++)
+		for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 		{
-			Debug.Log("CLIENT: Active Accounts["+i+"]: " + activeAccounts[i]);
-			Debug.Log("CLIENT: Account Numbers["+i+"]: " + accountNumbers[i]);
+			Debug.Log("CLIENT: Active Accounts["+i+"]: " + BasicFunctions.activeAccounts[i]);
+			Debug.Log("CLIENT: Account Numbers["+i+"]: " + BasicFunctions.accountNumbers[i]);
 		}
 	}
 
@@ -260,12 +260,12 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isServer)
 		{
-			this.activeAccounts.Remove(UN);
-			this.accountNumbers.Remove(Number);
-			for (int i = 0; i < this.activeAccounts.Count; i++)
-				Debug.Log("["+i+"]: " + this.activeAccounts[i]);
+			BasicFunctions.activeAccounts.Remove(UN);
+			BasicFunctions.accountNumbers.Remove(Number);
+			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
+				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
-			Debug.Log("#Players: " + amountPlayers);
+			Debug.Log("#Players: " + BasicFunctions.amountPlayers);
 			clearTexts (true);
 			networkView.RPC("setTexts", RPCMode.AllBuffered);
 			networkView.RPC("deleteUNClients", RPCMode.AllBuffered, UN, Number);
@@ -277,10 +277,10 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isClient)
 		{
-			this.activeAccounts.Remove(UN);
-			this.accountNumbers.Remove(Number);
-			for (int i = 0; i < this.activeAccounts.Count; i++)
-				Debug.Log("["+i+"]: " + this.activeAccounts[i]);
+			BasicFunctions.activeAccounts.Remove(UN);
+			BasicFunctions.accountNumbers.Remove(Number);
+			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
+				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			clearTexts(false);
 			networkView.RPC("setTexts", RPCMode.AllBuffered);
 		}
@@ -289,59 +289,60 @@ public class NW_Server : MonoBehaviour {
 	 */
 	public void setTexts1 ()
 	{
-		p1.text = "-> " + activeAccounts[0];
+		p1.text = "-> " + BasicFunctions.activeAccounts[0];
 	}
 	/* Zet de text op de Clients
 	 */
 	[RPC]
 	public void setTexts ()
 	{
-		for (int i = 0; i < activeAccounts.Count; i++)
+		for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 		{
 			if (Network.isServer)
 			{
-				if (activeAccounts.Count == 1)
+				// Modulair maken   ************TO DO**************
+				if (BasicFunctions.activeAccounts.Count == 1)
 				{
-					p1.text = "-> " + activeAccounts[0];
+					p1.text = "-> " + BasicFunctions.activeAccounts[0];
 				}
-				else if (activeAccounts.Count == 2)
+				else if (BasicFunctions.activeAccounts.Count == 2)
 				{
-					p1.text = "-> " + activeAccounts[0];
-					p2.text = activeAccounts[1];
+					p1.text = "-> " + BasicFunctions.activeAccounts[0];
+					p2.text = BasicFunctions.activeAccounts[1];
 				}
-				else if (activeAccounts.Count == 3)
+				else if (BasicFunctions.activeAccounts.Count == 3)
 				{
-					p1.text = "-> " + activeAccounts[0];
-					p2.text = activeAccounts[1];
-					p3.text = activeAccounts[2];
+					p1.text = "-> " + BasicFunctions.activeAccounts[0];
+					p2.text = BasicFunctions.activeAccounts[1];
+					p3.text = BasicFunctions.activeAccounts[2];
 				}
-				else if (activeAccounts.Count == 4)
+				else if (BasicFunctions.activeAccounts.Count == 4)
 				{
-					p1.text = "-> " + activeAccounts[0];
-					p2.text = activeAccounts[1];
-					p3.text = activeAccounts[2];
-					p4.text = activeAccounts[3];
+					p1.text = "-> " + BasicFunctions.activeAccounts[0];
+					p2.text = BasicFunctions.activeAccounts[1];
+					p3.text = BasicFunctions.activeAccounts[2];
+					p4.text = BasicFunctions.activeAccounts[3];
 				}
 			}
 			if (Network.isClient)
 			{
-				if (activeAccounts.Count == 2)
+				if (BasicFunctions.activeAccounts.Count == 2)
 				{
-					p1c.text = "-> " + activeAccounts[0];
-					p2c.text = activeAccounts[1];
+					p1c.text = "-> " + BasicFunctions.activeAccounts[0];
+					p2c.text = BasicFunctions.activeAccounts[1];
 				}
-				else if (activeAccounts.Count == 3)
+				else if (BasicFunctions.activeAccounts.Count == 3)
 				{
-					p1c.text = "-> " + activeAccounts[0];
-					p2c.text = activeAccounts[1];
-					p3c.text = activeAccounts[2];
+					p1c.text = "-> " + BasicFunctions.activeAccounts[0];
+					p2c.text = BasicFunctions.activeAccounts[1];
+					p3c.text = BasicFunctions.activeAccounts[2];
 				}
-				else if (activeAccounts.Count == 4)
+				else if (BasicFunctions.activeAccounts.Count == 4)
 				{
-					p1c.text = "-> " + activeAccounts[0];
-					p2c.text = activeAccounts[1];
-					p3c.text = activeAccounts[2];
-					p4c.text = activeAccounts[3];
+					p1c.text = "-> " + BasicFunctions.activeAccounts[0];
+					p2c.text = BasicFunctions.activeAccounts[1];
+					p3c.text = BasicFunctions.activeAccounts[2];
+					p4c.text = BasicFunctions.activeAccounts[3];
 				}
 			}
 		}
@@ -351,9 +352,9 @@ public class NW_Server : MonoBehaviour {
 	public void setAmountPlayers (bool up)
 	{
 		if (up)
-			amountPlayers += 1;
+			BasicFunctions.amountPlayers += 1;
 		else 
-			amountPlayers -= 1;
+			BasicFunctions.amountPlayers -= 1;
 	}
 
 	void Update ()
