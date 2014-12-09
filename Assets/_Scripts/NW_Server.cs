@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class NW_Server : MonoBehaviour {
 
-	//public static bool playOffline = false;
-
-	public AccountManagement AccManager;
+	public MenuButtons menuBtns;
 
 	public TextMesh p1;
 	public TextMesh p2;
@@ -27,14 +25,14 @@ public class NW_Server : MonoBehaviour {
 	public static bool showServers;
 	private static int amountPlayers;
 
-	//private string gameName = "Surreal Gravity NOTYETFINISHED";
 	private bool ClientConn = false;
 	private bool ClientUpdate = false;
 	private bool refreshing = false;
 	private float timer = 0.5f;
-	private float refreshT = 3f;
+	private float refreshT = 2f;
 	private int serverPort;
 	private int index;
+	private int maxPlayers = 3; //maxPlayers = # of clients
 	private bool xx = false;
 
 	private HostData[] hostD;
@@ -65,7 +63,7 @@ public class NW_Server : MonoBehaviour {
 		gameName = BasicFunctions.serverAccount.Name + "'s Server";
 		index = Random.Range (0, serverPorts.Count); //Take random integer
 		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
-
+		xx = false;
 		if (!xx)
 			yolo.text = "PORT: " + serverPort;
 		startServer2 ();
@@ -75,6 +73,7 @@ public class NW_Server : MonoBehaviour {
 	{
 		bool NAT = !Network.HavePublicAddress();
 		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4, port = 25001
+		Network.maxConnections = maxPlayers;
 		MasterServer.RegisterHost (gameTypeName, gameName, "Implementing Multiplayer in the Menu"); //Registreer de Server
 	}
 
@@ -88,8 +87,16 @@ public class NW_Server : MonoBehaviour {
 		startServer2();
 	}
 
+	void OnFailedToConnect ()
+	{
+		yolo.text = "Game is FULL";
+	}
+
 	public void closeServer ()
 	{
+		networkView.RPC("clearAccounts", RPCMode.AllBuffered);
+		showServers = false;
+		clearTexts (true);
 		Network.Disconnect();
 	}
 
@@ -97,6 +104,13 @@ public class NW_Server : MonoBehaviour {
 	{
 		MasterServer.RequestHostList (gameTypeName);
 		refreshing = true;
+	}
+
+	public void closeClient ()
+	{
+		networkView.RPC("deleteUNServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+		clearTexts(false);
+		Network.Disconnect();
 	}
 
 	public void startGame ()
@@ -122,6 +136,9 @@ public class NW_Server : MonoBehaviour {
 	void OnDisconnectedFromServer ()
 	{
 		Debug.Log ("Server disconnected");
+		hostD = null;
+		menuBtns.Client_Menu.SetActive (false);
+		menuBtns.Multiplayer_Menu.SetActive (true);
 	}
 
 	public void ClientIsConnected ()
@@ -129,34 +146,54 @@ public class NW_Server : MonoBehaviour {
 		Debug.Log("#players: " + amountPlayers);
 		if (amountPlayers == 0)
 		{
-			this.AccManager.activeAccount.Number = 1;
-			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
-			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			accountNumbers.Add(this.AccManager.activeAccount.Number);
-			activeAccounts.Add(this.AccManager.activeAccount.Name); //Zet username in de lijst
+			BasicFunctions.activeAccount.Number = 1;
+			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
+			accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
+			activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
 			setTexts1();
 			Debug.Log("AA: " + activeAccounts[0]);
 		}
 		else if (amountPlayers == 1)
 		{
-			this.AccManager.activeAccount.Number = 2;
-			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
-			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
+			menuBtns.Multiplayer_Menu.SetActive(false);
+			menuBtns.Client_Menu.SetActive(true);
+			BasicFunctions.activeAccount.Number = 2;
+			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
+			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 2)
 		{
-			this.AccManager.activeAccount.Number = 3;
-			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
-			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
+			menuBtns.Multiplayer_Menu.SetActive(false);
+			menuBtns.Client_Menu.SetActive(true);
+			BasicFunctions.activeAccount.Number = 3;
+			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
+			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
 		else if (amountPlayers == 3)
 		{
-			this.AccManager.activeAccount.Number = 4;
-			//Debug.Log("Active Account #" + this.AccManager.activeAccount.Number + ": " + this.AccManager.activeAccount.Name);
-			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, this.AccManager.activeAccount.Name, this.AccManager.activeAccount.Number); //Geef je username mee aan de Server
+			menuBtns.Multiplayer_Menu.SetActive(false);
+			menuBtns.Client_Menu.SetActive(true);
+			BasicFunctions.activeAccount.Number = 4;
+			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
+			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
+		}
+	}
+
+	public void clearTexts (bool server)
+	{
+		if (server)
+		{
+			p1.text = "Self";
+			p2.text = "Open";
+			p3.text = "Open";
+			p4.text = "Open";
+		}
+		else
+		{
+			p1c.text = "Server";
+			p2c.text = "Open";
+			p3c.text = "Open";
+			p4c.text = "Open";
 		}
 	}
 
@@ -164,6 +201,13 @@ public class NW_Server : MonoBehaviour {
 	public void beginGame ()
 	{
 		Application.LoadLevel("Main_Game");
+	}
+
+	[RPC]
+	public void clearAccounts ()
+	{
+		this.activeAccounts.Clear();
+		this.accountNumbers.Clear();
 	}
 	/* Stuur UI data naar de Server
 	 */
@@ -210,12 +254,42 @@ public class NW_Server : MonoBehaviour {
 			Debug.Log("CLIENT: Account Numbers["+i+"]: " + accountNumbers[i]);
 		}
 	}
+
+	[RPC]
+	public void deleteUNServer (string UN, int Number)
+	{
+		if (Network.isServer)
+		{
+			this.activeAccounts.Remove(UN);
+			this.accountNumbers.Remove(Number);
+			for (int i = 0; i < this.activeAccounts.Count; i++)
+				Debug.Log("["+i+"]: " + this.activeAccounts[i]);
+			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
+			Debug.Log("#Players: " + amountPlayers);
+			clearTexts (true);
+			networkView.RPC("setTexts", RPCMode.AllBuffered);
+			networkView.RPC("deleteUNClients", RPCMode.AllBuffered, UN, Number);
+		}
+	}
+
+	[RPC]
+	public void deleteUNClients (string UN, int Number)
+	{
+		if (Network.isClient)
+		{
+			this.activeAccounts.Remove(UN);
+			this.accountNumbers.Remove(Number);
+			for (int i = 0; i < this.activeAccounts.Count; i++)
+				Debug.Log("["+i+"]: " + this.activeAccounts[i]);
+			clearTexts(false);
+			networkView.RPC("setTexts", RPCMode.AllBuffered);
+		}
+	}
 	/* Zet de text op de Server
 	 */
 	public void setTexts1 ()
 	{
 		p1.text = "-> " + activeAccounts[0];
-		//player1.color = setColors(teamAccounts[0]);
 	}
 	/* Zet de text op de Clients
 	 */
@@ -226,32 +300,27 @@ public class NW_Server : MonoBehaviour {
 		{
 			if (Network.isServer)
 			{
-				if (activeAccounts.Count == 2)
+				if (activeAccounts.Count == 1)
 				{
 					p1.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
+				}
+				else if (activeAccounts.Count == 2)
+				{
+					p1.text = "-> " + activeAccounts[0];
 					p2.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 				}
 				else if (activeAccounts.Count == 3)
 				{
 					p1.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 				}
 				else if (activeAccounts.Count == 4)
 				{
 					p1.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 					p4.text = activeAccounts[3];
-					//player4.color = setColors(teamAccounts[3]);
 				}
 			}
 			if (Network.isClient)
@@ -259,38 +328,32 @@ public class NW_Server : MonoBehaviour {
 				if (activeAccounts.Count == 2)
 				{
 					p1c.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2c.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 				}
 				else if (activeAccounts.Count == 3)
 				{
 					p1c.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2c.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3c.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 				}
 				else if (activeAccounts.Count == 4)
 				{
 					p1c.text = "-> " + activeAccounts[0];
-					//player1.color = setColors(teamAccounts[0]);
 					p2c.text = activeAccounts[1];
-					//player2.color = setColors(teamAccounts[1]);
 					p3c.text = activeAccounts[2];
-					//player3.color = setColors(teamAccounts[2]);
 					p4c.text = activeAccounts[3];
-					//player4.color = setColors(teamAccounts[3]);
 				}
 			}
 		}
 	}
 
 	[RPC]
-	public void setAmountPlayers ()
+	public void setAmountPlayers (bool up)
 	{
-		amountPlayers += 1;
+		if (up)
+			amountPlayers += 1;
+		else 
+			amountPlayers -= 1;
 	}
 
 	void Update ()
@@ -301,11 +364,11 @@ public class NW_Server : MonoBehaviour {
 			//if (MasterServer.PollHostList ().Length > 0)
 			if (refreshT <= 0)
 			{
-				refreshT = 3;
+				refreshT = 2;
 				refreshing = false;
 				Debug.Log (MasterServer.PollHostList ().Length);
-				showServers = true;
 				hostD = MasterServer.PollHostList ();
+				showServers = true;
 			}
 		}
 
