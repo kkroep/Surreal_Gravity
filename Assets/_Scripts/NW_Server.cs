@@ -149,14 +149,23 @@ public class NW_Server : MonoBehaviour {
 			BasicFunctions.activeAccount.Number = 1;
 			BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
-			BasicFunctions.connectedPlayers.Add(BasicFunctions.serverAccount);
+			//BasicFunctions.connectedPlayers.Add(BasicFunctions.serverAccount);
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
 			BasicFunctions.gamePoints.Add(BasicFunctions.activeAccount.Points);
 			setTexts1();
 			Debug.Log("AA: " + BasicFunctions.activeAccounts[0]);
 		}
-		else if (BasicFunctions.amountPlayers == 1)
+		else
+		{
+			menuBtns.Multiplayer_Menu.SetActive(false);
+			menuBtns.Client_Menu.SetActive(true);
+			BasicFunctions.activeAccount.Number = Network.connections.Length + 1;
+			BasicFunctions.activeAccount.Points = 0;
+			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
+			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
+		}
+		/*else if (BasicFunctions.amountPlayers == 1)
 		{
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
@@ -182,7 +191,7 @@ public class NW_Server : MonoBehaviour {
 			BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
-		}
+		}*/
 	}
 
 	public void clearTexts (bool server)
@@ -237,7 +246,10 @@ public class NW_Server : MonoBehaviour {
 				Account adding = new Account (BasicFunctions.activeAccounts[i], "");
 				adding.Number = BasicFunctions.accountNumbers[i];
 				adding.Points = 0;
-				BasicFunctions.connectedPlayers.Add(adding);
+				if (!BasicFunctions.connectedPlayers.Contains(adding))
+				{
+					BasicFunctions.connectedPlayers.Add(adding);
+				}
 				//Debug.Log("SERVER: Connected Players["+i+"]: " + BasicFunctions.connectedPlayers[i].toString());
 				//Debug.Log("Score["+i+"]: " + BasicFunctions.gamePoints[i]);
 				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);

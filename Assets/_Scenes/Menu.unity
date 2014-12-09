@@ -848,7 +848,7 @@ GameObject:
   - 222: {fileID: 148831919}
   - 114: {fileID: 148831918}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Yolo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5002,6 +5002,10 @@ Prefab:
       propertyPath: kill_shot_sound
       value: 
       objectReference: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
+    - target: {fileID: 100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
   m_RootGameObject: {fileID: 1070283828}
@@ -5523,7 +5527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!148 &1070283829
 NetworkView:
   m_ObjectHideFlags: 0
@@ -5566,7 +5570,6 @@ MonoBehaviour:
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
   Bullet_Speed: 15
-  Yolo: {fileID: 0}
   playerPrefab: {fileID: 1070283828}
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   gravity_shot_sound: {fileID: 0}

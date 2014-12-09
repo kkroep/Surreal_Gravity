@@ -186,6 +186,9 @@ MonoBehaviour:
   Bullet_Speed: 15
   Yolo: {fileID: 0}
   playerPrefab: {fileID: 100000}
+  kill_shot_sound: {fileID: 0}
+  gravity_shot_sound: {fileID: 0}
+  jump_sound: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

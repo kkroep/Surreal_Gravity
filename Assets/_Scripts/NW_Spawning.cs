@@ -28,14 +28,16 @@ public class NW_Spawning : MonoBehaviour {
 		spawnLocations.Add(spawn4);
 		spawnLocations.Add(spawn5);
 		spawnPlayer();
-		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
+		/*for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
 			BasicFunctions.connectedPlayers[i].Points = 0;
 			BasicFunctions.gamePoints[i] = 0;
-		}
+		}*/
 
-		if (!playOffline)
+		if (!BasicFunctions.playOffline)
+		{
 			networkView.RPC("showScores", RPCMode.AllBuffered);
+		}
 	}
 	
 	public void spawnPlayer ()

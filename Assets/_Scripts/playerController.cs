@@ -48,7 +48,6 @@ public class playerController : MonoBehaviour
 
 	#endregion
 
-	public Text Yolo;
 	public GameObject playerPrefab;
 	private int hitCounter = 0;
 
@@ -88,7 +87,7 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 			//Debug.Log ("Fired");
 			//{
-				AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
+				//AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
 				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
@@ -100,7 +99,7 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log("Fired");
 			//{
-				AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
+				//AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
 				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				int shootNumber = BasicFunctions.activeAccount.Number;
 				instantiatedProjectile.GetComponent<Bullet_Controller>().shooterNumber = shootNumber;
@@ -135,6 +134,10 @@ public class playerController : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
+			if (!BasicFunctions.playOffline)
+			{
+				Network.Disconnect();
+			}
 		    Application.LoadLevel("Menu");
 			Screen.lockCursor = false;
 		}
@@ -192,11 +195,12 @@ public class playerController : MonoBehaviour
 			if (Input.GetKeyDown ("space")) 
 			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
-				AudioSource.PlayClipAtPoint(jump_sound, transform.position);
+				//AudioSource.PlayClipAtPoint(jump_sound, transform.position);
 			}
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
-			Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number)]);
+			//Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
+			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
 			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number)]);
 			Destroy(collisionInfo.gameObject);
 		}
