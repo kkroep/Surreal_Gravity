@@ -10,12 +10,16 @@ public class Bullet_Controller : MonoBehaviour {
 
 	public bool GravityBullet = false;
 	public int shooterNumber;
+	public float Time2Live = 2;
+
+	private float Time2Live_left;
 
 	/*private Vector3 Camera_Forward_tmp;
 	private Vector3 New_Player_Forward_tmp;*/
 
 	void Start()
 	{
+		Time2Live_left = Time2Live;
 		/*//if (networkView.isMine)
 		{
 			//Find player
@@ -29,6 +33,13 @@ public class Bullet_Controller : MonoBehaviour {
 			//find player script
 			CameraScript = Camera_Object.GetComponent<Camera_Control>();
 		}*/
+	}
+
+	void FixedUpdate (){
+		Time2Live_left -= Time.fixedDeltaTime;
+		Debug.Log (Time2Live_left);
+		if(Time2Live_left<0)
+			Destroy (gameObject);
 	}
 
 	void OnCollisionEnter(Collision collision) {
