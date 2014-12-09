@@ -51,7 +51,11 @@ public class playerController : MonoBehaviour
 	public Text Yolo;
 	public GameObject playerPrefab;
 	private int hitCounter = 0;
-	
+
+	public AudioClip kill_shot_sound;
+	public AudioClip gravity_shot_sound;
+	public AudioClip jump_sound;
+
 	void Start ()
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
@@ -82,6 +86,7 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 			//Debug.Log ("Fired");
 			//{
+				AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
 				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
@@ -93,6 +98,7 @@ public class playerController : MonoBehaviour
 			//if (Time.time > reloadTime + lastShot)
 				//Debug.Log("Fired");
 			//{
+				AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
 				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
 				int shootNumber = BasicFunctions.activeAccount.Number;
 				instantiatedProjectile.GetComponent<Bullet_Controller>().shooterNumber = shootNumber;
@@ -180,6 +186,7 @@ public class playerController : MonoBehaviour
 			if (Input.GetKeyDown ("space")) 
 			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
+				AudioSource.PlayClipAtPoint(jump_sound, transform.position);
 			}
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
