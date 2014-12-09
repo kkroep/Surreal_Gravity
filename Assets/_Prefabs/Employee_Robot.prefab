@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  rotSpeed: 3
   starting: 0
   arrived: 0
 --- !u!114 &11400002

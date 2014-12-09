@@ -13,10 +13,15 @@ public class RobotMovement : MonoBehaviour {
 	private float length;
 	private float startTime;
 	public float speed;
+	public float rotSpeed;
 	private int target;
 
 	public bool starting;
 	public bool arrived = false;
+
+	private float dx;
+	private float dy;
+	private float dz;
 
 
 
@@ -42,24 +47,38 @@ public class RobotMovement : MonoBehaviour {
 				length = Vector3.Distance(start, end);
 			}
 
+			dx = end.x - start.x;
+			dy = end.y - start.y;
+			dz = end.z - start.z;
+
+			Quaternion tolerp = Quaternion.LookRotation(new Vector3(dx*90,dy*90,dz*90),Vector3.up);
+
+
+
 
 
 			float distCovered = (Time.time - startTime) * speed;
 			float fracJourney = distCovered / length;
 			if(path.Count > 2){
-				transform.position = Vector3.Lerp(start, end, fracJourney);
+				this.transform.position = Vector3.Lerp(start, end, fracJourney);
+				this.transform.rotation = Quaternion.Lerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
 			}
 
-			if (target<=0 && fracJourney>0.99){
-				robotscript.target.SendMessage("Kill",1.0f);
+			if (target<=1 && fracJourney>0.99){
+				robotscript.target.SendMessage("Kill",2.0f);
 				pathfind.tracedBack = false;
+				Quaternion oldpos = transform.rotation;
+				this.transform.LookAt(robotscript.target.transform);
+				Quaternion newpos = transform.rotation;
+				this.transform.rotation = Quaternion.Lerp (oldpos,newpos,Time.deltaTime*rotSpeed);
+
 			}
 			/*
 			if(target == 0){
 				Debug.Log (path[target].xPosition + "," + path[target].yPosition + "," + path[target].zPosition);
 			}
 			*/
-			if (fracJourney>0.99 && target>0){
+			if (fracJourney>0.99 && target>1){
 				selectNext ();
 			}		
 		}

@@ -61,25 +61,12 @@ public class Pathfinder : MonoBehaviour{
 		}
 
 
-
-		
-
-
-
-
-		//checkingNode = nodeGrid[2,2,2];
-		//startNode = checkingNode;
-
-
-
 	}
 
 	void Update(){
-
-
-
 		if(findPath){
 			if(reset){
+				startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
 				if(openList != null && closedList != null){
 					for (int i=0; i<openList.Count;i++){
 						openList[i].parentNode = null;
@@ -87,12 +74,14 @@ public class Pathfinder : MonoBehaviour{
 					for (int i=0; i<closedList.Count;i++){
 						closedList[i].parentNode = null;
 					}
+					startNode = path[1];
 				}
+
 
 				path = new List<Node>();
 				openList = new List<Node>();
 				closedList = new List<Node>();
-				startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
+
 				checkingNode = startNode;
 				CalculateAllHeuristics();
 
@@ -223,10 +212,7 @@ public class Pathfinder : MonoBehaviour{
 				testing.gValue = currentNode.gValue + baseMovementCost;
 				testing.calculatetotalValue();
 				addToOpenList(testing);
-
-			}
-
-			
+			}			
 		}
 	}
 
@@ -263,8 +249,4 @@ public class Pathfinder : MonoBehaviour{
 	void setFindPath(bool bo){
 		findPath = bo;
 	}
-
-
-
-
 }
