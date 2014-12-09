@@ -50,7 +50,6 @@ public class playerController : MonoBehaviour
 
 	public Text Yolo;
 	public GameObject playerPrefab;
-	private int hitCounter = 0;
 	
 	void Start ()
 	{
@@ -111,15 +110,16 @@ public class playerController : MonoBehaviour
 		NetworkView playerN = NetworkView.Find (player);
 		Transform cloneP = playerN.transform;
 		Rigidbody instantiatedProjectileN = (Rigidbody)Instantiate( Kill_Bullet, pos, rot );
+		instantiatedProjectileN.GetComponent<Bullet_Controller>().shooterNumber = number;
 		Debug.Log ("Shooter: " + number);
 		instantiatedProjectileN.velocity = dir*Bullet_Speed;
 		Physics.IgnoreCollision( instantiatedProjectileN.collider, cloneP.root.collider );
 	}
 
 	[RPC]
-	void updateHitCounter ()
+	void hitByBullet (int shooter, int target)
 	{
-		hitCounter = hitCounter + 1;
+		Debug.Log(shooter + " has shot " + target);
 	}
 
 	void Update ()
@@ -186,9 +186,9 @@ public class playerController : MonoBehaviour
 			}
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
+			Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number)]);
+			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number)]);
 			Destroy(collisionInfo.gameObject);
-			Debug.Log ("AAAAAAAH, im DEAD!!!");
-			//networkView.RPC("updateHitCounter", RPCM
 		}
 	}
 }

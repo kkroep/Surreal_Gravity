@@ -65,7 +65,7 @@ public class NW_Spawning : MonoBehaviour {
 		debugScore.text = "";
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
-			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + BasicFunctions.gamePoints[i] + "\n";
+			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + "[" + BasicFunctions.accountNumbers[i] + "]: " + BasicFunctions.gamePoints[i] + "\n";
 		}
 	}
 	
