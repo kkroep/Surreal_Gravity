@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BasicFunctions : MonoBehaviour {
 
 	public static bool playOffline;
+	public static int amountPlayers;
 	public static Account serverAccount;
 	public static Account activeAccount;
+	public static List<string> activeAccounts = new List<string>();
+	public static List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
+	public static List<int> accountNumbers = new List<int>();
+	public static List<int> gamePoints = new List<int>();
 
 	void Awake ()
 	{

@@ -61,45 +61,34 @@ public class Pathfinder : MonoBehaviour{
 		}
 
 
-
-		
-
-
-
-
-		//checkingNode = nodeGrid[2,2,2];
-		//startNode = checkingNode;
-
-
-
 	}
 
 	void Update(){
-
-
-
 		if(findPath){
 			if(reset){
-			if(openList != null && closedList != null){
-				for (int i=0; i<openList.Count;i++){
-					openList[i].parentNode = null;
+				startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
+				if(openList != null && closedList != null){
+					for (int i=0; i<openList.Count;i++){
+						openList[i].parentNode = null;
+					}
+					for (int i=0; i<closedList.Count;i++){
+						closedList[i].parentNode = null;
+					}
+					startNode = path[1];
 				}
-				for (int i=0; i<closedList.Count;i++){
-					closedList[i].parentNode = null;
-				}
-			}
 
-			path = new List<Node>();
-			openList = new List<Node>();
-			closedList = new List<Node>();
-			startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
-			checkingNode = startNode;
-			CalculateAllHeuristics();
 
-			levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-			level = levelcreator.GetComponent<LevelCreator>();
-			grid = level.getGrid ();
-			reset = false;
+				path = new List<Node>();
+				openList = new List<Node>();
+				closedList = new List<Node>();
+
+				checkingNode = startNode;
+				CalculateAllHeuristics();
+
+				levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
+				level = levelcreator.GetComponent<LevelCreator>();
+				grid = level.getGrid ();
+				reset = false;
 			}
 
 			int j = 0;
@@ -118,6 +107,12 @@ public class Pathfinder : MonoBehaviour{
 					if(tracedBack == false){
 						TraceBackPath ();
 						reset = true;
+						/*
+						for (int i=0;i<path.Count;i++){
+							Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
+						}
+						*/
+
 					}
 				}
 				j++;
@@ -176,7 +171,7 @@ public class Pathfinder : MonoBehaviour{
 
 	private void TraceBackPath(){
 		Node node = targetNode.parentNode;
-		path.Add (startNode);
+		path.Add (targetNode);
 		do{
 			path.Add(node);
 			node = node.parentNode;
@@ -217,10 +212,7 @@ public class Pathfinder : MonoBehaviour{
 				testing.gValue = currentNode.gValue + baseMovementCost;
 				testing.calculatetotalValue();
 				addToOpenList(testing);
-
-			}
-
-			
+			}			
 		}
 	}
 
@@ -257,8 +249,4 @@ public class Pathfinder : MonoBehaviour{
 	void setFindPath(bool bo){
 		findPath = bo;
 	}
-
-
-
-
 }

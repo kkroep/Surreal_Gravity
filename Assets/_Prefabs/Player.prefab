@@ -184,8 +184,8 @@ MonoBehaviour:
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
   Bullet_Speed: 15
+  Yolo: {fileID: 0}
   playerPrefab: {fileID: 100000}
-  AccManager: {fileID: 11400000, guid: 1407d78305fe3d046bd4cb64add46a50, type: 2}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,8 +215,8 @@ MonoBehaviour:
   sensitivityY: 10
   minimumX: -360
   maximumX: 360
-  minimumY: -90
-  maximumY: 90
+  minimumY: -88
+  maximumY: 88
   player: {fileID: 11400002}
   playercam: {fileID: 100002}
   reloadTime: 10
