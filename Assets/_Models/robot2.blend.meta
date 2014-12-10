@@ -1,5 +1,6 @@
 fileFormatVersion: 2
-guid: 5a5638345e3f14940899cd5a3288773d
+<<<<<<< HEAD
+guid: 31a2183945445ab459437b37a55380fa
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -10,6 +11,23 @@ ModelImporter:
     4300000: Cone_002
     7400000: Default Take
     9500000: //RootNode
+=======
+guid: 5a5638345e3f14940899cd5a3288773d
+ModelImporter:
+  serializedVersion: 16
+<<<<<<< HEAD
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cone_002
+    7400000: Default Take
+    9500000: //RootNode
+=======
+  fileIDToRecycleName: {}
+>>>>>>> b5fc3bf2aaa9d9917fa239717663922fa7c969d8
+>>>>>>> 61861caf4d7389334b19bb8a799c38116f624c37
   materials:
     importMaterials: 1
     materialName: 0
