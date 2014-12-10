@@ -128,8 +128,17 @@ public class Camera_Control : MonoBehaviour {
 				LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
 				LightningLineCurrent.SetPosition(0, hit.point);
 				player.Switch_Gravity(hit.normal*-1f);
+				networkView.RPC("fireGravityLaser", RPCMode.Others, transform.position+new Vector3(0.01f,-0.01f,0.01f), hit.point, BasicFunctions.activeAccount.Number);
 			}
 		}
+	}
+
+	[RPC]
+	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int PlayerNumber)
+	{
+		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
+		LightningLineCurrent.SetPosition(1, pos1);
+		LightningLineCurrent.SetPosition(0, pos2);
 	}
 	
 	void Update ()
