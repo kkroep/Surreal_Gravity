@@ -56,7 +56,7 @@ public class Camera_Control : MonoBehaviour {
 		}
 		else
 		{
-			GetComponent<Camera_Control>().enabled = false;
+			//GetComponent<Camera_Control>().enabled = false;
 			GetComponent<AudioListener>().enabled = false;
 			playercam.SetActive(false);
 		}
@@ -134,12 +134,12 @@ public class Camera_Control : MonoBehaviour {
 		}
 	}
 
-	[RPC]
+	/*[RPC]
 	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
 		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
 		LightningLineCurrent.SetPosition(1, pos1);
 		LightningLineCurrent.SetPosition(0, pos2);
-	}
+	}*/
 
 
 	void Update ()

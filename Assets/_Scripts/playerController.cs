@@ -49,6 +49,7 @@ public class playerController : MonoBehaviour
 	#endregion
 
 	public GameObject playerPrefab;
+	public GameObject LightningLine;
 	private int hitCounter = 0;
 
 	public AudioClip kill_shot_sound;
@@ -122,6 +123,13 @@ public class playerController : MonoBehaviour
 		Debug.Log ("Shooter: " + number);
 		instantiatedProjectileN.velocity = dir*Bullet_Speed;
 		Physics.IgnoreCollision( instantiatedProjectileN.collider, cloneP.root.collider );
+	}
+
+	[RPC]
+	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
+		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
+		LightningLineCurrent.SetPosition(1, pos1);
+		LightningLineCurrent.SetPosition(0, pos2);
 	}
 
 	[RPC]
