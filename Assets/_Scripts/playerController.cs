@@ -108,7 +108,7 @@ public class playerController : MonoBehaviour
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward, shootNumber);
+				networkView.RPC("fireKillBulletS", RPCMode.Others, gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward, shootNumber);
 			//}
 		}
 	}
@@ -119,7 +119,7 @@ public class playerController : MonoBehaviour
 	}
 	
 	[RPC]
-	void fireKillBulletS(/*NetworkViewID id, */NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
+	void fireKillBulletS(NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
 	{
 		NetworkView playerN = NetworkView.Find (player);
 		Transform cloneP = playerN.transform;
@@ -131,7 +131,7 @@ public class playerController : MonoBehaviour
 	}
 
 	[RPC]
-	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
+	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int Pnumber){
 		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
 		LightningLineCurrent.SetPosition(1, pos1);
 		LightningLineCurrent.SetPosition(0, pos2);
