@@ -183,8 +183,7 @@ MonoBehaviour:
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
-  Bullet_Speed: 15
-  Yolo: {fileID: 0}
+  Bullet_Speed: 30
   playerPrefab: {fileID: 100000}
   kill_shot_sound: {fileID: 0}
   gravity_shot_sound: {fileID: 0}
