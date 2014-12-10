@@ -129,7 +129,8 @@ public class Camera_Control : MonoBehaviour {
 				LightningLineCurrent.SetPosition(0, hit.point);
 				//networkView.RPC("fireGravityLaser", RPCMode.Others,transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, 1);
 				player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
-				player.Switch_Gravity(hit.normal*-1f);
+				if(hit.collider.tag="level")
+					player.Switch_Gravity(hit.normal*-1f);
 
 			}
 		}
