@@ -461,8 +461,30 @@ GameObject:
   - 65: {fileID: 6500000}
   - 148: {fileID: 14800000}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Playerr
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400060}
+  - 20: {fileID: 2000000}
+  - 92: {fileID: 9200000}
+  - 124: {fileID: 12400000}
+  - 81: {fileID: 8100000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
+  - 148: {fileID: 14800002}
+  m_Layer: 0
+  m_Name: Player Cam
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,13 +871,58 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.5368881, y: 77.0461044, z: -302.453766}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: .400000006, z: 1}
   m_Children:
   - {fileID: 400056}
   - {fileID: 400054}
+  - {fileID: 400060}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &400060
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_LocalRotation: {x: 4.21468513e-08, y: 3.16254649e-08, z: 7.89963295e-09, w: 1}
+  m_LocalPosition: {x: -.120576277, y: -.415239215, z: -1.40267122}
+  m_LocalScale: {x: 1, y: 2.49999928, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400058}
+  m_RootOrder: 2
+--- !u!20 &2000000
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: .0883874595, g: 0, b: .154411793, a: .0196078438}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: .300000012
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -989,8 +1056,22 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .5, y: 1.75, z: .5}
+  m_Center: {x: 0, y: -.649999976, z: .100000001}
+--- !u!81 &8100000
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 1
+--- !u!92 &9200000
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 1
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -1050,22 +1131,61 @@ MonoBehaviour:
   initspeed: 10
   speed: 6
   jumpSpeed: 1200
-  Main_Camera: {fileID: 0}
+  Main_Camera: {fileID: 11400002}
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
   sensitivityY: 10
   minimumX: -360
   maximumX: 360
-  minimumY: -60
-  maximumY: 60
+  minimumY: -90
+  maximumY: 90
   Gravity_Strength: 200
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
-  Bullet_Speed: 15
-  Yolo: {fileID: 0}
+  Bullet_Speed: 30
   playerPrefab: {fileID: 100058}
+  kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
+  gravity_shot_sound: {fileID: 8300000, guid: 63a8e8c930118c1478fcb72fd98ad0e7, type: 3}
+  jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2eb65da49944484c9473cc244fa0a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightningLine: {fileID: 100000, guid: 4fe19adba02820a48baedb6e7a7e6d84, type: 2}
+  crosshairImage: {fileID: 2800000, guid: fc2fe5178e594694ea2c8b49aa320035, type: 3}
+  axes: 2
+  sensitivityX: 10
+  sensitivityY: 10
+  minimumX: -360
+  maximumX: 360
+  minimumY: -88
+  maximumY: 88
+  player: {fileID: 11400000}
+  playercam: {fileID: 100060}
+  reloadTime: 10
+  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
+  Bullet_Speed: 200
+  Gravity_Switch_Timer: 0
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36078abafc855a046a82aeb127e7d4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!122 &12200000
 Halo:
   m_ObjectHideFlags: 1
@@ -1077,6 +1197,13 @@ Halo:
     serializedVersion: 2
     rgba: 4294901790
   m_Size: .0599999987
+--- !u!124 &12400000
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 1
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1140,6 +1267,18 @@ NetworkView:
   m_Enabled: 1
   m_StateSynchronization: 1
   m_Observed: {fileID: 400058}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14800002
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
   m_ViewID:
     m_ID: 0
     m_Type: 0
