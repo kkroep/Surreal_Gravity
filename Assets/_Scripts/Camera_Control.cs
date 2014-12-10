@@ -20,7 +20,8 @@ public class Camera_Control : MonoBehaviour {
 	
 	#region [init for look around]
 	public GameObject LightningLine;
-	
+	public GameObject KillLine;
+
 	public Texture2D crosshairImage;
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseY;
@@ -137,6 +138,27 @@ public class Camera_Control : MonoBehaviour {
 		}
 	}
 
+	void Fire_Kill_Laser()
+	{
+		if (networkView.isMine || BasicFunctions.playOffline)
+		{
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
+			if (Physics.Raycast(ray, out hit)) {
+				Vector3 incomingVec = hit.point - transform.position;
+				LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
+				KillLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+				KillLineCurrent.SetPosition(0, hit.point);
+				//networkView.RPC("fireGravityLaser", RPCMode.Others,transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, 1);
+				if (!BasicFunctions.playOffline)
+					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
+				if(hit.collider.tag=="Player")
+					Debug.Log("HIT SOMEONE!!! XD");
+				
+			}
+		}
+	}
+
 	/*[RPC]
 	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
 		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
@@ -182,6 +204,10 @@ public class Camera_Control : MonoBehaviour {
 			
 			if (Input.GetMouseButtonDown(1)) {
 				Fire_Gravity_Bullet();
+			}
+
+			if (Input.GetMouseButtonDown(0)) {
+				Fire_Kill_Laser();
 			}
 			/*if (Input.GetMouseButtonDown(0)) {
 				player.GetComponent<playerController>().Fire_Kill_Bullet();

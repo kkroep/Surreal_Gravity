@@ -50,6 +50,8 @@ public class playerController : MonoBehaviour
 
 	public GameObject playerPrefab;
 	public GameObject LightningLine;
+	public GameObject KillLine;
+
 	private int hitCounter = 0;
 
 	public AudioClip kill_shot_sound;
@@ -117,6 +119,12 @@ public class playerController : MonoBehaviour
 	{
 		networkView.RPC("fireGravityLaser", RPCMode.Others, pos1, pos2, BasicFunctions.activeAccount.Number);
 	}
+
+	public void Fire_Kill_Bullet (Vector3 pos1, Vector3 pos2)
+	{
+		networkView.RPC("fireKillLaser", RPCMode.Others, pos1, pos2, BasicFunctions.activeAccount.Number);
+	}
+
 	
 	[RPC]
 	void fireKillBulletS(NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
@@ -138,6 +146,13 @@ public class playerController : MonoBehaviour
 	}
 
 	[RPC]
+	void fireKillLaser(Vector3 pos1, Vector3 pos2, int Pnumber){
+		LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
+		KillLineCurrent.SetPosition(1, pos1);
+		KillLineCurrent.SetPosition(0, pos2);
+	}
+
+	[RPC]
 	void hitByBullet (int shooter, int target)
 	{
 		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + BasicFunctions.activeAccount.Number);
@@ -155,9 +170,9 @@ public class playerController : MonoBehaviour
 		    Application.LoadLevel("Menu");
 			Screen.lockCursor = false;
 		}
-		if (Input.GetMouseButtonDown(0)) {
+		/*if (Input.GetMouseButtonDown(0)) {
 			Fire_Kill_Bullet();
-		}
+		}*/
 	}
 	
 	void FixedUpdate ()
