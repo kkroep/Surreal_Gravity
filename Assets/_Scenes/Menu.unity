@@ -5572,8 +5572,8 @@ MonoBehaviour:
   Bullet_Speed: 15
   playerPrefab: {fileID: 1070283828}
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
-  gravity_shot_sound: {fileID: 0}
-  jump_sound: {fileID: 0}
+  gravity_shot_sound: {fileID: 8300000, guid: 63a8e8c930118c1478fcb72fd98ad0e7, type: 3}
+  jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
 --- !u!54 &1070283831
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8019,7 +8019,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1473890082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 30, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2146656443}
@@ -8034,7 +8034,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 314bf32aedf304a4899cb509f072c9b1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .0949999988
   m_Pitch: 1
   Loop: 1
   Mute: 0
