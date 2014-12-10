@@ -112,6 +112,11 @@ public class playerController : MonoBehaviour
 			//}
 		}
 	}
+
+	public void Fire_Grav_Bullet (Vector3 pos1, Vector3 pos2)
+	{
+		networkView.RPC("fireGravityLaser", RPCMode.Others, pos1, pos2, BasicFunctions.activeAccount.Number);
+	}
 	
 	[RPC]
 	void fireKillBulletS(/*NetworkViewID id, */NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
