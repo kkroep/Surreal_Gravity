@@ -49,6 +49,7 @@ public class playerController : MonoBehaviour
 	#endregion
 
 	public GameObject playerPrefab;
+	public GameObject LightningLine;
 	private int hitCounter = 0;
 
 	public AudioClip kill_shot_sound;
@@ -107,13 +108,18 @@ public class playerController : MonoBehaviour
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward, shootNumber);
+				networkView.RPC("fireKillBulletS", RPCMode.Others, gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward, shootNumber);
 			//}
 		}
 	}
+
+	public void Fire_Grav_Bullet (Vector3 pos1, Vector3 pos2)
+	{
+		networkView.RPC("fireGravityLaser", RPCMode.Others, pos1, pos2, BasicFunctions.activeAccount.Number);
+	}
 	
 	[RPC]
-	void fireKillBulletS(/*NetworkViewID id, */NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
+	void fireKillBulletS(NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
 	{
 		NetworkView playerN = NetworkView.Find (player);
 		Transform cloneP = playerN.transform;
@@ -125,10 +131,17 @@ public class playerController : MonoBehaviour
 	}
 
 	[RPC]
+	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int Pnumber){
+		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
+		LightningLineCurrent.SetPosition(1, pos1);
+		LightningLineCurrent.SetPosition(0, pos2);
+	}
+
+	[RPC]
 	void hitByBullet (int shooter, int target)
 	{
-		Debug.Log(BasicFunctions.activeAccount.Number);
-		Debug.Log(shooter + " has shot " + target);
+		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + BasicFunctions.activeAccount.Number);
+		//Debug.Log(shooter + " has shot " + target);
 	}
 
 	void Update ()
@@ -201,7 +214,9 @@ public class playerController : MonoBehaviour
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
 			//Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
-			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
+			int targetNumber = BasicFunctions.activeAccount.Number;
+			Debug.Log("Target: " + targetNumber + ", Shooter: " + collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber + ", ActiveNumber: " + BasicFunctions.activeAccount.Number);
+			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, targetNumber);//BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
 			Destroy(collisionInfo.gameObject);
 		}
 	}

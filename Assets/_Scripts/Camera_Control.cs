@@ -19,7 +19,7 @@ using System.Collections;
 public class Camera_Control : MonoBehaviour {
 	
 	#region [init for look around]
-	public LineRenderer LigntingLine;
+	public GameObject LightningLine;
 	
 	public Texture2D crosshairImage;
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
@@ -56,7 +56,7 @@ public class Camera_Control : MonoBehaviour {
 		}
 		else
 		{
-			GetComponent<Camera_Control>().enabled = false;
+			//GetComponent<Camera_Control>().enabled = false;
 			GetComponent<AudioListener>().enabled = false;
 			playercam.SetActive(false);
 		}
@@ -124,13 +124,27 @@ public class Camera_Control : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
 				Vector3 incomingVec = hit.point - transform.position;
-				LigntingLine.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
-				LigntingLine.SetPosition(0, hit.point);
-				player.Switch_Gravity(hit.normal*-1f);
+				LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
+				LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+				LightningLineCurrent.SetPosition(0, hit.point);
+				//networkView.RPC("fireGravityLaser", RPCMode.Others,transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, 1);
+				if (!BasicFunctions.playOffline)
+					player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
+				if(hit.collider.tag=="level")
+					player.Switch_Gravity(hit.normal*-1f);
+
 			}
 		}
 	}
-	
+
+	/*[RPC]
+	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
+		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
+		LightningLineCurrent.SetPosition(1, pos1);
+		LightningLineCurrent.SetPosition(0, pos2);
+	}*/
+
+
 	void Update ()
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)

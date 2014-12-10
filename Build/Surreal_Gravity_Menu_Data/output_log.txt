@@ -12,7 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\Surreal Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.105 seconds
+- Completed reload, in  0.096 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -43,7 +43,7 @@ INLEZEN: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Account: Earless; WADAFA
+Account: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -51,11 +51,11 @@ Account: Earless; WADAFA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 145.94.140.31:25001
+Received pong from 145.94.140.31:25002
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.56.1:25001
+Received pong from 192.168.56.1:25002
  
 (Filename:  Line: 836)
 
@@ -63,37 +63,69 @@ Received pong from 192.168.56.1:25001
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1788)
-
-UnloadTime: 3.296280 ms
+UnloadTime: 3.073612 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3514.
-Total: 1.983033 ms (FindLiveObjects: 0.150378 ms CreateObjectMapping: 0.037483 ms MarkObjects: 0.442211 ms  DeleteObjects: 0.693883 ms)
+Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 3518.
+Total: 1.756796 ms (FindLiveObjects: 0.102632 ms CreateObjectMapping: 0.021865 ms MarkObjects: 0.301649 ms  DeleteObjects: 0.867019 ms)
 
-UnloadTime: 3.256565 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+Connection with master server lost
+ 
+(Filename:  Line: 190)
 
-Unloading 61 unused Assets to reduce memory usage. Loaded Objects now: 694.
-Total: 3.626488 ms (FindLiveObjects: 0.044622 ms CreateObjectMapping: 0.015617 ms MarkObjects: 0.317713 ms  DeleteObjects: 2.473437 ms)
-
-UnloadTime: 0.660416 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 625.
-Total: 0.707716 ms (FindLiveObjects: 0.023203 ms CreateObjectMapping: 0.014279 ms MarkObjects: 0.253010 ms  DeleteObjects: 0.004016 ms)
-
-INLEZEN: Earless; WADAFA
+Shooter: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-INLEZEN: Mongol; JONGUH
+Shooter: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-INLEZEN: AB; BA
+Shooter: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 745)
 
