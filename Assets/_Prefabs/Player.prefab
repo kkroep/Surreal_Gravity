@@ -185,9 +185,9 @@ MonoBehaviour:
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
   Bullet_Speed: 30
   playerPrefab: {fileID: 100000}
-  kill_shot_sound: {fileID: 0}
-  gravity_shot_sound: {fileID: 0}
-  jump_sound: {fileID: 0}
+  kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
+  gravity_shot_sound: {fileID: 8300000, guid: 63a8e8c930118c1478fcb72fd98ad0e7, type: 3}
+  jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
