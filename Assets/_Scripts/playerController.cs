@@ -127,8 +127,8 @@ public class playerController : MonoBehaviour
 	[RPC]
 	void hitByBullet (int shooter, int target)
 	{
-		Debug.Log(BasicFunctions.activeAccount.Number);
-		Debug.Log(shooter + " has shot " + target);
+		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + BasicFunctions.activeAccount.Number);
+		//Debug.Log(shooter + " has shot " + target);
 	}
 
 	void Update ()
@@ -201,7 +201,9 @@ public class playerController : MonoBehaviour
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
 			//Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
-			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
+			int targetNumber = BasicFunctions.activeAccount.Number;
+			Debug.Log("Target: " + targetNumber + ", Shooter: " + collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber + ", ActiveNumber: " + BasicFunctions.activeAccount.Number);
+			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, targetNumber);//BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
 			Destroy(collisionInfo.gameObject);
 		}
 	}

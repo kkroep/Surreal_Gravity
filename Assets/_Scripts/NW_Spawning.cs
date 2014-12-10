@@ -36,7 +36,8 @@ public class NW_Spawning : MonoBehaviour {
 
 		if (!BasicFunctions.playOffline)
 		{
-			networkView.RPC("showScores", RPCMode.AllBuffered);
+			//networkView.RPC("showScores", RPCMode.AllBuffered);
+			debugScore.text = "ActiveNumber: " + BasicFunctions.activeAccount.Number;
 		}
 	}
 	
