@@ -19,7 +19,7 @@ using System.Collections;
 public class Camera_Control : MonoBehaviour {
 	
 	#region [init for look around]
-	public LineRenderer LigntingLine;
+	public GameObject LightningLine;
 	
 	public Texture2D crosshairImage;
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
@@ -124,8 +124,9 @@ public class Camera_Control : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
 				Vector3 incomingVec = hit.point - transform.position;
-				LigntingLine.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
-				LigntingLine.SetPosition(0, hit.point);
+				LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
+				LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+				LightningLineCurrent.SetPosition(0, hit.point);
 				player.Switch_Gravity(hit.normal*-1f);
 			}
 		}

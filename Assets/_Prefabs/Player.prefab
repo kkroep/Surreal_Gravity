@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eb65da49944484c9473cc244fa0a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LigntingLine: {fileID: 12000000, guid: 4fe19adba02820a48baedb6e7a7e6d84, type: 2}
+  LightningLine: {fileID: 100000, guid: 4fe19adba02820a48baedb6e7a7e6d84, type: 2}
   crosshairImage: {fileID: 2800000, guid: fc2fe5178e594694ea2c8b49aa320035, type: 3}
   axes: 2
   sensitivityX: 10
