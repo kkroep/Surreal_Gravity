@@ -37,7 +37,7 @@ public class Bullet_Controller : MonoBehaviour {
 
 	void FixedUpdate (){
 		Time2Live_left -= Time.fixedDeltaTime;
-		Debug.Log (Time2Live_left);
+		//Debug.Log (Time2Live_left);
 		if(Time2Live_left<0)
 			Destroy (gameObject);
 	}
