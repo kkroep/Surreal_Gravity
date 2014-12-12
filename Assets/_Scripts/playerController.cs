@@ -70,7 +70,6 @@ public class playerController : MonoBehaviour
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
 			Current_Global_Force = Gravity_Direction * Gravity_Strength;
-			Debug.Log("NUMBER: " + activeAccount.Number);
 		}
 	}
 	

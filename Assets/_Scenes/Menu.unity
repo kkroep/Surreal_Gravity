@@ -225,6 +225,10 @@ Prefab:
       propertyPath: AccManager
       value: 
       objectReference: {fileID: 488400874}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: menu_click_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 741662240}
@@ -540,7 +544,7 @@ MonoBehaviour:
   logP: {fileID: 0}
   AccManager: {fileID: 488400874}
   serverStuff: {fileID: 0}
-  menu_click_sound: {fileID: 0}
+  menu_click_sound: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
 --- !u!102 &74754156
 TextMesh:
   serializedVersion: 3
@@ -3054,6 +3058,7 @@ MonoBehaviour:
   maximumY: 88
   player: {fileID: 1070283830}
   playercam: {fileID: 604582457}
+  referee: {fileID: 11400000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   reloadTime: 10
   Bullet_Speed: 200
   Gravity_Switch_Timer: 0
@@ -3841,7 +3846,7 @@ MonoBehaviour:
   logP: {fileID: 0}
   AccManager: {fileID: 488400874}
   serverStuff: {fileID: 0}
-  menu_click_sound: {fileID: 0}
+  menu_click_sound: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
 --- !u!102 &741662244
 TextMesh:
   serializedVersion: 3
@@ -5409,7 +5414,7 @@ MonoBehaviour:
   logP: {fileID: 759025410}
   AccManager: {fileID: 0}
   serverStuff: {fileID: 0}
-  menu_click_sound: {fileID: 0}
+  menu_click_sound: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
 --- !u!102 &1029594883
 TextMesh:
   serializedVersion: 3
@@ -5708,6 +5713,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 1070283828}
   LightningLine: {fileID: 100000, guid: 4fe19adba02820a48baedb6e7a7e6d84, type: 2}
   KillLine: {fileID: 100000, guid: 78bb98a9741e9e7468bd7fb57fef8b9f, type: 2}
+  playerNumber: 0
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
 --- !u!54 &1070283831
@@ -6552,6 +6558,10 @@ Prefab:
       propertyPath: multiBtn
       value: 
       objectReference: {fileID: 1411589248}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: menu_click_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1029594879}
@@ -9459,6 +9469,10 @@ Prefab:
       propertyPath: AccManager
       value: 
       objectReference: {fileID: 488400874}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: menu_click_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 74754152}
