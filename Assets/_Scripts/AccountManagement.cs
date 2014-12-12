@@ -54,7 +54,11 @@ public class AccountManagement : MonoBehaviour {
 		if (Pword.Equals(PwordC))
 		{
 			Account reg_acc = new Account (Uname, Pword);
-			if (!list_of_accounts.containsUsername(reg_acc))
+			if (Uname != " ")
+			{
+				Debug.Log("No Username is given");
+			}
+			else if (!list_of_accounts.containsUsername(reg_acc))
 			{
 				registerU.text = "";
 				registerP.text = "";
