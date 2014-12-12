@@ -54,7 +54,9 @@ public class NW_Spawning : MonoBehaviour {
 		}
 		else
 		{
-			Network.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity, 0); //Instantiate player on the spawn point
+			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
+			playerN.GetComponent<playerController>().activeAccount = BasicFunctions.activeAccount;
+			playerN.GetComponent<playerController>().playerNumber = BasicFunctions.activeAccount.Number;
 			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
 	}

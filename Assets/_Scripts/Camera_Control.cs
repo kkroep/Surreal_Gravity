@@ -39,6 +39,7 @@ public class Camera_Control : MonoBehaviour {
 	#region [init other]
 	public playerController player;
 	public GameObject playercam;
+	public Referee_script referee;
 	public float reloadTime = 0f;
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
@@ -149,7 +150,7 @@ public class Camera_Control : MonoBehaviour {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
-				Debug.Log(hit.collider.tag);
+				//Debug.Log(hit.collider.tag);
 				Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
 				KillLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
@@ -161,8 +162,10 @@ public class Camera_Control : MonoBehaviour {
 					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
 				if(hit.collider.tag=="Player")
 				{
-					Debug.Log("HIT SOMEONE!!! XD");
-
+					//Debug.Log("HIT SOMEONE!!! XD");
+					Debug.Log ("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
+					Debug.Log ("Target: " + hit.collider.GetComponent<playerController>().activeAccount.Number + ", OF: " + BasicFunctions.activeAccounts[shootNumber-1]);
+					//referee.frag(KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber, hit.collider.GetComponent<playerController>().activeAccount.Number);
 				}
 			}
 		}

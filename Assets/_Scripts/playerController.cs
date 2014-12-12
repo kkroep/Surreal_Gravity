@@ -52,7 +52,8 @@ public class playerController : MonoBehaviour
 	public GameObject LightningLine;
 	public GameObject KillLine;
 
-	private Account activeAccount = BasicFunctions.activeAccount;
+	public Account activeAccount; //= BasicFunctions.activeAccount;
+	public int playerNumber;
 	private int hitCounter = 0;
 
 	public AudioClip kill_shot_sound;
@@ -62,12 +63,14 @@ public class playerController : MonoBehaviour
 
 	void Start ()
 	{
+		//playerNumber = activeAccount.Number;
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
 			Current_Global_Force = Gravity_Direction * Gravity_Strength;
+			Debug.Log("NUMBER: " + activeAccount.Number);
 		}
 	}
 	

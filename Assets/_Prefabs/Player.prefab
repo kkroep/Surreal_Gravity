@@ -223,10 +223,11 @@ MonoBehaviour:
   maximumY: 88
   player: {fileID: 11400002}
   playercam: {fileID: 100002}
+  referee: {fileID: 11400000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   reloadTime: 10
-  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   Bullet_Speed: 200
   Gravity_Switch_Timer: 0
+  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   gravity_shot_sound: {fileID: 8300000, guid: 63a8e8c930118c1478fcb72fd98ad0e7, type: 3}
 --- !u!124 &12400000
