@@ -160,7 +160,10 @@ public class Camera_Control : MonoBehaviour {
 				if (!BasicFunctions.playOffline)
 					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
 				if(hit.collider.tag=="Player")
+				{
 					Debug.Log("HIT SOMEONE!!! XD");
+
+				}
 			}
 		}
 	}
