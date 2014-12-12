@@ -12,7 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.107 seconds
+- Completed reload, in  0.055 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -47,15 +47,15 @@ Account: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-1
+2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 145.94.197.135:25003
+Received pong from 192.168.56.1:25002
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.56.1:25003
+Received pong from 145.94.197.135:25002
  
 (Filename:  Line: 836)
 
@@ -63,13 +63,13 @@ Received pong from 192.168.56.1:25003
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 2.432830 ms
+UnloadTime: 4.707250 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 3539.
-Total: 1.721990 ms (FindLiveObjects: 0.101293 ms CreateObjectMapping: 0.021418 ms MarkObjects: 0.256580 ms  DeleteObjects: 0.815703 ms)
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3557.
+Total: 2.439523 ms (FindLiveObjects: 0.131637 ms CreateObjectMapping: 0.021865 ms MarkObjects: 0.361890 ms  DeleteObjects: 1.074961 ms)
 
-NUMBER: 2
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 745)
 

@@ -55,8 +55,9 @@ public class NW_Spawning : MonoBehaviour {
 		else
 		{
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
-			playerN.GetComponent<playerController>().activeAccount = BasicFunctions.activeAccount;
-			playerN.GetComponent<playerController>().playerNumber = BasicFunctions.activeAccount.Number;
+			//playerN.GetComponent<playerController>().activeAccount = BasicFunctions.activeAccount;
+			//playerN.GetComponent<playerController>().playerNumber = BasicFunctions.activeAccount.Number;
+			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
 	}
@@ -66,6 +67,14 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		GameObject referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
 		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
+	}
+
+	[RPC]
+	public void setNumbers (NetworkViewID player, string Uname, string Pword, int Number)
+	{
+		NetworkView playerN = NetworkView.Find(player);
+		playerN.GetComponent<playerController>().activeAccount = new Account(Uname, Pword);
+		playerN.GetComponent<playerController>().playerNumber = Number;
 	}
 
 	[RPC]
