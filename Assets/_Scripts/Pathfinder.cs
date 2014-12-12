@@ -93,7 +93,7 @@ public class Pathfinder : MonoBehaviour{
 
 			int j = 0;
 
-			while(j<50){
+			while(j<(3/Time.deltaTime)){
 
 
 				if (foundTarget == false){

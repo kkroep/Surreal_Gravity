@@ -75,21 +75,25 @@ public class RobotMovement : MonoBehaviour {
 
 		if(moving){
 
+
+
+
 			float distCovered = (Time.time - startTime) * speed;
 			float fracJourney = distCovered / length;
-			//if(path.Count > 2){
-			this.transform.position = Vector3.Lerp(start, end, fracJourney);
-			//}
 
+			if(path.Count>2){
+				this.transform.position = Vector3.Lerp(start, end, fracJourney);
+			}
 
 			if (target<=1 && fracJourney>0.9){
 				destroyTarget = true;
 				moving = false;
 				rotating = false;
-				moving = false;
-
-				
+				moving = false;				
 			}
+
+
+
 
 			/*
 			if(target == 0){
@@ -158,6 +162,10 @@ public class RobotMovement : MonoBehaviour {
 
 	void resetFunction(){
 		path = pathfind.path;
+		if(path.Count<=2){
+		for(int i=0;i<path.Count;i++){
+			Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
+			}}
 		start = new Vector3(path[path.Count-1].xPosition,path[path.Count-1].yPosition,path[path.Count-1].zPosition);
 		end = new Vector3(path[path.Count-2].xPosition,path[path.Count-2].yPosition,path[path.Count-2].zPosition);
 		target = path.Count-2;
@@ -166,11 +174,13 @@ public class RobotMovement : MonoBehaviour {
 	}
 
 	void DestroyTarget(){
+		/*
 		robotscript.target.SendMessage("Kill",2.0f);
 		Quaternion oldpos = transform.rotation;
 		this.transform.LookAt(robotscript.target.transform);
 		Quaternion newpos = transform.rotation;
 		this.transform.rotation = Quaternion.Slerp (oldpos,newpos,Time.time*rotSpeed);
+		*/
 	}
 
 
