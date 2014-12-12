@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Referee_script : MonoBehaviour {
 
-	public int playerCount = 4;
+	public int playerCount;
 	public int Lives_count = 3;
-	public int[] scores;
-	public int[] lives;
+	public int[] scores = new int[4]{0,0,0,0};
+	public int[] lives = new int[4]{3,3,3,3};
 
 	private string encodedScore;
 
@@ -23,7 +23,7 @@ public class Referee_script : MonoBehaviour {
 	public void frag(int shooter, int target){
 		//check if a player actually dies
 		Debug.Log (shooter.ToString() + " hit " + target.ToString());
-		if (lives [target] <= 1) {
+		/*if (lives [target] <= 1) {
 			//Respawm player
 			lives [target] = Lives_count;
 			scores[shooter] +=1;
@@ -40,7 +40,7 @@ public class Referee_script : MonoBehaviour {
 		}else{
 			//if the player does not die
 			lives [target]--;
-		}
+		}*/
 	}
 
 [RPC]

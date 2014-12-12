@@ -39,10 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027ca5d8f3c4cd04c828afff56dd262a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCount: 4
-  Lives_count: 3
-  scores: 
-  lives: 
+  playerCount: 3
+  Lives_count: 4
+  scores: 00000000000000000000000000000000
+  lives: 03000000030000000300000003000000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -12,7 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.063 seconds
+- Completed reload, in  0.062 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -28,6 +28,48 @@ INLEZEN: Mongol; JONGUH
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 INLEZEN: AB; BA
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+INLEZEN: Earless; WADAFA
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+INLEZEN: Mongol; JONGUH
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+INLEZEN: AB; BA
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Account: AB; BA
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:25003
+ 
+(Filename:  Line: 836)
+
+Received pong from 145.94.197.135:25003
+ 
+(Filename:  Line: 836)
+
+#players: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 2.751436 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3557.
+Total: 1.617127 ms (FindLiveObjects: 0.103078 ms CreateObjectMapping: 0.020972 ms MarkObjects: 0.277553 ms  DeleteObjects: 0.739844 ms)
+
+2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

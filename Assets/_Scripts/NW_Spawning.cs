@@ -38,9 +38,9 @@ public class NW_Spawning : MonoBehaviour {
 
 		if (!BasicFunctions.playOffline)
 		{
-			//networkView.RPC("showScores", RPCMode.AllBuffered);
-			debugScore.text = "ActiveNumber: " + BasicFunctions.activeAccount.Number;
-			networkView.RPC("spawnReferee", RPCMode.All);
+			networkView.RPC ("spawnReferee", RPCMode.All);
+			Debug.Log(amountPlayers);
+			networkView.RPC("showScores", RPCMode.All);
 		}
 	}
 	
@@ -87,9 +87,9 @@ public class NW_Spawning : MonoBehaviour {
 	public void showScores ()
 	{
 		debugScore.text = "";
-		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
+		for (int i = 0; i < amountPlayers; i++)
 		{
-			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + "[" + BasicFunctions.accountNumbers[i] + "]: " + BasicFunctions.gamePoints[i] + "\n";
+			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + "[" + BasicFunctions.accountNumbers[i] + "]: " + refereePrefab.GetComponent<Referee_script>().scores[i] + "\n";
 		}
 	}
 	
