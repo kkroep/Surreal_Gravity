@@ -2,7 +2,22 @@ fileFormatVersion: 2
 guid: 8744c2bec45b2cf498daabafb0f65d9b
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - currentUname: {instanceID: 0}
+  - Main_Menu: {instanceID: 0}
+  - Multiplayer_Menu: {instanceID: 0}
+  - Server_Menu: {instanceID: 0}
+  - Account_Menu: {instanceID: 0}
+  - Client_Menu: {instanceID: 0}
+  - multiBtn: {instanceID: 0}
+  - regU: {instanceID: 0}
+  - regP: {instanceID: 0}
+  - regPC: {instanceID: 0}
+  - logU: {instanceID: 0}
+  - logP: {instanceID: 0}
+  - AccManager: {instanceID: 0}
+  - serverStuff: {instanceID: 0}
+  - menu_click_sound: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

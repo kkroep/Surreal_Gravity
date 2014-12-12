@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class NW_Spawning : MonoBehaviour {
 
 	public GameObject playerPrefab;
+	public GameObject refereePrefab;
 	public Transform spawn1;
 	public Transform spawn2;
 	public Transform spawn3;
@@ -18,6 +19,7 @@ public class NW_Spawning : MonoBehaviour {
 	private Transform randomSpawnPoint;
 	private bool refreshing = false;
 	private bool playOffline;
+	private int amountPlayers = BasicFunctions.amountPlayers;
 	
 	void Start ()
 	{
@@ -38,6 +40,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			//networkView.RPC("showScores", RPCMode.AllBuffered);
 			debugScore.text = "ActiveNumber: " + BasicFunctions.activeAccount.Number;
+			networkView.RPC("spawnReferee", RPCMode.All);
 		}
 	}
 	
@@ -55,7 +58,14 @@ public class NW_Spawning : MonoBehaviour {
 			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
 	}
-	
+
+	[RPC]
+	public void spawnReferee ()
+	{
+		GameObject referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
+	}
+
 	[RPC]
 	public void removeSpawnPoint (int index)
 	{
