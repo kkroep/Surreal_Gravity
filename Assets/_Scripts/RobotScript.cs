@@ -20,20 +20,22 @@ public class RobotScript : MonoBehaviour {
 
 	void Update () {
 		if (needsSelection) {
+			/*
 			float[] xInterval = new float[]{0,levelSettings.levelWidth};
 			float[] yInterval = new float[]{0,levelSettings.levelHeight};
 			float[] zInterval = new float[]{0,levelSettings.levelDepth};
-			selectBlock(xInterval,yInterval,zInterval);
+			*/
+			selectBlock();
 
 			
 		}	
 	}
 
-	void selectBlock(float[] xInterval, float[] yInterval, float[] zInterval){
+	void selectBlock(){
 		GameObject[] cubes = GameObject.FindGameObjectsWithTag ("level");
 		BlockDestroy selectboolget;
 		bool selectbool = false;
-		int iterations = 500;
+		int iterations = 50;
 
 		bool isedge = false;
 
@@ -47,6 +49,10 @@ public class RobotScript : MonoBehaviour {
 				if(target!=null){
 					selectboolget = target.GetComponent<BlockDestroy>();
 					selectbool = selectboolget.canBeSelected;
+					isedge = levelSettings.isEdge (target.transform.position);
+					if(isedge){
+						break;
+					}
 				}
 				else{
 					break;
@@ -54,17 +60,39 @@ public class RobotScript : MonoBehaviour {
 
 				iterations--;
 
-				isedge = levelSettings.isEdge (target.transform.position);
 
-			}while(iterations>0 && !isedge);
+
+			}while(iterations>0);
 			if(iterations<=0){
-				Debug.Log ("Couldnt find appropriate edge");
+				iterations = 50;
+				do{
+					
+					int selector = Random.Range (0, cubes.Length);
+					
+					target = cubes[selector];
+					
+					if(target!=null){
+						selectboolget = target.GetComponent<BlockDestroy>();
+						selectbool = selectboolget.canBeSelected;
+						break;
+					}
+					else{
+						break;
+					}
+					
+					iterations--;
+					
+				}while(iterations>0);
+
+			}
+			if(iterations<=0){
+				Debug.Log ("couldnt find a target");
 			}
 
 
 
+
 			if(selectbool){
-				levelSettings.setGrid (Mathf.RoundToInt(target.transform.position.x),Mathf.RoundToInt(target.transform.position.y),Mathf.RoundToInt(target.transform.position.z),0);
 				needsSelection = false;
 				target.SendMessage ("canSelect", false);
 				target.SendMessage ("attachedRobot", this.gameObject);

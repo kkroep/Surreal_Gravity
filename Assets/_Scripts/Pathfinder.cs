@@ -178,7 +178,7 @@ public class Pathfinder : MonoBehaviour{
 
 		}while(node != null);
 
-		robotmovement.starting = true;
+		robotmovement.reset = true;
 		tracedBack = true;
 
 	}
