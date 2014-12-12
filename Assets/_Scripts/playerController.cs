@@ -63,9 +63,10 @@ public class playerController : MonoBehaviour
 
 	void Start ()
 	{
-		//playerNumber = activeAccount.Number;
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
+			activeAccount.Number = playerNumber;
+			activeAccount.Points = 0;
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
