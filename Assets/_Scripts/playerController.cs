@@ -156,7 +156,7 @@ public class playerController : MonoBehaviour
 		KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = Pnumber;
 		KillLineCurrent.SetPosition(1, pos1);
 		KillLineCurrent.SetPosition(0, pos2);
-		Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
+		//Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
 	}
 
 	[RPC]

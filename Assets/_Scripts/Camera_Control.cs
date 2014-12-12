@@ -157,14 +157,14 @@ public class Camera_Control : MonoBehaviour {
 				KillLineCurrent.SetPosition(0, hit.point);
 				int shootNumber = activeAccount.Number;
 				KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = shootNumber;
-				Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
+				//Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
 				if (!BasicFunctions.playOffline)
 					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
 				if(hit.collider.tag=="Player")
 				{
 					//Debug.Log("HIT SOMEONE!!! XD");
 					Debug.Log ("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
-					Debug.Log ("Target: " + hit.collider.GetComponent<playerController>().activeAccount.Number + ", OF: " + BasicFunctions.activeAccounts[shootNumber-1]);
+					Debug.Log ("Target: " + hit.collider.gameObject.GetComponent<playerController>().playerNumber);
 					//referee.frag(KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber, hit.collider.GetComponent<playerController>().activeAccount.Number);
 				}
 			}
