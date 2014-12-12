@@ -10,7 +10,7 @@ public class Referee_script : MonoBehaviour {
 
 	private string encodedScore;
 
-	// Use this for initialization
+	///Initialization
 	void Start () {
 		scores = new int[playerCount];
 		lives = new int[playerCount];
@@ -21,17 +21,24 @@ public class Referee_script : MonoBehaviour {
 	}
 
 	public void frag(int shooter, int target){
+		//check if a player actually dies
+		Debug.Log (shooter.ToString() + " hit " + target.ToString());
 		if (lives [target] <= 1) {
 			//Respawm player
 			lives [target] = Lives_count;
 			scores[shooter] +=1;
 
-			encodedScore="";
-			for(int i=0; i<playerCount; i++){
-				encodedScore += scores[i];
+
+			//encode scores to send with RPC
+			encodedScore=scores[0].ToString();
+			for(int i=1; i<playerCount; i++){
+				encodedScore += " " + scores[i];
 			}
-			networkView.RPC("UpdateScores", RPCMode.Others, encodedScore);
+
+			//call RPC
+			networkView.RPC("UpdateScores", RPCMode.All, encodedScore);
 		}else{
+			//if the player does not die
 			lives [target]--;
 		}
 	}
