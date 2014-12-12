@@ -174,13 +174,10 @@ public class RobotMovement : MonoBehaviour {
 	}
 
 	void DestroyTarget(){
-		/*
-		robotscript.target.SendMessage("Kill",2.0f);
 		Quaternion oldpos = transform.rotation;
 		this.transform.LookAt(robotscript.target.transform);
 		Quaternion newpos = transform.rotation;
 		this.transform.rotation = Quaternion.Slerp (oldpos,newpos,Time.time*rotSpeed);
-		*/
 	}
 
 
