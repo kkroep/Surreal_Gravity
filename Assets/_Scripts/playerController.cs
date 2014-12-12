@@ -52,10 +52,11 @@ public class playerController : MonoBehaviour
 	public GameObject LightningLine;
 	public GameObject KillLine;
 
+	private Account activeAccount = BasicFunctions.activeAccount;
 	private int hitCounter = 0;
 
 	public AudioClip kill_shot_sound;
-	public AudioClip gravity_shot_sound;
+	//public AudioClip gravity_shot_sound;
 	public AudioClip jump_sound;
 
 
@@ -74,7 +75,7 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			AudioSource.PlayClipAtPoint(gravity_shot_sound, transform.position);
+			//AudioSource.PlayClipAtPoint(gravity_shot_sound, transform.position);
 			before_shift = transform.rotation;
 			Gravity_Direction = new_Gravity;
 			Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, transform.forward);
@@ -83,7 +84,7 @@ public class playerController : MonoBehaviour
 		}
 	}
 
-	void Fire_Kill_Bullet()
+	/*void Fire_Kill_Bullet()
 	{
 		if (BasicFunctions.playOffline)
 		{
@@ -110,24 +111,24 @@ public class playerController : MonoBehaviour
 				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
 				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
 				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, /*instantiatedProjectile.networkView.viewID, */gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward, shootNumber);
+				networkView.RPC("fireKillBulletS", RPCMode.Others, gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward, shootNumber);
 			//}
 		}
-	}
+	}*/
 
 	public void Fire_Grav_Bullet (Vector3 pos1, Vector3 pos2)
 	{
-		networkView.RPC("fireGravityLaser", RPCMode.Others, pos1, pos2, BasicFunctions.activeAccount.Number);
+		networkView.RPC("fireGravityLaser", RPCMode.Others, pos1, pos2, activeAccount.Number);
 	}
 
-	public void Fire_Kill_Bullet (Vector3 pos1, Vector3 pos2)
+	public void Fire_Kill_Bullet (Vector3 pos1, Vector3 pos2, int shooter)
 	{
-		networkView.RPC("fireKillLaser", RPCMode.Others, pos1, pos2, BasicFunctions.activeAccount.Number);
+		networkView.RPC("fireKillLaser", RPCMode.Others, pos1, pos2, shooter);
 	}
 
 	
-	[RPC]
-	void fireKillBulletS(/*NetworkViewID id, */NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
+	/*[RPC]
+	void fireKillBulletS(NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
 	{
 		NetworkView playerN = NetworkView.Find (player);
 		Transform cloneP = playerN.transform;
@@ -136,7 +137,7 @@ public class playerController : MonoBehaviour
 		Debug.Log ("Shooter: " + number);
 		instantiatedProjectileN.velocity = dir*Bullet_Speed;
 		Physics.IgnoreCollision( instantiatedProjectileN.collider, cloneP.root.collider );
-	}
+	}*/
 
 	[RPC]
 	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
@@ -147,15 +148,18 @@ public class playerController : MonoBehaviour
 
 	[RPC]
 	void fireKillLaser(Vector3 pos1, Vector3 pos2, int Pnumber){
+		AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
 		LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
+		KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = Pnumber;
 		KillLineCurrent.SetPosition(1, pos1);
 		KillLineCurrent.SetPosition(0, pos2);
+		Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
 	}
 
 	[RPC]
 	void hitByBullet (int shooter, int target)
 	{
-		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + BasicFunctions.activeAccount.Number);
+		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + activeAccount.Number);
 		//Debug.Log(shooter + " has shot " + target);
 	}
 
@@ -229,8 +233,8 @@ public class playerController : MonoBehaviour
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
 			//Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
-			int targetNumber = BasicFunctions.activeAccount.Number;
-			Debug.Log("Target: " + targetNumber + ", Shooter: " + collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber + ", ActiveNumber: " + BasicFunctions.activeAccount.Number);
+			int targetNumber = activeAccount.Number;
+			Debug.Log("Target: " + targetNumber + ", Shooter: " + collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber + ", ActiveNumber: " + activeAccount.Number);
 			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, targetNumber);//BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
 			Destroy(collisionInfo.gameObject);
 		}

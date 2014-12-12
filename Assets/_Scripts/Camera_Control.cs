@@ -39,13 +39,17 @@ public class Camera_Control : MonoBehaviour {
 	#region [init other]
 	public playerController player;
 	public GameObject playercam;
-	private float lastShot;
 	public float reloadTime = 0f;
-	public Rigidbody Gravity_Bullet;
-	//public Rigidbody Kill_Bullet;
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
-	
+	public Rigidbody Gravity_Bullet;
+
+	public AudioClip kill_shot_sound;
+	public AudioClip gravity_shot_sound;
+
+	private Account activeAccount = BasicFunctions.activeAccount;
+	private float lastShot;
+
 	#endregion
 	
 	void Start()
@@ -121,6 +125,7 @@ public class Camera_Control : MonoBehaviour {
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
+			AudioSource.PlayClipAtPoint(gravity_shot_sound, transform.position);
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
@@ -128,12 +133,10 @@ public class Camera_Control : MonoBehaviour {
 				LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
 				LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
 				LightningLineCurrent.SetPosition(0, hit.point);
-				//networkView.RPC("fireGravityLaser", RPCMode.Others,transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, 1);
 				if (!BasicFunctions.playOffline)
 					player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
 				if(hit.collider.tag=="level")
 					player.Switch_Gravity(hit.normal*-1f);
-
 			}
 		}
 	}
@@ -142,30 +145,25 @@ public class Camera_Control : MonoBehaviour {
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
+			AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
+				Debug.Log(hit.collider.tag);
 				Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
 				KillLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
 				KillLineCurrent.SetPosition(0, hit.point);
-				//networkView.RPC("fireGravityLaser", RPCMode.Others,transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, 1);
+				int shootNumber = activeAccount.Number;
+				KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = shootNumber;
+				Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
 				if (!BasicFunctions.playOffline)
-					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
+					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
 				if(hit.collider.tag=="Player")
 					Debug.Log("HIT SOMEONE!!! XD");
-				
 			}
 		}
 	}
-
-	/*[RPC]
-	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
-		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
-		LightningLineCurrent.SetPosition(1, pos1);
-		LightningLineCurrent.SetPosition(0, pos2);
-	}*/
-
 
 	void Update ()
 	{

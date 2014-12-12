@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Gravity_trace_script : MonoBehaviour {
 	public float Time2Live = 0.5f;
+	public int shooterNumber;
 	private float Time2Live_left;
 
 	void Start(){
