@@ -37,6 +37,8 @@ public class MenuButtons : MonoBehaviour {
 
 	public AccountManagement AccManager;
 	public NW_Server serverStuff;
+
+	public AudioClip menu_click_sound;
 	
 	// Use this for initialization
 	void OnMouseEnter(){
@@ -56,6 +58,7 @@ public class MenuButtons : MonoBehaviour {
 	void OnMouseUp(){
 
 		if (MultiPlayer) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 			if (AccountManagement.loggedIn)
 			{
 				Main_Menu.SetActive(false);
@@ -65,11 +68,13 @@ public class MenuButtons : MonoBehaviour {
 		}
 
 		if (SinglePlayer) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 			BasicFunctions.playOffline = true;
 			Application.LoadLevel("Main_Game");
 		}
 		
 		if (Back) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 			Main_Menu.SetActive(true);
 			Multiplayer_Menu.SetActive(false);
 			Server_Menu.SetActive(false);
@@ -86,10 +91,12 @@ public class MenuButtons : MonoBehaviour {
 		}
 
 		if (QuitGame) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 			Application.Quit ();
 		}
 
 		if (StartServer) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 			serverStuff.startServer();
 			Server_Menu.SetActive(true);
 			Multiplayer_Menu.SetActive(false);
@@ -97,10 +104,12 @@ public class MenuButtons : MonoBehaviour {
 		}
 
 		if (Refresh) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 			serverStuff.refreshHost();
 		}
 
 		if (Disconnect) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 			if (Network.isServer)
 			{
 				serverStuff.closeServer();
@@ -122,6 +131,7 @@ public class MenuButtons : MonoBehaviour {
 		}
 
 		if (Account) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 			Main_Menu.SetActive(false);
 			Account_Menu.SetActive(true);
 			regU.SetActive(true);
@@ -135,10 +145,12 @@ public class MenuButtons : MonoBehaviour {
 		}
 
 		if (Register) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 			AccManager.registerAccount();
 		}
 
 		if (Login) {
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 			AccManager.loginAccount();
 		}
 	}
