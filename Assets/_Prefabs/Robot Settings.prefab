@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberRobots: 8
-  robot: {fileID: 100000, guid: b58b11233f1fb4b449c6aa5c78ddfc4a, type: 2}
+  robot: {fileID: 100000, guid: 42f56b3ec0a3c53489a5f44867a4288d, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
