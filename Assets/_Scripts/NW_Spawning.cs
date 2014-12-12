@@ -19,6 +19,7 @@ public class NW_Spawning : MonoBehaviour {
 	private Transform randomSpawnPoint;
 	private bool refreshing = false;
 	private bool playOffline;
+	private int amountPlayers = BasicFunctions.amountPlayers;
 	
 	void Start ()
 	{
@@ -61,7 +62,8 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void spawnReferee ()
 	{
-		Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity);
+		GameObject referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
 	}
 
 	[RPC]
