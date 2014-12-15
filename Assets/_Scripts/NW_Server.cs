@@ -165,33 +165,6 @@ public class NW_Server : MonoBehaviour {
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
-		/*else if (BasicFunctions.amountPlayers == 1)
-		{
-			menuBtns.Multiplayer_Menu.SetActive(false);
-			menuBtns.Client_Menu.SetActive(true);
-			BasicFunctions.activeAccount.Number = 2;
-			BasicFunctions.activeAccount.Points = 0;
-			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
-		}
-		else if (BasicFunctions.amountPlayers == 2)
-		{
-			menuBtns.Multiplayer_Menu.SetActive(false);
-			menuBtns.Client_Menu.SetActive(true);
-			BasicFunctions.activeAccount.Number = 3;
-			BasicFunctions.activeAccount.Points = 0;
-			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
-		}
-		else if (BasicFunctions.amountPlayers == 3)
-		{
-			menuBtns.Multiplayer_Menu.SetActive(false);
-			menuBtns.Client_Menu.SetActive(true);
-			BasicFunctions.activeAccount.Number = 4;
-			BasicFunctions.activeAccount.Points = 0;
-			networkView.RPC("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
-			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
-		}*/
 	}
 
 	public void clearTexts (bool server)
