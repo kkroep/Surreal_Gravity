@@ -11,7 +11,7 @@ public class Account {
 	private string Username;
 	private string Password;
 	private int playerNumb;
-	private int gamePoints;
+	//private int gamePoints;
 	//private Color teamColor;
 
 	/* Creeert een Account met een username en password (number wordt op 0 gezet)
@@ -45,11 +45,11 @@ public class Account {
 	}
 	/* Getter/Setter voor de gamePoints
 	 */
-	public int Points
-	{
-		get { return gamePoints; }
-		set { gamePoints = value; }
-	}
+	//public int Points
+	//{
+	//	get { return gamePoints; }
+	//	set { gamePoints = value; }
+	//}
 
 	public string toString ()
 	{

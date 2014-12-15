@@ -1684,13 +1684,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 376224233}
   - 114: {fileID: 376224232}
+  - 148: {fileID: 376224234}
   m_Layer: 0
   m_Name: Referee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &376224232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,8 +1706,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCount: 3
   Lives_count: 4
-  scores: 00000000000000000000000000000000
-  lives: 03000000030000000300000003000000
+  scores: 01000000000000000000000000000000
+  lives: 03000000040000000300000003000000
 --- !u!4 &376224233
 Transform:
   m_ObjectHideFlags: 0
@@ -1719,6 +1720,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!148 &376224234
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14800000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4,
+    type: 2}
+  m_PrefabInternal: {fileID: 382820070}
+  m_GameObject: {fileID: 376224231}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1 &376492038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,6 +1899,10 @@ Prefab:
     - target: {fileID: 400000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
@@ -6458,6 +6476,10 @@ Prefab:
       propertyPath: serverStuff
       value: 
       objectReference: {fileID: 419670179}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: menu_click_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1786789732}
@@ -9687,7 +9709,7 @@ MonoBehaviour:
   logP: {fileID: 0}
   AccManager: {fileID: 0}
   serverStuff: {fileID: 419670179}
-  menu_click_sound: {fileID: 0}
+  menu_click_sound: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
 --- !u!102 &1786789736
 TextMesh:
   serializedVersion: 3

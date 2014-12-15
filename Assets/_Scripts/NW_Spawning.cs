@@ -20,6 +20,7 @@ public class NW_Spawning : MonoBehaviour {
 	private bool refreshing = false;
 	private bool playOffline;
 	private int amountPlayers = BasicFunctions.amountPlayers;
+	private GameObject ref2;
 	
 	void Start ()
 	{
@@ -30,16 +31,10 @@ public class NW_Spawning : MonoBehaviour {
 		spawnLocations.Add(spawn4);
 		spawnLocations.Add(spawn5);
 		spawnPlayer();
-		/*for (int i = 0; i < BasicFunctions.amountPlayers; i++)
-		{
-			BasicFunctions.connectedPlayers[i].Points = 0;
-			BasicFunctions.gamePoints[i] = 0;
-		}*/
 
 		if (!BasicFunctions.playOffline)
 		{
 			networkView.RPC ("spawnReferee", RPCMode.All);
-			Debug.Log(amountPlayers);
 			networkView.RPC("showScores", RPCMode.All);
 		}
 	}
@@ -55,8 +50,6 @@ public class NW_Spawning : MonoBehaviour {
 		else
 		{
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
-			//playerN.GetComponent<playerController>().activeAccount = BasicFunctions.activeAccount;
-			//playerN.GetComponent<playerController>().playerNumber = BasicFunctions.activeAccount.Number;
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
@@ -67,6 +60,7 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		GameObject referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
 		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
+		ref2 = referee;
 	}
 
 	[RPC]

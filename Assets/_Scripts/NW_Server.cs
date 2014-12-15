@@ -147,12 +147,12 @@ public class NW_Server : MonoBehaviour {
 		if (BasicFunctions.amountPlayers == 0)
 		{
 			BasicFunctions.activeAccount.Number = 1;
-			BasicFunctions.activeAccount.Points = 0;
+			//BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			//BasicFunctions.connectedPlayers.Add(BasicFunctions.serverAccount);
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
-			BasicFunctions.gamePoints.Add(BasicFunctions.activeAccount.Points);
+			//BasicFunctions.gamePoints.Add(BasicFunctions.activeAccount.Points);
 			setTexts1();
 			Debug.Log("AA: " + BasicFunctions.activeAccounts[0]);
 		}
@@ -161,7 +161,7 @@ public class NW_Server : MonoBehaviour {
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
 			BasicFunctions.activeAccount.Number = Network.connections.Length + 1;
-			BasicFunctions.activeAccount.Points = 0;
+			//BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
@@ -223,7 +223,7 @@ public class NW_Server : MonoBehaviour {
 	{
 		BasicFunctions.activeAccounts.Clear();
 		BasicFunctions.accountNumbers.Clear();
-		BasicFunctions.gamePoints.Clear();
+		//BasicFunctions.gamePoints.Clear();
 	}
 	/* Stuur UI data naar de Server
 	 */
@@ -236,7 +236,7 @@ public class NW_Server : MonoBehaviour {
 			{
 				BasicFunctions.activeAccounts.Add(UN);
 				BasicFunctions.accountNumbers.Add (Number);
-				BasicFunctions.gamePoints.Add(0);
+				//BasicFunctions.gamePoints.Add(0);
 			}
 			
 			for(int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
@@ -245,7 +245,7 @@ public class NW_Server : MonoBehaviour {
 				//Debug.Log("SERVER: Account Numbers["+i+"]: " + BasicFunctions.accountNumbers[i]);
 				Account adding = new Account (BasicFunctions.activeAccounts[i], "");
 				adding.Number = BasicFunctions.accountNumbers[i];
-				adding.Points = 0;
+				//adding.Points = 0;
 				if (!BasicFunctions.connectedPlayers.Contains(adding))
 				{
 					BasicFunctions.connectedPlayers.Add(adding);
@@ -267,7 +267,7 @@ public class NW_Server : MonoBehaviour {
 			{
 				BasicFunctions.activeAccounts.Add(UN);
 				BasicFunctions.accountNumbers.Add(Number);
-				BasicFunctions.gamePoints.Add(0);
+				//BasicFunctions.gamePoints.Add(0);
 			}
 		}
 		networkView.RPC("setTexts", RPCMode.AllBuffered);
@@ -285,7 +285,7 @@ public class NW_Server : MonoBehaviour {
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
-			BasicFunctions.gamePoints.RemoveAt(Number);
+			//BasicFunctions.gamePoints.RemoveAt(Number);
 			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
@@ -303,7 +303,7 @@ public class NW_Server : MonoBehaviour {
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
-			BasicFunctions.gamePoints.RemoveAt(Number);
+			//BasicFunctions.gamePoints.RemoveAt(Number);
 			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			clearTexts(false);

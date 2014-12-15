@@ -72,7 +72,7 @@ public class playerController : MonoBehaviour
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
 			activeAccount.Number = playerNumber;
-			activeAccount.Points = 0;
+			//activeAccount.Points = 0;
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
@@ -151,10 +151,10 @@ public class playerController : MonoBehaviour
 	[RPC]
 	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
 		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
-		//LightningLineCurrent.SetPosition(1, pos1);
-		//LightningLineCurrent.SetPosition(0, pos2);
+		LightningLineCurrent.SetPosition(1, pos1);
+		LightningLineCurrent.SetPosition(0, pos2);
 		
-		//new
+		/*//new
 		float Distance = Mathf.Sqrt((pos1 - pos2).sqrMagnitude);
 		float floatvertexsize = VerticesPerUnit * Distance;
 		vertexsize = (int) floatvertexsize;
@@ -166,7 +166,7 @@ public class playerController : MonoBehaviour
 			LightningLineCurrent.SetPosition(i, (multiplier*(pos1 - pos2)) + pos2 + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 		}
 		LightningLineCurrent.SetPosition(0, pos2);
-		//\new
+		//\new*/
 		
 	}
 
@@ -175,10 +175,10 @@ public class playerController : MonoBehaviour
 		AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
 		LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
 		KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = Pnumber;
-		//KillLineCurrent.SetPosition(1, pos1);
-		//KillLineCurrent.SetPosition(0, pos2);
+		KillLineCurrent.SetPosition(1, pos1);
+		KillLineCurrent.SetPosition(0, pos2);
 		
-		//new
+		/*//new
 		float Distance = Mathf.Sqrt((pos1 - pos2).sqrMagnitude);
 		float floatvertexsize = VerticesPerUnit * Distance;
 		vertexsize = (int) floatvertexsize;
@@ -190,7 +190,7 @@ public class playerController : MonoBehaviour
 			KillLineCurrent.SetPosition(i, (multiplier*(pos1 - pos2)) + pos2 + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 		}
 		KillLineCurrent.SetPosition(0, pos2);
-		//\new
+		//\new*/
 		
 		//Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
 	}
