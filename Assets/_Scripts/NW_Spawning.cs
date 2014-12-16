@@ -58,6 +58,11 @@ public class NW_Spawning : MonoBehaviour {
 		}
 	}
 
+	public void respawnPlayer ()
+	{
+
+	}
+
 	public void showScores ()
 	{
 		if (!refScript)
@@ -81,6 +86,12 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
 		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
+	}
+
+	[RPC]
+	public void respawnPlayerRPC ()
+	{
+
 	}
 
 	[RPC]

@@ -140,7 +140,6 @@ public class playerController : MonoBehaviour
 		networkView.RPC("fireKillLaser", RPCMode.Others, pos1, pos2, shooter);
 	}
 
-	
 	/*[RPC]
 	void fireKillBulletS(NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
 	{
