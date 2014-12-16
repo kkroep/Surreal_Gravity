@@ -17,7 +17,9 @@ public class playerController : MonoBehaviour
 	private Quaternion before_shift;
 	private Quaternion after_shift;
 	private float Gravity_Shift_Counter;
-	
+
+//	private Animator anim;
+
 	public enum RotationAxes
 	{
 		MouseXAndY = 0,
@@ -77,6 +79,7 @@ public class playerController : MonoBehaviour
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
 			Current_Global_Force = Gravity_Direction * Gravity_Strength;
+			//anim = GetComponent<Animator> ();
 		}
 	}
 	
@@ -254,7 +257,15 @@ public class playerController : MonoBehaviour
 			
 			rigidbody.velocity = transform.forward * speed * Input.GetAxis ("Vertical");
 			rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
+
+			/*if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0)  {
+				anim.SetBool ("Walk", true);
+			}
 			
+			else {
+				anim.SetBool ("Walk", false);
+			}*/
+
 			Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
 			rigidbody.AddForce (Current_Global_Force);
 		}
@@ -268,7 +279,12 @@ public class playerController : MonoBehaviour
 			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
 				AudioSource.PlayClipAtPoint(jump_sound, transform.position);
+			//	anim.SetBool ("Jump",true);
 			}
+			
+			//else{
+			//	anim.SetBool ("Jump",false);
+			//}
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
 			//Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
