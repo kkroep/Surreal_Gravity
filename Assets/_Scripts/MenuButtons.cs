@@ -20,12 +20,16 @@ public class MenuButtons : MonoBehaviour {
 	public bool Account = false;
 	public bool Register = false;
 	public bool Login = false;
+	public bool Instructions = false;
+	public bool Settings = false;
 
 	public GameObject Main_Menu;
 	public GameObject Multiplayer_Menu;
 	public GameObject Server_Menu;
 	public GameObject Account_Menu;
 	public GameObject Client_Menu;
+	public GameObject Settings_Menu;
+	public GameObject Instructions_Menu;
 
 	public GameObject multiBtn;
 
@@ -80,6 +84,8 @@ public class MenuButtons : MonoBehaviour {
 			Server_Menu.SetActive(false);
 			Account_Menu.SetActive(false);
 			renderer.material.color = Button_Idle;
+			Settings_Menu.SetActive(false);
+			Instructions_Menu.SetActive(false);
 			regU.SetActive(false);
 			regP.SetActive(false);
 			regPC.SetActive(false);
@@ -88,6 +94,19 @@ public class MenuButtons : MonoBehaviour {
 			NW_Server.showServers = false;
 			if (AccountManagement.loggedIn)
 				multiBtn.GetComponent<MenuButtons>().HoverEffects = true;
+		}
+
+		if (Settings) {
+			Instructions_Menu.SetActive(false);
+			Settings_Menu.SetActive(true);
+			Main_Menu.SetActive(false);
+			renderer.material.color = Button_Idle;
+		}
+
+		if (Instructions) {
+			Instructions_Menu.SetActive(true);
+			Settings_Menu.SetActive(false);
+			renderer.material.color = Button_Idle;
 		}
 
 		if (QuitGame) {
