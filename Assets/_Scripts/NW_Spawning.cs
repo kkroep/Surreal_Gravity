@@ -36,7 +36,10 @@ public class NW_Spawning : MonoBehaviour {
 
 		if (!BasicFunctions.playOffline)
 		{
-			networkView.RPC ("spawnReferee", RPCMode.All);
+			if (Network.isServer)
+			{
+				networkView.RPC ("spawnReferee", RPCMode.All);
+			}
 			showScores ();
 			showLives ();
 		}
@@ -84,7 +87,7 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void spawnReferee ()
 	{
-		referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+		referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject;
 		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
 	}
 
