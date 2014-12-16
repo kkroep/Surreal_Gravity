@@ -23,7 +23,7 @@ public class NW_Spawning : MonoBehaviour {
 	private int amountPlayers = BasicFunctions.amountPlayers;
 	private GameObject referee;
 	private Referee_script refScript;
-	private bool spawnRef = true;
+	//private bool spawnRef = true;
 	
 	void Start ()
 	{
@@ -37,10 +37,10 @@ public class NW_Spawning : MonoBehaviour {
 
 		if (!BasicFunctions.playOffline)
 		{
-			//if (Network.isServer)
-			//{
-			//	networkView.RPC ("spawnReferee", RPCMode.All);
-			//}
+			if (Network.isServer)
+			{
+				networkView.RPC ("spawnReferee", RPCMode.All);
+			}
 			showScores ();
 			showLives ();
 		}
@@ -139,11 +139,11 @@ public class NW_Spawning : MonoBehaviour {
 			Application.LoadLevel(Application.loadedLevel);
 		}
 
-		if (spawnRef && Network.isServer && GameObject.FindGameObjectsWithTag("Player").Length == amountPlayers)
+		/*if (spawnRef && Network.isServer && GameObject.FindGameObjectsWithTag("Player").Length == amountPlayers)
 		{
 			networkView.RPC ("spawnReferee", RPCMode.All);
 			spawnRef = false;
-		}
+		}*/
 
 	}
 }
