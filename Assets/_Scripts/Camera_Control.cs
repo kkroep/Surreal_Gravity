@@ -138,13 +138,16 @@ public class Camera_Control : MonoBehaviour {
 			if (Physics.Raycast(ray, out hit)) {
 				Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
-				LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
-				LightningLineCurrent.SetPosition(0, hit.point);
+				//LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+				//LightningLineCurrent.SetPosition(0, hit.point);
 				
-				/*//\new
+				//\new
 				float Distance = Mathf.Sqrt((transform.position - hit.point).sqrMagnitude);
 				float floatvertexsize = VerticesPerUnit * Distance;
 				vertexsize = (int) floatvertexsize;
+				if ( vertexsize > 30000 ){
+					vertexsize = 30000;
+				}
 				LightningLineCurrent.SetVertexCount(vertexsize);
 				LightningLineCurrent.SetPosition(vertexsize-1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
 				for(int i=1; i<(vertexsize-1) ;i++)
@@ -153,7 +156,7 @@ public class Camera_Control : MonoBehaviour {
 					LightningLineCurrent.SetPosition(i, (multiplier*(transform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 				}
 				LightningLineCurrent.SetPosition(0, hit.point);
-				//\new*/
+				//\new
 				
 				if (!BasicFunctions.playOffline)
 					player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
@@ -174,13 +177,16 @@ public class Camera_Control : MonoBehaviour {
 				//Debug.Log(hit.collider.tag);
 				Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
-				KillLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
-				KillLineCurrent.SetPosition(0, hit.point);
+				//KillLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+				//KillLineCurrent.SetPosition(0, hit.point);
 				
 				//new
-				/*float Distance = Mathf.Sqrt((transform.position - hit.point).sqrMagnitude);
+				float Distance = Mathf.Sqrt((transform.position - hit.point).sqrMagnitude);
 				float floatvertexsize = VerticesPerUnit * Distance;
 				vertexsize = (int) floatvertexsize;
+				if ( vertexsize > 30000 ){
+					vertexsize = 30000;
+				}
 				KillLineCurrent.SetVertexCount(vertexsize);
 				KillLineCurrent.SetPosition(vertexsize-1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
 				for(int i=1; i<(vertexsize-1) ;i++)
@@ -189,7 +195,7 @@ public class Camera_Control : MonoBehaviour {
 					KillLineCurrent.SetPosition(i, (multiplier*(transform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 				}
 				KillLineCurrent.SetPosition(0, hit.point);
-				//\new*/
+				//\new
 				
 				int shootNumber = activeAccount.Number;
 				KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = shootNumber;

@@ -20,7 +20,8 @@ public class NW_Spawning : MonoBehaviour {
 	private bool refreshing = false;
 	private bool playOffline;
 	private int amountPlayers = BasicFunctions.amountPlayers;
-	private GameObject ref2;
+	private GameObject referee;
+	private Referee_script refScript;
 	
 	void Start ()
 	{
@@ -57,15 +58,18 @@ public class NW_Spawning : MonoBehaviour {
 
 	public void showScores ()
 	{
+		if (!refScript)
+		{
+			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+		}
 		networkView.RPC("showScoresRPC", RPCMode.All);
 	}
 
 	[RPC]
 	public void spawnReferee ()
 	{
-		GameObject referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+		referee = Object.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
 		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
-		ref2 = referee;
 	}
 
 	[RPC]
@@ -88,7 +92,7 @@ public class NW_Spawning : MonoBehaviour {
 		debugScore.text = "";
 		for (int i = 0; i < amountPlayers; i++)
 		{
-			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + "[" + BasicFunctions.accountNumbers[i] + "]: " + refereePrefab.GetComponent<Referee_script>().scores[i] + "\n";
+			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + "[" + BasicFunctions.accountNumbers[i] + "]: " + refScript.scores[i] + "\n";
 		}
 	}
 	
