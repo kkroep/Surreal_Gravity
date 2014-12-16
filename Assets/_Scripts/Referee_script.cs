@@ -23,9 +23,10 @@ public class Referee_script : MonoBehaviour {
 	public void frag(int shooter, int target){
 		//check if a player actually dies
 		//Debug.Log (shooter.ToString() + " hit " + target.ToString());
-		if (lives [target-1] <= 1) {
+		int newTarget = (target - 1);
+		if (lives [newTarget] <= 1) {
 			//Respawn player
-			lives [target-1] = Lives_count;
+			lives [newTarget] = Lives_count;
 			scores[shooter-1] +=1;
 
 			//encode scores to send with RPC
@@ -36,14 +37,14 @@ public class Referee_script : MonoBehaviour {
 
 			//call RPC
 			//networkView.RPC("UpdateScores", RPCMode.All, encodedScore);
-			for (int j = 0; j < this.playerCount; j++)
+			for (int j = 0; j < playerCount; j++)
 			{
 				Debug.Log ("Score[" + j + "]: " + scores[j]);
 				Debug.Log("Lives[" + j + "]: " + lives[j]);
 			}
 		}else{
 			//if the player does not die
-			lives [target-1]--;
+			lives [newTarget]--;
 		}
 	}
 
