@@ -39,7 +39,8 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			if (Network.isServer)
 			{
-				networkView.RPC ("spawnReferee", RPCMode.All);
+				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject;
+				referee.GetComponent<Referee_script>().playerCount = amountPlayers;
 			}
 			showScores ();
 			showLives ();
@@ -85,12 +86,12 @@ public class NW_Spawning : MonoBehaviour {
 		networkView.RPC("showLivesRPC", RPCMode.All);
 	}
 
-	[RPC]
+	/*[RPC]
 	public void spawnReferee ()
 	{
 		referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject;
 		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
-	}
+	}*/
 
 	[RPC]
 	public void respawnPlayerRPC ()
