@@ -19,7 +19,7 @@ public class RobotScript : MonoBehaviour {
 	}
 
 	void Update () {
-		if (needsSelection) {
+		if (needsSelection && Network.isServer) {
 			/*
 			float[] xInterval = new float[]{0,levelSettings.levelWidth};
 			float[] yInterval = new float[]{0,levelSettings.levelHeight};
@@ -32,6 +32,7 @@ public class RobotScript : MonoBehaviour {
 	}
 
 	void selectBlock(){
+
 		GameObject[] cubes = GameObject.FindGameObjectsWithTag ("level");
 		BlockDestroy selectboolget;
 		bool selectbool = false;
