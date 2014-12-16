@@ -198,6 +198,9 @@ public class Camera_Control : MonoBehaviour {
 					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
 				if(hit.collider.tag=="Player")
 				{
+					if(!referee){
+						referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+					}
 					referee.frag(KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber, hit.collider.gameObject.GetComponent<playerController>().playerNumber);
 				}
 			}
