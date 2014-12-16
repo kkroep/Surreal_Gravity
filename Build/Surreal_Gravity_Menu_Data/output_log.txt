@@ -12,7 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.063 seconds
+- Completed reload, in  0.076 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -43,7 +43,11 @@ INLEZEN: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Account: AB; BA
+Account: Earless; WADAFA
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -51,11 +55,11 @@ Account: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 192.168.56.1:25003
+Received pong from 192.168.56.1:25001
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.0.166:25003
+Received pong from 145.94.198.191:25001
  
 (Filename:  Line: 836)
 
@@ -63,11 +67,35 @@ Received pong from 192.168.0.166:25003
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 3.435056 ms
+UnloadTime: 6.219960 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3561.
-Total: 1.960722 ms (FindLiveObjects: 0.128959 ms CreateObjectMapping: 0.025434 ms MarkObjects: 0.311020 ms  DeleteObjects: 0.962958 ms)
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3555.
+Total: 2.409626 ms (FindLiveObjects: 0.124051 ms CreateObjectMapping: 0.022311 ms MarkObjects: 0.554660 ms  DeleteObjects: 0.950017 ms)
+
+Score[0]: 2
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Lives[0]: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Score[1]: 0
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Lives[1]: 4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Score[2]: 0
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Lives[2]: 3
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 The server has disconnected from the client. Most likely the server has shut down.
  
