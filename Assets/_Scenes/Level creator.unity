@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberRobots: 1
   robot: {fileID: 100000, guid: 42f56b3ec0a3c53489a5f44867a4288d, type: 2}
+  robots: []
 --- !u!4 &1127152373
 Transform:
   m_ObjectHideFlags: 0
