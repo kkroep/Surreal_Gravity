@@ -114,6 +114,10 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void showScoresRPC ()
 	{
+		if (!refScript)
+		{
+			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+		}
 		debugScore.text = "Scores: \n";
 		for (int i = 0; i < amountPlayers; i++)
 		{
@@ -124,6 +128,10 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void showLivesRPC ()
 	{
+		if (!refScript)
+		{
+			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+		}
 		debugLives.text = "Lives \n";
 		for (int i = 0; i < amountPlayers; i++)
 		{
