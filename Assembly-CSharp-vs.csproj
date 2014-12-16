@@ -39,14 +39,13 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DestroyAnimation.cs" />
      <Compile Include="Assets\_Scripts\Account.cs" />
      <Compile Include="Assets\_Scripts\AccountList.cs" />
      <Compile Include="Assets\_Scripts\AccountManagement.cs" />
@@ -57,6 +56,7 @@
      <Compile Include="Assets\_Scripts\Camera_Control.cs" />
      <Compile Include="Assets\_Scripts\CharacterView.cs" />
      <Compile Include="Assets\_Scripts\Copy_LevelCreator.cs" />
+     <Compile Include="Assets\_Scripts\DestroyAnimation.cs" />
      <Compile Include="Assets\_Scripts\GameController_Script.cs" />
      <Compile Include="Assets\_Scripts\Gravity_trace_script.cs" />
      <Compile Include="Assets\_Scripts\LevelCreator.cs" />
@@ -75,7 +75,7 @@
      <Compile Include="Assets\_Scripts_Backup\TestBeunScriptUnit.cs" />
      <None Include="Assets\_Shaders\BuildingBlock_Shader.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

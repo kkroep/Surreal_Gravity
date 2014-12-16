@@ -11,7 +11,9 @@ public class playerController : MonoBehaviour
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 Current_Global_Force;
 	public Camera_Control Main_Camera;
-	
+	public bool isAlive = true;
+
+
 	public float Gravity_Shift_Time = 10f;
 	
 	private Quaternion before_shift;
@@ -229,51 +231,42 @@ public class playerController : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
-		if (networkView.isMine || BasicFunctions.playOffline)
-		{
-			if (Gravity_Shift_Counter > 1f) {
-				Gravity_Shift_Counter--;
-				transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
-			} else if (Gravity_Shift_Counter == 1f) {
-				Gravity_Shift_Counter = 0f;
-				transform.rotation = after_shift;
-			} else {
-				//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
-				
-				#region [look around]
-				if (axes == RotationAxes.MouseXAndY) {
-					float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
-					
-					rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-					rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-					
-					transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
-				} else if (axes == RotationAxes.MouseX) {
-					transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
+		if (networkView.isMine || BasicFunctions.playOffline) {
+				if (Gravity_Shift_Counter > 1f) {
+						Gravity_Shift_Counter--;
+						transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
+				} else if (Gravity_Shift_Counter == 1f) {
+						Gravity_Shift_Counter = 0f;
+						transform.rotation = after_shift;
 				} else {
-					rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-					rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-					
-					transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
+						//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
+		
+						#region [look around]
+						if (axes == RotationAxes.MouseXAndY) {
+								float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
+			
+								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+								transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
+						} else if (axes == RotationAxes.MouseX) {
+								transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
+						} else {
+								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+								transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
+						}
 				}
-			}
-			#endregion
-			
-			transform.TransformDirection (Vector3.forward);
-			
-			rigidbody.velocity = transform.forward * speed * Input.GetAxis ("Vertical");
-			rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
-
-			/*if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0)  {
-				anim.SetBool ("Walk", true);
-			}
-			
-			else {
-				anim.SetBool ("Walk", false);
-			}*/
-
-			Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
-			rigidbody.AddForce (Current_Global_Force);
+				#endregion
+	
+				transform.TransformDirection (Vector3.forward);
+				if (isAlive) {
+					rigidbody.velocity = transform.forward * speed * Input.GetAxis ("Vertical");
+					rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
+					Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
+					rigidbody.AddForce (Current_Global_Force);
+				}
 		}
 	}
 
@@ -281,7 +274,7 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			if (Input.GetKeyDown ("space")) 
+			if (Input.GetKeyDown ("space") && isAlive) 
 			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
 				AudioSource.PlayClipAtPoint(jump_sound, transform.position);

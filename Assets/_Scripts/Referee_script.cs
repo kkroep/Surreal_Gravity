@@ -8,17 +8,30 @@ public class Referee_script : MonoBehaviour {
 	public int[] scores = new int[4]{0,0,0,0};
 	public int[] lives = new int[4]{3,3,3,3};
 	public NW_Spawning spawnScript;
+	public playerController[] players;
+
 
 	private string encodedScore;
 	private string encodedLives;
 
 	///Initialization
 	void Start () {
+		players = new playerController[playerCount];
 		scores = new int[playerCount];
 		lives = new int[playerCount];
+
+		GameObject[] tmp = GameObject.FindGameObjectsWithTag ("Player");
 		for (int i=0; i<playerCount; i++) {
 			scores[i]=0;
 			lives[i]=Lives_count;
+
+
+			for (int j=0; j<playerCount; j++) {
+				if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
+					players[i]=tmp[j].GetComponent<playerController>();
+						break;
+				}
+			}
 		}
 	}
 
@@ -27,7 +40,11 @@ public class Referee_script : MonoBehaviour {
 		//Debug.Log (shooter.ToString() + " hit " + target.ToString());
 		int newTarget = (target - 1);
 		if (lives [newTarget] <= 1) {
-			//Respawn player
+
+			//respawn player
+			players[target].isAlive = false;
+
+
 			lives [newTarget] = Lives_count;
 			scores[shooter-1] +=1;
 
