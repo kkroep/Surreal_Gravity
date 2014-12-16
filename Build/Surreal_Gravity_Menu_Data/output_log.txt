@@ -12,7 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.063 seconds
+- Completed reload, in  0.107 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -51,11 +51,11 @@ Account: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 192.168.56.1:25003
+Received pong from 192.168.56.1:25001
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.0.166:25003
+Received pong from 145.94.198.191:25001
  
 (Filename:  Line: 836)
 
@@ -63,13 +63,21 @@ Received pong from 192.168.0.166:25003
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 3.435056 ms
+UnloadTime: 2.415873 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3561.
-Total: 1.960722 ms (FindLiveObjects: 0.128959 ms CreateObjectMapping: 0.025434 ms MarkObjects: 0.311020 ms  DeleteObjects: 0.962958 ms)
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3555.
+Total: 2.585886 ms (FindLiveObjects: 0.199463 ms CreateObjectMapping: 0.036590 ms MarkObjects: 0.456490 ms  DeleteObjects: 1.048633 ms)
 
-The server has disconnected from the client. Most likely the server has shut down.
+Spawnscript added
  
-(Filename:  Line: 745)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+TRYING TO GET THE SCORES SHOWN
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+TRYING TO GET THE SCORES SHOWN
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

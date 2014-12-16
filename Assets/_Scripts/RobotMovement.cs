@@ -24,6 +24,7 @@ public class RobotMovement : MonoBehaviour {
 	public bool movinginitiate = false;
 	public bool rotatinginit = false;
 	public bool destroyTarget = false;
+	public List<Vector3> vectorPath;
 
 	private float dx;
 	private float dy;
@@ -34,6 +35,7 @@ public class RobotMovement : MonoBehaviour {
 
 	void Start(){
 		reset = false;
+		vectorPath = new List<Vector3>();
 		pathfind = this.GetComponent<Pathfinder>();
 		robotscript = this.GetComponent<RobotScript>();
 		rotatingcompleted = true;
@@ -85,22 +87,14 @@ public class RobotMovement : MonoBehaviour {
 				this.transform.position = Vector3.Lerp(start, end, fracJourney);
 			}
 
-			if (target<=1 && fracJourney>0.9){
+			if (target>=(vectorPath.Count-2) && fracJourney>0.9){
 				destroyTarget = true;
 				moving = false;
 				rotating = false;
 				moving = false;				
 			}
 
-
-
-
-			/*
-			if(target == 0){
-				Debug.Log (path[target].xPosition + "," + path[target].yPosition + "," + path[target].zPosition);
-			}
-			*/
-			if (fracJourney>0.85 && target>1){
+			if (fracJourney>0.85 && target<(vectorPath.Count-2)){
 				selectNext ();
 				rotatingcompleted = false;
 			}
@@ -140,35 +134,25 @@ public class RobotMovement : MonoBehaviour {
 
 		if(destroyTarget){
 			DestroyTarget();
-		}
-
-
-
-
-			
-
-
-	
-					
+		}					
 	}
 
 
 	void selectNext(){
-		target--;
-		start = new Vector3(path[target+1].xPosition,path[target+1].yPosition,path[target+1].zPosition);
-		end = new Vector3(path[target].xPosition,path[target].yPosition,path[target].zPosition);
+		target++;
+		start = vectorPath[target-1];
+		end = vectorPath[target];
 		movinginitiate = true;
 	}
 
 	void resetFunction(){
 		path = pathfind.path;
-		if(path.Count<=2){
-		for(int i=0;i<path.Count;i++){
-			Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
-			}}
-		start = new Vector3(path[path.Count-1].xPosition,path[path.Count-1].yPosition,path[path.Count-1].zPosition);
-		end = new Vector3(path[path.Count-2].xPosition,path[path.Count-2].yPosition,path[path.Count-2].zPosition);
-		target = path.Count-2;
+		string todebug = routeToString (path);
+		vectorPath = routeParser (todebug);
+		start = vectorPath[0];
+		end = vectorPath[1];
+		//target = path.Count-2;
+		target = 1;
 		reset = false;
 		length = Vector3.Distance(start, end);
 	}
@@ -179,6 +163,31 @@ public class RobotMovement : MonoBehaviour {
 		Quaternion newpos = transform.rotation;
 		this.transform.rotation = Quaternion.Slerp (oldpos,newpos,Time.time*rotSpeed);
 	}
+
+	string routeToString(List<Node> inpath){
+		string temp = System.String.Empty;
+		for(int i=path.Count-1;i>=0;i--){
+			temp = temp + inpath[i].xPosition + "," + inpath[i].yPosition + "," + inpath[i].zPosition + ";";
+		}
+		return temp;
+
+	}
+
+	List<Vector3> routeParser(string instring){
+		vectorPath.Clear ();
+		string[] positions = instring.Split(';');
+		string[] coords;
+		Vector3 tempCoord;
+		for(int i=0;i<positions.Length-1;i++){
+			coords = positions[i].Split(',');
+			tempCoord = new Vector3(float.Parse(coords[0]),float.Parse(coords[1]),float.Parse (coords[2]));
+			vectorPath.Add(tempCoord);
+		}
+		return vectorPath;
+	}
+
+
+	
 
 
 
