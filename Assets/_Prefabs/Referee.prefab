@@ -41,9 +41,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCount: 3
-  Lives_count: 4
-  scores: 01000000000000000000000000000000
-  lives: 03000000040000000300000003000000
+  Lives_count: 3
+  scores: 00000000000000000000000000000000
+  lives: 03000000030000000300000003000000
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
