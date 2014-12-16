@@ -21,7 +21,7 @@ public class Referee_script : MonoBehaviour {
 		lives = new int[playerCount];
 
 		GameObject[] tmp = GameObject.FindGameObjectsWithTag ("Player");
-		Debug.Log(tmp.Length);
+		Debug.Log(tmp.Length.ToString()+" and " + playerCount.ToString());
 		for (int i=0; i<playerCount; i++) {
 			scores[i]=0;
 			lives[i]=Lives_count;
