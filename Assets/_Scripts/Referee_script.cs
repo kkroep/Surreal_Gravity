@@ -52,14 +52,13 @@ public class Referee_script : MonoBehaviour {
 	public void frag(int shooter, int target){
 		//check if a player actually dies
 		//Debug.Log (shooter.ToString() + " hit " + target.ToString());
-		int newTarget = (target - 1);
-		if (lives [newTarget] <= 1) {
+		if (lives [target-1] <= 1) {
 
 			//respawn player
-			players[target].isAlive = false;
+			players[target-1].isAlive = false;
 
 
-			lives [newTarget] = Lives_count;
+			lives [target-1] = Lives_count;
 			scores[shooter-1] +=1;
 
 			//encode scores to send with RPC
@@ -81,7 +80,7 @@ public class Referee_script : MonoBehaviour {
 			}*/
 		}else{
 			//if the player does not die
-			lives [newTarget]--;
+			lives [target-1]--;
 			encodedLives = lives[0].ToString();
 			for (int i = 1; i <playerCount; i++)
 			{
