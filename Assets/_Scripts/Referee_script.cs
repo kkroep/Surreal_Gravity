@@ -63,7 +63,6 @@ public class Referee_script : MonoBehaviour {
 		{
 			scores[i] = int.Parse(scores_update[i]);
 		}
-		Debug.Log("TRYING TO GET THE SCORES SHOWN");
 		spawnScript.showScores();
 	} 
 }
