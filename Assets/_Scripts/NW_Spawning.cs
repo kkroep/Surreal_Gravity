@@ -35,7 +35,7 @@ public class NW_Spawning : MonoBehaviour {
 		if (!BasicFunctions.playOffline)
 		{
 			networkView.RPC ("spawnReferee", RPCMode.All);
-			networkView.RPC("showScores", RPCMode.All);
+			showScores ();
 		}
 	}
 	
@@ -53,6 +53,11 @@ public class NW_Spawning : MonoBehaviour {
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
+	}
+
+	public void showScores ()
+	{
+		networkView.RPC("showScoresRPC", RPCMode.All);
 	}
 
 	[RPC]
@@ -78,7 +83,7 @@ public class NW_Spawning : MonoBehaviour {
 	}
 
 	[RPC]
-	public void showScores ()
+	public void showScoresRPC ()
 	{
 		debugScore.text = "";
 		for (int i = 0; i < amountPlayers; i++)
