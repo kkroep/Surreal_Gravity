@@ -1992,7 +1992,7 @@ GameObject:
   - 148: {fileID: 376224234}
   m_Layer: 0
   m_Name: Referee
-  m_TagString: Untagged
+  m_TagString: Referee_Tag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3453,7 +3453,7 @@ MonoBehaviour:
   maximumY: 88
   player: {fileID: 1070283830}
   playercam: {fileID: 604582457}
-  referee: {fileID: 11400000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
+  referee: {fileID: 0}
   reloadTime: 10
   Bullet_Speed: 200
   Gravity_Switch_Timer: 0
