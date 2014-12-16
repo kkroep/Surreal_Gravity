@@ -29,23 +29,25 @@ public class Referee_script : MonoBehaviour {
 	}
 
 	void update(){
-		if (Allplayers_Spawned) {
+		if (!Allplayers_Spawned) {
 			tmp = GameObject.FindGameObjectsWithTag("Player");
-
-			for (int i=0; i<playerCount; i++) {
-				for (int j=0; j<playerCount; j++) {
-					if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
-						players[i]=tmp[j].GetComponent<playerController>();
-						break;
+			if(tmp.Length==playerCount){
+				for (int i=0; i<playerCount; i++) {
+					for (int j=0; j<playerCount; j++) {
+						if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
+							players[i]=tmp[j].GetComponent<playerController>();
+							break;
+						}
 					}
 				}
+				if (!spawnScript)
+				{
+					spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+				}
+				spawnScript.showScores ();
+				spawnScript.showLives ();
+				Allplayers_Spawned = true;
 			}
-			if (!spawnScript)
-			{
-				spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
-			}
-			spawnScript.showScores ();
-			spawnScript.showLives ();
 		}
 	}
 
