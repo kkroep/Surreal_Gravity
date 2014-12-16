@@ -10,6 +10,7 @@ public class Referee_script : MonoBehaviour {
 	public NW_Spawning spawnScript;
 
 	private string encodedScore;
+	private string encodedLives;
 
 	///Initialization
 	void Start () {
@@ -32,12 +33,15 @@ public class Referee_script : MonoBehaviour {
 
 			//encode scores to send with RPC
 			encodedScore = scores[0].ToString();
+			encodedLives = lives[0].ToString();
 			for(int i=1; i<playerCount; i++){
 				encodedScore += " " + scores[i];
+				encodedLives += " " + lives[i];
 			}
 
 			//call RPC
 			networkView.RPC("UpdateScores", RPCMode.All, encodedScore);
+			networkView.RPC("showLives", RPCMode.All, encodedLives);
 
 			/*for (int j = 0; j < playerCount; j++)
 			{
@@ -47,6 +51,12 @@ public class Referee_script : MonoBehaviour {
 		}else{
 			//if the player does not die
 			lives [newTarget]--;
+			encodedLives = lives[0].ToString();
+			for (int i = 1; i <playerCount; i++)
+			{
+				encodedLives += " " + lives[i];
+			}
+			networkView.RPC("showLives", RPCMode.All, encodedLives);
 		}
 	}
 
@@ -55,7 +65,6 @@ public class Referee_script : MonoBehaviour {
 		//Debug.Log (encodedScore_update);
 		if (!spawnScript)
 		{
-			Debug.Log("Spawnscript added");
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 		}
 		string[] scores_update = encodedScore_update.Split(' ');
@@ -64,5 +73,19 @@ public class Referee_script : MonoBehaviour {
 			scores[i] = int.Parse(scores_update[i]);
 		}
 		spawnScript.showScores();
-	} 
+	}
+
+	[RPC]
+	public void showLives (string encodedLives_update){
+		if (!spawnScript)
+		{
+			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+		}
+		string[] lives_update = encodedLives_update.Split(' ');
+		for (int i = 0; i < lives.Length; i++)
+		{
+			lives[i] = int.Parse(lives_update[i]);
+		}
+		spawnScript.showLives();
+	}
 }

@@ -13,6 +13,7 @@ public class NW_Spawning : MonoBehaviour {
 	public Transform spawn4;
 	public Transform spawn5;
 	public Text debugScore;
+	public Text debugLives;
 	
 	private static List<Transform> spawnLocations;
 	private GameObject player;
@@ -37,6 +38,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			networkView.RPC ("spawnReferee", RPCMode.All);
 			showScores ();
+			showLives ();
 		}
 	}
 	
@@ -65,6 +67,15 @@ public class NW_Spawning : MonoBehaviour {
 		networkView.RPC("showScoresRPC", RPCMode.All);
 	}
 
+	public void showLives ()
+	{
+		if (!refScript)
+		{
+			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+		}
+		networkView.RPC("showLivesRPC", RPCMode.All);
+	}
+
 	[RPC]
 	public void spawnReferee ()
 	{
@@ -89,10 +100,20 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void showScoresRPC ()
 	{
-		debugScore.text = "";
+		debugScore.text = "Scores: \n";
 		for (int i = 0; i < amountPlayers; i++)
 		{
-			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + "[" + BasicFunctions.accountNumbers[i] + "]: " + refScript.scores[i] + "\n";
+			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + refScript.scores[i] + "\n";
+		}
+	}
+
+	[RPC]
+	public void showLivesRPC ()
+	{
+		debugLives.text = "Lives \n";
+		for (int i = 0; i < amountPlayers; i++)
+		{
+			debugLives.text = debugLives.text + BasicFunctions.activeAccounts[i] + ": " + refScript.lives[i] + "\n";
 		}
 	}
 	
