@@ -11,7 +11,7 @@ public class Pathfinder : MonoBehaviour{
 	public Node targetNode = null;
 	public bool foundTarget = false;
 	public int baseMovementCost = 10;
-	public LevelCreator level;
+	public Copy_LevelCreator level;
 
 	public List<Node> path;
 
@@ -89,7 +89,7 @@ public class Pathfinder : MonoBehaviour{
 					CalculateAllHeuristics();
 
 					levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-					level = levelcreator.GetComponent<LevelCreator>();
+					level = levelcreator.GetComponent<Copy_LevelCreator>();
 					grid = level.getGrid ();
 					reset = false;
 				}

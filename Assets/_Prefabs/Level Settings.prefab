@@ -9,6 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  - 148: {fileID: 14800000}
   m_Layer: 0
   m_Name: Level Settings
   m_TagString: levelSettings
@@ -34,16 +36,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b5c1733cbe6a24abd18a5a8c332108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
-  numberOfLargeSpawns: 1
+  numberOfLargeSpawns: 10
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 10
+  approxBlocksPerLargeStack: 250
   approxBlocksPerSmallStack: 0
   levelWidth: 20
   levelHeight: 20
@@ -58,6 +60,48 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57e522924807284c81a072edeb0fef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingBlock: {fileID: 100000, guid: ed9dbfd64edc7be4fb49c637446735ee, type: 2}
+  MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
+  numberOfLargeSpawns: 6
+  numberOfSmallSpawns: 0
+  approxBlocksPerLargeStack: 20
+  approxBlocksPerSmallStack: 0
+  levelWidth: 15
+  levelHeight: 15
+  levelDepth: 15
+  checkRadius: 0
+  xScaling: 1
+  yScaling: 1
+  zScaling: 1
+  ceiling: 0
+  floor: 0
+  plusx: 0
+  negx: 0
+  plusz: 0
+  negz: 0
+--- !u!148 &14800000
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

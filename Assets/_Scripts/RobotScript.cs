@@ -34,6 +34,7 @@ public class RobotScript : MonoBehaviour {
 	void selectBlock(){
 
 		GameObject[] cubes = GameObject.FindGameObjectsWithTag ("level");
+
 		BlockDestroy selectboolget;
 		bool selectbool = false;
 		int iterations = 50;
@@ -41,14 +42,19 @@ public class RobotScript : MonoBehaviour {
 		bool isedge = false;
 
 		if(cubes.Length>0){
+
 			do{
+
 			
 				int selector = Random.Range (0, cubes.Length);
 
+
 				target = cubes[selector];
 
-				if(target!=null){
+				if(!target){
+					Debug.Log (cubes.Length);
 					selectboolget = target.GetComponent<BlockDestroy>();
+
 					selectbool = selectboolget.canBeSelected;
 					isedge = levelSettings.isEdge (target.transform.position);
 					if(isedge){
