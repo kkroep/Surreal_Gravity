@@ -40,6 +40,12 @@ public class Referee_script : MonoBehaviour {
 					}
 				}
 			}
+			if (!spawnScript)
+			{
+				spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+			}
+			spawnScript.showScores ();
+			spawnScript.showLives ();
 		}
 	}
 
