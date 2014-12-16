@@ -45,6 +45,11 @@ public class RobotMovement : MonoBehaviour {
 	}
 
 	void Update() {
+		if(Network.isServer && pathfind.tracedBack == true){
+			path = pathfind.path;
+			string pathstring = routeToString (path);
+			networkView.RPC ("resetFunction",RPCMode.All,pathstring);
+		}
 
 		if(pathfind.tracedBack == true){
 			moving = true;
@@ -53,10 +58,12 @@ public class RobotMovement : MonoBehaviour {
 			rotatingcompleted = false;
 		}
 
+		/*
 		if(reset){
 			resetFunction();
 			reset = false;
 		}
+		*/
 
 		if(!rotatingcompleted){
 			dx = end.x - start.x;
@@ -145,10 +152,10 @@ public class RobotMovement : MonoBehaviour {
 		movinginitiate = true;
 	}
 
-	void resetFunction(){
-		path = pathfind.path;
-		string todebug = routeToString (path);
-		vectorPath = routeParser (todebug);
+	[RPC]
+	void resetFunction(string inpath){
+		pathfind.tracedBack = true;
+		vectorPath = routeParser (inpath);
 		start = vectorPath[0];
 		end = vectorPath[1];
 		//target = path.Count-2;

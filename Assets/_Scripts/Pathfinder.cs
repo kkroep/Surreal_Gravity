@@ -25,37 +25,39 @@ public class Pathfinder : MonoBehaviour{
 	public bool reset = true;
 
 	void Start(){
-		robotmovement = this.GetComponent<RobotMovement>();
+		if(Network.isServer){
+			robotmovement = this.GetComponent<RobotMovement>();
 
-		nodeGrid = new Node[level.levelWidth,level.levelHeight,level.levelDepth];
-
-
-		for(int width=0;width<level.levelWidth;width++){
-			for (int height=0;height<level.levelHeight;height++){
-				for (int depth=0;depth<level.levelDepth;depth++){
-
-					Node temp =  new Node(width,height,depth);
-					nodeGrid[width,height,depth] = temp;
+			nodeGrid = new Node[level.levelWidth,level.levelHeight,level.levelDepth];
 
 
-					if(width>0){
-						nodeGrid[width,height,depth].widthneg = nodeGrid[width-1,height,depth];
-						nodeGrid[width-1,height,depth].widthpos = nodeGrid[width,height,depth];
+			for(int width=0;width<level.levelWidth;width++){
+				for (int height=0;height<level.levelHeight;height++){
+					for (int depth=0;depth<level.levelDepth;depth++){
+
+						Node temp =  new Node(width,height,depth);
+						nodeGrid[width,height,depth] = temp;
+
+
+						if(width>0){
+							nodeGrid[width,height,depth].widthneg = nodeGrid[width-1,height,depth];
+							nodeGrid[width-1,height,depth].widthpos = nodeGrid[width,height,depth];
+						}
+
+						if(height>0){
+							nodeGrid[width,height,depth].heightneg = nodeGrid[width,height-1,depth];
+							nodeGrid[width,height-1,depth].heightpos = nodeGrid[width,height,depth];
+						}
+						if(depth>0){
+							nodeGrid[width,height,depth].depthneg = nodeGrid[width,height,depth-1];
+							nodeGrid[width,height,depth-1].depthpos = nodeGrid[width,height,depth];
+						}
+
+
+
+
+
 					}
-
-					if(height>0){
-						nodeGrid[width,height,depth].heightneg = nodeGrid[width,height-1,depth];
-						nodeGrid[width,height-1,depth].heightpos = nodeGrid[width,height,depth];
-					}
-					if(depth>0){
-						nodeGrid[width,height,depth].depthneg = nodeGrid[width,height,depth-1];
-						nodeGrid[width,height,depth-1].depthpos = nodeGrid[width,height,depth];
-					}
-
-
-
-
-
 				}
 			}
 		}
@@ -64,61 +66,63 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	void Update(){
-		if(findPath){
-			if(reset){
-				startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
-				if(openList != null && closedList != null){
-					for (int i=0; i<openList.Count;i++){
-						openList[i].parentNode = null;
-					}
-					for (int i=0; i<closedList.Count;i++){
-						closedList[i].parentNode = null;
-					}
-					startNode = path[1];
-				}
-
-
-				path = new List<Node>();
-				openList = new List<Node>();
-				closedList = new List<Node>();
-
-				checkingNode = startNode;
-				CalculateAllHeuristics();
-
-				levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-				level = levelcreator.GetComponent<LevelCreator>();
-				grid = level.getGrid ();
-				reset = false;
-			}
-
-			int j = 0;
-
-			while(j<(3/Time.deltaTime)){
-
-
-				if (foundTarget == false){
-
-					FindPath();
-
-				}
-
-				if (foundTarget == true){
-
-					if(tracedBack == false){
-						TraceBackPath ();
-						reset = true;
-						/*
-						for (int i=0;i<path.Count;i++){
-							Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
+		if(Network.isServer){
+			if(findPath){
+				if(reset){
+					startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
+					if(openList != null && closedList != null){
+						for (int i=0; i<openList.Count;i++){
+							openList[i].parentNode = null;
 						}
-						*/
+						for (int i=0; i<closedList.Count;i++){
+							closedList[i].parentNode = null;
+						}
+						startNode = path[1];
+					}
+
+
+					path = new List<Node>();
+					openList = new List<Node>();
+					closedList = new List<Node>();
+
+					checkingNode = startNode;
+					CalculateAllHeuristics();
+
+					levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
+					level = levelcreator.GetComponent<LevelCreator>();
+					grid = level.getGrid ();
+					reset = false;
+				}
+
+				int j = 0;
+
+				while(j<(3/Time.deltaTime)){
+
+
+					if (foundTarget == false){
+
+						FindPath();
 
 					}
-				}
-				j++;
-			}
 
-		}
+					if (foundTarget == true){
+
+						if(tracedBack == false){
+							TraceBackPath ();
+							reset = true;
+							/*
+							for (int i=0;i<path.Count;i++){
+								Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
+							}
+							*/
+
+						}
+					}
+					j++;
+				}
+
+			}
+	}
 
 
 
