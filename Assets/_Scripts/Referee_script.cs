@@ -10,6 +10,7 @@ public class Referee_script : MonoBehaviour {
 	public NW_Spawning spawnScript;
 	public playerController[] players;
 
+	public GameObject[] tmp;
 
 	private string encodedScore;
 	private string encodedLives;
@@ -20,7 +21,7 @@ public class Referee_script : MonoBehaviour {
 		scores = new int[playerCount];
 		lives = new int[playerCount];
 
-		GameObject[] tmp = GameObject.FindGameObjectsWithTag ("Player");
+		tmp = GameObject.FindGameObjectsWithTag("Player");
 		Debug.Log(tmp.Length.ToString()+" and " + playerCount.ToString());
 		for (int i=0; i<playerCount; i++) {
 			scores[i]=0;
