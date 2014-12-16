@@ -237,34 +237,42 @@ public class Copy_LevelCreator : MonoBehaviour {
 				{
 					if(grid[width,height,depth]>0)
 					{
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(floor && height ==0)
 					{
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(ceiling && height == levelHeight-1)
 					{
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(plusx && width == levelWidth-1)
 					{
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(negx && width == 0)
 					{
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(plusz && depth == levelDepth-1)
 					{
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 					else if(negz && depth == 0)
 					{
-						GameObject go = (GameObject)Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
 					}
 				}
 			}
 		}
+	}
+
+	public int[,,] getGrid(){
+		return grid;
+	}
+	
+	public void setGrid(int x, int y, int z, int to){
+		this.grid[x,y,z] = to;
 	}
 }
