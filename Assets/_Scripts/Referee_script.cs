@@ -11,6 +11,7 @@ public class Referee_script : MonoBehaviour {
 	public playerController[] players;
 
 	public GameObject[] tmp;
+	private bool Allplayers_Spawned = false;
 
 	private string encodedScore;
 	private string encodedLives;
@@ -21,17 +22,22 @@ public class Referee_script : MonoBehaviour {
 		scores = new int[playerCount];
 		lives = new int[playerCount];
 
-		tmp = GameObject.FindGameObjectsWithTag("Player");
-		Debug.Log(tmp.Length.ToString()+" and " + playerCount.ToString());
 		for (int i=0; i<playerCount; i++) {
-			scores[i]=0;
-			lives[i]=Lives_count;
+			scores [i] = 0;
+			lives [i] = Lives_count;
+		}
+	}
 
+	void update(){
+		if (Allplayers_Spawned) {
+			tmp = GameObject.FindGameObjectsWithTag("Player");
 
-			for (int j=0; j<playerCount; j++) {
-				if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
-					players[i]=tmp[j].GetComponent<playerController>();
+			for (int i=0; i<playerCount; i++) {
+				for (int j=0; j<playerCount; j++) {
+					if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
+						players[i]=tmp[j].GetComponent<playerController>();
 						break;
+					}
 				}
 			}
 		}

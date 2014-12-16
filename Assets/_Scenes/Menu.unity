@@ -2476,6 +2476,8 @@ MonoBehaviour:
   scores: 00000000000000000000000000000000
   lives: 03000000030000000300000003000000
   spawnScript: {fileID: 0}
+  players: []
+  tmp: []
 --- !u!4 &376224233
 Transform:
   m_ObjectHideFlags: 0
@@ -8762,6 +8764,7 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 1200
   Main_Camera: {fileID: 604582458}
+  isAlive: 1
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
