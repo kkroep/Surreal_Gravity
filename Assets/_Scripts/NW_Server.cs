@@ -143,7 +143,7 @@ public class NW_Server : MonoBehaviour {
 
 	public void ClientIsConnected ()
 	{
-		Debug.Log("#players: " + BasicFunctions.amountPlayers);
+		//Debug.Log("#players: " + BasicFunctions.amountPlayers);
 		if (BasicFunctions.amountPlayers == 0)
 		{
 			BasicFunctions.activeAccount.Number = 1;
@@ -365,7 +365,7 @@ public class NW_Server : MonoBehaviour {
 			{
 				refreshT = 2;
 				refreshing = false;
-				Debug.Log (MasterServer.PollHostList ().Length);
+				//Debug.Log (MasterServer.PollHostList ().Length);
 				hostD = MasterServer.PollHostList ();
 				showServers = true;
 			}

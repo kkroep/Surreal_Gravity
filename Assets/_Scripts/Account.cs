@@ -73,7 +73,7 @@ public class Account {
 	{
 		string Uname = sread.ReadLine();
 		string Pword = sread.ReadLine();
-		Debug.Log("INLEZEN: " + Uname + "; " + Pword);
+		//Debug.Log("INLEZEN: " + Uname + "; " + Pword);
 		Account newAccount = new Account (Uname, Pword);
 		return newAccount;
 	}
