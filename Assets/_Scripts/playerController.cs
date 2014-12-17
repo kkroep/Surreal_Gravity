@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour
 {
 	#region [init look around]
-	public float initspeed = 3.0F;
 	public float speed;
 	public float jumpSpeed = 8.0F; 
 	private Vector3 moveDirection = Vector3.zero;
@@ -72,6 +71,7 @@ public class playerController : MonoBehaviour
 
 	public float time2death = 0f;
 
+	public float Sphere_collider_radius = 0.6f;
 	//\new
 	
 	void Start ()
@@ -264,8 +264,16 @@ public class playerController : MonoBehaviour
 	
 				transform.TransformDirection (Vector3.forward);
 				if (isAlive) {
-					rigidbody.velocity = transform.forward * speed * Input.GetAxis ("Vertical");
-					rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
+					float speed_multiplier = 1f;
+					Collider[] hitColliders = Physics.OverlapSphere(transform.position, Sphere_collider_radius);
+
+				for(int i=0; i<hitColliders.Length; i++){
+					if(hitColliders[i].tag=="level")
+						speed_multiplier = 3f;
+				}
+
+				rigidbody.velocity = transform.forward * speed * speed_multiplier* Input.GetAxis ("Vertical");
+				rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 					Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
 					rigidbody.AddForce (Current_Global_Force);
 				}else{
