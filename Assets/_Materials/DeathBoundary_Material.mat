@@ -17,12 +17,35 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 6303346bc237ae148b82acffbaa602fe, type: 3}
+          m_Scale: {x: 100, y: 100}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SecondTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 9d2c48b226d7b1e46bc126fbbd96e140, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: .711157322
+      data:
+        first:
+          name: _TextureMix
+        second: .517857134
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 0, b: 0, a: .31764707}
+        second: {r: 1, g: 1, b: 1, a: .784313738}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: 1, b: 1, a: 0}
+      data:
+        first:
+          name: _Emission
+        second: {r: 0, g: 0, b: 0, a: 0}
