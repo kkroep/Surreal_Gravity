@@ -2491,7 +2491,7 @@ MonoBehaviour:
   lives: 03000000030000000300000003000000
   spawnScript: {fileID: 0}
   players: []
-  respawnTimer: 3
+  respawnTimer: 1
   tmp: []
 --- !u!4 &376224233
 Transform:
@@ -8207,6 +8207,10 @@ Prefab:
       propertyPath: Settings_Menu
       value: 
       objectReference: {fileID: 682742672}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Instructions_Menu
+      value: 
+      objectReference: {fileID: 1466731114}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1359816339}
@@ -11583,7 +11587,7 @@ MonoBehaviour:
   Account_Menu: {fileID: 1674761471}
   Client_Menu: {fileID: 0}
   Settings_Menu: {fileID: 682742672}
-  Instructions_Menu: {fileID: 0}
+  Instructions_Menu: {fileID: 1466731114}
   multiBtn: {fileID: 1411589248}
   regU: {fileID: 1031667081}
   regP: {fileID: 1727162460}

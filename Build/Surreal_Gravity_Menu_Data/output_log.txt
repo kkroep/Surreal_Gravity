@@ -12,44 +12,48 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.101 seconds
+- Completed reload, in  0.103 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.Core.dll (this message is harmless)
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.dll (this message is harmless)
-Received pong from 192.168.56.1:25001
+Received pong from 145.94.145.16:25002
  
 (Filename:  Line: 836)
 
-Received pong from 145.94.145.16:25001
+Received pong from 192.168.56.1:25002
  
 (Filename:  Line: 836)
 
-UnloadTime: 4.574714 ms
+UnloadTime: 2.312792 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3560.
-Total: 1.908511 ms (FindLiveObjects: 0.107986 ms CreateObjectMapping: 0.021418 ms MarkObjects: 0.277999 ms  DeleteObjects: 0.887544 ms)
+Total: 1.806771 ms (FindLiveObjects: 0.109325 ms CreateObjectMapping: 0.021865 ms MarkObjects: 0.265504 ms  DeleteObjects: 0.885759 ms)
 
-SPAWN: (4.0, 2.0, 1.0)
+SPAWN: (7.0, 4.0, 13.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (12.0, 6.0, 1.0)
+SPAWN: (14.0, 10.0, 14.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (0.0, 11.0, 2.0)
+SPAWN: (10.0, 11.0, 1.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (13.0, 8.0, 13.0)
+SPAWN: (1.0, 9.0, 10.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (3.0, 0.0, 0.0)
+SPAWN: (12.0, 14.0, 1.0)
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -60,36 +64,6 @@ has not yet found all players
 has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at Referee_script.KillPlayer (Int32 target) [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-Referee_script:frag(Int32, Int32)
-Camera_Control:Fire_Kill_Laser()
-Camera_Control:Update()
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at Referee_script.KillPlayer (Int32 target) [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-Referee_script:frag(Int32, Int32)
-Camera_Control:Fire_Kill_Laser()
-Camera_Control:Update()
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at Referee_script.KillPlayer (Int32 target) [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-Referee_script:frag(Int32, Int32)
-Camera_Control:Fire_Kill_Laser()
-Camera_Control:Update()
- 
-(Filename:  Line: -1)
 
 The server has disconnected from the client. Most likely the server has shut down.
  
