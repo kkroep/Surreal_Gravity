@@ -2491,7 +2491,7 @@ MonoBehaviour:
   lives: 03000000030000000300000003000000
   spawnScript: {fileID: 0}
   players: []
-  respawnTimer: 3
+  respawnTimer: 1
   tmp: []
 --- !u!4 &376224233
 Transform:
@@ -8783,7 +8783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.60000002
+  speed: 1.5
   jumpSpeed: 1200
   Main_Camera: {fileID: 604582458}
   isAlive: 1

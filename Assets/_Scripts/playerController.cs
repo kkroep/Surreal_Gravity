@@ -11,7 +11,7 @@ public class playerController : MonoBehaviour
 	private Vector3 Current_Global_Force;
 	public Camera_Control Main_Camera;
 	public bool isAlive = true;
-
+	private float speed_multiplier = 3f;
 
 	public float Gravity_Shift_Time = 10f;
 	
@@ -273,7 +273,7 @@ public class playerController : MonoBehaviour
 	
 				transform.TransformDirection (Vector3.forward);
 				if (isAlive) {
-					float speed_multiplier = 1f;
+				speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime*2f);
 					Collider[] hitColliders = Physics.OverlapSphere(transform.position, Sphere_collider_radius);
 
 				for(int i=0; i<hitColliders.Length; i++){
