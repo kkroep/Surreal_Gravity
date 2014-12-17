@@ -4,7 +4,7 @@ using System.Collections;
 public class RobotScript : MonoBehaviour {
 
 	private GameObject levelcreator;
-	private LevelCreator levelSettings;
+	private Copy_LevelCreator levelSettings;
 	private bool needsSelection;
 	public GameObject target;
 	private bool quitting = false;
@@ -12,7 +12,7 @@ public class RobotScript : MonoBehaviour {
 	
 	void Start () {
 		levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-		levelSettings = levelcreator.GetComponent<LevelCreator>();
+		levelSettings = levelcreator.GetComponent<Copy_LevelCreator>();
 		needsSelection = true;
 		pathfinder = this.GetComponent<Pathfinder>();
 	
@@ -51,13 +51,16 @@ public class RobotScript : MonoBehaviour {
 
 				target = cubes[selector];
 
-				if(!target){
-					Debug.Log (cubes.Length);
+
+
+				if(target != null){
+
 					selectboolget = target.GetComponent<BlockDestroy>();
 
 					selectbool = selectboolget.canBeSelected;
 					isedge = levelSettings.isEdge (target.transform.position);
 					if(isedge){
+						Debug.Log("edge: " + target.transform.position.x + " , " + target.transform.position.y + " , " + target.transform.position.z);
 						break;
 					}
 				}
@@ -81,6 +84,7 @@ public class RobotScript : MonoBehaviour {
 					if(target!=null){
 						selectboolget = target.GetComponent<BlockDestroy>();
 						selectbool = selectboolget.canBeSelected;
+						Debug.Log("not edge: " + target.transform.position.x + " , " + target.transform.position.y + " , " + target.transform.position.z);
 						break;
 					}
 					else{

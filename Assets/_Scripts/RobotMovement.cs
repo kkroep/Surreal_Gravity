@@ -45,18 +45,22 @@ public class RobotMovement : MonoBehaviour {
 	}
 
 	void Update() {
-		if(Network.isServer && pathfind.tracedBack == true){
-			path = pathfind.path;
-			string pathstring = routeToString (path);
-			networkView.RPC ("resetFunction",RPCMode.All,pathstring);
+		if(Network.isServer){
+			if(pathfind.tracedBack == true){
+				path = pathfind.path;
+				string pathstring = routeToString (path);
+				networkView.RPC ("resetFunction",RPCMode.All,pathstring);
+			}
 		}
 
+		/*
 		if(pathfind.tracedBack == true){
 			moving = true;
 			pathfind.tracedBack = false;
 			reset = true;
 			rotatingcompleted = false;
 		}
+		*/
 
 		/*
 		if(reset){
@@ -90,7 +94,7 @@ public class RobotMovement : MonoBehaviour {
 			float distCovered = (Time.time - startTime) * speed;
 			float fracJourney = distCovered / length;
 
-			if(path.Count>2){
+			if(vectorPath.Count>2){
 				this.transform.position = Vector3.Lerp(start, end, fracJourney);
 			}
 
@@ -139,7 +143,7 @@ public class RobotMovement : MonoBehaviour {
 			}
 		}
 
-		if(destroyTarget){
+		if(destroyTarget && Network.isServer){
 			DestroyTarget();
 		}					
 	}
@@ -154,7 +158,13 @@ public class RobotMovement : MonoBehaviour {
 
 	[RPC]
 	void resetFunction(string inpath){
-		pathfind.tracedBack = true;
+		if(Network.isServer){
+			pathfind.tracedBack = false;
+		}
+		moving = true;
+		reset = true;
+		rotatingcompleted = false;
+
 		vectorPath = routeParser (inpath);
 		start = vectorPath[0];
 		end = vectorPath[1];

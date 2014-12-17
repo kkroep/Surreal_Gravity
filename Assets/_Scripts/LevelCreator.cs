@@ -54,6 +54,8 @@ public class LevelCreator : MonoBehaviour {
 		//loop through the grid matrix, drawing a building block every time a 1 is encountered
 		draw();
 
+		Debug.Log (grid.Length);
+
 		
 	}
 

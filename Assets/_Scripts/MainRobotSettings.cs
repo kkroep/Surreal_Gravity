@@ -14,7 +14,7 @@ public class MainRobotSettings : MonoBehaviour {
 	void Start(){
 		if(Network.isServer){
 			for(int i=0;i<numberRobots;i++){
-				Network.Instantiate (robot, new Vector3(15,15,15), Quaternion.identity,0);
+				Network.Instantiate (robot, new Vector3(10,10,10), Quaternion.identity,0);
 			}
 		}
 

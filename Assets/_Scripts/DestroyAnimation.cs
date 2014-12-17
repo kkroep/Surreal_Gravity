@@ -16,7 +16,7 @@ public class DestroyAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(robotmovement.destroyTarget == true){
+		if(robotmovement.destroyTarget == true && Network.isServer){
 			robotscript.target.SendMessage("Kill",2.0f);
 		}
 	

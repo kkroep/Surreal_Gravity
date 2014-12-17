@@ -11,7 +11,7 @@ public class BlockDestroy : MonoBehaviour {
 	
 	void Kill(float lifetime){
 		canBeSelected = false;
-		Destroy (this.gameObject,lifetime);
+		Network.Destroy (this.gameObject);
 
 	}
 
@@ -28,14 +28,14 @@ public class BlockDestroy : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		if(!quitting){
+		if(!quitting && Network.isServer){
 			robot.SendMessage ("setNeedsSelection", true);
 			Pathfinder pathfinder = robot.GetComponent<Pathfinder>();
 			pathfinder.foundTarget = false;
 			RobotMovement robotmovement = robot.GetComponent<RobotMovement>();
 			robotmovement.destroyTarget = false;
 			GameObject levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-			LevelCreator levelSettings = levelcreator.GetComponent<LevelCreator>();
+			Copy_LevelCreator levelSettings = levelcreator.GetComponent<Copy_LevelCreator>();
 			levelSettings.setGrid (Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z),0);
 		}
 	}

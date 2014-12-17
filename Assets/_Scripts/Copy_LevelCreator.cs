@@ -56,12 +56,15 @@ public class Copy_LevelCreator : MonoBehaviour {
 			//draw(levelWidth, levelHeight, levelDepth, grid);
 			draw ();
 
+			/*
 			if (Network.isServer)
 			{
 				networkView.RPC("generateLevel", RPCMode.OthersBuffered, seedint);
 			}
+			*/
 		}
 	}
+	/*
 
 	[RPC]
 	public void generateLevel (int seed)
@@ -90,33 +93,38 @@ public class Copy_LevelCreator : MonoBehaviour {
 			draw ();
 		}
 	}
+	*/
 
 	//function responsible for filling the grid matrix with spawns
-	void createMainSpawn(int approxBlocks)
-	{
+	void createMainSpawn(int approxBlocks){
 		int checkResult;
-
+		
 		//random offset for the blocks per spawn
 		int delta = Random.Range (Mathf.FloorToInt (approxBlocks * -0.1f), Mathf.CeilToInt (approxBlocksPerLargeStack * 0.1f+1f));
 		int Blocks = approxBlocksPerLargeStack + delta;
-
+		
 		int iterations = 0;
-		do
-		{
+		do{
 			//determine a random intial targetposition to start a spawn, the location is checked to see whether it already contains a 1
-			targetPosition = new int[3]{Random.Range(0,levelWidth),Random.Range(0,levelHeight),Random.Range(0,levelDepth)};
+			targetPosition = new int[3]{Random.Range(1,levelWidth-1),Random.Range(1,levelHeight-1),Random.Range(1,levelDepth-1)};
 			checkResult = grid[targetPosition[0],targetPosition[1],targetPosition[2]];
 			iterations++;
-		} while (checkResult>0 && iterations<50);
-
+			
+			
+		}while (checkResult>0 && iterations<50);
+		
 		//Make the grid at position targetposition equal to 1
 		grid [targetPosition[0],targetPosition[1],targetPosition[2]] = 1;
-
+		
 		//Create the secondary spawns for the main spawn
-		for(int i=0; i<Blocks; i++)
-		{
+		for(int i=0; i<Blocks; i++){
 			createSpawn();
+			
 		}
+		
+		
+		
+		
 	}
 
 	//function responsible for creating secondary spawn
@@ -131,28 +139,23 @@ public class Copy_LevelCreator : MonoBehaviour {
 		zList.Add (-1);zList.Add (1);
 
 		//make sure the algorithm can not move out of the defined grid
-		if(targetPosition[0] == 0)
-		{
+		//added a translation to make my life easier when working with the robots
+		if(targetPosition[0] <= 1){
 			xList.RemoveAt (0);
 		}
-		if(targetPosition[1] == 0)
-		{
+		if(targetPosition[1] <= 1){
 			yList.RemoveAt (0);
 		}
-		if(targetPosition[2] == 0)
-		{
+		if(targetPosition[2] <= 1){
 			zList.RemoveAt (0);
 		}
-		if(targetPosition[0] == levelWidth-1)
-		{
+		if(targetPosition[0] >= levelWidth-2){
 			xList.RemoveAt (1);
 		}
-		if(targetPosition[1] == levelHeight-1)
-		{
+		if(targetPosition[1] >= levelHeight-2){
 			yList.RemoveAt (1);
 		}
-		if(targetPosition[2] == levelDepth-1)
-		{
+		if(targetPosition[2] >= levelDepth-2){
 			zList.RemoveAt (1);
 		}
 
@@ -237,35 +240,59 @@ public class Copy_LevelCreator : MonoBehaviour {
 				{
 					if(grid[width,height,depth]>0)
 					{
-						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
 					else if(floor && height ==0)
 					{
-						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
 					else if(ceiling && height == levelHeight-1)
 					{
-						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
 					else if(plusx && width == levelWidth-1)
 					{
-						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
 					else if(negx && width == 0)
 					{
-						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
 					else if(plusz && depth == levelDepth-1)
 					{
-						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
 					else if(negz && depth == 0)
 					{
-						Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
 				}
 			}
 		}
+	}
+
+	//function that determines if a certain cube in a certain position is an edge cube
+	public bool isEdge(Vector3 position){
+		if(grid != null){
+			int x = Mathf.RoundToInt(position.x);
+			int y = Mathf.RoundToInt(position.y);
+			int z = Mathf.RoundToInt(position.z);
+			/*
+			if(x<=0 || x>=levelWidth-1 || y<=0 || y>=levelHeight-1 || z<=0 || z>=levelDepth-1){
+				Debug.Log ("Whyyy??");
+				return true;
+			}*/
+			if(grid[x-1,y,z] == 1 && grid[x+1,y,z] == 1)
+				return false;
+			else if(grid[x,y-1,z] == 1 && grid[x,y+1,z] == 1)
+				return false;
+			else if(grid[x,y,z-1] == 1 && grid[x,y,z+1] == 1)
+				return false;
+			else
+				return true;
+		}
+		else
+			return false;
 	}
 
 	public int[,,] getGrid(){
