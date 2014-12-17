@@ -272,13 +272,18 @@ public class playerController : MonoBehaviour
 				rigidbody.velocity=new Vector3(0f,0f,0f);
 				time2death-=Time.fixedDeltaTime;
 				if(time2death<=0f){
-					isAlive = true;
-					transform.position  = new Vector3(50f, 50f, 50f);
-					gameObject.GetComponent<MeshRenderer> ().enabled = true;
-					gameObject.GetComponent<SphereCollider> ().enabled = true;
+					networkView.RPC("PlayerRespawn", RPCMode.All);
 				}
 			}
 		}
+	}
+
+	[RPC]
+	void PlayerRespawn(){
+		isAlive = true;
+		transform.position  = new Vector3(50f, 50f, 50f);
+		gameObject.GetComponent<MeshRenderer> ().enabled = true;
+		gameObject.GetComponent<SphereCollider> ().enabled = true;
 	}
 
 	void OnCollisionStay (Collision collisionInfo)
