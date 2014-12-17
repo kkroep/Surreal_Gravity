@@ -16,7 +16,7 @@ public class NW_Spawning : MonoBehaviour {
 	public Text debugScore;
 	public Text debugLives;
 	
-	private static List<Transform> spawnLocations;
+	private static List<Vector3> spawnLocations;
 	private GameObject player;
 	private Transform randomSpawnPoint;
 	private bool refreshing = false;
@@ -35,13 +35,14 @@ public class NW_Spawning : MonoBehaviour {
 			int height = Random.Range(0, levelCreator.levelHeight);
 			int depth = Random.Range(0, levelCreator.levelDepth);
 			Vector3 spawn = new Vector3 (width, height, depth);
+			spawnLocations.Add (spawn);
 			Debug.Log(spawn.ToString());
 		}
-		spawnLocations.Add(spawn1);
+		/*spawnLocations.Add(spawn1);
 		spawnLocations.Add(spawn2);
 		spawnLocations.Add(spawn3);
 		spawnLocations.Add(spawn4);
-		spawnLocations.Add(spawn5);
+		spawnLocations.Add(spawn5);*/
 		spawnPlayer();
 
 		if (!BasicFunctions.playOffline)
