@@ -10,7 +10,7 @@ public class NW_Spawning : MonoBehaviour {
 	public Copy_LevelCreator levelCreator;
 	public Text debugScore;
 	public Text debugLives;
-	
+
 	public List<Vector3> spawnLocations;
 	private GameObject player;
 	private Vector3 randomSpawnPoint;

@@ -62,6 +62,7 @@ public class playerController : MonoBehaviour
 	public AudioClip kill_shot_sound;
 	//public AudioClip gravity_shot_sound;
 	public AudioClip jump_sound;
+	public static bool dontDestroy;
 
 	private NW_Spawning spawnScript;
 	private bool spawnChosen = false;
@@ -230,6 +231,7 @@ public class playerController : MonoBehaviour
 			{
 				Network.Disconnect();
 			}
+			dontDestroy = true;
 		    Application.LoadLevel("Menu");
 			Screen.lockCursor = false;
 		}
