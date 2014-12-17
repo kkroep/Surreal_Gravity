@@ -61,8 +61,7 @@ public class Referee_script : MonoBehaviour {
 		if (lives [target-1] <= 1) {
 
 			//respawn player
-			players[target-1].isAlive = false;
-
+			networkView.RPC("KillPlayer", RPCMode.All, target);
 
 			lives [target-1] = Lives_count;
 			scores[shooter-1] +=1;
@@ -95,6 +94,12 @@ public class Referee_script : MonoBehaviour {
 			networkView.RPC("showLives", RPCMode.All, encodedLives);
 		}
 	}
+
+	[RPC]
+	public void KillPlayer(int target){
+		players[target-1].isAlive = false;
+	}
+
 
 	[RPC]
 	public void UpdateScores(string encodedScore_update){
