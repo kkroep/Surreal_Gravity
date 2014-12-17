@@ -281,7 +281,7 @@ public class playerController : MonoBehaviour
 	[RPC]
 	void PlayerRespawn(){
 		isAlive = true;
-		transform.position  = new Vector3(50f, 50f, 50f);
+		transform.position  = new Vector3(-1f, -1f, -1f);
 		gameObject.GetComponent<MeshRenderer> ().enabled = true;
 		gameObject.GetComponent<SphereCollider> ().enabled = true;
 	}

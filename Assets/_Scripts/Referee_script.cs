@@ -9,7 +9,7 @@ public class Referee_script : MonoBehaviour {
 	public int[] lives = new int[4]{3,3,3,3};
 	public NW_Spawning spawnScript;
 	public playerController[] players;
-	public float respawnTimer = 3f; //seconds 
+	public float respawnTimer = 1f; //seconds 
 
 	public GameObject[] tmp;
 	private bool Allplayers_Spawned = false;
