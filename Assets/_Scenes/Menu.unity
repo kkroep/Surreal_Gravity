@@ -2491,7 +2491,7 @@ MonoBehaviour:
   lives: 03000000030000000300000003000000
   spawnScript: {fileID: 0}
   players: []
-  respawnTimer: 1
+  respawnTimer: 3
   tmp: []
 --- !u!4 &376224233
 Transform:
