@@ -140,7 +140,7 @@ public class NW_Spawning : MonoBehaviour {
 	
 	void Update () 
 	{
-		Debug.Log (BasicFunctions.amountPlayers);
+		//Debug.Log (BasicFunctions.amountPlayers);
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			Application.LoadLevel(Application.loadedLevel);
