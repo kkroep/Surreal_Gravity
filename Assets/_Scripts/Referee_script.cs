@@ -32,7 +32,7 @@ public class Referee_script : MonoBehaviour {
 
 	void Update(){
 		if (!Allplayers_Spawned) {
-			//Debug.Log("has not yet found all players");
+			Debug.Log("has not yet found all players");
 			tmp = GameObject.FindGameObjectsWithTag("Player");			
 
 			if(tmp.Length==playerCount){
