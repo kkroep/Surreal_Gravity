@@ -18,6 +18,7 @@ public class Referee_script : MonoBehaviour {
 
 	///Initialization
 	void Start () {
+		playerCount = BasicFunctions.amountPlayers;
 		players = new playerController[playerCount];
 		scores = new int[playerCount];
 		lives = new int[playerCount];
