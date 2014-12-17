@@ -98,8 +98,8 @@ public class Referee_script : MonoBehaviour {
 	[RPC]
 	public void KillPlayer(int target){
 		players[target-1].isAlive = false;
-		players [target - 1].gameObject.GetComponent<MeshRenderer> ().enabled = false;
-		players [target - 1].gameObject.GetComponent<SphereCollider> ().enabled = false;
+		//players [target - 1].gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		//players [target - 1].gameObject.GetComponent<SphereCollider> ().enabled = false;
 	}
 
 
