@@ -9,6 +9,7 @@ public class Referee_script : MonoBehaviour {
 	public int[] lives = new int[4]{3,3,3,3};
 	public NW_Spawning spawnScript;
 	public playerController[] players;
+	public float respawnTimer = 3f; //seconds 
 
 	public GameObject[] tmp;
 	private bool Allplayers_Spawned = false;
@@ -98,6 +99,7 @@ public class Referee_script : MonoBehaviour {
 	[RPC]
 	public void KillPlayer(int target){
 		players[target-1].isAlive = false;
+		players[target-1].time2death = respawnTimer;
 		players [target - 1].gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		players [target - 1].gameObject.GetComponent<SphereCollider> ().enabled = false;
 	}

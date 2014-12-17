@@ -69,6 +69,9 @@ public class playerController : MonoBehaviour
 	public int VerticesPerUnit;
 	public float Gibrange;
 	private float multiplier;
+
+	public float time2death = 0f;
+
 	//\new
 	
 	void Start ()
@@ -265,8 +268,16 @@ public class playerController : MonoBehaviour
 					rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
 					Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
 					rigidbody.AddForce (Current_Global_Force);
-				}else
+				}else{
 				rigidbody.velocity=new Vector3(0f,0f,0f);
+				time2death-=Time.fixedDeltaTime;
+				if(time2death<=0f){
+					isAlive = true;
+					transform.position  = new Vector3(50f, 50f, 50f);
+					gameObject.GetComponent<MeshRenderer> ().enabled = true;
+					gameObject.GetComponent<SphereCollider> ().enabled = true;
+				}
+			}
 		}
 	}
 
