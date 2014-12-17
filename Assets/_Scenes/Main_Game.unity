@@ -3297,7 +3297,7 @@ Transform:
   m_GameObject: {fileID: 130378705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46539,13 +46539,9 @@ MonoBehaviour:
   playerPrefab: {fileID: 100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   levelCreator: {fileID: 1444913547}
-  spawn1: {fileID: 2009417294}
-  spawn2: {fileID: 401738442}
-  spawn3: {fileID: 1894170175}
-  spawn4: {fileID: 486182882}
-  spawn5: {fileID: 696823565}
   debugScore: {fileID: 1073285364}
   debugLives: {fileID: 1388610408}
+  spawnLocations: []
 --- !u!4 &1834635965
 Transform:
   m_ObjectHideFlags: 0
