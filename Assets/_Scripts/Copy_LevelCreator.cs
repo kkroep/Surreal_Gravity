@@ -240,8 +240,14 @@ public class Copy_LevelCreator : MonoBehaviour {
 				{
 					if(grid[width,height,depth]>0)
 					{
-						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+						if(BasicFunctions.playOffline){
+							Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+						}
+						else{
+							Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+						}
 					}
+					/*
 					else if(floor && height ==0)
 					{
 						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
@@ -266,6 +272,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 					{
 						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
 					}
+					*/
 				}
 			}
 		}
