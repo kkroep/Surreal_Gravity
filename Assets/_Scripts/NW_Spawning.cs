@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ public class NW_Spawning : MonoBehaviour {
 
 	public GameObject playerPrefab;
 	public GameObject refereePrefab;
+	public Copy_LevelCreator levelCreator;
 	public Transform spawn1;
 	public Transform spawn2;
 	public Transform spawn3;
@@ -28,6 +29,14 @@ public class NW_Spawning : MonoBehaviour {
 	void Start ()
 	{
 		spawnLocations = new List<Transform> ();
+		for (int i = 0; i < 5; i++)
+		{
+			int width = Random.Range(0, levelCreator.levelWidth);
+			int height = Random.Range(0, levelCreator.levelHeight);
+			int depth = Random.Range(0, levelCreator.levelDepth);
+			Vector3 spawn = new Vector3 (width, height, depth);
+			Debug.Log(spawn.ToString());
+		}
 		spawnLocations.Add(spawn1);
 		spawnLocations.Add(spawn2);
 		spawnLocations.Add(spawn3);
