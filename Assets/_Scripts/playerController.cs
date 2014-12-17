@@ -282,8 +282,11 @@ public class playerController : MonoBehaviour
 				}else{
 				rigidbody.velocity=new Vector3(0f,0f,0f);
 				time2death-=Time.fixedDeltaTime;
-				if(time2death<=0f){
-					networkView.RPC("PlayerRespawn", RPCMode.All);
+				if(time2death<=1f){
+					transform.position  = new Vector3(-1f, -1f, -1f);
+					if(time2death<=0f){
+						networkView.RPC("PlayerRespawn", RPCMode.All);
+					}
 				}
 			}
 		}
