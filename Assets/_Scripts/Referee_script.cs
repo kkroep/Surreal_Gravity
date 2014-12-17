@@ -28,9 +28,10 @@ public class Referee_script : MonoBehaviour {
 		}
 	}
 
-	void update(){
+	void Update(){
 		if (!Allplayers_Spawned) {
-			tmp = GameObject.FindGameObjectsWithTag("Player");
+			tmp = GameObject.FindGameObjectsWithTag("Player");			
+
 			if(tmp.Length==playerCount){
 				for (int i=0; i<playerCount; i++) {
 					for (int j=0; j<playerCount; j++) {
