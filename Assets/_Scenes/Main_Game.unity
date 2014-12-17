@@ -18342,7 +18342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initspeed: 10
   speed: 6
   jumpSpeed: 12
   Main_Camera: {fileID: 1863724708}
@@ -18368,6 +18367,8 @@ MonoBehaviour:
   jump_sound: {fileID: 0}
   VerticesPerUnit: 0
   Gibrange: 0
+  time2death: 0
+  Sphere_collider_radius: .600000024
 --- !u!54 &729522527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39373,7 +39374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initspeed: 10
   speed: 6
   jumpSpeed: 1200
   Main_Camera: {fileID: 1003792148}
@@ -39399,6 +39399,8 @@ MonoBehaviour:
   jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
   VerticesPerUnit: 0
   Gibrange: 0
+  time2death: 0
+  Sphere_collider_radius: .600000024
 --- !u!54 &1533106390
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46491,6 +46493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
+  levelCreator: {fileID: 1444913547}
   spawn1: {fileID: 2009417294}
   spawn2: {fileID: 401738442}
   spawn3: {fileID: 1894170175}
