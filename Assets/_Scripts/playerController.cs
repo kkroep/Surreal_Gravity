@@ -293,9 +293,9 @@ public class playerController : MonoBehaviour
 	}
 
 	[RPC]
-	void PlayerRespawn(){
+	void PlayerRespawn(Vector3 SpawnPOsition){
 		isAlive = true;
-		transform.position  = new Vector3(-1f, -1f, -1f);
+		transform.position  = SpawnPOsition;
 		gameObject.GetComponent<MeshRenderer> ().enabled = true;
 		gameObject.GetComponent<SphereCollider> ().enabled = true;
 	}
