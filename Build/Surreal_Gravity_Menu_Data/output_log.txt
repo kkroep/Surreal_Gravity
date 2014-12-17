@@ -12,48 +12,44 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.103 seconds
+- Completed reload, in  0.095 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.Core.dll (this message is harmless)
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.dll (this message is harmless)
-Received pong from 145.94.145.16:25002
+Received pong from 192.168.56.1:25003
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.56.1:25002
+Received pong from 145.94.145.16:25003
  
 (Filename:  Line: 836)
 
-UnloadTime: 2.312792 ms
+UnloadTime: 4.740264 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3560.
-Total: 1.806771 ms (FindLiveObjects: 0.109325 ms CreateObjectMapping: 0.021865 ms MarkObjects: 0.265504 ms  DeleteObjects: 0.885759 ms)
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 3558.
+Total: 2.535013 ms (FindLiveObjects: 0.122266 ms CreateObjectMapping: 0.019633 ms MarkObjects: 0.302987 ms  DeleteObjects: 1.165990 ms)
 
-SPAWN: (7.0, 4.0, 13.0)
+SPAWN: (11.0, 12.0, 2.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (14.0, 10.0, 14.0)
+SPAWN: (14.0, 6.0, 5.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (10.0, 11.0, 1.0)
+SPAWN: (6.0, 14.0, 9.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (1.0, 9.0, 10.0)
+SPAWN: (2.0, 14.0, 14.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (12.0, 14.0, 1.0)
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
+SPAWN: (7.0, 13.0, 11.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

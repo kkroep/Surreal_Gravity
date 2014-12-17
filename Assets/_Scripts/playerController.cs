@@ -64,6 +64,7 @@ public class playerController : MonoBehaviour
 	public AudioClip jump_sound;
 
 	private NW_Spawning spawnScript;
+	private bool spawnChosen = false;
 
 	//new
 	private int vertexsize;
@@ -286,9 +287,16 @@ public class playerController : MonoBehaviour
 				rigidbody.velocity=new Vector3(0f,0f,0f);
 				time2death-=Time.fixedDeltaTime;
 				if(time2death<=1f){
-					transform.position  = spawnScript.spawnLocations[0];//new Vector3(-1f, -1f, -1f);
+					if (!spawnChosen)
+					{
+						int index = Random.Range (0, spawnScript.spawnLocations.Count-1); //Take random integer
+						Vector3 randomSpawnPoint = spawnScript.spawnLocations[index];
+						transform.position  = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
+						spawnChosen = true;
+					}
 					if(time2death<=0f){
 						networkView.RPC("PlayerRespawn", RPCMode.All, transform.position);
+						spawnChosen = false;
 					}
 				}
 			}
