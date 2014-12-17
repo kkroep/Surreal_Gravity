@@ -36309,6 +36309,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400002, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: MaterialList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -36349,6 +36353,22 @@ Prefab:
       propertyPath: m_ViewID.m_Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: MaterialList.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dad2fa76f9f86746a13a1c8433d931c, type: 2}
+    - target: {fileID: 11400002, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: MaterialList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d5f949995a450904891244cf4d03b166, type: 2}
+    - target: {fileID: 11400002, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: MaterialList.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f04a2bffbcb02b7448b535d5dcf7e923, type: 2}
+    - target: {fileID: 11400002, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: MaterialList.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4004919fe7b226346bdc49b8fd2b1f57, type: 2}
     m_RemovedComponents:
     - {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
@@ -37104,6 +37124,11 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
+  MaterialList:
+  - {fileID: 2100000, guid: 9dad2fa76f9f86746a13a1c8433d931c, type: 2}
+  - {fileID: 2100000, guid: d5f949995a450904891244cf4d03b166, type: 2}
+  - {fileID: 2100000, guid: f04a2bffbcb02b7448b535d5dcf7e923, type: 2}
+  - {fileID: 2100000, guid: 4004919fe7b226346bdc49b8fd2b1f57, type: 2}
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0
@@ -51514,8 +51539,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d5fad67f919db40b8fce0da7158429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time2Live: .5
+  Time2Live: 1
   shooterNumber: 0
+  fadelength: 0
+  fadespeed: 2
 --- !u!1 &2019375164
 GameObject:
   m_ObjectHideFlags: 0

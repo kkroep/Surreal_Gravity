@@ -40,7 +40,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d5fad67f919db40b8fce0da7158429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time2Live: .5
+  Time2Live: 1
+  shooterNumber: 0
+  fadelength: 0
+  fadespeed: 2
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

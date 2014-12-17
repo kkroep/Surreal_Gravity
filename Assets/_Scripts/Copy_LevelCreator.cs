@@ -23,6 +23,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	public bool negx;
 	public bool plusz;
 	public bool negz;
+	public Material[] MaterialList;
 
 	private int[,,] grid;
 	private int[] targetPosition;
@@ -241,41 +242,49 @@ public class Copy_LevelCreator : MonoBehaviour {
 					if(grid[width,height,depth]>0)
 					{
 						if(BasicFunctions.playOffline){
-							Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+							spawnblock (new Vector3(width,height,depth));
 						}
 						else{
-							Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
-						}
+							networkspawnblock (new Vector3
+							                   (width,height,depth));						}
 					}
-					/*
-					else if(floor && height ==0)
-					{
-						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+					/*if(grid[width,height,depth]>0){
+						spawnblock(new Vector3(width,height,depth));
 					}
-					else if(ceiling && height == levelHeight-1)
-					{
-						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+
+					else if(floor && height ==0){
+						spawnblock(new Vector3(width,height,depth));
 					}
-					else if(plusx && width == levelWidth-1)
-					{
-						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+					else if(ceiling && height == levelHeight-1){
+						spawnblock(new Vector3(width,height,depth));
 					}
-					else if(negx && width == 0)
-					{
-						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+					else if(plusx && width == levelWidth-1){
+						spawnblock(new Vector3(width,height,depth));
+						
 					}
-					else if(plusz && depth == levelDepth-1)
-					{
-						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+					else if(negx && width == 0){
+						spawnblock(new Vector3(width,height,depth));
 					}
-					else if(negz && depth == 0)
-					{
-						Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+					else if(plusz && depth == levelDepth-1){
+						spawnblock(new Vector3(width,height,depth));
 					}
-					*/
+					else if(negz && depth == 0){
+						spawnblock(new Vector3(width,height,depth));
+					}*/
 				}
 			}
 		}
+	}
+	
+	public void spawnblock(Vector3 location){
+		GameObject block = (GameObject) Instantiate (buildingBlock, location, Quaternion.identity);
+		block.renderer.material = MaterialList [(int) (Random.Range (0, MaterialList.Length-0.0001f))];
+	}
+	
+	public void networkspawnblock(Vector3 location){
+		GameObject block = (GameObject) Network.Instantiate (buildingBlock, location, 
+		                                                     Quaternion.identity,0);
+		block.renderer.material = MaterialList [(int) (Random.Range (0, MaterialList.Length-0.0001f))];
 	}
 
 	//function that determines if a certain cube in a certain position is an edge cube
