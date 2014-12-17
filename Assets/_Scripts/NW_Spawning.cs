@@ -41,6 +41,7 @@ public class NW_Spawning : MonoBehaviour {
 			{
 				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject;
 				referee.GetComponent<Referee_script>().playerCount = amountPlayers;
+				Debug.Log ("amount of players = " + amountPlayers);
 			}
 		}
 	}

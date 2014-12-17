@@ -30,9 +30,11 @@ public class Referee_script : MonoBehaviour {
 
 	void Update(){
 		if (!Allplayers_Spawned) {
+			//Debug.Log("has not yet found all players");
 			tmp = GameObject.FindGameObjectsWithTag("Player");			
 
 			if(tmp.Length==playerCount){
+				Debug.Log("has found all players");
 				for (int i=0; i<playerCount; i++) {
 					for (int j=0; j<playerCount; j++) {
 						if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
