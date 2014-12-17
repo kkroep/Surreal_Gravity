@@ -285,7 +285,7 @@ public class playerController : MonoBehaviour
 				if(time2death<=1f){
 					transform.position  = new Vector3(-1f, -1f, -1f);
 					if(time2death<=0f){
-						networkView.RPC("PlayerRespawn", RPCMode.All);
+						networkView.RPC("PlayerRespawn", RPCMode.All, transform.position);
 					}
 				}
 			}
