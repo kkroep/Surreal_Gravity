@@ -12,164 +12,44 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.096 seconds
+- Completed reload, in  0.101 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.Core.dll (this message is harmless)
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_Menu_Data\Managed\System.dll (this message is harmless)
-Account: AB; BA
+Received pong from 192.168.56.1:25001
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 836)
 
-Server: AB's Server registered
+Received pong from 145.94.145.16:25001
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 836)
 
-AA: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 2.800964 ms
+UnloadTime: 4.574714 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 3553.
-Total: 1.983923 ms (FindLiveObjects: 0.103970 ms CreateObjectMapping: 0.023650 ms MarkObjects: 0.272644 ms  DeleteObjects: 1.050863 ms)
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3560.
+Total: 1.908511 ms (FindLiveObjects: 0.107986 ms CreateObjectMapping: 0.021418 ms MarkObjects: 0.277999 ms  DeleteObjects: 0.887544 ms)
 
-SPAWN: (10.0, 0.0, 3.0)
+SPAWN: (4.0, 2.0, 1.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (12.0, 10.0, 3.0)
+SPAWN: (12.0, 6.0, 1.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (1.0, 13.0, 0.0)
+SPAWN: (0.0, 11.0, 2.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (8.0, 12.0, 12.0)
+SPAWN: (13.0, 8.0, 13.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (3.0, 0.0, 6.0)
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-edge: 10 , 12 , 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
+SPAWN: (3.0, 0.0, 0.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -181,31 +61,37 @@ has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-edge: 2 , 11 , 8
+NullReferenceException: Object reference not set to an instance of an object
+  at Referee_script.KillPlayer (Int32 target) [0x00000] in <filename unknown>:0 
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+Referee_script:frag(Int32, Int32)
+Camera_Control:Fire_Kill_Laser()
+Camera_Control:Update()
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: -1)
 
-edge: 11 , 12 , 13
+NullReferenceException: Object reference not set to an instance of an object
+  at Referee_script.KillPlayer (Int32 target) [0x00000] in <filename unknown>:0 
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+Referee_script:frag(Int32, Int32)
+Camera_Control:Fire_Kill_Laser()
+Camera_Control:Update()
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: -1)
 
-edge: 8 , 11 , 12
+NullReferenceException: Object reference not set to an instance of an object
+  at Referee_script.KillPlayer (Int32 target) [0x00000] in <filename unknown>:0 
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+Referee_script:frag(Int32, Int32)
+Camera_Control:Fire_Kill_Laser()
+Camera_Control:Update()
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: -1)
 
-edge: 8 , 11 , 6
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-edge: 7 , 13 , 13
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-edge: 9 , 10 , 5
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-edge: 10 , 13 , 9
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 745)
 

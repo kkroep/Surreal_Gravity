@@ -63,6 +63,8 @@ public class playerController : MonoBehaviour
 	//public AudioClip gravity_shot_sound;
 	public AudioClip jump_sound;
 
+	private NW_Spawning spawnScript;
+
 	//new
 	private int vertexsize;
 	public int VerticesPerUnit;
@@ -88,6 +90,7 @@ public class playerController : MonoBehaviour
 			Gravity_Direction = Initial_Gravity_Direction;
 			Current_Global_Force = Gravity_Direction * Gravity_Strength;
 			//anim = GetComponent<Animator> ();
+			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 		}
 	}
 	
@@ -283,7 +286,7 @@ public class playerController : MonoBehaviour
 				rigidbody.velocity=new Vector3(0f,0f,0f);
 				time2death-=Time.fixedDeltaTime;
 				if(time2death<=1f){
-					transform.position  = new Vector3(-1f, -1f, -1f);
+					transform.position  = spawnScript.spawnLocations[0];//new Vector3(-1f, -1f, -1f);
 					if(time2death<=0f){
 						networkView.RPC("PlayerRespawn", RPCMode.All, transform.position);
 					}

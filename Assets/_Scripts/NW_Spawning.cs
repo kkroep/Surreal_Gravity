@@ -11,7 +11,7 @@ public class NW_Spawning : MonoBehaviour {
 	public Text debugScore;
 	public Text debugLives;
 	
-	private static List<Vector3> spawnLocations;
+	public List<Vector3> spawnLocations;
 	private GameObject player;
 	private Vector3 randomSpawnPoint;
 	private bool refreshing = false;
