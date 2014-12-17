@@ -265,7 +265,8 @@ public class playerController : MonoBehaviour
 					rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * Input.GetAxis ("Horizontal");
 					Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
 					rigidbody.AddForce (Current_Global_Force);
-				}
+				}else
+				rigidbody.velocity=new Vector3(0f,0f,0f);
 		}
 	}
 
