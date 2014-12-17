@@ -78,7 +78,10 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			activeAccount.Number = playerNumber;
+			if (!BasicFunctions.playOffline)
+			{
+				activeAccount.Number = playerNumber;
+			}
 			//activeAccount.Points = 0;
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
