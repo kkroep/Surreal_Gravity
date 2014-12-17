@@ -285,6 +285,7 @@ GameObject:
   - 65: {fileID: 49859216}
   - 23: {fileID: 49859215}
   - 114: {fileID: 49859214}
+  - 148: {fileID: 49859219}
   m_Layer: 0
   m_Name: BuildingBlockSteven
   m_TagString: level
@@ -359,6 +360,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!148 &49859219
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14800000, guid: 6c28ae49982727e44b9d6580dab83474,
+    type: 2}
+  m_PrefabInternal: {fileID: 1920846776}
+  m_GameObject: {fileID: 49859213}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 49859218}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1 &49895477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,7 +1389,7 @@ MonoBehaviour:
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 43993680}
   Client_Menu: {fileID: 0}
-  Settings_Menu: {fileID: 0}
+  Settings_Menu: {fileID: 682742672}
   Instructions_Menu: {fileID: 0}
   multiBtn: {fileID: 1411589248}
   regU: {fileID: 1031667081}
@@ -2477,7 +2491,7 @@ MonoBehaviour:
   lives: 03000000030000000300000003000000
   spawnScript: {fileID: 0}
   players: []
-  respawnTimer: 3
+  respawnTimer: 1
   tmp: []
 --- !u!4 &376224233
 Transform:
@@ -8189,6 +8203,10 @@ Prefab:
       propertyPath: menu_click_sound
       value: 
       objectReference: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Settings_Menu
+      value: 
+      objectReference: {fileID: 682742672}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 1359816339}
@@ -11564,7 +11582,7 @@ MonoBehaviour:
   Server_Menu: {fileID: 1608761050}
   Account_Menu: {fileID: 1674761471}
   Client_Menu: {fileID: 0}
-  Settings_Menu: {fileID: 0}
+  Settings_Menu: {fileID: 682742672}
   Instructions_Menu: {fileID: 0}
   multiBtn: {fileID: 1411589248}
   regU: {fileID: 1031667081}
@@ -14745,6 +14763,10 @@ Prefab:
       propertyPath: menu_click_sound
       value: 
       objectReference: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
+    - target: {fileID: 11400000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
+      propertyPath: Settings_Menu
+      value: 
+      objectReference: {fileID: 682742672}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0920e2c986253489edf7e1ebe37477, type: 2}
   m_RootGameObject: {fileID: 184966740}

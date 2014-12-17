@@ -8,42 +8,35 @@ public class NW_Spawning : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject refereePrefab;
 	public Copy_LevelCreator levelCreator;
-	public Transform spawn1;
-	public Transform spawn2;
-	public Transform spawn3;
-	public Transform spawn4;
-	public Transform spawn5;
 	public Text debugScore;
 	public Text debugLives;
 	
 	private static List<Vector3> spawnLocations;
 	private GameObject player;
-	private Transform randomSpawnPoint;
+	private Vector3 randomSpawnPoint;
 	private bool refreshing = false;
 	private bool playOffline;
 	private int amountPlayers = BasicFunctions.amountPlayers;
+	private int amountSpawnPoints = 5;
 	private GameObject referee;
 	private Referee_script refScript;
+	private bool canSpawn = true;
 	//private bool spawnRef = true;
 	
 	void Start ()
 	{
-		spawnLocations = new List<Transform> ();
-		for (int i = 0; i < 5; i++)
+		spawnLocations = new List<Vector3> ();
+		if (Network.isServer)
 		{
-			int width = Random.Range(0, levelCreator.levelWidth);
-			int height = Random.Range(0, levelCreator.levelHeight);
-			int depth = Random.Range(0, levelCreator.levelDepth);
-			Vector3 spawn = new Vector3 (width, height, depth);
-			spawnLocations.Add (spawn);
-			Debug.Log(spawn.ToString());
+			for (int i = 0; i < amountSpawnPoints; i++)
+			{
+				int width = Random.Range(0, levelCreator.levelWidth);
+				int height = Random.Range(0, levelCreator.levelHeight);
+				int depth = Random.Range(0, levelCreator.levelDepth);
+				Vector3 spawn = new Vector3 (width, height, depth);
+				networkView.RPC("addSpawnPoints", RPCMode.All, spawn);
+			}
 		}
-		/*spawnLocations.Add(spawn1);
-		spawnLocations.Add(spawn2);
-		spawnLocations.Add(spawn3);
-		spawnLocations.Add(spawn4);
-		spawnLocations.Add(spawn5);*/
-		spawnPlayer();
 
 		if (!BasicFunctions.playOffline)
 		{
@@ -60,19 +53,14 @@ public class NW_Spawning : MonoBehaviour {
 		randomSpawnPoint = spawnLocations[index]; //Pick random spawnpoint (because of random int)
 		if (BasicFunctions.playOffline)
 		{
-			Object.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity);
+			Object.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity);
 		}
 		else
 		{
-			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint.position, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
+			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
-	}
-
-	public void respawnPlayer ()
-	{
-
 	}
 
 	public void showScores ()
@@ -93,17 +81,11 @@ public class NW_Spawning : MonoBehaviour {
 		networkView.RPC("showLivesRPC", RPCMode.All);
 	}
 
-	/*[RPC]
-	public void spawnReferee ()
-	{
-		referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject;
-		referee.GetComponent<Referee_script>().playerCount = amountPlayers;
-	}*/
-
 	[RPC]
-	public void respawnPlayerRPC ()
+	public void addSpawnPoints (Vector3 spawnPos)
 	{
-
+		spawnLocations.Add (spawnPos);
+		Debug.Log("SPAWN: " + spawnPos);
 	}
 
 	[RPC]
@@ -156,11 +138,10 @@ public class NW_Spawning : MonoBehaviour {
 			Application.LoadLevel(Application.loadedLevel);
 		}
 
-		/*if (spawnRef && Network.isServer && GameObject.FindGameObjectsWithTag("Player").Length == amountPlayers)
+		if (spawnLocations.Count == amountSpawnPoints && canSpawn)
 		{
-			networkView.RPC ("spawnReferee", RPCMode.All);
-			spawnRef = false;
-		}*/
-
+			canSpawn = false;
+			spawnPlayer();
+		}
 	}
 }
