@@ -872,7 +872,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -298.068207, y: 132.803558, z: -128.29921}
+  m_LocalPosition: {x: -257.920166, y: 132.388596, z: -56.6623383}
   m_LocalScale: {x: 1, y: .400000006, z: 1}
   m_Children:
   - {fileID: 400056}
@@ -1153,8 +1153,9 @@ MonoBehaviour:
   playerNumber: 0
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
-  VerticesPerUnit: 0
-  Gibrange: 0
+  VerticesPerUnit: 150
+  Gibrange: .00999999978
+  time2death: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

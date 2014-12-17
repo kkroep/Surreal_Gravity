@@ -21,7 +21,6 @@ public class CharacterView : MonoBehaviour {
 		{
 			Destroy(armature);
 			Destroy(circle);
-
 		}
 		/*
 		else
