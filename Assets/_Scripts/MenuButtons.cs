@@ -22,6 +22,7 @@ public class MenuButtons : MonoBehaviour {
 	public bool Login = false;
 	public bool Instructions = false;
 	public bool Settings = false;
+	public bool Credits = false;
 
 	public GameObject Main_Menu;
 	public GameObject Multiplayer_Menu;
@@ -30,6 +31,7 @@ public class MenuButtons : MonoBehaviour {
 	public GameObject Client_Menu;
 	public GameObject Settings_Menu;
 	public GameObject Instructions_Menu;
+	public GameObject Credits_Menu;
 
 	public GameObject multiBtn;
 
@@ -100,11 +102,18 @@ public class MenuButtons : MonoBehaviour {
 			Instructions_Menu.SetActive(false);
 			Settings_Menu.SetActive(true);
 			Main_Menu.SetActive(false);
+			Credits_Menu.SetActive(false);
 			renderer.material.color = Button_Idle;
 		}
 
 		if (Instructions) {
 			Instructions_Menu.SetActive(true);
+			Settings_Menu.SetActive(false);
+			renderer.material.color = Button_Idle;
+		}
+
+		if (Credits) {
+			Credits_Menu.SetActive(true);
 			Settings_Menu.SetActive(false);
 			renderer.material.color = Button_Idle;
 		}
