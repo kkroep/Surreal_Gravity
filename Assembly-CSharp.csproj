@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +61,7 @@
      <Compile Include="Assets\_Scripts\Gravity_trace_script.cs" />
      <Compile Include="Assets\_Scripts\LevelCreator.cs" />
      <Compile Include="Assets\_Scripts\MainRobotSettings.cs" />
+     <Compile Include="Assets\_Scripts\MaterialSelect.cs" />
      <Compile Include="Assets\_Scripts\MenuButtons.cs" />
      <Compile Include="Assets\_Scripts\NW_Server.cs" />
      <Compile Include="Assets\_Scripts\NW_Spawning.cs" />
@@ -75,7 +76,7 @@
      <Compile Include="Assets\_Scripts_Backup\TestBeunScriptUnit.cs" />
      <None Include="Assets\_Shaders\BuildingBlock_Shader.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
