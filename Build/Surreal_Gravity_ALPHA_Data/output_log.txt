@@ -1,0 +1,333 @@
+Initialize engine version: 4.6.0f3 (30840d631a27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
+    Vendor:   NVIDIA
+    VRAM:     1994 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.049 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
+WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
+Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.56.1:4773
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.0.166:4773
+ 
+(Filename:  Line: 836)
+
+The system we attempted to connect to is not accepting new connections.
+ 
+(Filename:  Line: 628)
+
+TooManyConnectedPlayers
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.0.166:18473
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.56.1:18473
+ 
+(Filename:  Line: 836)
+
+Server disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.0.166:18473
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.56.1:18473
+ 
+(Filename:  Line: 836)
+
+Server disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received pong from 192.168.0.166:18473
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.56.1:18473
+ 
+(Filename:  Line: 836)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 745)
+
+Server disconnected
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+

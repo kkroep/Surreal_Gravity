@@ -23,7 +23,6 @@ public class NW_Server : MonoBehaviour {
 	public bool connected = false;
 
 	public static bool showServers;
-	//private static int amountPlayers;
 
 	private bool ClientConn = false;
 	private bool ClientUpdate = false;
@@ -33,61 +32,26 @@ public class NW_Server : MonoBehaviour {
 	private int serverPort;
 	private int index;
 	private int maxPlayers = 3; //maxPlayers = # of clients
-	private bool xx = false;
 
 	private HostData[] hostD;
-	//private List<string> activeAccounts = new List<string>();
-	//private List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
-	//private List<int> accountNumbers = new List<int>();
-	private static List<int> serverPorts;
 
 	void Start ()
 	{
 		showServers = false;
-		serverPorts = new List<int> ();
-		serverPorts.Add (25001);
-		serverPorts.Add (25002);
-		serverPorts.Add (25003);
-		/*serverPorts.Add (25004);
-		serverPorts.Add (250005);
-		serverPorts.Add (250006);
-		serverPorts.Add (250007);
-		serverPorts.Add (250008);
-		serverPorts.Add (250009);
-		serverPorts.Add (250010);*/
 	}
 
 	public void startServer ()
 	{
-		BasicFunctions.serverAccount = BasicFunctions.activeAccount;
-		gameName = BasicFunctions.serverAccount.Name + "'s Server";
-		index = Random.Range (0, serverPorts.Count); //Take random integer
-		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
-		xx = false;
-		if (!xx)
-			yolo.text = "PORT: " + serverPort;
-		startServer2 ();
-	}
-
-	public void startServer2 ()
-	{
+		gameName = BasicFunctions.activeAccount.Name + "'s Server";
+		serverPort = Random.Range (0, 30000); //Take random integer
+		Debug.Log(serverPort);
 		bool NAT = !Network.HavePublicAddress();
 		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4, port = 25001
 		Network.maxConnections = maxPlayers;
-		MasterServer.RegisterHost (gameTypeName, gameName, "Implementing Multiplayer in the Menu"); //Registreer de Server
+		MasterServer.RegisterHost (gameTypeName, gameName, "Testing the ALPHA-Game"); //Registreer de Server
 	}
 
-	void OnFailedToConnectToMasterServer ()
-	{
-		xx = true;
-		serverPorts.RemoveAt(index);
-		index = Random.Range (0, serverPorts.Count); //Take random integer
-		serverPort = serverPorts[index]; //Pick random spawnpoint (because of random int)
-		yolo.text = "SHIT, NEWPORT: " + serverPort;
-		startServer2();
-	}
-
-	void OnFailedToConnect ()
+	void OnFailedToConnect (NetworkConnectionError error)
 	{
 		yolo.text = "Game is FULL";
 	}
@@ -117,6 +81,7 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isServer)
 		{
+			Network.maxConnections = BasicFunctions.amountPlayers - 1;
 			networkView.RPC("beginGame", RPCMode.AllBuffered);
 		}
 	}
@@ -143,16 +108,12 @@ public class NW_Server : MonoBehaviour {
 
 	public void ClientIsConnected ()
 	{
-		//Debug.Log("#players: " + BasicFunctions.amountPlayers);
 		if (BasicFunctions.amountPlayers == 0)
 		{
 			BasicFunctions.activeAccount.Number = 1;
-			//BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
-			//BasicFunctions.connectedPlayers.Add(BasicFunctions.serverAccount);
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
-			//BasicFunctions.gamePoints.Add(BasicFunctions.activeAccount.Points);
 			setTexts1();
 			Debug.Log("AA: " + BasicFunctions.activeAccounts[0]);
 		}
@@ -161,7 +122,6 @@ public class NW_Server : MonoBehaviour {
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
 			BasicFunctions.activeAccount.Number = Network.connections.Length + 1;
-			//BasicFunctions.activeAccount.Points = 0;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}
@@ -196,7 +156,6 @@ public class NW_Server : MonoBehaviour {
 	{
 		BasicFunctions.activeAccounts.Clear();
 		BasicFunctions.accountNumbers.Clear();
-		//BasicFunctions.gamePoints.Clear();
 	}
 	/* Stuur UI data naar de Server
 	 */
@@ -209,22 +168,16 @@ public class NW_Server : MonoBehaviour {
 			{
 				BasicFunctions.activeAccounts.Add(UN);
 				BasicFunctions.accountNumbers.Add (Number);
-				//BasicFunctions.gamePoints.Add(0);
 			}
 			
 			for(int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 			{
-				//Debug.Log("SERVER: Active Accounts["+i+"]: " + BasicFunctions.activeAccounts[i]);
-				//Debug.Log("SERVER: Account Numbers["+i+"]: " + BasicFunctions.accountNumbers[i]);
 				Account adding = new Account (BasicFunctions.activeAccounts[i], "");
 				adding.Number = BasicFunctions.accountNumbers[i];
-				//adding.Points = 0;
 				if (!BasicFunctions.connectedPlayers.Contains(adding))
 				{
 					BasicFunctions.connectedPlayers.Add(adding);
 				}
-				//Debug.Log("SERVER: Connected Players["+i+"]: " + BasicFunctions.connectedPlayers[i].toString());
-				//Debug.Log("Score["+i+"]: " + BasicFunctions.gamePoints[i]);
 				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);
 			}
 		}
@@ -240,15 +193,9 @@ public class NW_Server : MonoBehaviour {
 			{
 				BasicFunctions.activeAccounts.Add(UN);
 				BasicFunctions.accountNumbers.Add(Number);
-				//BasicFunctions.gamePoints.Add(0);
 			}
 		}
 		networkView.RPC("setTexts", RPCMode.AllBuffered);
-		for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
-		{
-			//Debug.Log("CLIENT: Active Accounts["+i+"]: " + BasicFunctions.activeAccounts[i]);
-			//Debug.Log("CLIENT: Account Numbers["+i+"]: " + BasicFunctions.accountNumbers[i]);
-		}
 	}
 
 	[RPC]
@@ -258,11 +205,7 @@ public class NW_Server : MonoBehaviour {
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
-			//BasicFunctions.gamePoints.RemoveAt(Number);
-			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
-				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
-			//Debug.Log("#Players: " + BasicFunctions.amountPlayers);
 			clearTexts (true);
 			networkView.RPC("setTexts", RPCMode.AllBuffered);
 			networkView.RPC("deleteUNClients", RPCMode.AllBuffered, UN, Number);
@@ -276,9 +219,6 @@ public class NW_Server : MonoBehaviour {
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
-			//BasicFunctions.gamePoints.RemoveAt(Number);
-			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
-				Debug.Log("["+i+"]: " + BasicFunctions.activeAccounts[i]);
 			clearTexts(false);
 			networkView.RPC("setTexts", RPCMode.AllBuffered);
 		}
@@ -360,12 +300,10 @@ public class NW_Server : MonoBehaviour {
 		if (refreshing)
 		{
 			refreshT -= Time.deltaTime;
-			//if (MasterServer.PollHostList ().Length > 0)
 			if (refreshT <= 0)
 			{
 				refreshT = 2;
 				refreshing = false;
-				//Debug.Log (MasterServer.PollHostList ().Length);
 				hostD = MasterServer.PollHostList ();
 				showServers = true;
 			}
