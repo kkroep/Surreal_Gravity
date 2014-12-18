@@ -16,7 +16,7 @@ public class NW_Spawning : MonoBehaviour {
 	private Vector3 randomSpawnPoint;
 	private bool refreshing = false;
 	private bool playOffline;
-	private int amountPlayers = BasicFunctions.amountPlayers;
+	//private int amountPlayers = BasicFunctions.amountPlayers;
 	private int amountSpawnPoints = 5;
 	private GameObject referee;
 	private Referee_script refScript;
@@ -85,6 +85,7 @@ public class NW_Spawning : MonoBehaviour {
 	public void closeClientInGame ()
 	{
 		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+		refScript.showScoreLive();
 		Debug.Log("UN DELETED");
 		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
 		Debug.Log("INVIS");
@@ -127,7 +128,7 @@ public class NW_Spawning : MonoBehaviour {
 			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 		}
 		debugScore.text = "Scores: \n";
-		for (int i = 0; i < amountPlayers; i++)
+		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
 			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + refScript.scores[i] + "\n";
 		}
@@ -141,7 +142,7 @@ public class NW_Spawning : MonoBehaviour {
 			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 		}
 		debugLives.text = "Lives \n";
-		for (int i = 0; i < amountPlayers; i++)
+		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
 			debugLives.text = debugLives.text + BasicFunctions.activeAccounts[i] + ": " + refScript.lives[i] + "\n";
 		}
@@ -159,7 +160,6 @@ public class NW_Spawning : MonoBehaviour {
 			refScript.lives.RemoveAt((Number-1));
 			refScript.players.RemoveAt((Number-1));
 			refScript.playerCount -= 1;
-			refScript.showScoreLive();
 			networkView.RPC("deleteUNClientsInGame", RPCMode.AllBuffered, UN, Number);
 		}
 	}
