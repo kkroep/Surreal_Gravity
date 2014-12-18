@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class BasicFunctions : MonoBehaviour {
 
 	public static bool playOffline;
+	public static bool firstStart = true;
 	public static int amountPlayers;
 	public static Account activeAccount;
 	public static List<string> activeAccounts = new List<string>();

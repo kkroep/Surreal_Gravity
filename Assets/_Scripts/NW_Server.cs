@@ -149,6 +149,7 @@ public class NW_Server : MonoBehaviour {
 	[RPC]
 	public void beginGame ()
 	{
+		BasicFunctions.firstStart = false;
 		Application.LoadLevel("Main_Game");
 	}
 

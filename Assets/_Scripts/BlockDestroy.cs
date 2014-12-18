@@ -28,7 +28,7 @@ public class BlockDestroy : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		if(!quitting && Network.isServer){
+		if(!quitting && Network.isServer && !playerController.dontDestroy){
 			robot.SendMessage ("setNeedsSelection", true);
 			Pathfinder pathfinder = robot.GetComponent<Pathfinder>();
 			pathfinder.foundTarget = false;

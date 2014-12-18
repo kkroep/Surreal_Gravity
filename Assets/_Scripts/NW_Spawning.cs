@@ -99,6 +99,12 @@ public class NW_Spawning : MonoBehaviour {
 		Screen.lockCursor = false;
 	}
 
+	public void closeServerInGame ()
+	{
+		networkView.RPC("clearAccountsInGame", RPCMode.All);
+		networkView.RPC("quitGame", RPCMode.All);
+	}
+
 	[RPC]
 	public void addSpawnPoints (Vector3 spawnPos)
 	{
@@ -118,6 +124,12 @@ public class NW_Spawning : MonoBehaviour {
 	public void removeSpawnPoint (int index)
 	{
 		spawnLocations.RemoveAt(index);
+	}
+
+	[RPC]
+	public void quitGame ()
+	{
+		Application.LoadLevel("Menu");
 	}
 
 	[RPC]
@@ -146,6 +158,14 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			debugLives.text = debugLives.text + BasicFunctions.activeAccounts[i] + ": " + refScript.lives[i] + "\n";
 		}
+	}
+
+	[RPC]
+	void clearAccountsInGame ()
+	{
+		BasicFunctions.amountPlayers = 0;
+		BasicFunctions.activeAccounts.Clear();
+		BasicFunctions.accountNumbers.Clear();
 	}
 
 	[RPC]

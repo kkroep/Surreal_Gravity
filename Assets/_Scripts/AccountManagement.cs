@@ -24,12 +24,11 @@ public class AccountManagement : MonoBehaviour {
 	{
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
-		//activeAccount = new Account ("", "");
-		//activeAccount = new Account ("Debug", "-");
-		//activeAccount.Number = 1;
 		loggedIn = true;
-		BasicFunctions.activeAccount = new Account("Debug", "-");
-		BasicFunctions.activeAccount.Number = 1;
+		if (BasicFunctions.firstStart)
+		{
+			BasicFunctions.activeAccount = new Account("Debug", "-");
+		}
 		//loggedIn = false;
 		
 		using (StreamReader sread = new StreamReader("Accounts.txt"))

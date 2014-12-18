@@ -229,7 +229,8 @@ public class playerController : MonoBehaviour
 		{
 			if (Network.isServer)
 			{
-				
+				dontDestroy = true;
+				spawnScript.closeServerInGame();
 			}
 			else if (Network.isClient)
 			{
