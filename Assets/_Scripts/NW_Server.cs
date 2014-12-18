@@ -50,9 +50,8 @@ public class NW_Server : MonoBehaviour {
 		MasterServer.RegisterHost (gameTypeName, gameName, "Testing the ALPHA-Game"); //Registreer de Server
 	}
 
-	void OnFailedToConnect (NetworkConnectionError error)
+	void OnFailedToConnect ()
 	{
-		yolo.text = "Game is FULL";
 	}
 
 	public void closeServer ()
@@ -299,11 +298,6 @@ public class NW_Server : MonoBehaviour {
 
 	void Update ()
 	{
-		yolo.text = "Active: \n";
-		for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
-		{
-			yolo.text = yolo.text + BasicFunctions.activeAccounts[i] + "\n";
-		}
 		if (refreshing)
 		{
 			refreshT -= Time.deltaTime;
@@ -332,6 +326,21 @@ public class NW_Server : MonoBehaviour {
 			ClientIsConnected();
 			connected = true;
 			ClientUpdate = false;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (!BasicFunctions.playOffline)
+			{
+				Network.Disconnect();
+				if (Network.isServer)
+				{
+					MasterServer.UnregisterHost();
+				}
+			}
+			playerController.dontDestroy = true;
+			Application.LoadLevel("Menu");
+			Screen.lockCursor = false;
 		}
 	}
 

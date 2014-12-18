@@ -222,23 +222,6 @@ public class playerController : MonoBehaviour
 		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + activeAccount.Number);
 		//Debug.Log(shooter + " has shot " + target);
 	}
-
-	void Update ()
-	{
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			if (!BasicFunctions.playOffline)
-			{
-				Network.Disconnect();
-			}
-			dontDestroy = true;
-		    Application.LoadLevel("Menu");
-			Screen.lockCursor = false;
-		}
-		/*if (Input.GetMouseButtonDown(0)) {
-			Fire_Kill_Bullet();
-		}*/
-	}
 	
 	void FixedUpdate ()
 	{
