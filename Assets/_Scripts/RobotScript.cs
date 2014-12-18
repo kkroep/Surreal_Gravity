@@ -45,7 +45,7 @@ public class RobotScript : MonoBehaviour {
 
 			do{
 
-			
+
 				int selector = Random.Range (0, cubes.Length);
 
 
@@ -65,10 +65,11 @@ public class RobotScript : MonoBehaviour {
 					}
 				}
 				else{
-					break;
+					continue;
 				}
-
 				iterations--;
+
+
 
 
 
@@ -76,7 +77,7 @@ public class RobotScript : MonoBehaviour {
 			if(iterations<=0){
 				iterations = 50;
 				do{
-					
+					iterations--;
 					int selector = Random.Range (0, cubes.Length);
 					
 					target = cubes[selector];
@@ -87,17 +88,11 @@ public class RobotScript : MonoBehaviour {
 						Debug.Log("not edge: " + target.transform.position.x + " , " + target.transform.position.y + " , " + target.transform.position.z);
 						break;
 					}
-					else{
-						break;
-					}
 					
-					iterations--;
+
 					
 				}while(iterations>0);
 
-			}
-			if(iterations<=0){
-				Debug.Log ("couldnt find a target");
 			}
 
 

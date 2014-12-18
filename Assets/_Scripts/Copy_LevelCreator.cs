@@ -293,11 +293,6 @@ public class Copy_LevelCreator : MonoBehaviour {
 			int x = Mathf.RoundToInt(position.x);
 			int y = Mathf.RoundToInt(position.y);
 			int z = Mathf.RoundToInt(position.z);
-			/*
-			if(x<=0 || x>=levelWidth-1 || y<=0 || y>=levelHeight-1 || z<=0 || z>=levelDepth-1){
-				Debug.Log ("Whyyy??");
-				return true;
-			}*/
 			if(grid[x-1,y,z] == 1 && grid[x+1,y,z] == 1)
 				return false;
 			else if(grid[x,y-1,z] == 1 && grid[x,y+1,z] == 1)

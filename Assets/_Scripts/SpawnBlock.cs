@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
+/*
 public class SpawnBlock : MonoBehaviour {
 
 	public GameObject buildingBlock;
@@ -129,3 +129,4 @@ public class SpawnBlock : MonoBehaviour {
 		go.SendMessage ("startUp", spawn);
 	}
 }
+*/
