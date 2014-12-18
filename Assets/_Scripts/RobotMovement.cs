@@ -122,7 +122,7 @@ public class RobotMovement : MonoBehaviour {
 			}
 			Quaternion tolerp = Quaternion.LookRotation(new Vector3(dx*90,dy*90,dz*90),Vector3.up);
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
-			if(Quaternion.Angle (this.transform.rotation,tolerp)<30){
+			if(Quaternion.Angle (this.transform.rotation,tolerp)<20){
 				moving = true;
 				rotating = true;
 				rotatingcompleted = true;
