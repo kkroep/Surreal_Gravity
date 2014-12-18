@@ -58,6 +58,7 @@ public class NW_Spawning : MonoBehaviour {
 		else
 		{
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
+			player = playerN;
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
@@ -79,6 +80,22 @@ public class NW_Spawning : MonoBehaviour {
 			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 		}
 		networkView.RPC("showLivesRPC", RPCMode.All);
+	}
+
+	public void closeClientInGame ()
+	{
+		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+		Debug.Log("UN DELETED");
+		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
+		Debug.Log("INVIS");
+		BasicFunctions.amountPlayers = 0;
+		BasicFunctions.activeAccounts.Clear ();
+		BasicFunctions.accountNumbers.Clear ();
+		Debug.Log("CLEARED");
+		Network.Disconnect();
+		playerController.dontDestroy = true;
+		Application.LoadLevel("Menu");
+		Screen.lockCursor = false;
 	}
 
 	[RPC]
@@ -129,11 +146,53 @@ public class NW_Spawning : MonoBehaviour {
 			debugLives.text = debugLives.text + BasicFunctions.activeAccounts[i] + ": " + refScript.lives[i] + "\n";
 		}
 	}
+
+	[RPC]
+	void deleteUNServerInGame (string UN, int Number)
+	{
+		if (Network.isServer)
+		{
+			BasicFunctions.activeAccounts.Remove(UN);
+			BasicFunctions.accountNumbers.Remove(Number);
+			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
+			refScript.scores.RemoveAt((Number-1));
+			refScript.lives.RemoveAt((Number-1));
+			refScript.players.RemoveAt((Number-1));
+			refScript.playerCount -= 1;
+			refScript.showScoreLive();
+			networkView.RPC("deleteUNClientsInGame", RPCMode.AllBuffered, UN, Number);
+		}
+	}
+	
+	[RPC]
+	void deleteUNClientsInGame (string UN, int Number)
+	{
+		if (Network.isClient)
+		{
+			BasicFunctions.activeAccounts.Remove(UN);
+			BasicFunctions.accountNumbers.Remove(Number);
+		}
+	}
+
+	[RPC]
+	void setAmountPlayers (bool up)
+	{
+		if (up)
+			BasicFunctions.amountPlayers += 1;
+		else 
+			BasicFunctions.amountPlayers -= 1;
+	}
+
+	[RPC]
+	void makePlayerInvis (NetworkViewID ID)
+	{
+		NetworkView quitterView = NetworkView.Find (ID);
+		GameObject quitter = quitterView.gameObject;
+		Destroy(quitter);
+	}
 	
 	void Update () 
 	{
-		//Debug.Log (BasicFunctions.amountPlayers);
-
 		if (spawnLocations.Count == amountSpawnPoints && canSpawn)
 		{
 			canSpawn = false;

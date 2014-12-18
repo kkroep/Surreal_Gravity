@@ -327,21 +327,6 @@ public class NW_Server : MonoBehaviour {
 			connected = true;
 			ClientUpdate = false;
 		}
-
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			if (!BasicFunctions.playOffline)
-			{
-				Network.Disconnect();
-				if (Network.isServer)
-				{
-					MasterServer.UnregisterHost();
-				}
-			}
-			playerController.dontDestroy = true;
-			Application.LoadLevel("Menu");
-			Screen.lockCursor = false;
-		}
 	}
 
 	void OnGUI ()

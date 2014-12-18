@@ -222,6 +222,21 @@ public class playerController : MonoBehaviour
 		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + activeAccount.Number);
 		//Debug.Log(shooter + " has shot " + target);
 	}
+
+	void Update ()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (Network.isServer)
+			{
+				
+			}
+			else if (Network.isClient)
+			{
+				spawnScript.closeClientInGame();
+			}
+		}
+	}
 	
 	void FixedUpdate ()
 	{

@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Referee_script : MonoBehaviour {
 
 	public int playerCount;
 	public int Lives_count = 3;
-	public int[] scores = new int[4]{0,0,0,0};
-	public int[] lives = new int[4]{3,3,3,3};
+	//public int[] scores = new int[4]{0,0,0,0};
+	//public int[] lives = new int[4]{3,3,3,3};
+	public List<int> scores = new List<int>();
+	public List<int> lives = new List<int>();
 	public NW_Spawning spawnScript;
-	public playerController[] players;
+	//public playerController[] players;
+	public List<playerController> players;
 	public float respawnTimer = 1f; //seconds 
 
 	public GameObject[] tmp;
@@ -20,13 +24,18 @@ public class Referee_script : MonoBehaviour {
 	///Initialization
 	void Start () {
 		playerCount = BasicFunctions.amountPlayers;
-		players = new playerController[playerCount];
-		scores = new int[playerCount];
-		lives = new int[playerCount];
+		//players = new playerController[playerCount];
+		//scores = new int[playerCount];
+		//lives = new int[playerCount];
+		players = new List<playerController>();
+		scores = new List<int>();
+		lives = new List<int>();
 
 		for (int i=0; i<playerCount; i++) {
-			scores [i] = 0;
-			lives [i] = Lives_count;
+			//scores [i] = 0;
+			//lives [i] = Lives_count;
+			scores.Add (0);
+			lives.Add (Lives_count);
 		}
 	}
 
@@ -40,7 +49,8 @@ public class Referee_script : MonoBehaviour {
 				for (int i=0; i<playerCount; i++) {
 					for (int j=0; j<playerCount; j++) {
 						if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
-							players[i]=tmp[j].GetComponent<playerController>();
+							//players[i]=tmp[j].GetComponent<playerController>();
+							players.Add (tmp[j].GetComponent<playerController>());
 							break;
 						}
 					}
@@ -96,6 +106,19 @@ public class Referee_script : MonoBehaviour {
 		}
 	}
 
+	public void showScoreLive ()
+	{
+		string enc_score = scores[0].ToString ();
+		string enc_lives = lives[0].ToString ();
+		for (int i = 1; i < playerCount; i++)
+		{
+			enc_score += " " + scores[i];
+			enc_lives += " " + lives[i];
+		}
+		networkView.RPC("UpdateScores", RPCMode.All, enc_score);
+		networkView.RPC("showLives", RPCMode.All, enc_lives);
+	}
+
 	[RPC]
 	public void KillPlayer(int target){
 		players[target-1].isAlive = false;
@@ -113,7 +136,7 @@ public class Referee_script : MonoBehaviour {
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 		}
 		string[] scores_update = encodedScore_update.Split(' ');
-		for (int i = 0; i < scores.Length; i++)
+		for (int i = 0; i < scores.Count/*Length*/; i++)
 		{
 			scores[i] = int.Parse(scores_update[i]);
 		}
@@ -127,7 +150,7 @@ public class Referee_script : MonoBehaviour {
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 		}
 		string[] lives_update = encodedLives_update.Split(' ');
-		for (int i = 0; i < lives.Length; i++)
+		for (int i = 0; i < lives.Count/*Length*/; i++)
 		{
 			lives[i] = int.Parse(lives_update[i]);
 		}

@@ -12,44 +12,44 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.058 seconds
+- Completed reload, in  0.097 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-Received pong from 192.168.0.166:3008
+Received pong from 192.168.0.166:21001
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.56.1:3008
+Received pong from 192.168.56.1:21001
  
 (Filename:  Line: 836)
 
-UnloadTime: 3.588554 ms
+UnloadTime: 3.974986 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 3567.
-Total: 1.741622 ms (FindLiveObjects: 0.109325 ms CreateObjectMapping: 0.020526 ms MarkObjects: 0.276214 ms  DeleteObjects: 0.825519 ms)
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 3566.
+Total: 1.955364 ms (FindLiveObjects: 0.116911 ms CreateObjectMapping: 0.020080 ms MarkObjects: 0.302541 ms  DeleteObjects: 0.925027 ms)
 
-SPAWN: (8.0, 8.0, 0.0)
+SPAWN: (13.0, 12.0, 4.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (3.0, 6.0, 13.0)
+SPAWN: (1.0, 14.0, 11.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (13.0, 6.0, 9.0)
+SPAWN: (14.0, 13.0, 1.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (11.0, 9.0, 9.0)
+SPAWN: (10.0, 12.0, 14.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-SPAWN: (12.0, 11.0, 8.0)
+SPAWN: (10.0, 6.0, 5.0)
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
