@@ -44,7 +44,6 @@ public class NW_Server : MonoBehaviour {
 	{
 		gameName = BasicFunctions.activeAccount.Name + "'s Server";
 		serverPort = Random.Range (0, 30000); //Take random integer
-		Debug.Log(serverPort);
 		bool NAT = !Network.HavePublicAddress();
 		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4, port = 25001
 		Network.maxConnections = maxPlayers;
@@ -74,6 +73,9 @@ public class NW_Server : MonoBehaviour {
 	{
 		networkView.RPC("deleteUNServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
 		clearTexts(false);
+		BasicFunctions.amountPlayers = 0;
+		BasicFunctions.activeAccounts.Clear ();
+		BasicFunctions.accountNumbers.Clear ();
 		Network.Disconnect();
 	}
 
@@ -297,6 +299,11 @@ public class NW_Server : MonoBehaviour {
 
 	void Update ()
 	{
+		yolo.text = "Active: \n";
+		for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
+		{
+			yolo.text = yolo.text + BasicFunctions.activeAccounts[i] + "\n";
+		}
 		if (refreshing)
 		{
 			refreshT -= Time.deltaTime;
