@@ -29,6 +29,7 @@ public class RobotMovement : MonoBehaviour {
 	private float dx;
 	private float dy;
 	private float dz;
+	private float timer;
 
 
 
@@ -42,6 +43,7 @@ public class RobotMovement : MonoBehaviour {
 		movinginitiate = false;
 		rotatinginit = false;
 		destroyTarget = false;
+		timer = 0;
 	}
 
 	void Update() {
@@ -98,14 +100,15 @@ public class RobotMovement : MonoBehaviour {
 				this.transform.position = Vector3.Lerp(start, end, fracJourney);
 			}
 
-			if (target>=(vectorPath.Count-2) && fracJourney>0.9){
+			if (target>=(vectorPath.Count-2) && fracJourney>0.97){
 				destroyTarget = true;
 				moving = false;
 				rotating = false;
-				moving = false;				
+				moving = false;
+				rotatingcompleted = true;
 			}
 
-			if (fracJourney>0.85 && target<(vectorPath.Count-2)){
+			if (fracJourney>0.98 && target<(vectorPath.Count-2)){
 				selectNext ();
 				rotatingcompleted = false;
 			}
@@ -119,7 +122,7 @@ public class RobotMovement : MonoBehaviour {
 			}
 			Quaternion tolerp = Quaternion.LookRotation(new Vector3(dx*90,dy*90,dz*90),Vector3.up);
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
-			if(Quaternion.Angle (this.transform.rotation,tolerp)<35){
+			if(Quaternion.Angle (this.transform.rotation,tolerp)<30){
 				moving = true;
 				rotating = true;
 				rotatingcompleted = true;
@@ -143,9 +146,19 @@ public class RobotMovement : MonoBehaviour {
 			}
 		}
 
-		if(destroyTarget && Network.isServer){
-			DestroyTarget();
-		}					
+		if(destroyTarget == true){
+			Vector3 relativePos = vectorPath[vectorPath.Count-1] - transform.position;
+			Quaternion tolerp = Quaternion.LookRotation(relativePos,Vector3.up);
+			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
+			if(Quaternion.Angle (this.transform.rotation,tolerp)<5 && Network.isServer){
+				timer += Time.deltaTime;
+				if(timer>4.0){
+					robotscript.target.SendMessage("Kill");	
+					timer = 0;
+				}
+			}
+		}
+
 	}
 
 
@@ -174,12 +187,14 @@ public class RobotMovement : MonoBehaviour {
 		length = Vector3.Distance(start, end);
 	}
 
+	/*
 	void DestroyTarget(){
 		Quaternion oldpos = transform.rotation;
 		this.transform.LookAt(robotscript.target.transform);
 		Quaternion newpos = transform.rotation;
 		this.transform.rotation = Quaternion.Slerp (oldpos,newpos,Time.time*rotSpeed);
 	}
+	*/
 
 	string routeToString(List<Node> inpath){
 		string temp = System.String.Empty;

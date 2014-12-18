@@ -60,7 +60,6 @@ public class RobotScript : MonoBehaviour {
 					selectbool = selectboolget.canBeSelected;
 					isedge = levelSettings.isEdge (target.transform.position);
 					if(isedge){
-						Debug.Log("edge: " + target.transform.position.x + " , " + target.transform.position.y + " , " + target.transform.position.z);
 						break;
 					}
 				}
@@ -85,12 +84,8 @@ public class RobotScript : MonoBehaviour {
 					if(target!=null){
 						selectboolget = target.GetComponent<BlockDestroy>();
 						selectbool = selectboolget.canBeSelected;
-						Debug.Log("not edge: " + target.transform.position.x + " , " + target.transform.position.y + " , " + target.transform.position.z);
 						break;
-					}
-					
-
-					
+					}					
 				}while(iterations>0);
 
 			}
