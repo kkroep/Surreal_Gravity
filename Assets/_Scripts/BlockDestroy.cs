@@ -9,7 +9,7 @@ public class BlockDestroy : MonoBehaviour {
 	private bool quitting = false;
 
 	
-	void Kill(float lifetime){
+	void Kill(){
 		canBeSelected = false;
 		Network.Destroy (this.gameObject);
 
