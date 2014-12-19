@@ -201,6 +201,10 @@ public class playerController : MonoBehaviour
 			{
 				spawnScript.closeClientInGame();
 			}
+			else if (BasicFunctions.playOffline)
+			{
+				Application.LoadLevel("Menu");
+			}
 		}
 	}
 	

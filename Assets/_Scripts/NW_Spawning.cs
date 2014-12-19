@@ -104,8 +104,18 @@ public class NW_Spawning : MonoBehaviour {
 
 	public void closeServerInGame ()
 	{
-		networkView.RPC("clearAccountsInGame", RPCMode.All);
-		networkView.RPC("quitGame", RPCMode.All);
+		if (BasicFunctions.amountPlayers > 1)
+		{
+			networkView.RPC("clearAccountsInGame", RPCMode.All);
+			networkView.RPC("quitGame", RPCMode.All);
+		}
+		else
+		{
+			BasicFunctions.amountPlayers = 0;
+			BasicFunctions.activeAccounts.Clear();
+			BasicFunctions.accountNumbers.Clear();
+			Application.LoadLevel("Menu");
+		}
 	}
 
 	[RPC]
@@ -171,12 +181,16 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
-			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
+			if (BasicFunctions.amountPlayers > 2)
+				networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
+			else
+				BasicFunctions.amountPlayers = 1;
 			refScript.scores.RemoveAt((Number-1));
 			refScript.lives.RemoveAt((Number-1));
 			refScript.players.RemoveAt((Number-1));
 			refScript.playerCount -= 1;
-			networkView.RPC("deleteUNClientsInGame", RPCMode.AllBuffered, UN, Number);
+			if (BasicFunctions.amountPlayers > 2)
+				networkView.RPC("deleteUNClientsInGame", RPCMode.AllBuffered, UN, Number);
 		}
 	}
 	
