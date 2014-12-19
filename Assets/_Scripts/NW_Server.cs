@@ -38,6 +38,7 @@ public class NW_Server : MonoBehaviour {
 	void Start ()
 	{
 		showServers = false;
+		Screen.lockCursor = false;
 	}
 
 	public void startServer ()

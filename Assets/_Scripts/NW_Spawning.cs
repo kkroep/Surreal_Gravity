@@ -99,7 +99,6 @@ public class NW_Spawning : MonoBehaviour {
 		Network.Disconnect();
 		playerController.dontDestroy = true;
 		Application.LoadLevel("Menu");
-		Screen.lockCursor = false;
 	}
 
 	public void closeServerInGame ()
