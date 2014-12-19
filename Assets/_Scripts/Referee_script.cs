@@ -122,6 +122,7 @@ public class Referee_script : MonoBehaviour {
 		}
 
 		networkView.RPC("UpdateScores", RPCMode.All, encodedScore2);
+		networkView.RPC("KillPlayer", RPCMode.All, target);
 	}
 
 	public void showScoreLive ()

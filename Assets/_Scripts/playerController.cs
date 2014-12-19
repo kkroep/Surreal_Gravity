@@ -70,6 +70,8 @@ public class playerController : MonoBehaviour
 	private NW_Spawning spawnScript;
 	private bool spawnChosen = false;
 
+	private Referee_script referee;
+
 	private int vertexsize;
 	public int VerticesPerUnit;
 	public float Gibrange;
@@ -296,11 +298,11 @@ public class playerController : MonoBehaviour
 			}
 			
 		}
-		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
-			int targetNumber = activeAccount.Number;
-			Debug.Log("Target: " + targetNumber + ", Shooter: " + collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber + ", ActiveNumber: " + activeAccount.Number);
-			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, targetNumber);//BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
-			Destroy(collisionInfo.gameObject);
+		if (collisionInfo.gameObject.tag == "DeathBoundary") {
+			if(!referee){
+				referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+			}
+			referee.fragged (BasicFunctions.activeAccount.Number);
 		}
 	}
 }
