@@ -14,7 +14,7 @@ public class Referee_script : MonoBehaviour {
 	public NW_Spawning spawnScript;
 	//public playerController[] players;
 	public List<playerController> players;
-	public float respawnTimer = 1f; //seconds 
+	public float respawnTimer = 1.5f; //seconds 
 
 	public GameObject[] tmp;
 	private bool Allplayers_Spawned = false;
