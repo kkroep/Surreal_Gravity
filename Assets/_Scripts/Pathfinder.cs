@@ -253,8 +253,9 @@ public class Pathfinder : MonoBehaviour{
 
 	public void setTargetNode(Vector3 position){
 		Debug.Log (position.x + "," + position.y + "," + position.z);
-		if(nodeGridInitialised == true)
+		if(nodeGridInitialised == true){
 			targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
+		}
 	}
 
 	void setFindPath(bool bo){
