@@ -11,8 +11,8 @@ Settings > Instructions
 *SINGLEPLAYER*
 **************
 
-To play singleplayer, you cannot use the singleplayer option yet, for its not finished yet.
-If you want a singleplayer experience you just click
+To play singleplayer, you can press the singleplayer button. It's not much fun, but you can experiment with the gravity switches.
+Alternately, you can do the following to play singleplayer mode:
 
 multiplayer > start server > start game
 Now you have made your own server in which you are the only player. Enjoy!
