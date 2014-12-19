@@ -1155,7 +1155,7 @@ MonoBehaviour:
   VerticesPerUnit: 150
   Gibrange: .00999999978
   time2death: 0
-  Sphere_collider_radius: .600000024
+  Sphere_collider_radius: 1.5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
