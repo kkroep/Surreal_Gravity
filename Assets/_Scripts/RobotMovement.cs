@@ -24,7 +24,7 @@ public class RobotMovement : MonoBehaviour {
 	public bool movinginitiate = false;
 	public bool rotatinginit = false;
 	public bool destroyTarget = false;
-	public List<Vector3> vectorPath;
+	public List<Vector3> vectorPath = new List<Vector3>();
 
 	private float dx;
 	private float dy;
@@ -36,7 +36,6 @@ public class RobotMovement : MonoBehaviour {
 
 	void Start(){
 		reset = false;
-		vectorPath = new List<Vector3>();
 		pathfind = this.GetComponent<Pathfinder>();
 		robotscript = this.GetComponent<RobotScript>();
 		rotatingcompleted = true;
@@ -101,7 +100,6 @@ public class RobotMovement : MonoBehaviour {
 			}
 
 			if (target>=(vectorPath.Count-2) && fracJourney>0.97){
-				Debug.Log (vectorPath.Count);
 				destroyTarget = true;
 				moving = false;
 				rotating = false;
@@ -155,13 +153,18 @@ public class RobotMovement : MonoBehaviour {
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
 			if(Quaternion.Angle (this.transform.rotation,tolerp)<5 && Network.isServer){
 				timer += Time.deltaTime;
-				if(timer>4.0){
+				if(timer>4){
 					robotscript.target.SendMessage("Kill");	
 					timer = 0;
+					destroyTarget = false;
+					moving = false;
+					reset = false;
+					rotatingcompleted = true;
+					rotating = false;
 				}
 			}
-		}
 
+		}
 	}
 
 
@@ -183,6 +186,7 @@ public class RobotMovement : MonoBehaviour {
 		destroyTarget = false;
 
 		vectorPath = routeParser (inpath);
+		Debug.Log (vectorPath.Count);
 		start = vectorPath[0];
 		end = vectorPath[1];
 		target = 1;

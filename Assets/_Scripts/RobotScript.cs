@@ -93,15 +93,13 @@ public class RobotScript : MonoBehaviour {
 
 
 
-			if(selectbool){
+			if(selectbool && pathfinder.nodeGridInitialised){
 				target.SendMessage ("canSelect", false);
 				target.SendMessage ("attachedRobot", this.gameObject);
 				pathfinder.setTargetNode (target.transform.position);
 				//Debug.Log (target.transform.position.x + "," + target.transform.position.y + "," + target.transform.position.z);
 				pathfinder.findPath = true;
-				if(pathfinder.targetNode != null){
-					needsSelection = false;
-				}
+				needsSelection = false;
 			}
 		}
 

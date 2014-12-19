@@ -24,7 +24,7 @@ public class Pathfinder : MonoBehaviour{
 	public bool findPath = false;
 	public bool reset = true;
 
-	private bool nodeGridInitialised = false;
+	public bool nodeGridInitialised = false;
 
 	void Start(){
 		nodeGridInitialised = false;
@@ -141,11 +141,11 @@ public class Pathfinder : MonoBehaviour{
 		return heuristic;
 	}
 
-	public void CalculateAllHeuristics(){		
+	public void CalculateAllHeuristics(){
 		for(int width=0;width<level.levelWidth;width++){
 			for (int height=0;height<level.levelHeight;height++){
 				for (int depth=0;depth<level.levelDepth;depth++){
-					nodeGrid[width,height,depth].hValue = CalculateHeuristicValue (nodeGrid[width,height,depth]);
+					nodeGrid[width,height,depth].hValue = Mathf.Abs (targetNode.xPosition - nodeGrid[width,height,depth].xPosition) + Mathf.Abs (targetNode.yPosition - nodeGrid[width,height,depth].yPosition) + Mathf.Abs (targetNode.zPosition - nodeGrid[width,height,depth].zPosition);
 				}
 			}
 		}
@@ -253,9 +253,8 @@ public class Pathfinder : MonoBehaviour{
 
 	public void setTargetNode(Vector3 position){
 		Debug.Log (position.x + "," + position.y + "," + position.z);
-		if(nodeGridInitialised == true){
-			targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
-		}
+		targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
+
 	}
 
 	void setFindPath(bool bo){
