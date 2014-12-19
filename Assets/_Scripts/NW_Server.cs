@@ -59,6 +59,7 @@ public class NW_Server : MonoBehaviour {
 		networkView.RPC("clearAccounts", RPCMode.AllBuffered);
 		showServers = false;
 		clearTexts (true);
+		MasterServer.UnregisterHost();
 		Network.Disconnect();
 	}
 
