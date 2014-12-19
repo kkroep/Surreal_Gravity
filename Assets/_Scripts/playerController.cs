@@ -12,6 +12,8 @@ public class playerController : MonoBehaviour
 	public Camera_Control Main_Camera;
 	private float speed_multiplier = 3f;
 
+	private Vector3 TruePosition;
+
 	public float Gravity_Shift_Time = 10f;
 	
 	private Quaternion before_shift;
@@ -94,12 +96,20 @@ public class playerController : MonoBehaviour
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 		}
 	}
+
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		if (stream.isWriting) {
+			TruePosition = transform.position;
+			stream.Serialize(ref TruePosition);
+		} else {
+			stream.Serialize(ref TruePosition);
+		}
+	}
 	
 	public void Switch_Gravity (Vector3 new_Gravity)
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			//AudioSource.PlayClipAtPoint(gravity_shot_sound, transform.position);
 			before_shift = transform.rotation;
 			Gravity_Direction = new_Gravity;
 			Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, transform.forward);
@@ -108,37 +118,7 @@ public class playerController : MonoBehaviour
 		}
 	}
 
-	/*void Fire_Kill_Bullet()
-	{
-		if (BasicFunctions.playOffline)
-		{
-			//if (Time.time > reloadTime + lastShot)
-			//Debug.Log ("Fired");
-			//{
-				AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
-				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
-				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
-				//lastShot = Time.time;
-			//}
-		}
-		else if (networkView.isMine)
-		{
-			//if (Time.time > reloadTime + lastShot)
-				//Debug.Log("Fired");
-			//{
-				AudioSource.PlayClipAtPoint(kill_shot_sound, transform.position);
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
-				int shootNumber = BasicFunctions.activeAccount.Number;
-				instantiatedProjectile.GetComponent<Bullet_Controller>().shooterNumber = shootNumber;
-				Debug.Log ("Shooter: " + shootNumber);
-				instantiatedProjectile.velocity = Main_Camera.transform.forward*Bullet_Speed;
-				Physics.IgnoreCollision( instantiatedProjectile.collider, gameObject.transform.root.collider );
-				//lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, gameObject.networkView.viewID, transform.position, transform.rotation, Main_Camera.transform.forward, shootNumber);
-			//}
-		}
-	}*/
+
 
 	public void Fire_Grav_Bullet (Vector3 pos1, Vector3 pos2)
 	{
@@ -150,24 +130,12 @@ public class playerController : MonoBehaviour
 		networkView.RPC("fireKillLaser", RPCMode.Others, pos1, pos2, shooter);
 	}
 
-	/*[RPC]
-	void fireKillBulletS(NetworkViewID player, Vector3 pos, Quaternion rot, Vector3 dir, int number)
-	{
-		NetworkView playerN = NetworkView.Find (player);
-		Transform cloneP = playerN.transform;
-		Rigidbody instantiatedProjectileN = (Rigidbody)Instantiate( Kill_Bullet, pos, rot );
-		instantiatedProjectileN.GetComponent<Bullet_Controller>().shooterNumber = number;
-		Debug.Log ("Shooter: " + number);
-		instantiatedProjectileN.velocity = dir*Bullet_Speed;
-		Physics.IgnoreCollision( instantiatedProjectileN.collider, cloneP.root.collider );
-	}*/
+
 
 	[RPC]
 	void fireGravityLaser(Vector3 pos1, Vector3 pos2, int number){
 		LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
-		//LightningLineCurrent.SetPosition(1, pos1);
-		//LightningLineCurrent.SetPosition(0, pos2);
-		
+
 		//new
 		float Distance = Mathf.Sqrt((pos1 - pos2).sqrMagnitude);
 		float floatvertexsize = VerticesPerUnit * Distance;
@@ -210,16 +178,13 @@ public class playerController : MonoBehaviour
 			KillLineCurrent.SetPosition(i, (multiplier*(pos1 - pos2)) + pos2 + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 		}
 		KillLineCurrent.SetPosition(0, pos2);
-		//\new
-		
-		//Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
+
 	}
 
 	[RPC]
 	void hitByBullet (int shooter, int target)
 	{
 		Debug.Log("Target: " + target + ", Shooter: " + shooter + ", ActiveNumber: " + activeAccount.Number);
-		//Debug.Log(shooter + " has shot " + target);
 	}
 
 	void Update ()
@@ -241,70 +206,69 @@ public class playerController : MonoBehaviour
 	void FixedUpdate ()
 	{
 		if (networkView.isMine || BasicFunctions.playOffline) {
-				if (Gravity_Shift_Counter > 1f) {
-						Gravity_Shift_Counter--;
-						transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
-				} else if (Gravity_Shift_Counter == 1f) {
-						Gravity_Shift_Counter = 0f;
-						transform.rotation = after_shift;
-				} else {
-						//transform.rotation = Quaternion.LookRotation(transform.forward, -1f*Gravity_Direction);
-		
-						#region [look around]
-						if (axes == RotationAxes.MouseXAndY) {
-								float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
-			
-								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			
-								transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
-						} else if (axes == RotationAxes.MouseX) {
-								transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
+						if (Gravity_Shift_Counter > 1f) {
+								Gravity_Shift_Counter--;
+								transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
+						} else if (Gravity_Shift_Counter == 1f) {
+								Gravity_Shift_Counter = 0f;
+								transform.rotation = after_shift;
 						} else {
-								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+		
+								#region [look around]
+								if (axes == RotationAxes.MouseXAndY) {
+										float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
 			
-								transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
+										rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+										rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+										transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
+								} else if (axes == RotationAxes.MouseX) {
+										transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
+								} else {
+										rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+										rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+										transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
+								}
 						}
-				}
-				#endregion
+						#endregion
 	
-				transform.TransformDirection (Vector3.forward);
-				if (isAlive && !endGame) {
-				speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime*2f);
-					Collider[] hitColliders = Physics.OverlapSphere(transform.position, Sphere_collider_radius);
+						transform.TransformDirection (Vector3.forward);
+						if (isAlive && !endGame) {
+								speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime * 2f);
+								Collider[] hitColliders = Physics.OverlapSphere (transform.position, Sphere_collider_radius);
 
-				for(int i=0; i<hitColliders.Length; i++){
-					if(hitColliders[i].tag=="level")
-						speed_multiplier = 3f;
-				}
+								for (int i=0; i<hitColliders.Length; i++) {
+										if (hitColliders [i].tag == "level")
+												speed_multiplier = 3f;
+								}
 
-				rigidbody.velocity = transform.forward * speed * speed_multiplier* Input.GetAxis ("Vertical");
-				rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
-					Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
-					rigidbody.AddForce (Current_Global_Force);
-				}else{
-				rigidbody.velocity=new Vector3(0f,0f,0f);
-				if (!isAlive) {
-					time2death-=Time.fixedDeltaTime;
-					if(time2death<=1f){
-						if (!spawnChosen)
-						{
-							int index = Random.Range (0, spawnScript.spawnLocations.Count-1); //Take random integer
-							Vector3 randomSpawnPoint = spawnScript.spawnLocations[index];
-							transform.position  = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
-							spawnChosen = true;
+								rigidbody.velocity = transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
+								rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
+								Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
+								rigidbody.AddForce (Current_Global_Force);
+						} else {
+								rigidbody.velocity = new Vector3 (0f, 0f, 0f);
+								if (!isAlive) {
+										time2death -= Time.fixedDeltaTime;
+										if (time2death <= 1f) {
+												if (!spawnChosen) {
+														int index = Random.Range (0, spawnScript.spawnLocations.Count - 1); //Take random integer
+														Vector3 randomSpawnPoint = spawnScript.spawnLocations [index];
+														transform.position = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
+														spawnChosen = true;
+												}
+												if (time2death <= 0f) {
+														networkView.RPC ("PlayerRespawn", RPCMode.All, transform.position);
+														spawnChosen = false;
+												}
+										}
+								} else {
+								}
 						}
-						if(time2death<=0f){
-							networkView.RPC("PlayerRespawn", RPCMode.All, transform.position);
-							spawnChosen = false;
-						}
-					}
-				}
-				else {
-					//Nothing yet
-				}
-			}
+				} else {
+			//Control of other player
+			transform.position = Vector3.Lerp(transform.position, TruePosition, Time.fixedDeltaTime * 5f);
 		}
 	}
 
@@ -324,15 +288,10 @@ public class playerController : MonoBehaviour
 			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
 				AudioSource.PlayClipAtPoint(jump_sound, transform.position);
-			//	anim.SetBool ("Jump",true);
 			}
 			
-			//else{
-			//	anim.SetBool ("Jump",false);
-			//}
 		}
 		if (collisionInfo.gameObject.tag == "Kill_Bullet") {
-			//Debug.Log("Target: " + BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
 			int targetNumber = activeAccount.Number;
 			Debug.Log("Target: " + targetNumber + ", Shooter: " + collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber + ", ActiveNumber: " + activeAccount.Number);
 			networkView.RPC("hitByBullet", RPCMode.Server, collisionInfo.gameObject.GetComponent<Bullet_Controller>().shooterNumber, targetNumber);//BasicFunctions.accountNumbers[(BasicFunctions.activeAccount.Number-1)]);
