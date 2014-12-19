@@ -248,11 +248,11 @@ public class Camera_Control : MonoBehaviour {
 			
 			transform.position = player.transform.position;
 			
-			if (Input.GetMouseButtonDown(1) && player.isAlive) {
+			if (Input.GetMouseButtonDown(1) && player.isAlive && !player.endGame) {
 				Fire_Gravity_Bullet();
 			}
 
-			if (Input.GetMouseButtonDown(0) && player.isAlive) {
+			if (Input.GetMouseButtonDown(0) && player.isAlive && !player.endGame) {
 				Fire_Kill_Laser();
 			}
 		}

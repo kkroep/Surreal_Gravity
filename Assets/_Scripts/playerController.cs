@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 Current_Global_Force;
 	public Camera_Control Main_Camera;
-	public bool isAlive = true;
 	private float speed_multiplier = 3f;
 
 	public float Gravity_Shift_Time = 10f;
@@ -63,11 +62,12 @@ public class playerController : MonoBehaviour
 	//public AudioClip gravity_shot_sound;
 	public AudioClip jump_sound;
 	public static bool dontDestroy;
+	public bool isAlive = true;
+	public bool endGame = false;
 
 	private NW_Spawning spawnScript;
 	private bool spawnChosen = false;
 
-	//new
 	private int vertexsize;
 	public int VerticesPerUnit;
 	public float Gibrange;
@@ -76,7 +76,6 @@ public class playerController : MonoBehaviour
 	public float time2death = 0f;
 
 	public float Sphere_collider_radius = 0.6f;
-	//\new
 	
 	void Start ()
 	{
@@ -271,7 +270,7 @@ public class playerController : MonoBehaviour
 				#endregion
 	
 				transform.TransformDirection (Vector3.forward);
-				if (isAlive) {
+				if (isAlive && !endGame) {
 				speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime*2f);
 					Collider[] hitColliders = Physics.OverlapSphere(transform.position, Sphere_collider_radius);
 
@@ -286,19 +285,24 @@ public class playerController : MonoBehaviour
 					rigidbody.AddForce (Current_Global_Force);
 				}else{
 				rigidbody.velocity=new Vector3(0f,0f,0f);
-				time2death-=Time.fixedDeltaTime;
-				if(time2death<=1f){
-					if (!spawnChosen)
-					{
-						int index = Random.Range (0, spawnScript.spawnLocations.Count-1); //Take random integer
-						Vector3 randomSpawnPoint = spawnScript.spawnLocations[index];
-						transform.position  = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
-						spawnChosen = true;
+				if (!isAlive) {
+					time2death-=Time.fixedDeltaTime;
+					if(time2death<=1f){
+						if (!spawnChosen)
+						{
+							int index = Random.Range (0, spawnScript.spawnLocations.Count-1); //Take random integer
+							Vector3 randomSpawnPoint = spawnScript.spawnLocations[index];
+							transform.position  = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
+							spawnChosen = true;
+						}
+						if(time2death<=0f){
+							networkView.RPC("PlayerRespawn", RPCMode.All, transform.position);
+							spawnChosen = false;
+						}
 					}
-					if(time2death<=0f){
-						networkView.RPC("PlayerRespawn", RPCMode.All, transform.position);
-						spawnChosen = false;
-					}
+				}
+				else {
+					//Nothing yet
 				}
 			}
 		}
@@ -316,7 +320,7 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			if (Input.GetKeyDown ("space") && isAlive) 
+			if (Input.GetKeyDown ("space") && isAlive && !endGame) 
 			{
 				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
 				AudioSource.PlayClipAtPoint(jump_sound, transform.position);

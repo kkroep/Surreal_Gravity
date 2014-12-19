@@ -18,6 +18,8 @@ public class Referee_script : MonoBehaviour {
 	public GameObject[] tmp;
 	private bool Allplayers_Spawned = false;
 
+	private int maxPoints = 1;
+
 	private string encodedScore;
 	private string encodedScore2;
 	private string encodedLives;
@@ -65,6 +67,10 @@ public class Referee_script : MonoBehaviour {
 				Allplayers_Spawned = true;
 			}
 		}
+		if (Input.GetKeyDown(KeyCode.P))
+		{
+			networkView.RPC("finishGame", RPCMode.All);
+		}
 	}
 
 	public void frag(int shooter, int target){
@@ -89,6 +95,11 @@ public class Referee_script : MonoBehaviour {
 			//call RPC
 			networkView.RPC("UpdateScores", RPCMode.All, encodedScore);
 			networkView.RPC("showLives", RPCMode.All, encodedLives);
+
+			if (scores[shooter-1] >= maxPoints)
+			{
+				networkView.RPC("finishGame", RPCMode.All);
+			}
 
 		}else{
 			//if the player does not die
@@ -161,5 +172,19 @@ public class Referee_script : MonoBehaviour {
 			lives[i] = int.Parse(lives_update[i]);
 		}
 		spawnScript.showLives();
+	}
+
+	[RPC]
+	public void finishGame ()
+	{
+		for (int i = 0; i < playerCount; i++)
+		{
+			players[i].endGame = true;
+			for (int j = 0; j < playerCount; j++)
+			{
+				players [j].gameObject.GetComponent<MeshRenderer> ().enabled = false;
+				players [j].gameObject.GetComponent<SphereCollider> ().enabled = false;
+			}
+		}
 	}
 }

@@ -18435,7 +18435,6 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 12
   Main_Camera: {fileID: 1863724708}
-  isAlive: 1
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
@@ -18455,6 +18454,8 @@ MonoBehaviour:
   playerNumber: 0
   kill_shot_sound: {fileID: 0}
   jump_sound: {fileID: 0}
+  isAlive: 1
+  endGame: 0
   VerticesPerUnit: 0
   Gibrange: 0
   time2death: 0
@@ -39535,7 +39536,6 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 1200
   Main_Camera: {fileID: 1003792148}
-  isAlive: 1
   Gravity_Shift_Time: 12
   axes: 1
   sensitivityX: 10
@@ -39555,6 +39555,8 @@ MonoBehaviour:
   playerNumber: 0
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
+  isAlive: 1
+  endGame: 0
   VerticesPerUnit: 0
   Gibrange: 0
   time2death: 0
@@ -46560,7 +46562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e746f7ea0d8354342bb01bf3edc8ca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 100058, guid: 213a0b4ed60c82e4cbe7dd66069b0f0b, type: 2}
+  playerPrefab: {fileID: 100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   levelCreator: {fileID: 1444913547}
   debugScore: {fileID: 1073285364}

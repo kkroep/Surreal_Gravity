@@ -343,7 +343,7 @@ public class NW_Server : MonoBehaviour {
 				{
 					for (int i = 0; i < hostD.Length; i++)
 					{
-						if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 100), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
+						if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
 						{
 							Network.Connect(hostD[i]);
 						}
