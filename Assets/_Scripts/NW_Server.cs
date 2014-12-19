@@ -117,7 +117,6 @@ public class NW_Server : MonoBehaviour {
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
 			setTexts1();
-			Debug.Log("AA: " + BasicFunctions.activeAccounts[0]);
 		}
 		else
 		{

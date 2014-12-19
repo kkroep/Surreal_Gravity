@@ -16,12 +16,10 @@ public class NW_Spawning : MonoBehaviour {
 	private Vector3 randomSpawnPoint;
 	private bool refreshing = false;
 	private bool playOffline;
-	//private int amountPlayers = BasicFunctions.amountPlayers;
 	private int amountSpawnPoints = 5;
 	private GameObject referee;
 	private Referee_script refScript;
 	private bool canSpawn = true;
-	//private bool spawnRef = true;
 	
 	void Start ()
 	{
@@ -60,7 +58,6 @@ public class NW_Spawning : MonoBehaviour {
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
 			player = playerN;
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
-			//networkView.RPC("removeSpawnPoint", RPCMode.AllBuffered, index); //Remove spawnpoint out of the list (no duplicate spawnpoints!)
 		}
 	}
 
@@ -86,13 +83,10 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
 		refScript.showScoreLive();
-		Debug.Log("UN DELETED");
 		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
-		Debug.Log("INVIS");
 		BasicFunctions.amountPlayers = 0;
 		BasicFunctions.activeAccounts.Clear ();
 		BasicFunctions.accountNumbers.Clear ();
-		Debug.Log("CLEARED");
 		Network.Disconnect();
 		playerController.dontDestroy = true;
 		Application.LoadLevel("Menu");
@@ -109,7 +103,6 @@ public class NW_Spawning : MonoBehaviour {
 	public void addSpawnPoints (Vector3 spawnPos)
 	{
 		spawnLocations.Add (spawnPos);
-		Debug.Log("SPAWN: " + spawnPos);
 	}
 
 	[RPC]
@@ -118,12 +111,6 @@ public class NW_Spawning : MonoBehaviour {
 		NetworkView playerN = NetworkView.Find(player);
 		playerN.GetComponent<playerController>().activeAccount = new Account(Uname, Pword);
 		playerN.GetComponent<playerController>().playerNumber = Number;
-	}
-
-	[RPC]
-	public void removeSpawnPoint (int index)
-	{
-		spawnLocations.RemoveAt(index);
 	}
 
 	[RPC]
