@@ -31,7 +31,7 @@ public class NW_Server : MonoBehaviour {
 	private float refreshT = 2f;
 	private int serverPort;
 	private int index;
-	private int maxPlayers = 1//(for now only 1) 3 //maxPlayers = # of clients
+	private int maxPlayers = 1;//(for now only 1) 3 //maxPlayers = # of clients
 
 	private HostData[] hostD;
 
