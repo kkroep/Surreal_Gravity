@@ -44,6 +44,10 @@ public class NW_Spawning : MonoBehaviour {
 				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject;
 			}
 		}
+		else
+		{
+			spawnPlayer();
+		}
 	}
 	
 	public void spawnPlayer ()
@@ -201,7 +205,7 @@ public class NW_Spawning : MonoBehaviour {
 	
 	void Update () 
 	{
-		if (spawnLocations.Count == amountSpawnPoints && canSpawn)
+		if (!BasicFunctions.playOffline && spawnLocations.Count == amountSpawnPoints && canSpawn)
 		{
 			canSpawn = false;
 			spawnPlayer();
