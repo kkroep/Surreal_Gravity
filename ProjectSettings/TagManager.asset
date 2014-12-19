@@ -12,6 +12,7 @@ TagManager:
   - levelSettings
   - Referee_Tag
   - SpawnTag
+  - GameEndTag
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

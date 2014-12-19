@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class Referee_script : MonoBehaviour {
@@ -17,6 +18,8 @@ public class Referee_script : MonoBehaviour {
 
 	public GameObject[] tmp;
 	private bool Allplayers_Spawned = false;
+
+	private Text endGameText;
 
 	private int maxPoints = 1;
 
@@ -99,6 +102,9 @@ public class Referee_script : MonoBehaviour {
 			if (scores[shooter-1] >= maxPoints)
 			{
 				networkView.RPC("finishGame", RPCMode.All);
+				endGameText = GameObject.FindGameObjectWithTag("GameEndTag").GetComponent<Text>();
+				networkView.RPC("setEndGameText", RPCMode.All);
+
 			}
 
 		}else{
@@ -186,5 +192,11 @@ public class Referee_script : MonoBehaviour {
 				players [j].gameObject.GetComponent<SphereCollider> ().enabled = false;
 			}
 		}
+	}
+
+	[RPC]
+	public void setEndGameText ()
+	{
+		endGameText.text = "Game is over. Press ESC to end the game!";
 	}
 }
