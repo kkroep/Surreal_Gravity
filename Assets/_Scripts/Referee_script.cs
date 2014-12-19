@@ -19,8 +19,6 @@ public class Referee_script : MonoBehaviour {
 	public GameObject[] tmp;
 	private bool Allplayers_Spawned = false;
 
-	private Text endGameText;
-
 	private int maxPoints = 1;
 
 	private string encodedScore;
@@ -102,7 +100,6 @@ public class Referee_script : MonoBehaviour {
 			if (scores[shooter-1] >= maxPoints)
 			{
 				networkView.RPC("finishGame", RPCMode.All);
-				endGameText = GameObject.FindGameObjectWithTag("GameEndTag").GetComponent<Text>();
 				networkView.RPC("setEndGameText", RPCMode.All);
 
 			}
@@ -197,6 +194,6 @@ public class Referee_script : MonoBehaviour {
 	[RPC]
 	public void setEndGameText ()
 	{
-		endGameText.text = "Game is over. Press ESC to end the game!";
+		spawnScript.endGameText.text = "Game is over. Press ESC to end the game!";
 	}
 }
