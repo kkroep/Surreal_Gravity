@@ -1179,7 +1179,7 @@ MonoBehaviour:
   maximumY: 88
   player: {fileID: 11400000}
   playercam: {fileID: 100060}
-  referee: {fileID: 11400000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
+  referee: {fileID: 0}
   reloadTime: 10
   Bullet_Speed: 200
   Gravity_Switch_Timer: 0
