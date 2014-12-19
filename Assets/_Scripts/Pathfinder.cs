@@ -24,7 +24,10 @@ public class Pathfinder : MonoBehaviour{
 	public bool findPath = false;
 	public bool reset = true;
 
+	private bool nodeGridInitialised = false;
+
 	void Start(){
+		nodeGridInitialised = false;
 		if(Network.isServer){
 			robotmovement = this.GetComponent<RobotMovement>();
 
@@ -61,6 +64,8 @@ public class Pathfinder : MonoBehaviour{
 				}
 			}
 		}
+
+		nodeGridInitialised = true;
 
 
 	}
@@ -247,7 +252,9 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	public void setTargetNode(Vector3 position){
-		targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
+		Debug.Log (position.x + "," + position.y + "," + position.z);
+		if(nodeGridInitialised == true)
+			targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
 	}
 
 	void setFindPath(bool bo){

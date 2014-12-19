@@ -101,6 +101,7 @@ public class RobotMovement : MonoBehaviour {
 			}
 
 			if (target>=(vectorPath.Count-2) && fracJourney>0.97){
+				Debug.Log (vectorPath.Count);
 				destroyTarget = true;
 				moving = false;
 				rotating = false;
@@ -146,7 +147,9 @@ public class RobotMovement : MonoBehaviour {
 			}
 		}
 
+
 		if(destroyTarget == true){
+
 			Vector3 relativePos = vectorPath[vectorPath.Count-1] - transform.position;
 			Quaternion tolerp = Quaternion.LookRotation(relativePos,Vector3.up);
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
@@ -177,11 +180,11 @@ public class RobotMovement : MonoBehaviour {
 		moving = true;
 		reset = true;
 		rotatingcompleted = false;
+		destroyTarget = false;
 
 		vectorPath = routeParser (inpath);
 		start = vectorPath[0];
 		end = vectorPath[1];
-		//target = path.Count-2;
 		target = 1;
 		reset = false;
 		length = Vector3.Distance(start, end);

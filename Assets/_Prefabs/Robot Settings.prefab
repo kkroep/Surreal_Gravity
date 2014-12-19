@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberRobots: 1
   robot: {fileID: 100000, guid: 42f56b3ec0a3c53489a5f44867a4288d, type: 2}
+  robots: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
