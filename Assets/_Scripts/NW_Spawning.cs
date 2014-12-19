@@ -25,15 +25,19 @@ public class NW_Spawning : MonoBehaviour {
 	void Start ()
 	{
 		spawnLocations = new List<Vector3> ();
-		if (Network.isServer)
+		for (int i = 0; i < amountSpawnPoints; i++)
 		{
-			for (int i = 0; i < amountSpawnPoints; i++)
+			int width = Random.Range(0, levelCreator.levelWidth);
+			int height = Random.Range(0, levelCreator.levelHeight);
+			int depth = Random.Range(0, levelCreator.levelDepth);
+			Vector3 spawn = new Vector3 (width, height, depth);
+			if (Network.isServer)
 			{
-				int width = Random.Range(0, levelCreator.levelWidth);
-				int height = Random.Range(0, levelCreator.levelHeight);
-				int depth = Random.Range(0, levelCreator.levelDepth);
-				Vector3 spawn = new Vector3 (width, height, depth);
 				networkView.RPC("addSpawnPoints", RPCMode.All, spawn);
+			}
+			else if (BasicFunctions.playOffline)
+			{
+				spawnLocations.Add (spawn);
 			}
 		}
 
