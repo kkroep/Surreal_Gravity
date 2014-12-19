@@ -98,6 +98,7 @@ public class playerController : MonoBehaviour
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		Debug.Log("OnSerializeNetworkView = called");
 		if (stream.isWriting) {
 			TruePosition = transform.position;
 			stream.Serialize(ref TruePosition);
