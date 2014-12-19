@@ -19,6 +19,7 @@ public class Referee_script : MonoBehaviour {
 	private bool Allplayers_Spawned = false;
 
 	private string encodedScore;
+	private string encodedScore2;
 	private string encodedLives;
 
 	///Initialization
@@ -89,11 +90,6 @@ public class Referee_script : MonoBehaviour {
 			networkView.RPC("UpdateScores", RPCMode.All, encodedScore);
 			networkView.RPC("showLives", RPCMode.All, encodedLives);
 
-			/*for (int j = 0; j < playerCount; j++)
-			{
-				Debug.Log ("Score[" + j + "]: " + scores[j]);
-				Debug.Log("Lives[" + j + "]: " + lives[j]);
-			}*/
 		}else{
 			//if the player does not die
 			lives [target-1]--;
@@ -104,6 +100,17 @@ public class Referee_script : MonoBehaviour {
 			}
 			networkView.RPC("showLives", RPCMode.All, encodedLives);
 		}
+	}
+
+	public void fragged(int target)
+	{
+		scores[target-1] -= 1;
+		encodedScore2 = scores[0].ToString();
+		for(int i=1; i<playerCount; i++){
+			encodedScore2 += " " + scores[i];
+		}
+
+		networkView.RPC("UpdateScores", RPCMode.All, encodedScore2);
 	}
 
 	public void showScoreLive ()
@@ -130,7 +137,6 @@ public class Referee_script : MonoBehaviour {
 
 	[RPC]
 	public void UpdateScores(string encodedScore_update){
-		//Debug.Log (encodedScore_update);
 		if (!spawnScript)
 		{
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
