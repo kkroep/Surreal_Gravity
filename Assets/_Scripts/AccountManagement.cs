@@ -53,7 +53,7 @@ public class AccountManagement : MonoBehaviour {
 		if (Pword.Equals(PwordC))
 		{
 			Account reg_acc = new Account (Uname, Pword);
-			if (Uname != " ")
+			if (Uname == " ")
 			{
 				Debug.Log("No Username is given");
 			}
