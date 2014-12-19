@@ -12,26 +12,26 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.128 seconds
+- Completed reload, in  0.058 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-Received pong from 192.168.56.1:22013
+Received pong from 145.94.197.239:23942
  
 (Filename:  Line: 836)
 
-Received pong from 145.94.197.239:22013
+Received pong from 192.168.56.1:23942
  
 (Filename:  Line: 836)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 3.664412 ms
+UnloadTime: 2.274863 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 3561.
-Total: 1.706816 ms (FindLiveObjects: 0.095938 ms CreateObjectMapping: 0.018741 ms MarkObjects: 0.280230 ms  DeleteObjects: 0.766617 ms)
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 3563.
+Total: 2.487266 ms (FindLiveObjects: 0.152609 ms CreateObjectMapping: 0.030343 ms MarkObjects: 0.403835 ms  DeleteObjects: 1.142786 ms)
 
 has not yet found all players
  

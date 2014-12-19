@@ -20,6 +20,7 @@ public class Referee_script : MonoBehaviour {
 	private bool Allplayers_Spawned = false;
 
 	private int maxPoints = 1;
+	private int winner;
 
 	private string encodedScore;
 	private string encodedScore2;
@@ -68,10 +69,6 @@ public class Referee_script : MonoBehaviour {
 				Allplayers_Spawned = true;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			networkView.RPC("finishGame", RPCMode.All);
-		}
 	}
 
 	public void frag(int shooter, int target){
@@ -99,7 +96,7 @@ public class Referee_script : MonoBehaviour {
 
 			if (scores[shooter-1] >= maxPoints)
 			{
-				networkView.RPC("finishGame", RPCMode.All);
+				networkView.RPC("finishGame", RPCMode.All, shooter);
 				networkView.RPC("setEndGameText", RPCMode.All);
 
 			}
@@ -178,8 +175,9 @@ public class Referee_script : MonoBehaviour {
 	}
 
 	[RPC]
-	public void finishGame ()
+	public void finishGame (int Winner)
 	{
+		winner = Winner;
 		for (int i = 0; i < playerCount; i++)
 		{
 			players[i].endGame = true;
@@ -194,6 +192,6 @@ public class Referee_script : MonoBehaviour {
 	[RPC]
 	public void setEndGameText ()
 	{
-		spawnScript.endGameText.text = "Game is over. Press ESC to end the game!";
+		spawnScript.endGameText.text = "Game is over. Press ESC to end the game! \nWinner: " + BasicFunctions.activeAccounts[winner-1];
 	}
 }
