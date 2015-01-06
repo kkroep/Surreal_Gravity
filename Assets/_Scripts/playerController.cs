@@ -193,6 +193,11 @@ public class playerController : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
+			if (!spawnScript)
+			{
+				spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+			}
+
 			if (Network.isServer)
 			{
 				dontDestroy = true;

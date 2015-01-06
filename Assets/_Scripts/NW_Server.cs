@@ -46,7 +46,7 @@ public class NW_Server : MonoBehaviour {
 		gameName = BasicFunctions.activeAccount.Name + "'s Server";
 		serverPort = Random.Range (0, 30000); //Take random integer
 		bool NAT = !Network.HavePublicAddress();
-		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4, port = 25001
+		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4
 		Network.maxConnections = maxPlayers;
 		MasterServer.RegisterHost (gameTypeName, gameName, "Testing the ALPHA-Game"); //Registreer de Server
 	}

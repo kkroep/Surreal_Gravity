@@ -134,6 +134,7 @@ public class MenuButtons : MonoBehaviour {
 
 		if (Refresh) {
 			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+			Debug.Log("SHOWSERVERS: " + NW_Server.showServers);
 			serverStuff.refreshHost();
 		}
 
