@@ -76,6 +76,7 @@ public class MenuButtons : MonoBehaviour {
 		if (SinglePlayer) {
 			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 			BasicFunctions.playOffline = true;
+			BasicFunctions.firstStart = false;
 			Application.LoadLevel("Main_Game");
 		}
 		

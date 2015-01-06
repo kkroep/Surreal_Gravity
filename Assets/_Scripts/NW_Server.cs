@@ -84,7 +84,7 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isServer)
 		{
-			Network.maxConnections = BasicFunctions.amountPlayers - 1;
+			Network.maxConnections = BasicFunctions.amountPlayers - 1; //Players can't connect midgame
 			networkView.RPC("beginGame", RPCMode.AllBuffered);
 		}
 	}
