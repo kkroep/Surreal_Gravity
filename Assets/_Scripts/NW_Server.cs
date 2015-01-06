@@ -123,8 +123,7 @@ public class NW_Server : MonoBehaviour {
 		{
 			menuBtns.Multiplayer_Menu.SetActive(false);
 			menuBtns.Client_Menu.SetActive(true);
-			BasicFunctions.activeAccount.Number = Network.connections.Length + 1;
-			Debug.Log("NW NUMMER: " + BasicFunctions.activeAccount.Number);
+			BasicFunctions.activeAccount.Number = BasicFunctions.amountPlayers + 1;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
 		}

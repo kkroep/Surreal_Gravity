@@ -67,7 +67,6 @@ public class NW_Spawning : MonoBehaviour {
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
 			player = playerN;
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
-			Debug.Log("NUMMER!!: " + BasicFunctions.activeAccount.Number);
 		}
 	}
 
