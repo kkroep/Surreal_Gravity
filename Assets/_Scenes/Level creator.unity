@@ -158,7 +158,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &611647405
+--- !u!1001 &972485437
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -196,6 +196,14 @@ Prefab:
     - target: {fileID: 400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: m_ViewID.m_ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+      propertyPath: m_ViewID.m_Type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
@@ -249,11 +257,12 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
-  m_PrefabInternal: {fileID: 611647405}
+  m_PrefabInternal: {fileID: 972485437}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1880284291}
-  - 114: {fileID: 1880284290}
+  - 114: {fileID: 1880284292}
+  - 148: {fileID: 1880284290}
   m_Layer: 0
   m_Name: Level Settings
   m_TagString: levelSettings
@@ -261,27 +270,52 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1880284290
+--- !u!148 &1880284290
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14800000, guid: 64da3590bb8efa642a057889a1905172,
+    type: 2}
+  m_PrefabInternal: {fileID: 972485437}
+  m_GameObject: {fileID: 1880284289}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
+--- !u!4 &1880284291
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+  m_PrefabInternal: {fileID: 972485437}
+  m_GameObject: {fileID: 1880284289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+--- !u!114 &1880284292
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172,
+  m_PrefabParentObject: {fileID: 11400002, guid: 64da3590bb8efa642a057889a1905172,
     type: 2}
-  m_PrefabInternal: {fileID: 611647405}
+  m_PrefabInternal: {fileID: 972485437}
   m_GameObject: {fileID: 1880284289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b5c1733cbe6a24abd18a5a8c332108, type: 3}
+  m_Script: {fileID: 11500000, guid: f57e522924807284c81a072edeb0fef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
-  numberOfLargeSpawns: 1
+  numberOfLargeSpawns: 4
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 10
+  approxBlocksPerLargeStack: 150
   approxBlocksPerSmallStack: 0
-  levelWidth: 20
-  levelHeight: 20
-  levelDepth: 20
+  levelWidth: 35
+  levelHeight: 35
+  levelDepth: 35
   checkRadius: 0
   xScaling: 1
   yScaling: 1
@@ -292,18 +326,7 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
---- !u!4 &1880284291
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
-  m_PrefabInternal: {fileID: 611647405}
-  m_GameObject: {fileID: 1880284289}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  smoothen: 1
 --- !u!1001 &2138819632
 Prefab:
   m_ObjectHideFlags: 0

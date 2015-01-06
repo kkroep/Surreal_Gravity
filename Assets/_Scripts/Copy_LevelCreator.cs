@@ -23,10 +23,13 @@ public class Copy_LevelCreator : MonoBehaviour {
 	public bool negx;
 	public bool plusz;
 	public bool negz;
+	public bool smoothen;
 
 	private int[,,] grid;
 	private int[] targetPosition;
 	private int seedint;
+	private int ratio = 20;
+
 	
 	// Use this for initialization
 	void Start () 
@@ -51,6 +54,12 @@ public class Copy_LevelCreator : MonoBehaviour {
 			{
 				createMainSpawn(approxBlocksPerSmallStack);			
 			}
+
+			if(smoothen){
+				smoothLevel();
+				smoothLevel();
+				smoothLevel();
+			}
 			
 			//loop through the grid matrix, drawing a building block every time a 1 is encountered
 			//draw(levelWidth, levelHeight, levelDepth, grid);
@@ -63,6 +72,104 @@ public class Copy_LevelCreator : MonoBehaviour {
 			}
 			*/
 		}
+	}
+
+	void smoothLevel(){
+		int[,,] gridCopy = new int[levelWidth,levelHeight,levelDepth];
+		int removedCounter = 0;
+		for(int width=1;width<levelWidth-1;width++)
+		{
+			for (int height=1;height<levelHeight-1;height++)
+			{
+				for (int depth=1;depth<levelDepth-1;depth++)
+				{
+
+					int counter = 0;
+					if(grid[width,height,depth]==1){
+						gridCopy[width,height,depth]=1;
+						if(grid[width+1,height,depth]==1)
+							counter++;
+						if(grid[width-1,height,depth]==1)
+							counter++;
+						if(grid[width,height+1,depth]==1)
+							counter++;
+						if(grid[width,height-1,depth]==1)
+							counter++;
+						if(grid[width,height,depth+1]==1)
+							counter++;
+						if(grid[width,height,depth-1]==1)
+							counter++;
+
+						if(counter<=1){
+							removedCounter++;
+							gridCopy[width,height,depth]=0;
+						}
+
+					}
+				
+				}
+			}
+		}
+
+		for(int width=1;width<levelWidth-1;width++)
+		{
+			for (int height=1;height<levelHeight-1;height++)
+			{
+				for (int depth=1;depth<levelDepth-1;depth++)
+				{
+					int counter = 0;
+					if(grid[width,height,depth]==0){
+						if(grid[width+1,height,depth]==1)
+							counter += ratio;
+						if(grid[width-1,height,depth]==1)
+							counter += ratio;
+						if(grid[width,height+1,depth]==1)
+							counter += ratio;
+						if(grid[width,height-1,depth]==1)
+							counter += ratio;
+						if(grid[width,height,depth+1]==1)
+							counter += ratio;
+						if(grid[width,height,depth-1]==1)
+							counter += ratio;
+						if(grid[width+1,height+1,depth]==1)
+							counter++;
+						if(grid[width+1,height-1,depth]==1)
+							counter++;
+						if(grid[width-1,height+1,depth]==1)
+							counter++;
+						if(grid[width-1,height-1,depth]==1)
+							counter++;
+						if(grid[width+1,height,depth+1]==1)
+							counter++;
+						if(grid[width+1,height,depth-1]==1)
+							counter++;
+						if(grid[width-1,height,depth+1]==1)
+							counter++;
+						if(grid[width-1,height,depth-1]==1)
+							counter++;
+						if(grid[width,height+1,depth+1]==1)
+							counter++;
+						if(grid[width,height+1,depth-1]==1)
+							counter++;
+						if(grid[width,height-1,depth+1]==1)
+							counter++;
+						if(grid[width,height-1,depth-1]==1)
+							counter++;
+						
+						if(counter>=60 /*&& removedCounter>0*/){
+							removedCounter--;
+							gridCopy[width,height,depth]=1;
+						}
+						
+					}
+					
+				}
+			}
+		}
+		grid = gridCopy;
+
+
+
 	}
 	/*
 
