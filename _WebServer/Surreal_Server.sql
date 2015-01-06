@@ -1,17 +1,14 @@
---Database for the game SURREAL GRAVITY
---By: Kees Kroep
-
-if exists(select * from sys.databases where name = 'SURREAL')
-	DROP DATABASE SURREAL;
-
+/*  Database for the game SURREAL GRAVITY
+ *  By: Kees Kroep
+ */
 	
 CREATE DATABASE SURREAL;
 
-USE SURREAL
+USE SURREAL;
 
 CREATE TABLE Players(
-  Name VARCHAR(30) NOT NULL,
-  Password VARCHAR(30) NOT NULL,
+  Naam VARCHAR(30) NOT NULL,
+  Paswoord VARCHAR(30) NOT NULL,
   Gespeeld INT UNSIGNED,
   Gewonnen INT UNSIGNED,
   Wanneer Date,
