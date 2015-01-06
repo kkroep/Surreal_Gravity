@@ -54,8 +54,7 @@ You can exit the game at any time, while playing the game, by pressing the escap
 
 ***disclaimer***
 If 2 players are logged in to the same account (or same username at least) there will most likely be errors. Please, do avoid this.
-There can be some bugs when playing with more than 2 players with regard to score.
-
+Only 2 players can play on 1 server. So if 2 players are connected (including the server) all other connections will be rejected!
 
 
 

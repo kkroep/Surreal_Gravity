@@ -28,6 +28,7 @@ public class Referee_script : MonoBehaviour {
 
 	///Initialization
 	void Start () {
+
 		playerCount = BasicFunctions.amountPlayers;
 		//players = new playerController[playerCount];
 		//scores = new int[playerCount];
@@ -53,6 +54,8 @@ public class Referee_script : MonoBehaviour {
 				Debug.Log("has found all players");
 				for (int i=0; i<playerCount; i++) {
 					for (int j=0; j<playerCount; j++) {
+						Debug.Log("i: " + i + ", j: " + j);
+						Debug.Log("Numbers: " + BasicFunctions.accountNumbers[i] + ", " + BasicFunctions.accountNumbers[j]);
 						if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
 							//players[i]=tmp[j].GetComponent<playerController>();
 							players.Add (tmp[j].GetComponent<playerController>());
@@ -73,7 +76,6 @@ public class Referee_script : MonoBehaviour {
 
 	public void frag(int shooter, int target){
 		//check if a player actually dies
-		//Debug.Log (shooter.ToString() + " hit " + target.ToString());
 		if (lives [target-1] <= 1) {
 
 			//respawn player
@@ -137,7 +139,8 @@ public class Referee_script : MonoBehaviour {
 		networkView.RPC("UpdateScores", RPCMode.All, enc_score);
 		networkView.RPC("showLives", RPCMode.All, enc_lives);
 	}
-
+	/* Called when a player is killed
+	 */
 	[RPC]
 	public void KillPlayer(int target){
 		players[target-1].isAlive = false;
@@ -145,8 +148,8 @@ public class Referee_script : MonoBehaviour {
 		players [target - 1].gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		players [target - 1].gameObject.GetComponent<SphereCollider> ().enabled = false;
 	}
-
-
+	/* Called when someone scores a point
+	 */
 	[RPC]
 	public void UpdateScores(string encodedScore_update){
 		if (!spawnScript)
@@ -160,7 +163,8 @@ public class Referee_script : MonoBehaviour {
 		}
 		spawnScript.showScores();
 	}
-
+	/* Called when someone loses a live
+	 */
 	[RPC]
 	public void showLives (string encodedLives_update){
 		if (!spawnScript)
@@ -174,7 +178,8 @@ public class Referee_script : MonoBehaviour {
 		}
 		spawnScript.showLives();
 	}
-
+	/* When game is over, make all the players invisible and prevent them from moving
+	 */
 	[RPC]
 	public void finishGame (int Winner)
 	{
@@ -189,7 +194,8 @@ public class Referee_script : MonoBehaviour {
 			}
 		}
 	}
-
+	/* Show text when the game is over
+	 */
 	[RPC]
 	public void setEndGameText ()
 	{

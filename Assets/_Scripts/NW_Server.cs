@@ -31,13 +31,14 @@ public class NW_Server : MonoBehaviour {
 	private float refreshT = 2f;
 	private int serverPort;
 	private int index;
-	private int maxPlayers = 3; //maxPlayers = # of clients
+	private int maxPlayers = 3;//(for now only 1) 3 //maxPlayers = # of clients
 
 	private HostData[] hostD;
 
 	void Start ()
 	{
 		showServers = false;
+		Screen.lockCursor = false;
 	}
 
 	public void startServer ()
@@ -83,7 +84,7 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isServer)
 		{
-			Network.maxConnections = BasicFunctions.amountPlayers - 1;
+			Network.maxConnections = BasicFunctions.amountPlayers - 1; //Players can't connect midgame
 			networkView.RPC("beginGame", RPCMode.AllBuffered);
 		}
 	}
