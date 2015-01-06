@@ -197,6 +197,7 @@ public class Pathfinder : MonoBehaviour{
 		if (testing == null)
 			return;
 		if (testing == targetNode){
+			Debug.Log ("found target");
 			targetNode.parentNode = currentNode;
 			foundTarget = true;
 			findPath = false;
@@ -252,7 +253,6 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	public void setTargetNode(Vector3 position){
-		Debug.Log (position.x + "," + position.y + "," + position.z);
 		targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
 
 	}

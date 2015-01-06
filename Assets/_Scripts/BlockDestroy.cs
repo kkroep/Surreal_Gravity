@@ -8,7 +8,7 @@ public class BlockDestroy : MonoBehaviour {
 	private GameObject robot;
 	private bool quitting = false;
 
-	
+
 	void Kill(){
 		canBeSelected = false;
 		Network.Destroy (this.gameObject);
@@ -30,6 +30,7 @@ public class BlockDestroy : MonoBehaviour {
 	void OnDestroy(){
 		if(!quitting && Network.isServer && !playerController.dontDestroy){
 			robot.SendMessage ("setNeedsSelection", true);
+			Debug.Log("setNeedsSelection");
 			Pathfinder pathfinder = robot.GetComponent<Pathfinder>();
 			pathfinder.foundTarget = false;
 			RobotMovement robotmovement = robot.GetComponent<RobotMovement>();

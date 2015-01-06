@@ -12,6 +12,7 @@ public class MainRobotSettings : MonoBehaviour {
 
 
 	void Start(){
+		playerController.dontDestroy = false;
 		if(Network.isServer && !BasicFunctions.playOffline){
 			for(int i=0;i<numberRobots;i++){
 				Network.Instantiate (robot, new Vector3(10,10,10), Quaternion.identity,0);

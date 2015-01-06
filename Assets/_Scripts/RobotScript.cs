@@ -107,6 +107,7 @@ public class RobotScript : MonoBehaviour {
 
 	void setNeedsSelection(bool set){
 		needsSelection = set;
+		Debug.Log ("succesfully sent");
 	}
 	
 	void OnApplicationQuit() {
@@ -114,7 +115,7 @@ public class RobotScript : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		if(!quitting && !playerController.dontDestroy){
+		if(!quitting && !playerController.dontDestroy && Network.isServer){
 			BlockDestroy selectboolget = target.GetComponent<BlockDestroy>();
 			selectboolget.canBeSelected = true;
 		}

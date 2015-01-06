@@ -45,7 +45,7 @@ public class RobotMovement : MonoBehaviour {
 		timer = 0;
 	}
 
-	void Update() {
+	void FixedUpdate() {
 		if(Network.isServer){
 			if(pathfind.tracedBack == true){
 				path = pathfind.path;
@@ -107,7 +107,7 @@ public class RobotMovement : MonoBehaviour {
 				rotatingcompleted = true;
 			}
 
-			if (fracJourney>0.98 && target<(vectorPath.Count-2)){
+			if (fracJourney>0.97 && target<(vectorPath.Count-2)){
 				selectNext ();
 				rotatingcompleted = false;
 			}
@@ -154,6 +154,7 @@ public class RobotMovement : MonoBehaviour {
 			if(Quaternion.Angle (this.transform.rotation,tolerp)<5 && Network.isServer){
 				timer += Time.deltaTime;
 				if(timer>4){
+					Debug.Log (robotscript.target.transform.position.x + "," + robotscript.target.transform.position.y + "," + robotscript.target.transform.position.z);
 					robotscript.target.SendMessage("Kill");	
 					timer = 0;
 					destroyTarget = false;
@@ -186,7 +187,6 @@ public class RobotMovement : MonoBehaviour {
 		destroyTarget = false;
 
 		vectorPath = routeParser (inpath);
-		Debug.Log (vectorPath.Count);
 		start = vectorPath[0];
 		end = vectorPath[1];
 		target = 1;
