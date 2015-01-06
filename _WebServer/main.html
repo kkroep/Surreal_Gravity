@@ -1,0 +1,74 @@
+<!doctype html>
+<head>
+<link rel="stylesheet" type="text/css" href="maincss.css">
+<title>PeSe ToDo</title>
+<script src="http://code.jquery.com/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="client-app.js" type="text/javascript"></script>
+</head>
+
+<body>
+<nav>
+  <ul>
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="todos.html" >ToDos</a></li>
+    <li><a href="#" >Over ons</a></li>
+    <li id="aanmelden"><a href="#" >Aanmelden/Afmelden</a></li>
+  </ul>
+</nav>
+<section id="nieuweTodo">
+  <h2>Nieuwe todo maken</h2>
+  <table>
+    <tr>
+      <th>Wat</th>
+      <th>Wanneer</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="wat" name="wat" ></td>
+      <td><input type="text" id="wanneer" name="wanneer" ></td>
+    </tr>
+    <tr>
+      <th>Commentaar</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="commentaar" name="commentaar" ></td>
+    </tr>
+  </table>
+  <input id="submitbutton" type="submit" value="Voeg nieuwe todo toe" >
+</section>
+<section id="todos">
+  <input id="clearbutton" type="submit" value="Clear done">
+  <table id="todo-list">
+    <tr>
+      <th></th>
+      <th>Wat</th>
+      <th>Wanneer</th>
+      <th>Edit</th>
+    </tr>
+  </table>
+</section>
+<aside id="editbox">
+  <h2> Wijzig </h2>
+  <table>
+    <tr>
+      <th>Wat</th>
+      <th>Wanneer</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="wat" name="wat" ></td>
+      <td><input type="text" id="wanneer" name="wanneer" ></td>
+    </tr>
+    <tr>
+      <th>Commentaar</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="commentaar" ></td>
+    </tr>
+  </table>
+  <input id="editbutton" type="submit" value="wijzig" >
+</aside>
+
+<aside id="Commentaarbox">
+  uien, wortel, gehakt
+</aside>
+</body>
+</html>
