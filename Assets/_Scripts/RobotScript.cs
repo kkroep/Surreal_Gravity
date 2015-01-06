@@ -107,7 +107,6 @@ public class RobotScript : MonoBehaviour {
 
 	void setNeedsSelection(bool set){
 		needsSelection = set;
-		Debug.Log ("succesfully sent");
 	}
 	
 	void OnApplicationQuit() {

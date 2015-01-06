@@ -101,7 +101,7 @@ public class Pathfinder : MonoBehaviour{
 
 				int j = 0;
 
-				while(j<(3/Time.deltaTime)){
+				while(j<(1.7/Time.deltaTime)){
 
 
 					if (foundTarget == false){
@@ -197,7 +197,6 @@ public class Pathfinder : MonoBehaviour{
 		if (testing == null)
 			return;
 		if (testing == targetNode){
-			Debug.Log ("found target");
 			targetNode.parentNode = currentNode;
 			foundTarget = true;
 			findPath = false;

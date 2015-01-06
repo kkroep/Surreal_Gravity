@@ -154,7 +154,6 @@ public class RobotMovement : MonoBehaviour {
 			if(Quaternion.Angle (this.transform.rotation,tolerp)<5 && Network.isServer){
 				timer += Time.deltaTime;
 				if(timer>4){
-					Debug.Log (robotscript.target.transform.position.x + "," + robotscript.target.transform.position.y + "," + robotscript.target.transform.position.z);
 					robotscript.target.SendMessage("Kill");	
 					timer = 0;
 					destroyTarget = false;
