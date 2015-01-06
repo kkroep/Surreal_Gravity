@@ -114,7 +114,7 @@ public class RobotScript : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		if(!quitting && !playerController.dontDestroy){
+		if(!quitting && !playerController.dontDestroy && Network.isServer){
 			BlockDestroy selectboolget = target.GetComponent<BlockDestroy>();
 			selectboolget.canBeSelected = true;
 		}

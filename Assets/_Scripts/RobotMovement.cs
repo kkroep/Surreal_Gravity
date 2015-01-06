@@ -45,7 +45,7 @@ public class RobotMovement : MonoBehaviour {
 		timer = 0;
 	}
 
-	void Update() {
+	void FixedUpdate() {
 		if(Network.isServer){
 			if(pathfind.tracedBack == true){
 				path = pathfind.path;
@@ -107,7 +107,7 @@ public class RobotMovement : MonoBehaviour {
 				rotatingcompleted = true;
 			}
 
-			if (fracJourney>0.98 && target<(vectorPath.Count-2)){
+			if (fracJourney>0.97 && target<(vectorPath.Count-2)){
 				selectNext ();
 				rotatingcompleted = false;
 			}
@@ -186,7 +186,6 @@ public class RobotMovement : MonoBehaviour {
 		destroyTarget = false;
 
 		vectorPath = routeParser (inpath);
-		Debug.Log (vectorPath.Count);
 		start = vectorPath[0];
 		end = vectorPath[1];
 		target = 1;

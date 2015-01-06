@@ -8,7 +8,7 @@ public class BlockDestroy : MonoBehaviour {
 	private GameObject robot;
 	private bool quitting = false;
 
-	
+
 	void Kill(){
 		canBeSelected = false;
 		Network.Destroy (this.gameObject);

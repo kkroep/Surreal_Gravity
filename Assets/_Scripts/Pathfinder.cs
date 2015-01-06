@@ -101,7 +101,7 @@ public class Pathfinder : MonoBehaviour{
 
 				int j = 0;
 
-				while(j<(3/Time.deltaTime)){
+				while(j<(1.7/Time.deltaTime)){
 
 
 					if (foundTarget == false){
@@ -252,7 +252,6 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	public void setTargetNode(Vector3 position){
-		Debug.Log (position.x + "," + position.y + "," + position.z);
 		targetNode = nodeGrid[Mathf.RoundToInt(position.x),Mathf.RoundToInt(position.y),Mathf.RoundToInt(position.z)];
 
 	}

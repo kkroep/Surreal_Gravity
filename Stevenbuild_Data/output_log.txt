@@ -12,12 +12,11 @@ Platform assembly: C:\Users\Steven\Documents\AE\Minor\Project\Surreal_Gravity\St
 Loading C:\Users\Steven\Documents\AE\Minor\Project\Surreal_Gravity\Stevenbuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Steven\Documents\AE\Minor\Project\Surreal_Gravity\Stevenbuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Steven\Documents\AE\Minor\Project\Surreal_Gravity\Stevenbuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.058 seconds
+- Completed reload, in  0.054 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Steven\Documents\AE\Minor\Project\Surreal_Gravity\Stevenbuild_Data\Managed\System.Core.dll (this message is harmless)
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
 Platform assembly: C:\Users\Steven\Documents\AE\Minor\Project\Surreal_Gravity\Stevenbuild_Data\Managed\System.dll (this message is harmless)
 Account: Steven; Steven
  
@@ -31,77 +30,14 @@ sendto failed with code -1 for char 9 and length 1464.
 sendto failed with code -1 for char 9 and length 1464.
 sendto failed with code -1 for char 9 and length 1464.
 sendto failed with code -1 for char 9 and length 1464.
-UnloadTime: 2.354514 ms
+WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
+UnloadTime: 2.266433 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 3562.
-Total: 1.752843 ms (FindLiveObjects: 0.124011 ms CreateObjectMapping: 0.025657 ms MarkObjects: 0.274108 ms  DeleteObjects: 0.864662 ms)
+Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 3555.
+Total: 1.870876 ms (FindLiveObjects: 0.108190 ms CreateObjectMapping: 0.023947 ms MarkObjects: 0.234768 ms  DeleteObjects: 0.807791 ms)
 
-11,11,3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-12,12,2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-13
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
+NUMMER!!: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -173,88 +109,21 @@ has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-13,11,3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Couldn't send RPC function 'showScoresRPC'
 
-4
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 2463)
 
-9,10,3
+Couldn't send RPC function 'showLivesRPC'
+
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 2463)
 
-6
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-8,9,1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-11
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-10,11,2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-9,10,2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-8,10,2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-13,12,2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-6
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-10,11,3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-6
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-8,10,1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-8
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at playerController.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-UnloadTime: 4.704753 ms
+UnloadTime: 6.721043 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 72 unused Assets to reduce memory usage. Loaded Objects now: 1061.
-Total: 4.498637 ms (FindLiveObjects: 0.054736 ms CreateObjectMapping: 0.022236 ms MarkObjects: 0.355358 ms  DeleteObjects: 3.429997 ms)
+Unloading 152 unused Assets to reduce memory usage. Loaded Objects now: 953.
+Total: 4.791154 ms (FindLiveObjects: 0.043618 ms CreateObjectMapping: 0.015394 ms MarkObjects: 0.428911 ms  DeleteObjects: 3.527511 ms)
 
 Server disconnected
  
@@ -268,17 +137,14 @@ sendto failed with code -1 for char 9 and length 1464.
 sendto failed with code -1 for char 9 and length 1464.
 sendto failed with code -1 for char 9 and length 1464.
 sendto failed with code -1 for char 9 and length 1464.
-UnloadTime: 0.809070 ms
+WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
+UnloadTime: 0.813350 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 3565.
-Total: 1.620279 ms (FindLiveObjects: 0.100064 ms CreateObjectMapping: 0.025657 ms MarkObjects: 0.219800 ms  DeleteObjects: 0.866800 ms)
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 3558.
+Total: 1.889692 ms (FindLiveObjects: 0.095788 ms CreateObjectMapping: 0.024802 ms MarkObjects: 0.244603 ms  DeleteObjects: 0.835586 ms)
 
-7,1,1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-5,3,2
+NUMMER!!: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -359,14 +225,6 @@ has not yet found all players
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 has found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-21
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-22
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
