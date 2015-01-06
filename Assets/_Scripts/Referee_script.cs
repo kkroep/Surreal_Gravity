@@ -28,7 +28,6 @@ public class Referee_script : MonoBehaviour {
 
 	///Initialization
 	void Start () {
-
 		playerCount = BasicFunctions.amountPlayers;
 		//players = new playerController[playerCount];
 		//scores = new int[playerCount];
@@ -54,8 +53,6 @@ public class Referee_script : MonoBehaviour {
 				Debug.Log("has found all players");
 				for (int i=0; i<playerCount; i++) {
 					for (int j=0; j<playerCount; j++) {
-						Debug.Log("i: " + i + ", j: " + j);
-						Debug.Log("Numbers: " + BasicFunctions.accountNumbers[i] + ", " + BasicFunctions.accountNumbers[j]);
 						if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
 							//players[i]=tmp[j].GetComponent<playerController>();
 							players.Add (tmp[j].GetComponent<playerController>());
