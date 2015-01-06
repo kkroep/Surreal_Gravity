@@ -5,11 +5,11 @@ var url = require("url");
 var mysql = require("mysql");
 var app = express();
 
-var port = 3000;
+var port = 8082;
 
 http.createServer(app).listen(port);
 
-/app.use(express.static(__dirname + "/static"));
+app.use(express.static(__dirname + "/Static"));
 app.use(bodyParser.json({strict: true}));
 
 var connection = mysql.createConnection({
