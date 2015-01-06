@@ -45,7 +45,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			if (Network.isServer)
 			{
-				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject;
+				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject; //Spawn referee
 			}
 		}
 		else
@@ -72,7 +72,7 @@ public class NW_Spawning : MonoBehaviour {
 
 	public void showScores ()
 	{
-		if (!refScript)
+		if (!refScript) //if script not yet assigned, assign it
 		{
 			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 		}
@@ -87,7 +87,8 @@ public class NW_Spawning : MonoBehaviour {
 		}
 		networkView.RPC("showLivesRPC", RPCMode.All);
 	}
-
+	/* Leave game gracefully as client
+	 */ 
 	public void closeClientInGame ()
 	{
 		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
@@ -100,7 +101,8 @@ public class NW_Spawning : MonoBehaviour {
 		playerController.dontDestroy = true;
 		Application.LoadLevel("Menu");
 	}
-
+	/* Close the server gracefully
+	 */
 	public void closeServerInGame ()
 	{
 		if (BasicFunctions.amountPlayers > 1)
@@ -116,13 +118,15 @@ public class NW_Spawning : MonoBehaviour {
 			Application.LoadLevel("Menu");
 		}
 	}
-
+	/* Fill spawnpositionvector
+	 */
 	[RPC]
 	public void addSpawnPoints (Vector3 spawnPos)
 	{
 		spawnLocations.Add (spawnPos);
 	}
-
+	/* Assign number to a player
+	 */
 	[RPC]
 	public void setNumbers (NetworkViewID player, string Uname, string Pword, int Number)
 	{
@@ -202,7 +206,8 @@ public class NW_Spawning : MonoBehaviour {
 			BasicFunctions.accountNumbers.Remove(Number);
 		}
 	}
-
+	/* Set the amount of players currently connected
+	 */
 	[RPC]
 	void setAmountPlayers (bool up)
 	{
