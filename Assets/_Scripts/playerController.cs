@@ -272,7 +272,7 @@ public class playerController : MonoBehaviour
 								
 								rigidbody.velocity = New_Velocity;				
 
-				if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump && (JumpTime+1.5f)<Time.time) 
+				if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump && (JumpTime+0.35f)<Time.time) 
 								{
 									rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
 									AudioSource.PlayClipAtPoint(jump_sound, transform.position);
