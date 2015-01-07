@@ -72,8 +72,9 @@ public class Referee_script : MonoBehaviour {
 	}
 
 	public void frag(int shooter, int target){
+		Debug.Log("Shooter: " + shooter + ", Target: " + target); 
 		//check if a player actually dies
-		if (lives [target-1] <= 1) {
+		/*if (lives [target-1] <= 1) {
 
 			//respawn player
 			networkView.RPC("KillPlayer", RPCMode.All, target);
@@ -108,8 +109,8 @@ public class Referee_script : MonoBehaviour {
 			{
 				encodedLives += " " + lives[i];
 			}
-			networkView.RPC("showLives", RPCMode.All, encodedLives);
-		}
+			*/networkView.RPC("showLives", RPCMode.All, encodedLives);
+		//}
 	}
 
 	public void fragged(int target)
