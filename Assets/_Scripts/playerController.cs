@@ -316,16 +316,14 @@ public class playerController : MonoBehaviour
 
 	void OnCollisionStay (Collision collisionInfo)
 	{
-		if (networkView.isMine || BasicFunctions.playOffline)
+		if (networkView.isMine && !BasicFunctions.playOffline)
 		{
-
-			
-		}
-		if (collisionInfo.gameObject.tag == "DeathBoundary") {
-			if(!referee){
-				referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+			if (collisionInfo.gameObject.tag == "DeathBoundary") {
+				if(!referee){
+					referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+				}
+				referee.fragged (BasicFunctions.activeAccount.Number);
 			}
-			referee.fragged (BasicFunctions.activeAccount.Number);
 		}
 	}
 }
