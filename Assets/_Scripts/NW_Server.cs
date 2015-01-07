@@ -15,7 +15,14 @@ public class NW_Server : MonoBehaviour {
 	public TextMesh p2c;
 	public TextMesh p3c;
 	public TextMesh p4c;
-	public Text yolo; 
+	/*public Text p1;
+	public Text p2; //DIT UITCOMMENTEN WANT DIT IS VOOR HET NIEUWE MENU
+	public Text p3;
+	public Text p4;
+	public Text p1c;
+	public Text p2c;
+	public Text p3c;
+	public Text p4c;*/
 
 	private string gameTypeName = "Surreal_Gravity: The Game";
 	private string gameName;
