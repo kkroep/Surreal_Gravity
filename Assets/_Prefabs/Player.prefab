@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpSpeed: 10
+  jumpSpeed: 15
   Main_Camera: {fileID: 11400006}
   Gravity_Shift_Time: 15
   axes: 1

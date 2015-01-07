@@ -80,6 +80,7 @@ public class playerController : MonoBehaviour
 	public float time2death = 0f;
 
 	public float Sphere_collider_radius = 0.6f;
+	private bool Can_Jump = false;
 
 	#endregion
 
@@ -220,10 +221,11 @@ public class playerController : MonoBehaviour
 						if (Gravity_Shift_Counter > 1f) {
 								Gravity_Shift_Counter--;
 								transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
+								rigidbody.velocity = new Vector3(0f,0f,0f);
 						} else if (Gravity_Shift_Counter == 1f) {
 								Gravity_Shift_Counter = 0f;
 								transform.rotation = after_shift;
-				rigidbody.velocity = new Vector3(0f,0f,0f);
+								rigidbody.velocity = new Vector3(0f,0f,0f);
 						} else {
 		
 								#region [look around]
@@ -253,7 +255,9 @@ public class playerController : MonoBehaviour
 
 								for (int i=0; i<hitColliders.Length; i++) {
 										if (hitColliders [i].tag == "level")
-												speed_multiplier = 1f;
+											{
+												Can_Jump = true;
+											}
 								}
 								
 								//HIER WORDT DE VELOCITY BEREKEND
@@ -266,11 +270,13 @@ public class playerController : MonoBehaviour
 								
 								rigidbody.velocity = New_Velocity;				
 
+								if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump) 
+								{
+									rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
+									AudioSource.PlayClipAtPoint(jump_sound, transform.position);
+									Can_Jump = false;
+								}
 
-								//rigidbody.velocity = transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
-								//rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
-								//Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
-								//rigidbody.AddForce (Current_Global_Force);
 						} else {
 								//DIT STUK IS DE SPELER ALS IE DOOD IS
 								rigidbody.velocity = new Vector3 (0f, 0f, 0f);
@@ -309,11 +315,7 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			if (Input.GetKeyDown ("space") && isAlive && !endGame) 
-			{
-				rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
-				AudioSource.PlayClipAtPoint(jump_sound, transform.position);
-			}
+
 			
 		}
 		if (collisionInfo.gameObject.tag == "DeathBoundary") {
