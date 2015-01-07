@@ -1182,7 +1182,7 @@ MonoBehaviour:
   VerticesPerUnit: 150
   Gibrange: .00999999978
   time2death: 1.5
-  Sphere_collider_radius: 1
+  Sphere_collider_radius: .600000024
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1263,7 +1263,7 @@ SphereCollider:
   m_GameObject: {fileID: 100058}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: .400000006
   m_Center: {x: 0, y: -.649999976, z: .100000001}
@@ -1275,7 +1275,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 100058}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Height: 2
   m_Direction: 1
