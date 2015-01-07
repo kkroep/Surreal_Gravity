@@ -81,6 +81,7 @@ public class playerController : MonoBehaviour
 
 	public float Sphere_collider_radius = 0.6f;
 	private bool Can_Jump = false;
+	private float JumpTime;
 
 	#endregion
 
@@ -99,6 +100,7 @@ public class playerController : MonoBehaviour
 			Current_Global_Force = Gravity_Direction * Gravity_Strength;
 			//anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+			JumpTime = Time.time;
 		}
 	}
 
@@ -270,11 +272,12 @@ public class playerController : MonoBehaviour
 								
 								rigidbody.velocity = New_Velocity;				
 
-								if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump) 
+				if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump && (JumpTime+1.5f)<Time.time) 
 								{
 									rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
 									AudioSource.PlayClipAtPoint(jump_sound, transform.position);
 									Can_Jump = false;
+									JumpTime = Time.time;
 								}
 
 						} else {
