@@ -167,18 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  jumpSpeed: 1200
+  speed: 3
+  jumpSpeed: 15
   Main_Camera: {fileID: 11400006}
-  Gravity_Shift_Time: 12
+  Gravity_Shift_Time: 15
   axes: 1
-  sensitivityX: 10
-  sensitivityY: 10
+  sensitivityX: 6
+  sensitivityY: 6
   minimumX: -360
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Gravity_Strength: 200
+  Gravity_Strength: 5
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}

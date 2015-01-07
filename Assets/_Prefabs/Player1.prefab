@@ -427,7 +427,7 @@ GameObject:
   - 137: {fileID: 13700000}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,7 +442,7 @@ GameObject:
   - 4: {fileID: 400056}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Armature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1155,10 +1155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36297de40ed1b2c41870d5000c2ce7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  jumpSpeed: 1200
+  speed: 3
+  jumpSpeed: 15
   Main_Camera: {fileID: 11400002}
-  Gravity_Shift_Time: 12
+  Gravity_Shift_Time: 15
   axes: 1
   sensitivityX: 10
   sensitivityY: 10
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Gravity_Strength: 200
+  Gravity_Strength: 5
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
   Kill_Bullet: {fileID: 5400000, guid: 2bb584468b5b94b4d91034119ef612ad, type: 2}
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   endGame: 0
   VerticesPerUnit: 150
   Gibrange: .00999999978
-  time2death: 0
+  time2death: 1.5
   Sphere_collider_radius: 1
 --- !u!114 &11400002
 MonoBehaviour:

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -10,7 +10,7 @@ public class playerController : MonoBehaviour
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 Current_Global_Force;
 	public Camera_Control Main_Camera;
-	private float speed_multiplier = 3f;
+	private float speed_multiplier = 1f;
 
 	private Vector3 TruePosition;
 
@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour
 
 	public float Bullet_Speed = 15f;
 
-	#endregion
+
 
 	public GameObject playerPrefab;
 	public GameObject LightningLine;
@@ -80,7 +80,11 @@ public class playerController : MonoBehaviour
 	public float time2death = 0f;
 
 	public float Sphere_collider_radius = 0.6f;
-	
+	private bool Can_Jump = false;
+	private float JumpTime;
+
+	#endregion
+
 	void Start ()
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
@@ -96,6 +100,7 @@ public class playerController : MonoBehaviour
 			Current_Global_Force = Gravity_Direction * Gravity_Strength;
 			//anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+			JumpTime = Time.time;
 		}
 	}
 
@@ -119,8 +124,6 @@ public class playerController : MonoBehaviour
 			Gravity_Shift_Counter = Gravity_Shift_Time;
 		}
 	}
-
-
 
 	public void Fire_Grav_Bullet (Vector3 pos1, Vector3 pos2)
 	{
@@ -220,9 +223,11 @@ public class playerController : MonoBehaviour
 						if (Gravity_Shift_Counter > 1f) {
 								Gravity_Shift_Counter--;
 								transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
+								rigidbody.velocity = new Vector3(0f,0f,0f);
 						} else if (Gravity_Shift_Counter == 1f) {
 								Gravity_Shift_Counter = 0f;
 								transform.rotation = after_shift;
+								rigidbody.velocity = new Vector3(0f,0f,0f);
 						} else {
 		
 								#region [look around]
@@ -245,20 +250,38 @@ public class playerController : MonoBehaviour
 						#endregion
 	
 						transform.TransformDirection (Vector3.forward);
+						//DIT STUK BEWEEGT DE SPELER ALLEEN ALS IE NIET DOOD IS
 						if (isAlive && !endGame) {
 								speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime * 2f);
 								Collider[] hitColliders = Physics.OverlapSphere (transform.position, Sphere_collider_radius);
 
 								for (int i=0; i<hitColliders.Length; i++) {
 										if (hitColliders [i].tag == "level")
-												speed_multiplier = 3f;
+											{
+												Can_Jump = true;
+											}
+								}
+								
+								//HIER WORDT DE VELOCITY BEREKEND
+								Vector3 New_Velocity = new Vector3(0f,0f,0f); 
+								//New_Velocity = Vector3.Scale(rigidbody.velocity, Gravity_Direction);
+								New_Velocity = Vector3.Lerp (Vector3.Scale(rigidbody.velocity, Vector3.Scale(Gravity_Direction,Gravity_Direction)), Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 3f); 
+								New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
+								New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
+								
+								
+								rigidbody.velocity = New_Velocity;				
+
+				if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump && (JumpTime+1.5f)<Time.time) 
+								{
+									rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
+									AudioSource.PlayClipAtPoint(jump_sound, transform.position);
+									Can_Jump = false;
+									JumpTime = Time.time;
 								}
 
-								rigidbody.velocity = transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
-								rigidbody.velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
-								Current_Global_Force = Vector3.Lerp (Current_Global_Force, Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 4f); 
-								rigidbody.AddForce (Current_Global_Force);
 						} else {
+								//DIT STUK IS DE SPELER ALS IE DOOD IS
 								rigidbody.velocity = new Vector3 (0f, 0f, 0f);
 								if (!isAlive) {
 										time2death -= Time.fixedDeltaTime;
@@ -295,11 +318,7 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			if (Input.GetKeyDown ("space") && isAlive && !endGame) 
-			{
-				Current_Global_Force = (Gravity_Direction * jumpSpeed * -1f);
-				AudioSource.PlayClipAtPoint(jump_sound, transform.position);
-			}
+
 			
 		}
 		if (collisionInfo.gameObject.tag == "DeathBoundary") {

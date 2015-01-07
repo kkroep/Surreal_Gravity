@@ -34599,6 +34599,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -36934,13 +36935,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
-  numberOfLargeSpawns: 6
+  numberOfLargeSpawns: 7
   numberOfSmallSpawns: 0
   approxBlocksPerLargeStack: 150
   approxBlocksPerSmallStack: 0
-  levelWidth: 20
-  levelHeight: 20
-  levelDepth: 20
+  levelWidth: 35
+  levelHeight: 35
+  levelDepth: 35
   checkRadius: 0
   xScaling: 1
   yScaling: 1
@@ -36951,7 +36952,7 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
-  smoothen: 1
+  smoothen: 10
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0
@@ -46393,7 +46394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e746f7ea0d8354342bb01bf3edc8ca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 100000, guid: 019d6ee0591c1f2459907820a9840aa1, type: 2}
+  playerPrefab: {fileID: 100058, guid: 213a0b4ed60c82e4cbe7dd66069b0f0b, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   levelCreator: {fileID: 1444913547}
   debugScore: {fileID: 1073285364}
