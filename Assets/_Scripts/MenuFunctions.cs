@@ -10,6 +10,7 @@ public class MenuFunctions : MonoBehaviour {
 	public GameObject Client_Menu;
 	public GameObject Account_Menu;
 
+	public AccountManagement AccManager;
 	public NW_Server serverStuff;
 
 	public AudioClip menu_click_sound;
@@ -35,6 +36,7 @@ public class MenuFunctions : MonoBehaviour {
 	public void goToServer ()
 	{
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		serverStuff.startServer();
 		Multiplayer_Menu.SetActive(false);
 		Server_Menu.SetActive(true);
 	}
@@ -57,6 +59,12 @@ public class MenuFunctions : MonoBehaviour {
 	{
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		serverStuff.refreshHost();
+	}
+
+	public void StartGame ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		serverStuff.startGame();
 	}
 
 	public void Disconnect ()
