@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingBlock: {fileID: 100000, guid: 6c28ae49982727e44b9d6580dab83474, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
-  numberOfLargeSpawns: 4
+  numberOfLargeSpawns: 7
   numberOfSmallSpawns: 0
   approxBlocksPerLargeStack: 150
   approxBlocksPerSmallStack: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
-  smoothen: 1
+  smoothen: 10
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

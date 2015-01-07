@@ -23,7 +23,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	public bool negx;
 	public bool plusz;
 	public bool negz;
-	public bool smoothen;
+	public int smoothen;
 
 	private int[,,] grid;
 	private int[] targetPosition;
@@ -55,9 +55,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 				createMainSpawn(approxBlocksPerSmallStack);			
 			}
 
-			if(smoothen){
-				smoothLevel();
-				smoothLevel();
+			for(int i=0;i<smoothen;i++){
 				smoothLevel();
 			}
 			

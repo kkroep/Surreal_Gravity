@@ -18,12 +18,10 @@ public class CharacterView : MonoBehaviour {
 
 		if(networkView.isMine || BasicFunctions.playOffline)
 		{
-			armature = GameObject.Find ("Armature");
-			circle = GameObject.Find ("Circle");
-			Destroy(armature);
-			Destroy(circle);
+
+			Destroy(transform.Find("Armature").gameObject);
+			Destroy (transform.Find ("Circle").gameObject);
 		}
-		
 	}
 
 //	void Update () {
