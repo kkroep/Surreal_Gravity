@@ -4,7 +4,8 @@ using System.Collections;
 public class BlockDestroy : MonoBehaviour {
 
 	public bool canBeSelected = true;
-
+	public ParticleSystem SmokeEffect;
+	
 	private GameObject robot;
 	private bool quitting = false;
 
@@ -12,7 +13,7 @@ public class BlockDestroy : MonoBehaviour {
 	void Kill(){
 		canBeSelected = false;
 		Network.Destroy (this.gameObject);
-
+		Instantiate (SmokeEffect, this.transform.position, this.transform.rotation);
 	}
 
 	void canSelect(bool can){
