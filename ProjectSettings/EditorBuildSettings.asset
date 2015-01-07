@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Main_Game.unity
   - enabled: 0
     path: Assets/_Scenes/Copy_Of_Main_Game.unity
+  - enabled: 0
+    path: Assets/_Scenes/Menu_New.unity
