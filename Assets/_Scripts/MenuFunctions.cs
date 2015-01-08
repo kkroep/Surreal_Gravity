@@ -9,6 +9,11 @@ public class MenuFunctions : MonoBehaviour {
 	public GameObject Server_Menu;
 	public GameObject Client_Menu;
 	public GameObject Account_Menu;
+	public GameObject Control_Menu;
+	public GameObject Settings_Menu;
+	public GameObject Credits_Menu;
+
+	public Text currentUname;
 
 	public AccountManagement AccManager;
 	public NW_Server serverStuff;
@@ -53,6 +58,29 @@ public class MenuFunctions : MonoBehaviour {
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 		Main_Menu.SetActive(false);
 		Account_Menu.SetActive(true);
+		if (BasicFunctions.activeAccount != null)
+			currentUname.text = BasicFunctions.activeAccount.Name;
+	}
+
+	public void goToSettings ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		Main_Menu.SetActive(false);
+		Settings_Menu.SetActive(true);
+	}
+
+	public void goToControls ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		Settings_Menu.SetActive(false);
+		Control_Menu.SetActive(true);
+	}
+
+	public void goToCredits ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		Settings_Menu.SetActive(false);
+		Credits_Menu.SetActive(true);
 	}
 
 	public void Refresh ()
@@ -86,9 +114,19 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void Back ()
 	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 		Account_Menu.SetActive(false);
 		Multiplayer_Menu.SetActive(false);
+		Settings_Menu.SetActive(false);
 		Main_Menu.SetActive(true);
+	}
+
+	public void BackSettings ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		Control_Menu.SetActive(false);
+		Credits_Menu.SetActive(false);
+		Settings_Menu.SetActive(true);
 	}
 
 	public void QuitGame ()
