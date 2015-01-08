@@ -50,8 +50,6 @@ public class playerController : MonoBehaviour
 
 	public float Bullet_Speed = 15f;
 
-
-
 	public GameObject playerPrefab;
 	public GameObject LightningLine;
 	public GameObject KillLine;

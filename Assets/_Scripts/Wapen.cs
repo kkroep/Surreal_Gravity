@@ -7,18 +7,30 @@ public class Wapen : MonoBehaviour {
 
 	void Start ()
 	{
-		referee = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
+		if (!BasicFunctions.playOffline)
+		{
+			referee = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
+		}
+		else
+		{
+			this.enabled = false;
+		}
 	}
 
 	void OnTriggerEnter (Collider hit)
 	{
-		if(hit.tag=="Player")
+		if (networkView.isMine)
 		{
-			if(!referee){
-				referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+			if(hit.tag=="Player")
+			{
+				if(!referee){
+					referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+				}
+				if (gameObject.transform.parent.GetComponent<playerController>().isAlive)
+				{
+					referee.frag(gameObject.transform.parent.gameObject.GetComponent<playerController>().playerNumber, hit.gameObject.GetComponent<playerController>().playerNumber);
+				}
 			}
-			//referee.frag(gameObject.GetComponent<playerController>().playerNumber, hit.gameObject.GetComponent<playerController>().playerNumber);
-			Debug.Log("YO");
 		}
 	}
 }
