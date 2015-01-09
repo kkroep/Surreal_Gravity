@@ -1232,8 +1232,8 @@ MonoBehaviour:
   Main_Camera: {fileID: 11400002}
   Gravity_Shift_Time: 15
   axes: 1
-  sensitivityX: 10
-  sensitivityY: 10
+  sensitivityX: 6
+  sensitivityY: 6
   minimumX: -360
   maximumX: 360
   minimumY: -90
