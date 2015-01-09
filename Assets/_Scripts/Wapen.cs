@@ -4,7 +4,7 @@ using System.Collections;
 public class Wapen : MonoBehaviour {
 
 	public Referee_script referee;
-
+	public bool KillLaser_On = fase;
 	void Start ()
 	{
 		if (!BasicFunctions.playOffline)
@@ -21,7 +21,7 @@ public class Wapen : MonoBehaviour {
 	{
 		if (networkView.isMine)
 		{
-			if(hit.tag=="Player")
+			if(!KillLaser_On && Input.GetMouseButtonDown(0) && hit.tag=="Player");// Input.GetKeyDown ("space"))
 			{
 				if(!referee){
 					referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
