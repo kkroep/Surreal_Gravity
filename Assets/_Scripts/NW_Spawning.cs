@@ -133,7 +133,19 @@ public class NW_Spawning : MonoBehaviour {
 		NetworkView playerN = NetworkView.Find(player);
 		playerN.GetComponent<playerController>().activeAccount = new Account(Uname, Pword);
 		playerN.GetComponent<playerController>().playerNumber = Number;
-	}
+		switch (Number)
+		{
+		case 1 : Debug.Log("Player1");
+			break;
+		case 2 : Debug.Log("Player2");
+			break;
+		case 3 : Debug.Log("Player3");
+			break;
+		case 4 : Debug.Log("Player4");
+			break;
+		default : Debug.Log("DIKKE TERROR ERROR");
+			break;
+		}
 
 	[RPC]
 	public void quitGame ()
