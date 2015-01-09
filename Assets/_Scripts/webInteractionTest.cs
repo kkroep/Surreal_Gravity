@@ -5,7 +5,7 @@ public class webInteractionTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName=Steven&playerPassword=Steven";
+		string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName=Steven&playerPassword=Steven2";
 		WWW www = new WWW(url);
 		StartCoroutine(WaitForRequest(www));
 
@@ -18,8 +18,13 @@ public class webInteractionTest : MonoBehaviour {
 		// check for errors
 		if (www.error == null)
 		{
-			Debug.Log("WWW Ok!: " + www.data);
-			Debug.Log ("Henk");
+			if(www.data.Equals("Succesfully Authorized")){
+				Debug.Log ("Succes");
+			}
+			else{
+				Debug.Log ("Unauthorized");
+			}
+			//Debug.Log("WWW Ok!: " + www.data);
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
 		}    
