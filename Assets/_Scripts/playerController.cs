@@ -251,7 +251,7 @@ public class playerController : MonoBehaviour
 						//DIT STUK BEWEEGT DE SPELER ALLEEN ALS IE NIET DOOD IS
 						if (isAlive && !endGame) {
 								speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime * 2f);
-								Collider[] hitColliders = Physics.OverlapSphere (transform.position, Sphere_collider_radius);
+								Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction*0.6f, Sphere_collider_radius);
 
 								for (int i=0; i<hitColliders.Length; i++) {
 										if (hitColliders [i].tag == "level")
