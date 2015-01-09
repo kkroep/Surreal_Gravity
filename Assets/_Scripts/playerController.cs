@@ -218,100 +218,100 @@ public class playerController : MonoBehaviour
 	void FixedUpdate ()
 	{
 		if (networkView.isMine || BasicFunctions.playOffline) {
-						if (Gravity_Shift_Counter > 1f) {
-								Gravity_Shift_Counter--;
-								transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
-								rigidbody.velocity = new Vector3(0f,0f,0f);
-						} else if (Gravity_Shift_Counter == 1f) {
-								Gravity_Shift_Counter = 0f;
-								transform.rotation = after_shift;
-								rigidbody.velocity = new Vector3(0f,0f,0f);
-						} else {
-		
-								#region [look around]
-								if (axes == RotationAxes.MouseXAndY) {
-										float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
-			
-										rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-										rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			
-										transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
-								} else if (axes == RotationAxes.MouseX) {
-										transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
-								} else {
-										rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-										rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			
-										transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
-								}
-						}
-						#endregion
-	
-						transform.TransformDirection (Vector3.forward);
-						//DIT STUK BEWEEGT DE SPELER ALLEEN ALS IE NIET DOOD IS
-						if (isAlive && !endGame) {
-								speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime * 2f);
-								Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction*0.6f, Sphere_collider_radius);
+			if (Gravity_Shift_Counter > 1f) {
+					Gravity_Shift_Counter--;
+					transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
+					rigidbody.velocity = new Vector3(0f,0f,0f);
+			} else if (Gravity_Shift_Counter == 1f) {
+					Gravity_Shift_Counter = 0f;
+					transform.rotation = after_shift;
+					rigidbody.velocity = new Vector3(0f,0f,0f);
+			} else {
 
-								for (int i=0; i<hitColliders.Length; i++) {
-										if (hitColliders [i].tag == "level")
-											{
-												Can_Jump = true;
-											}
-								}
-								
-								//HIER WORDT DE VELOCITY BEREKEND
-								Vector3 New_Velocity = new Vector3(0f,0f,0f); 
-								//New_Velocity = Vector3.Scale(rigidbody.velocity, Gravity_Direction);
-								New_Velocity = Vector3.Lerp (Vector3.Scale(rigidbody.velocity, Vector3.Scale(Gravity_Direction,Gravity_Direction)), Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 3f); 
-								New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
-								New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
+					#region [look around]
+					if (axes == RotationAxes.MouseXAndY) {
+							float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
 
-								if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump) || (Input.GetAxis ("Vertical") != 0 && Can_Jump))  {
-									anim.SetBool ("Walk", true);
-								}
-								
-								else{
-									anim.SetBool ("Walk", false);
-								}
-								
-								
-								rigidbody.velocity = New_Velocity;				
+							rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+							rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 
-				if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump && (JumpTime+0.35f)<Time.time) 
+							transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
+					} else if (axes == RotationAxes.MouseX) {
+							transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
+					} else {
+							rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
+							rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+
+							transform.localEulerAngles = new Vector3 (-rotationY, transform.localEulerAngles.y, 0);
+					}
+			}
+			#endregion
+
+			transform.TransformDirection (Vector3.forward);
+			//DIT STUK BEWEEGT DE SPELER ALLEEN ALS IE NIET DOOD IS
+			if (isAlive && !endGame) {
+					speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime * 2f);
+					Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction*0.6f, Sphere_collider_radius);
+
+					for (int i=0; i<hitColliders.Length; i++) {
+							if (hitColliders [i].tag == "level")
 								{
-									rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
-									AudioSource.PlayClipAtPoint(jump_sound, transform.position);
-									Can_Jump = false;
-									JumpTime = Time.time;
-									anim.SetBool ("Jump", true);
+									Can_Jump = true;
 								}
-						
-				else{
-					anim.SetBool ("Jump", false);
-				}
+					}
+					
+					//HIER WORDT DE VELOCITY BEREKEND
+					Vector3 New_Velocity = new Vector3(0f,0f,0f); 
+					//New_Velocity = Vector3.Scale(rigidbody.velocity, Gravity_Direction);
+					New_Velocity = Vector3.Lerp (Vector3.Scale(rigidbody.velocity, Vector3.Scale(Gravity_Direction,Gravity_Direction)), Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 3f); 
+					New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
+					New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
-						} else {
-								//DIT STUK IS DE SPELER ALS IE DOOD IS
-								rigidbody.velocity = new Vector3 (0f, 0f, 0f);
-								if (!isAlive) {
-										time2death -= Time.fixedDeltaTime;
-										if (time2death <= 1f) {
-												if (!spawnChosen) {
-														int index = Random.Range (0, spawnScript.spawnLocations.Count - 1); //Take random integer
-														Vector3 randomSpawnPoint = spawnScript.spawnLocations [index];
-														transform.position = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
-														spawnChosen = true;
-												}
-												if (time2death <= 0f) {
-														networkView.RPC ("PlayerRespawn", RPCMode.All, transform.position);
-														spawnChosen = false;
-												}
-										}
-								} else {
-								}
-						}
+					if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump) || (Input.GetAxis ("Vertical") != 0 && Can_Jump))  {
+						anim.SetBool ("Walk", true);
+					}
+					
+					else{
+						anim.SetBool ("Walk", false);
+					}
+					
+					
+					rigidbody.velocity = New_Velocity;				
+
+					if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump && (JumpTime+0.35f)<Time.time) 
+					{
+						rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
+						AudioSource.PlayClipAtPoint(jump_sound, transform.position);
+						Can_Jump = false;
+						JumpTime = Time.time;
+						anim.SetBool ("Jump", true);
+					}
+						
+					else{
+						anim.SetBool ("Jump", false);
+					}
+
 				} else {
+					//DIT STUK IS DE SPELER ALS IE DOOD IS
+					rigidbody.velocity = new Vector3 (0f, 0f, 0f);
+					if (!isAlive) {
+							time2death -= Time.fixedDeltaTime;
+							if (time2death <= 1f) {
+								if (!spawnChosen) {
+										int index = Random.Range (0, spawnScript.spawnLocations.Count - 1); //Take random integer
+										Vector3 randomSpawnPoint = spawnScript.spawnLocations [index];
+										transform.position = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
+										spawnChosen = true;
+								}
+								if (time2death <= 0f) {
+										networkView.RPC ("PlayerRespawn", RPCMode.All, transform.position);
+										spawnChosen = false;
+								}
+							}
+					} else {
+					}
+			}
+	} else {
 			//Control of other player
 			transform.position = Vector3.Lerp(transform.position, TruePosition, Time.fixedDeltaTime * 5f);
 		}
