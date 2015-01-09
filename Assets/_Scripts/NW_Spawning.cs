@@ -146,6 +146,7 @@ public class NW_Spawning : MonoBehaviour {
 		default : Debug.Log("DIKKE TERROR ERROR");
 			break;
 		}
+	}
 
 	[RPC]
 	public void quitGame ()
