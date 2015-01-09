@@ -465,7 +465,6 @@ GameObject:
   - 33: {fileID: 3300010}
   - 23: {fileID: 2300008}
   - 136: {fileID: 13600000}
-  - 148: {fileID: 14836132}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -1442,18 +1441,6 @@ NetworkView:
   m_Enabled: 1
   m_StateSynchronization: 0
   m_Observed: {fileID: 0}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
---- !u!148 &14836132
-NetworkView:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100058}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 400058}
   m_ViewID:
     m_ID: 0
     m_Type: 0

@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour
 	private float speed_multiplier = 1f;
 
 	private Vector3 TruePosition;
+	private Quaternion TrueRotation;
 
 	public float Gravity_Shift_Time = 10f;
 	
@@ -105,9 +106,12 @@ public class playerController : MonoBehaviour
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		if (stream.isWriting) {
 			TruePosition = transform.position;
+			TrueRotation = transform.rotation;
 			stream.Serialize(ref TruePosition);
+			stream.Serialize(ref TrueRotation);
 		} else {
 			stream.Serialize(ref TruePosition);
+			stream.Serialize(ref TrueRotation);
 		}
 	}
 	
@@ -318,6 +322,7 @@ public class playerController : MonoBehaviour
 	} else {
 			//Control of other player
 			transform.position = Vector3.Lerp(transform.position, TruePosition, Time.fixedDeltaTime * 5f);
+			transform.rotation = Quaternion.Lerp(transform.rotation, TrueRotation, Time.fixedDeltaTime * 5f);
 		}
 	}
 
