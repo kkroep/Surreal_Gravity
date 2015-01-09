@@ -4,7 +4,7 @@ using System.Collections;
 public class Wapen : MonoBehaviour {
 
 	public Referee_script referee;
-	public bool KillLaser_On = fase;
+	public bool KillLaser_On = false;
 	void Start ()
 	{
 		if (!BasicFunctions.playOffline)
