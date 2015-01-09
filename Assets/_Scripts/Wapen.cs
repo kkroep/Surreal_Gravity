@@ -22,11 +22,11 @@ public class Wapen : MonoBehaviour {
 		//Debug.Log("S: " + playerScript.playerNumber);
 	}
 
-	void OnTriggerEnter (Collider hit)
+	void OnTriggerStay (Collider hit)
 	{
 		if (networkView.isMine)
 		{
-			if(/*Input.GetMouseButtonDown(0) &&*/ hit.tag=="Player")// Input.GetKeyDown ("space"))
+			if(Input.GetMouseButtonDown(0) && hit.tag=="Player")// Input.GetKeyDown ("space"))
 			{
 				if(!referee)
 				{
