@@ -19,14 +19,14 @@ public class Wapen : MonoBehaviour {
 		}
 
 		playerScript = gameObject.transform.parent.GetComponent<playerController>();
-		Debug.Log("S: " + playerScript.playerNumber);
+		//Debug.Log("S: " + playerScript.playerNumber);
 	}
 
 	void OnTriggerEnter (Collider hit)
 	{
 		if (networkView.isMine)
 		{
-			if(Input.GetMouseButtonDown(0) && hit.tag=="Player")// Input.GetKeyDown ("space"))
+			if(/*Input.GetMouseButtonDown(0) &&*/ hit.tag=="Player")// Input.GetKeyDown ("space"))
 			{
 				if(!referee)
 				{
