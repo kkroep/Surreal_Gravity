@@ -138,7 +138,7 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void quitGame ()
 	{
-		Application.LoadLevel("Menu");
+		Application.LoadLevel("Menu_New");
 	}
 
 	[RPC]
