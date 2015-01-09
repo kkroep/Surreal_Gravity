@@ -75,6 +75,7 @@
      <Compile Include="Assets\_Scripts\TargetScript.cs" />
      <Compile Include="Assets\_Scripts\Wapen.cs" />
      <Compile Include="Assets\_Scripts\playerController.cs" />
+     <Compile Include="Assets\_Scripts\webInteractionTest.cs" />
      <Compile Include="Assets\_Scripts_Backup\TestBeunScriptUnit.cs" />
      <None Include="Assets\_Shaders\BuildingBlock_Shader.shader" />
  <Reference Include="UnityEngine.UI">

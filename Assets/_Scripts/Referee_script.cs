@@ -116,14 +116,13 @@ public class Referee_script : MonoBehaviour {
 	 */
 	public void fragged(int target)
 	{
+		networkView.RPC("KillPlayer", RPCMode.All, target);
 		scores[target-1] -= 1;
 		encodedScore2 = scores[0].ToString();
 		for(int i=1; i<playerCount; i++){
 			encodedScore2 += " " + scores[i];
 		}
-
 		networkView.RPC("UpdateScores", RPCMode.All, encodedScore2);
-		networkView.RPC("KillPlayer", RPCMode.All, target);
 	}
 
 	public void showScoreLive ()
