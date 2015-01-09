@@ -286,11 +286,13 @@ public class playerController : MonoBehaviour
 					AudioSource.PlayClipAtPoint(jump_sound, transform.position);
 					Can_Jump = false;
 					JumpTime = Time.time;
-					anim.SetBool ("Jump", true);
+					//anim.SetBool ("Jump", true);
+					networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
 				}
 					
 				else{
-					anim.SetBool ("Jump", false);
+					//anim.SetBool ("Jump", false);
+					networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
 				}
 
 			} else {
@@ -331,6 +333,12 @@ public class playerController : MonoBehaviour
 	void WalkAnim (int player, bool set)
 	{
 		referee.players[player-1].anim.SetBool("Walk", set);
+	}
+
+	[RPC]
+	void JumpAnim (int player, bool set)
+	{
+		referee.players[player-1].anim.SetBool("Jump", set);
 	}
 
 	void OnCollisionStay (Collision collisionInfo)
