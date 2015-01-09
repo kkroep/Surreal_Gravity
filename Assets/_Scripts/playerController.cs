@@ -210,7 +210,7 @@ public class playerController : MonoBehaviour
 			}
 			else if (BasicFunctions.playOffline)
 			{
-				Application.LoadLevel("Menu");
+				Application.LoadLevel("Menu_New");
 			}
 		}
 	}

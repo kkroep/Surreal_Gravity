@@ -4639,14 +4639,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuBtns: {fileID: 734412065}
-  p1: {fileID: 0}
-  p2: {fileID: 0}
-  p3: {fileID: 0}
-  p4: {fileID: 0}
-  p1c: {fileID: 0}
-  p2c: {fileID: 0}
-  p3c: {fileID: 0}
-  p4c: {fileID: 0}
+  p1: {fileID: 430073291}
+  p2: {fileID: 1075273777}
+  p3: {fileID: 1107144392}
+  p4: {fileID: 231459623}
+  p1c: {fileID: 718320394}
+  p2c: {fileID: 1887522478}
+  p3c: {fileID: 500287901}
+  p4c: {fileID: 551589087}
   connected: 0
 --- !u!4 &419670180
 Transform:
@@ -5404,7 +5404,7 @@ MonoBehaviour:
   registerPC: {fileID: 1311821294}
   loginU: {fileID: 496393790}
   loginP: {fileID: 759025412}
-  currentUName: {fileID: 1852787966}
+  currentUName: {fileID: 613234192}
   networkServer: {fileID: 419670179}
 --- !u!4 &488400875
 Transform:
@@ -7704,7 +7704,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627974300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1293121201}
+        m_MethodName: Register
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &627974300
@@ -25379,7 +25391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1918980438}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1293121201}
+        m_MethodName: Login
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1918980438
