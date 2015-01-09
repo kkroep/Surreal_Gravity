@@ -46,7 +46,7 @@ public class Wapen : MonoBehaviour {
 				{
 					referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 				}
-				if (hit.gameObject.GetComponent<playerController>().isAlive)
+				if (hit.gameObject.GetComponent<playerController>().isAlive && gameObject.transform.parent.GetComponent<playerController>().isAlive)
 				{
 					referee.frag(playerScript.playerNumber, hit.gameObject.GetComponent<playerController>().playerNumber);
 					Can_Hit = false;
