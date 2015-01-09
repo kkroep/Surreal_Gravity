@@ -120,6 +120,7 @@ public class MenuFunctions : MonoBehaviour {
 		Account_Menu.SetActive(false);
 		Multiplayer_Menu.SetActive(false);
 		Settings_Menu.SetActive(false);
+		NW_Server.showServers = false;
 		Main_Menu.SetActive(true);
 	}
 
