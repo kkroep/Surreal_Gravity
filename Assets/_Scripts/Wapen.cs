@@ -21,7 +21,7 @@ public class Wapen : MonoBehaviour {
 	{
 		if (networkView.isMine)
 		{
-			if(!KillLaser_On && Input.GetMouseButtonDown(0) && hit.tag=="Player");// Input.GetKeyDown ("space"))
+			if( Input.GetMouseButtonDown(0) && hit.tag=="Player");// Input.GetKeyDown ("space"))
 			{
 				if(!referee){
 					referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
