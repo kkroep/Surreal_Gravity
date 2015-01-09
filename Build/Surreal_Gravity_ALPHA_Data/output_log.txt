@@ -18,124 +18,20 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-Login info incorrect
+Received pong from 145.94.198.166:11158
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 836)
 
-Login info incorrect
+Received pong from 192.168.56.1:11158
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Login info incorrect
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Account: Kwok; Kwok
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Server: Kwok's Server registered
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 836)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 2.717969 ms
+UnloadTime: 2.613106 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3649.
-Total: 2.034795 ms (FindLiveObjects: 0.114680 ms CreateObjectMapping: 0.022311 ms MarkObjects: 0.325299 ms  DeleteObjects: 0.871481 ms)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3658.
+Total: 1.546177 ms (FindLiveObjects: 0.112895 ms CreateObjectMapping: 0.022757 ms MarkObjects: 0.313697 ms  DeleteObjects: 0.637212 ms)
 
 has not yet found all players
  
@@ -145,97 +41,17 @@ has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Look rotation viewing vector is zero
- 
-(Filename:  Line: 57)
+UnloadTime: 23.442099 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
+Unloading 248 unused Assets to reduce memory usage. Loaded Objects now: 1238.
+Total: 5.493502 ms (FindLiveObjects: 0.054439 ms CreateObjectMapping: 0.020526 ms MarkObjects: 0.468092 ms  DeleteObjects: 4.504217 ms)
 
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename:  Line: 275)
+(Filename:  Line: 745)
 
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
+Server disconnected
  
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
-
-Level 'Menu' (-1) couldn't be loaded because it has not been added to the build settings.
-To add a level to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 275)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
