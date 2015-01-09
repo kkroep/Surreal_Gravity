@@ -20,7 +20,7 @@ public class playerController : MonoBehaviour
 	private Quaternion after_shift;
 	private float Gravity_Shift_Counter;
 
-//	private Animator anim;
+	private Animator anim;
 
 	public enum RotationAxes
 	{
@@ -96,7 +96,7 @@ public class playerController : MonoBehaviour
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
 			Current_Global_Force = Gravity_Direction * Gravity_Strength;
-			//anim = GetComponent<Animator> ();
+			anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 			JumpTime = Time.time;
 		}
@@ -266,6 +266,14 @@ public class playerController : MonoBehaviour
 								New_Velocity = Vector3.Lerp (Vector3.Scale(rigidbody.velocity, Vector3.Scale(Gravity_Direction,Gravity_Direction)), Gravity_Direction * Gravity_Strength, Time.fixedDeltaTime * 3f); 
 								New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
 								New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
+
+								if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump) || (Input.GetAxis ("Vertical") != 0 && Can_Jump))  {
+									anim.SetBool ("Walk", true);
+								}
+								
+								else{
+									anim.SetBool ("Walk", false);
+								}
 								
 								
 								rigidbody.velocity = New_Velocity;				
@@ -276,7 +284,12 @@ public class playerController : MonoBehaviour
 									AudioSource.PlayClipAtPoint(jump_sound, transform.position);
 									Can_Jump = false;
 									JumpTime = Time.time;
+									anim.SetBool ("Jump", true);
 								}
+						
+				else{
+					anim.SetBool ("Jump", false);
+				}
 
 						} else {
 								//DIT STUK IS DE SPELER ALS IE DOOD IS
