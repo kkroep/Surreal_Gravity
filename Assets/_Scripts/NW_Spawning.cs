@@ -99,7 +99,7 @@ public class NW_Spawning : MonoBehaviour {
 		BasicFunctions.accountNumbers.Clear ();
 		Network.Disconnect();
 		playerController.dontDestroy = true;
-		Application.LoadLevel("Menu");
+		Application.LoadLevel("Menu_New");
 	}
 	/* Close the server gracefully
 	 */
@@ -115,7 +115,7 @@ public class NW_Spawning : MonoBehaviour {
 			BasicFunctions.amountPlayers = 0;
 			BasicFunctions.activeAccounts.Clear();
 			BasicFunctions.accountNumbers.Clear();
-			Application.LoadLevel("Menu");
+			Application.LoadLevel("Menu_New");
 		}
 	}
 	/* Fill spawnpositionvector
