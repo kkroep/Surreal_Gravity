@@ -269,12 +269,12 @@ public class playerController : MonoBehaviour
 
 				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump) || (Input.GetAxis ("Vertical") != 0 && Can_Jump))  {
 					//anim.SetBool ("Walk", true);
-					networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
+					//networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
 				}
 				
 				else{
 					//anim.SetBool ("Walk", false);
-					networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
+					//networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
 				}
 				
 				
@@ -287,12 +287,12 @@ public class playerController : MonoBehaviour
 					Can_Jump = false;
 					JumpTime = Time.time;
 					//anim.SetBool ("Jump", true);
-					networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
+					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
 				}
 					
 				else{
 					//anim.SetBool ("Jump", false);
-					networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
+					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
 				}
 
 			} else {
