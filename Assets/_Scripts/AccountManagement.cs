@@ -10,7 +10,7 @@ public class AccountManagement : MonoBehaviour {
 	public InputField registerPC;
 	public InputField loginU;
 	public InputField loginP;
-	public TextMesh currentUName;
+	public Text currentUName;
 	public NW_Server networkServer;
 	
 	//public Account activeAccount;

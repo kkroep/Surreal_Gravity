@@ -20,6 +20,8 @@ public class MenuFunctions : MonoBehaviour {
 
 	public AudioClip menu_click_sound;
 
+	private bool setClientMenu = true;
+
 	public void goToMultiplayer ()
 	{
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
@@ -133,5 +135,30 @@ public class MenuFunctions : MonoBehaviour {
 	{
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Application.Quit ();
+	}
+
+	public void Register ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		AccManager.registerAccount();
+	}
+	
+	public void Login ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		AccManager.loginAccount();
+	}
+
+	void Update ()
+	{
+		if (!BasicFunctions.playOffline && serverStuff.connected)
+		{
+			if (Network.isClient && setClientMenu)
+			{
+				Multiplayer_Menu.SetActive(false);
+				Client_Menu.SetActive(true);
+				setClientMenu = false;
+			}
+		}
 	}
 }

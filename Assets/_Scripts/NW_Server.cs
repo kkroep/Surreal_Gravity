@@ -6,23 +6,15 @@ using UnityEngine.UI;
 public class NW_Server : MonoBehaviour {
 
 	public MenuButtons menuBtns;
-
-	public TextMesh p1;
-	public TextMesh p2;
-	public TextMesh p3;
-	public TextMesh p4;
-	public TextMesh p1c;
-	public TextMesh p2c;
-	public TextMesh p3c;
-	public TextMesh p4c;
-	/*public Text p1;
-	public Text p2; //DIT UITCOMMENTEN WANT DIT IS VOOR HET NIEUWE MENU
+	
+	public Text p1;
+	public Text p2;
 	public Text p3;
 	public Text p4;
 	public Text p1c;
 	public Text p2c;
 	public Text p3c;
-	public Text p4c;*/
+	public Text p4c;
 
 	private string gameTypeName = "Surreal_Gravity: The Game";
 	private string gameName;
