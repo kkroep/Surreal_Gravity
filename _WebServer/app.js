@@ -36,6 +36,7 @@ app.get("/Authenticate",function(req,res){
   var query = url.parse(req.url,true).query;
   var playerName = (query["playerName"]!=undefined ? query["playerName"] : "UndefinedName");
   var playerPassword = (query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword");
+  //console.log("playername: " + playerName + "playerpassword: " + playerPassword);
   var querystring = "SELECT DISTINCT * FROM Players WHERE Naam = \"" + playerName + "\" AND Paswoord = \"" + playerPassword + "\";";
   connection.query(querystring,function(err,rows,fields){
     if(err) throw err;
