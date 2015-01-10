@@ -426,7 +426,7 @@ GameObject:
   - 4: {fileID: 400054}
   - 137: {fileID: 13700000}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Body
   m_TagString: Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -896,7 +896,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 644.670227, y: 208.101517, z: -548.755981}
+  m_LocalPosition: {x: 625.605835, y: 236.533875, z: -411.02243}
   m_LocalScale: {x: 1, y: .5, z: 1}
   m_Children:
   - {fileID: 400062}
@@ -1053,7 +1053,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 6489776d2f46962458613010dabb2f52, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
