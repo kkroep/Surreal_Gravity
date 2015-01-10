@@ -15,6 +15,9 @@ public class NW_Server : MonoBehaviour {
 	public Text p2c;
 	public Text p3c;
 	public Text p4c;
+	public GUISkin skin;
+
+	private GUIStyle label2;
 
 	private string gameTypeName = "Surreal_Gravity: The Game";
 	private string gameName;
@@ -28,6 +31,7 @@ public class NW_Server : MonoBehaviour {
 	private bool refreshing = false;
 	private float timer = 0.5f;
 	private float refreshT = 2f;
+	private float waitRefresh = 3f;
 	private int serverPort;
 	private int index;
 	private int maxPlayers = 3;//(for now only 1) 3 //maxPlayers = # of clients
@@ -304,10 +308,20 @@ public class NW_Server : MonoBehaviour {
 			refreshT -= Time.deltaTime;
 			if (refreshT <= 0)
 			{
-				refreshT = 2;
+				waitRefresh = 3;
 				refreshing = false;
 				hostD = MasterServer.PollHostList ();
 				showServers = true;
+			}
+		}
+
+		if (!refreshing)
+		{
+			waitRefresh -= Time.deltaTime;
+			if (waitRefresh <= 0)
+			{
+				refreshT = 2;
+				refreshHost();
 			}
 		}
 
@@ -332,8 +346,9 @@ public class NW_Server : MonoBehaviour {
 
 	void OnGUI ()
 	{
-		GUI.backgroundColor = Color.cyan;
-		GUI.contentColor = Color.black;
+		GUI.skin = skin;
+		label2 = skin.GetStyle("label2");
+		GUI.backgroundColor = new Color(0.118F, 1, 0.729F, 1);
 		if (!Network.isClient && !Network.isServer)
 		{
 			if (showServers)
@@ -342,10 +357,20 @@ public class NW_Server : MonoBehaviour {
 				{
 					for (int i = 0; i < hostD.Length; i++)
 					{
-						if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
+						GUI.contentColor = new Color(0.247F, 0, 0.502F, 1);
+						if (hostD[i].connectedPlayers != hostD[i].playerLimit)
 						{
-							Network.Connect(hostD[i]);
+							if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
+							{
+								Network.Connect(hostD[i]);
+							}
 						}
+						else
+						{
+							GUI.Label(new Rect(45*Screen.width/100, Screen.height/2 + 10 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName, label2);
+						}
+						GUI.contentColor = new Color(0.118F, 1, 0.729F, 1);
+						GUI.Label(new Rect(57*Screen.width/100, Screen.height/2 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), (hostD[i].connectedPlayers) + "/" + (hostD[i].playerLimit)); 
 					}
 				}
 			}
