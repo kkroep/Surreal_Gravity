@@ -14,6 +14,9 @@ public class MenuFunctions : MonoBehaviour {
 	public GameObject Credits_Menu;
 
 	public Text currentUname;
+	public Toggle chooseModus;
+	public Text chooseModusLabelServer;
+	public Text chooseModusLabelClient;
 
 	public AccountManagement AccManager;
 	public NW_Server serverStuff;
@@ -91,6 +94,25 @@ public class MenuFunctions : MonoBehaviour {
 		serverStuff.refreshHost();
 	}
 
+	public void ChooseModus ()
+	{
+		if (Network.isServer)
+		{
+			if (chooseModus.isOn)
+			{
+				chooseModusLabelServer.text = "Fork";
+				networkView.RPC("SetGameMode", RPCMode.AllBuffered, true);
+				networkView.RPC("SetGameModeText", RPCMode.OthersBuffered, true);
+			}
+			else
+			{
+				chooseModusLabelServer.text = "RailGun";
+				networkView.RPC("SetGameMode", RPCMode.AllBuffered, false);
+				networkView.RPC("SetGameModeText", RPCMode.OthersBuffered, false);
+			}
+		}
+	}
+
 	public void StartGame ()
 	{
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
@@ -160,6 +182,32 @@ public class MenuFunctions : MonoBehaviour {
 				Client_Menu.SetActive(true);
 				setClientMenu = false;
 			}
+		}
+	}
+
+	[RPC]
+	public void SetGameMode (bool fork)
+	{
+		if (fork)
+		{
+			BasicFunctions.ForkModus = true;
+		}
+		else
+		{
+			BasicFunctions.ForkModus = false;
+		}
+	}
+
+	[RPC]
+	public void SetGameModeText (bool fork)
+	{
+		if (fork)
+		{
+			chooseModusLabelClient.text = "Fork";
+		}
+		else
+		{
+			chooseModusLabelClient.text = "RailGun";
 		}
 	}
 }

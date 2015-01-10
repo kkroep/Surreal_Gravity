@@ -10,8 +10,9 @@ public class Wapen : MonoBehaviour {
 
 	void Start ()
 	{
-		if (!BasicFunctions.playOffline)
+		if (!BasicFunctions.playOffline && BasicFunctions.ForkModus)
 		{
+			Debug.Log("Forkmodus = on");
 			referee = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
 		}
 		else
