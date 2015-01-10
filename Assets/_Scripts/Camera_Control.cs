@@ -34,8 +34,6 @@ public class Camera_Control : MonoBehaviour {
 	public float minimumY = -60F;
 	public float maximumY = 60F;
 
-	public bool FireLaser_On = false;
-
 	float rotationY = 0F;
 	#endregion
 	#region [init other]
@@ -254,7 +252,7 @@ public class Camera_Control : MonoBehaviour {
 				Fire_Gravity_Bullet();
 			}
 
-			if (Input.GetMouseButtonDown(0) && player.isAlive && !player.endGame && FireLaser_On) {
+			if (Input.GetMouseButtonDown(0) && player.isAlive && !player.endGame && !BasicFunctions.ForkModus) {
 				Fire_Kill_Laser();
 			}
 		}
