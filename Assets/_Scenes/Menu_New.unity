@@ -2709,7 +2709,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 357, y: -147}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &231459623
 MonoBehaviour:
@@ -4647,6 +4647,7 @@ MonoBehaviour:
   p2c: {fileID: 1887522478}
   p3c: {fileID: 500287901}
   p4c: {fileID: 551589087}
+  skin: {fileID: 11400000, guid: 7de999991cec6d948920b88d30747933, type: 2}
   connected: 0
 --- !u!4 &419670180
 Transform:
@@ -4838,7 +4839,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 357, y: -66}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &430073291
 MonoBehaviour:
@@ -5658,7 +5659,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -75, y: -120}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &500287901
 MonoBehaviour:
@@ -6578,7 +6579,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -75, y: -147}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &551589087
 MonoBehaviour:
@@ -8679,7 +8680,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -75, y: -66}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &718320394
 MonoBehaviour:
@@ -14740,7 +14741,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 357, y: -93}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1075273777
 MonoBehaviour:
@@ -15354,7 +15355,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 357, y: -120}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1107144392
 MonoBehaviour:
@@ -20985,7 +20986,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -25479,7 +25479,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -75, y: -93}
-  m_SizeDelta: {x: 181, y: 31}
+  m_SizeDelta: {x: 211, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1887522478
 MonoBehaviour:
