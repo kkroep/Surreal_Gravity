@@ -29,10 +29,12 @@ public class Wapen : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			collider.enabled = true;
 			Can_Hit = true;
+			transform.localPosition += new Vector3(0f,0f,0.25f);
 				}
 		if (Input.GetMouseButtonUp(0)) {
 			collider.enabled = false;
 			Can_Hit = false;
+			transform.localPosition -= new Vector3(0f,0f,0.25f);
 		}
 
 	}

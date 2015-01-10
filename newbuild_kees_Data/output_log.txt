@@ -12,22 +12,46 @@ Platform assembly: D:\04_Games\Surreal_Gravity\newbuild_kees_Data\Managed\Assemb
 Loading D:\04_Games\Surreal_Gravity\newbuild_kees_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: D:\04_Games\Surreal_Gravity\newbuild_kees_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading D:\04_Games\Surreal_Gravity\newbuild_kees_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.240 seconds
+- Completed reload, in  0.193 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: D:\04_Games\Surreal_Gravity\newbuild_kees_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\04_Games\Surreal_Gravity\newbuild_kees_Data\Managed\System.dll (this message is harmless)
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 5.413593 ms
+UnloadTime: 5.547016 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3649.
-Total: 1.769515 ms (FindLiveObjects: 0.147912 ms CreateObjectMapping: 0.031393 ms MarkObjects: 0.332651 ms  DeleteObjects: 0.800538 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3684.
+Total: 2.594202 ms (FindLiveObjects: 0.236056 ms CreateObjectMapping: 0.038638 ms MarkObjects: 0.512561 ms  DeleteObjects: 1.063157 ms)
 
-UnloadTime: 89.353569 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Unloading 244 unused Assets to reduce memory usage. Loaded Objects now: 1264.
-Total: 10.731797 ms (FindLiveObjects: 0.140063 ms CreateObjectMapping: 0.057957 ms MarkObjects: 0.806575 ms  DeleteObjects: 8.495604 ms)
+Forkmodus = on
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Forkmodus = on
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 30.687895 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 269 unused Assets to reduce memory usage. Loaded Objects now: 1292.
+Total: 5.872423 ms (FindLiveObjects: 0.067013 ms CreateObjectMapping: 0.028978 ms MarkObjects: 0.579575 ms  DeleteObjects: 4.767004 ms)
 

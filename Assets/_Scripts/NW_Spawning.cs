@@ -21,7 +21,12 @@ public class NW_Spawning : MonoBehaviour {
 	private GameObject referee;
 	private Referee_script refScript;
 	private bool canSpawn = true;
-	
+
+	public Texture Player1;
+	public Texture Player2;
+	public Texture Player3;
+	public Texture Player4;
+
 	void Start ()
 	{
 		spawnLocations = new List<Vector3> ();
@@ -135,15 +140,20 @@ public class NW_Spawning : MonoBehaviour {
 		playerN.GetComponent<playerController>().playerNumber = Number;
 		switch (Number)
 		{
-		case 1 : Debug.Log("Player1");
+		case 1:
+			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player1);
 			break;
-		case 2 : Debug.Log("Player2");
+		case 2: 
+			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player2);
 			break;
-		case 3 : Debug.Log("Player3");
+		case 3: 
+			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player3);
 			break;
-		case 4 : Debug.Log("Player4");
+		case 4: 
+			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player4);
 			break;
-		default : Debug.Log("DIKKE TERROR ERROR");
+		default : 
+			Debug.Log("DIKKE TERROR ERROR");
 			break;
 		}
 	}
