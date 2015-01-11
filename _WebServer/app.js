@@ -36,7 +36,7 @@ app.get("/Authenticate",function(req,res){
   var query = url.parse(req.url,true).query;
   var playerName = (query["playerName"]!=undefined ? query["playerName"] : "UndefinedName");
   var playerPassword = (query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword");
-  //console.log("playername: " + playerName + "playerpassword: " + playerPassword);
+  console.log("playername: " + playerName + "  playerpassword: " + playerPassword);
   var querystring = "SELECT DISTINCT * FROM Players WHERE Naam = \"" + playerName + "\" AND Paswoord = \"" + playerPassword + "\";";
   connection.query(querystring,function(err,rows,fields){
     if(err) throw err;
@@ -49,6 +49,19 @@ app.get("/Authenticate",function(req,res){
     
   })
 
+
+});
+
+app.get("/Register",function(req,res){
+  var query = url.parse(req.url,true).query;
+  var playerName = (query["playerName"]!=undefined ? query["playerName"] : "UndefinedName");
+  var playerPassword = (query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword");
+  //var querystring = "INSERT INTO 'ewi3620tu2'.'Players' ('Naam', 'Paswoord', 'Gespeeld', 'Gewonnen', 'Wanneer') VALUES ('" + playerName + ", '" + playerPassword + "', '0', '0', NOW());";
+  var querystring = "INSERT INTO `ewi3620tu2`.`Players` (`Naam`, `Paswoord`, `Gespeeld`, `Gewonnen`, `Wanneer`, `PLAYER_Id`) VALUES ('" + playerName + "', '" + playerPassword + "', '0', '0', NOW(), NULL);";
+  connection.query(querystring,function(err,result,fields){
+    if(err) throw err;
+    else res.send("Succesfully Registered");
+  });
 
 });
 

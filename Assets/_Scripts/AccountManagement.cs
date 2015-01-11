@@ -98,12 +98,12 @@ public class AccountManagement : MonoBehaviour {
 		log_acc.Name = Uname;
 		log_acc.Word = Pword;
 
-		/*string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName="+Uname+"&playerPassword="+Pword;
+		string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName="+Uname+"&playerPassword="+Pword;
 		WWW www = new WWW(url);
-		StartCoroutine(WaitForRequest(www));*/
+		StartCoroutine(WaitForAuthorization(www));
 
 
-
+		/*
 		using (StreamReader slread = new StreamReader("Accounts.txt"))
 		{
 			list_of_accounts = AccountList.readAccounts(slread);
@@ -137,9 +137,10 @@ public class AccountManagement : MonoBehaviour {
 		{
 			Debug.Log("Login info incorrect");
 		}
+		*/
 	}
 
-	/*IEnumerator WaitForRequest(WWW www)
+	IEnumerator WaitForAuthorization(WWW www)
 	{
 		yield return www;
 		
@@ -161,5 +162,5 @@ public class AccountManagement : MonoBehaviour {
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
 		}    
-	}*/
+	}
 }
