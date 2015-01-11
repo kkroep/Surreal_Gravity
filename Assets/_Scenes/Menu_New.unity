@@ -376,13 +376,13 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -2941,13 +2941,13 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -4955,7 +4955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &438838260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5561,12 +5561,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .501960814, g: .501960814, b: .501960814, a: .501960814}
-    m_HighlightedColor: {r: .501960814, g: .501960814, b: .501960814, a: .698039234}
-    m_PressedColor: {r: .345098048, g: .345098048, b: .345098048, a: .698039234}
+    m_NormalColor: {r: .117647059, g: 1, b: .729411781, a: .501960814}
+    m_HighlightedColor: {r: .0588235296, g: .337254912, b: 1, a: 1}
+    m_PressedColor: {r: .247058824, g: 0, b: .501960814, a: .784313738}
     m_DisabledColor: {r: .250980407, g: .250980407, b: .250980407, a: .501960814}
-    m_ColorMultiplier: 2
-    m_FadeDuration: .100000001
+    m_ColorMultiplier: 1.5
+    m_FadeDuration: .00999999978
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -5597,7 +5597,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_SelectionColor: {r: .117647059, g: 1, b: .729411781, a: .588235319}
   m_Text: 
   m_CaretBlinkRate: 1.70000005
 --- !u!114 &496393791
@@ -9658,13 +9658,13 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -9748,12 +9748,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .501960814, g: .501960814, b: .501960814, a: .501960814}
-    m_HighlightedColor: {r: .501960814, g: .501960814, b: .501960814, a: .698039234}
-    m_PressedColor: {r: .345098048, g: .345098048, b: .345098048, a: .698039234}
+    m_NormalColor: {r: .117647059, g: 1, b: .729411781, a: .501960814}
+    m_HighlightedColor: {r: .0588235296, g: .337254912, b: 1, a: 1}
+    m_PressedColor: {r: .247058824, g: 0, b: .501960814, a: .784313738}
     m_DisabledColor: {r: .250980407, g: .250980407, b: .250980407, a: .501960814}
-    m_ColorMultiplier: 2
-    m_FadeDuration: .100000001
+    m_ColorMultiplier: 1.5
+    m_FadeDuration: .00999999978
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -9784,7 +9784,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_SelectionColor: {r: .117647059, g: 1, b: .729411781, a: .588235319}
   m_Text: 
   m_CaretBlinkRate: 1.70000005
 --- !u!114 &759025413
@@ -11540,13 +11540,13 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -14423,12 +14423,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .501960814, g: .501960814, b: .501960814, a: .501960814}
-    m_HighlightedColor: {r: .501960814, g: .501960814, b: .501960814, a: .698039234}
-    m_PressedColor: {r: .345098048, g: .345098048, b: .345098048, a: .698039234}
+    m_NormalColor: {r: .117647059, g: 1, b: .729411781, a: .501960814}
+    m_HighlightedColor: {r: .0588235296, g: .337254912, b: 1, a: 1}
+    m_PressedColor: {r: .247058824, g: 0, b: .501960814, a: .784313738}
     m_DisabledColor: {r: .250980407, g: .250980407, b: .250980407, a: .501960814}
-    m_ColorMultiplier: 2
-    m_FadeDuration: .100000001
+    m_ColorMultiplier: 1.5
+    m_FadeDuration: .00999999978
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -14459,7 +14459,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_SelectionColor: {r: .117647059, g: 1, b: .729411781, a: .588235319}
   m_Text: 
   m_CaretBlinkRate: 1.70000005
 --- !u!114 &1031667084
@@ -17954,12 +17954,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .501960814, g: .501960814, b: .501960814, a: .501960814}
-    m_HighlightedColor: {r: .501960814, g: .501960814, b: .501960814, a: .698039234}
-    m_PressedColor: {r: .345098048, g: .345098048, b: .345098048, a: .698039234}
+    m_NormalColor: {r: .117647059, g: 1, b: .729411781, a: .501960814}
+    m_HighlightedColor: {r: .0588235296, g: .337254912, b: 1, a: 1}
+    m_PressedColor: {r: .247058824, g: 0, b: .501960814, a: .784313738}
     m_DisabledColor: {r: .250980407, g: .250980407, b: .250980407, a: .501960814}
-    m_ColorMultiplier: 2
-    m_FadeDuration: .100000001
+    m_ColorMultiplier: 1.5
+    m_FadeDuration: .00999999978
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -17990,7 +17990,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_SelectionColor: {r: .117647059, g: 1, b: .729411781, a: .588235319}
   m_Text: 
   m_CaretBlinkRate: 1.70000005
 --- !u!114 &1311821295
@@ -22546,13 +22546,13 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .247058824, g: 0, b: .501960814, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -22913,12 +22913,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .501960814, g: .501960814, b: .501960814, a: .501960814}
-    m_HighlightedColor: {r: .501960814, g: .501960814, b: .501960814, a: .698039234}
-    m_PressedColor: {r: .345098048, g: .345098048, b: .345098048, a: .698039234}
+    m_NormalColor: {r: .117647059, g: 1, b: .729411781, a: .501960814}
+    m_HighlightedColor: {r: .0588235296, g: .337254912, b: 1, a: 1}
+    m_PressedColor: {r: .247058824, g: 0, b: .501960814, a: .784313738}
     m_DisabledColor: {r: .250980407, g: .250980407, b: .250980407, a: .501960814}
-    m_ColorMultiplier: 2
-    m_FadeDuration: .100000001
+    m_ColorMultiplier: 1.5
+    m_FadeDuration: .00999999978
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -22949,7 +22949,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_SelectionColor: {r: .104999997, g: .630999982, b: .885999978, a: .300000012}
+  m_SelectionColor: {r: .117647059, g: 1, b: .729411781, a: .588235319}
   m_Text: 
   m_CaretBlinkRate: 1.70000005
 --- !u!114 &1727162463
@@ -25016,7 +25016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1862472428
 RectTransform:
   m_ObjectHideFlags: 0
