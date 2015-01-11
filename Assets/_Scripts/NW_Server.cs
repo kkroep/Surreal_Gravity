@@ -315,7 +315,7 @@ public class NW_Server : MonoBehaviour {
 			}
 		}
 
-		if (!refreshing)
+		if (!refreshing && NW_Server.showServers)
 		{
 			waitRefresh -= Time.deltaTime;
 			if (waitRefresh <= 0)

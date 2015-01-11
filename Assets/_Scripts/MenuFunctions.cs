@@ -32,6 +32,7 @@ public class MenuFunctions : MonoBehaviour {
 		{
 			Main_Menu.SetActive(false);
 			Multiplayer_Menu.SetActive(true);
+			NW_Server.showServers = true;
 		}
 	}
 

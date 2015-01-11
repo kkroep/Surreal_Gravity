@@ -12,12 +12,16 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.048 seconds
+- Completed reload, in  0.130 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
+Login info incorrect
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
 Account: AB; BA
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
@@ -26,37 +30,34 @@ Server: AB's Server registered
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.053 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-Account: Kwok; Kwok
+Internal error while connecting to master server. Too many connected peers.
+ 
+(Filename:  Line: 129)
+
+WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
+UnloadTime: 3.099940 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3683.
+Total: 1.864337 ms (FindLiveObjects: 0.160641 ms CreateObjectMapping: 0.028112 ms MarkObjects: 0.445780 ms  DeleteObjects: 0.721549 ms)
+
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Server: Kwok's Server registered
+has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Server disconnected
+Forkmodus = on
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 25.453690 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 252 unused Assets to reduce memory usage. Loaded Objects now: 1292.
+Total: 4.495292 ms (FindLiveObjects: 0.055332 ms CreateObjectMapping: 0.021865 ms MarkObjects: 0.522978 ms  DeleteObjects: 3.436395 ms)
 
 Server disconnected
  
