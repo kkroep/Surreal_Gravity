@@ -52,6 +52,12 @@ public class AccountManagement : MonoBehaviour {
 	{
 		if (Pword.Equals(PwordC))
 		{
+
+			string url = "http://drproject.twi.tudelft.nl:8082/Register?playerName="+Uname+"&playerPassword="+Pword;
+			WWW www = new WWW(url);
+			StartCoroutine(WaitForRegistration(www));
+
+			/*
 			Account reg_acc = new Account (Uname, Pword);
 			if (Uname == " ")
 			{
@@ -75,11 +81,14 @@ public class AccountManagement : MonoBehaviour {
 			{
 				Debug.Log("Username not available");
 			}
+			*/
 		}
+
 		else
 		{
-			Debug.Log("Passwords don't coincide");
+			Debug.Log("Passwords don't match");
 		}
+
 	}
 	/* Lees de username, het password en het team in
 	 */
@@ -140,6 +149,28 @@ public class AccountManagement : MonoBehaviour {
 		*/
 	}
 
+	IEnumerator WaitForRegistration(WWW www)
+	{
+		yield return www;
+
+		if (www.error == null){
+			if(www.text.Equals ("Succesfully Registered")){
+				Debug.Log ("Succesfully Registered");
+
+			}
+			else{
+				Debug.Log ("Failed to register");
+			}
+
+
+		}
+
+		registerU.text = "";
+		registerP.text = "";
+		registerPC.text = "";
+
+	}
+
 	IEnumerator WaitForAuthorization(WWW www)
 	{
 		yield return www;
@@ -147,9 +178,7 @@ public class AccountManagement : MonoBehaviour {
 		// check for errors
 		if (www.error == null)
 		{
-			if(www.data.Equals("Succesfully Authorized")){
-				loginU.text = "";
-				loginP.text = "";
+			if(www.text.Equals("Succesfully Authorized")){
 				//activeAccount.Name = log_acc.Name;
 				//activeAccount.Word = log_acc.Word;
 				BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
@@ -161,6 +190,8 @@ public class AccountManagement : MonoBehaviour {
 			}
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
-		}    
+		}  
+		loginU.text = "";
+		loginP.text = "";
 	}
 }

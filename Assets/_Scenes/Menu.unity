@@ -3233,14 +3233,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuBtns: {fileID: 734412065}
-  p1: {fileID: 1418721599}
-  p2: {fileID: 755613496}
-  p3: {fileID: 2071036684}
-  p4: {fileID: 1097752440}
-  p1c: {fileID: 376492042}
-  p2c: {fileID: 1502158799}
-  p3c: {fileID: 1123375413}
-  p4c: {fileID: 93121320}
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  p3: {fileID: 0}
+  p4: {fileID: 0}
+  p1c: {fileID: 0}
+  p2c: {fileID: 0}
+  p3c: {fileID: 0}
+  p4c: {fileID: 0}
+  skin: {fileID: 0}
   connected: 0
 --- !u!4 &419670180
 Transform:
@@ -3842,7 +3843,7 @@ MonoBehaviour:
   registerPC: {fileID: 1311821294}
   loginU: {fileID: 496393790}
   loginP: {fileID: 759025412}
-  currentUName: {fileID: 1852787966}
+  currentUName: {fileID: 0}
   networkServer: {fileID: 419670179}
 --- !u!4 &488400875
 Transform:
