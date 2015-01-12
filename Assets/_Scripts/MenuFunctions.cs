@@ -126,12 +126,14 @@ public class MenuFunctions : MonoBehaviour {
 		if (Network.isServer)
 		{
 			serverStuff.closeServer();
+			NW_Server.showServers = true;
 			Server_Menu.SetActive(false);
 			Multiplayer_Menu.SetActive(true);
 		}
 		if (Network.isClient)
 		{
 			serverStuff.closeClient();
+			NW_Server.showServers = true;
 			Client_Menu.SetActive(false);
 			Multiplayer_Menu.SetActive(true);
 		}

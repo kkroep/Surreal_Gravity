@@ -357,20 +357,18 @@ public class NW_Server : MonoBehaviour {
 				{
 					for (int i = 0; i < hostD.Length; i++)
 					{
-						GUI.contentColor = new Color(0.247F, 0, 0.502F, 1);
 						if (hostD[i].connectedPlayers != hostD[i].playerLimit)
 						{
-							if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
+							if (GUI.Button(new Rect(44*Screen.width/100, Screen.height/2 + (i * 50) - 25, Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName))
 							{
 								Network.Connect(hostD[i]);
 							}
 						}
 						else
 						{
-							GUI.Label(new Rect(45*Screen.width/100, Screen.height/2 + 10 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName, label2);
+							GUI.Label(new Rect(46*Screen.width/100, Screen.height/2 + (i * 50) - 15, Screen.width*0.12f, Screen.height*0.06f), hostD[i].gameName, label2);
 						}
-						GUI.contentColor = new Color(0.118F, 1, 0.729F, 1);
-						GUI.Label(new Rect(57*Screen.width/100, Screen.height/2 + (i * 50), Screen.width*0.12f, Screen.height*0.06f), (hostD[i].connectedPlayers) + "/" + (hostD[i].playerLimit)); 
+						GUI.Label(new Rect(57*Screen.width/100, Screen.height/2 + (i * 50) - 25, Screen.width*0.12f, Screen.height*0.06f), (hostD[i].connectedPlayers) + "/" + (hostD[i].playerLimit)); 
 					}
 				}
 			}
