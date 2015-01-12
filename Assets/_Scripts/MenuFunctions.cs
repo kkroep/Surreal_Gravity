@@ -17,6 +17,9 @@ public class MenuFunctions : MonoBehaviour {
 	public Toggle chooseModus;
 	public Text chooseModusLabelServer;
 	public Text chooseModusLabelClient;
+	public InputField login;
+	public InputField reg1;
+	public InputField reg2;
 
 	public AccountManagement AccManager;
 	public NW_Server serverStuff;
@@ -24,6 +27,11 @@ public class MenuFunctions : MonoBehaviour {
 	public AudioClip menu_click_sound;
 
 	private bool setClientMenu = true;
+	private bool canTabL = false;
+	private bool canTabR1 = false;
+	private bool canTabR2 = false;
+	private bool canLogin = false;
+	private bool canReg = false;
 
 	public void goToMultiplayer ()
 	{
@@ -175,6 +183,33 @@ public class MenuFunctions : MonoBehaviour {
 		AccManager.loginAccount();
 	}
 
+	public void setTabL ()
+	{
+		canTabL = true;
+		canTabR1 = false;
+		canTabR2 = false;
+		canLogin = true;
+		canReg = false;
+	}
+
+	public void setTabR1 ()
+	{
+		canTabR1 = true;
+		canTabL = false;
+		canTabR2 = false;
+		canReg = true;
+		canLogin = false;
+	}
+
+	public void setTabR2 ()
+	{
+		canTabR2 = true;
+		canTabL = false;
+		canTabR1 = false;
+		canReg = true;
+		canLogin = false;
+	}
+
 	void Update ()
 	{
 		if (!BasicFunctions.playOffline && serverStuff.connected)
@@ -184,6 +219,33 @@ public class MenuFunctions : MonoBehaviour {
 				Multiplayer_Menu.SetActive(false);
 				Client_Menu.SetActive(true);
 				setClientMenu = false;
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+			if (canTabL)
+			{
+				login.Select ();
+			}
+			else if (canTabR1)
+			{
+				reg1.Select ();
+			}
+			else if (canTabR2)
+			{
+				reg2.Select ();
+			}
+		}
+		else if (Input.GetKeyDown(KeyCode.KeypadEnter))
+		{
+			if (canLogin)
+			{
+				Login();
+			}
+			else if (canReg)
+			{
+				Register();
 			}
 		}
 	}
