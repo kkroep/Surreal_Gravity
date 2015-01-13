@@ -20230,7 +20230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1477348004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24712,11 +24712,9 @@ MonoBehaviour:
   currentUname: {fileID: 613234192}
   chooseModus: {fileID: 1103030531}
   chooseLoginModus: {fileID: 1671894315}
-  chooseRegModus: {fileID: 0}
   chooseModusLabelServer: {fileID: 1904518798}
   chooseModusLabelClient: {fileID: 691311960}
   chooseLoginLabel: {fileID: 777434931}
-  chooseRegLabel: {fileID: 0}
   login: {fileID: 759025412}
   reg1: {fileID: 1727162462}
   reg2: {fileID: 1311821294}
@@ -25468,7 +25466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1862472428
 RectTransform:
   m_ObjectHideFlags: 0

@@ -108,14 +108,12 @@ public class AccountManagement : MonoBehaviour {
 	
 		if (loginServer)
 		{
-			Debug.Log ("SERVER");
 			string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName="+Uname+"&playerPassword="+Pword;
 			WWW www = new WWW(url);
 			StartCoroutine(WaitForAuthorization(www));
 		}
 		else
 		{
-			Debug.Log("NOTSERVER");
 			using (StreamReader slread = new StreamReader("Accounts.txt"))
 			{
 				list_of_accounts = AccountList.readAccounts(slread);
@@ -141,6 +139,7 @@ public class AccountManagement : MonoBehaviour {
 				BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
 				currentUName.text = BasicFunctions.activeAccount.Name;
 				loggedIn = true;
+				menuF.isLoggedIn = true;
 			}
 			else
 			{
@@ -176,8 +175,6 @@ public class AccountManagement : MonoBehaviour {
 		if (www.error == null)
 		{
 			if(www.text.Equals("Succesfully Authorized")){
-				//activeAccount.Name = log_acc.Name;
-				//activeAccount.Word = log_acc.Word;
 				BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
 				currentUName.text = BasicFunctions.activeAccount.Name;
 				loggedIn = true;
