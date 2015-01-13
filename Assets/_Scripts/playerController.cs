@@ -187,7 +187,19 @@ public class playerController : MonoBehaviour
 
 				if (Network.isServer) {
 						dontDestroy = true;
-						spawnScript.closeServerInGame ();
+						string gamemode;
+						if(BasicFunctions.ForkModus){
+							gamemode = "FORK";
+						}
+						else{
+							gamemode = "RAILGUN";
+						}
+						
+						string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server="+BasicFunctions.activeAccount.Name+"&Finished=0"+"&Gamemode="+gamemode;
+						Debug.Log (url);
+						WWW www = new WWW(url);
+						StartCoroutine(WaitForGameLog(www));
+						//spawnScript.closeServerInGame ();
 				} else if (Network.isClient) {
 						spawnScript.closeClientInGame ();
 				} else if (BasicFunctions.playOffline) {
@@ -197,26 +209,17 @@ public class playerController : MonoBehaviour
 					if (!spawnScript) {
 							spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 					}
-					string gamemode;
 
 					if (Network.isServer) {
 							dontDestroy = true;
 
-							if(BasicFunctions.ForkModus){
-								gamemode = "FORK";
-							}
-							else{
-								gamemode = "RAILGUN";
-							}
 
-							string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server="+BasicFunctions.activeAccount.Name+"&Finished=0"+"Gamemode="+gamemode;
-							WWW www = new WWW(url);
-							StartCoroutine(WaitForGameLog(www));
+							
 
 							//BasicFunctions.activeAccounts[referee.winner-1];
 
 
-							spawnScript.closeServerInGame ();
+							
 					} else if (Network.isClient) {
 							spawnScript.closeClientInGame ();
 					} else if (BasicFunctions.playOffline) {
@@ -366,10 +369,13 @@ public class playerController : MonoBehaviour
 	
 	IEnumerator WaitForGameLog(WWW www)
 	{
+		Debug.Log("gamelog");
 		yield return www;
+		Debug.Log ("gamelog2");
+
 		
 		if (www.error == null){
-			if(www.text.Equals ("SSuccesfully Registered Game")){
+			if(www.text.Equals ("Succesfully Registered Game")){
 				Debug.Log ("Succesfully logged");
 				
 			}
@@ -379,6 +385,11 @@ public class playerController : MonoBehaviour
 			
 			
 		}
+		else{
+			Debug.Log ("something went wrong");
+		}
+
+		spawnScript.closeServerInGame ();
 
 	}
 }

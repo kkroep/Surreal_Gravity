@@ -65,21 +65,48 @@ app.get("/Register",function(req,res){
 app.get("/GameRegister",function(req,res){
   var query = url.parse(req.url,true).query;
   var Server = _escapeString((query["Server"]!=undefined ? query["Server"] : "UndefinedServer"));
+  var ServerIDquery = "SELECT PLAYER_Id FROM `Players` WHERE Naam='"+Server+"'";
+  var ServerID;
+  connection.query(ServerIDquery,function(err,rows,fields){
+    console.log(rows[0]["PLAYER_Id"]);
+    if(err) throw err;
+    else ServerID = rows[0]["PLAYER_Id"];
+    var Winnaar = _escapeString((query["Winnaar"]!=undefined ? query["Winnaar"] : "UndefinedWinnaar"));
+    var Finished = _escapeString((query["Finished"]!=undefined ? query["Finished"] : "UndefinedFinished"));
+    var Gamemode = _escapeString((query["Gamemode"]!=undefined ? query["Gamemode"] : "UndefinedGamemode"));
+    var querystring;
+    if(Winnaar == "UndefinedWinnaar"){
+      querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+ServerID+"', NULL, b'0', '"+Gamemode+"', NULL);";
+      console.log(querystring);
+    }
+    else{
+      querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+ServerID+"', '"+Winnaar+"', b'1', '"+Gamemode+"', NULL);";
+    }
+    console.log(querystring);
+
+    connection.query(querystring,function(err,result,fields){
+      if(err) throw err;
+      else res.send("Succesfully Registered Game")
+    });
+  });
+  /*
   var Winnaar = _escapeString((query["Winnaar"]!=undefined ? query["Winnaar"] : "UndefinedWinnaar"));
   var Finished = _escapeString((query["Finished"]!=undefined ? query["Finished"] : "UndefinedFinished"));
   var Gamemode = _escapeString((query["Gamemode"]!=undefined ? query["Gamemode"] : "UndefinedGamemode"));
   var querystring;
   if(Winnaar == "UndefinedWinnaar"){
-    querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+Server+"', NULL, b'"+Finished+"', '"+Gamemode+"', NULL);";
+    querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+ServerID+"', NULL, b'0', '"+Gamemode+"', NULL);";
+    console.log(querystring);
   }
   else{
-    querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+Server+"', '"+Winnaar+"', b'"+Finished+"', '"+Gamemode+"', NULL);";
+    querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+ServerID+"', '"+Winnaar+"', b'1', '"+Gamemode+"', NULL);";
   }
 
   connection.query(querystring,function(err,result,fields){
     if(err) throw err;
     else res.send("Succesfully Registered Game")
   });
+*/
 });
 
 app.get("ParticipantsRegister",function(req,res){
