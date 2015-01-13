@@ -34,9 +34,9 @@ app.get("/Players", function (req, res) {
 
 app.get("/Authenticate",function(req,res){
   var query = url.parse(req.url,true).query;
-  var playerName = (query["playerName"]!=undefined ? query["playerName"] : "UndefinedName");
-  var playerPassword = (query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword");
-  console.log("playername: " + playerName + "  playerpassword: " + playerPassword);
+  var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
+  var playerPassword = _escapeString((query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword"));
+  console.log("LOGGING IN playername: " + playerName + "  playerpassword: " + playerPassword);
   var querystring = "SELECT DISTINCT * FROM Players WHERE Naam = \"" + playerName + "\" AND Paswoord = \"" + playerPassword + "\";";
   connection.query(querystring,function(err,rows,fields){
     if(err) throw err;
@@ -45,18 +45,15 @@ app.get("/Authenticate",function(req,res){
     }
     else{
       res.send("Unauthorized");
-    }
-    
-  })
-
-
+    }    
+  });
 });
 
 app.get("/Register",function(req,res){
   var query = url.parse(req.url,true).query;
-  var playerName = (query["playerName"]!=undefined ? query["playerName"] : "UndefinedName");
-  var playerPassword = (query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword");
-  //var querystring = "INSERT INTO 'ewi3620tu2'.'Players' ('Naam', 'Paswoord', 'Gespeeld', 'Gewonnen', 'Wanneer') VALUES ('" + playerName + ", '" + playerPassword + "', '0', '0', NOW());";
+  var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
+  var playerPassword = _escapeString((query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword"));
+  console.log("REGISTERING playername: " + playerName + "  playerpassword: " + playerPassword);
   var querystring = "INSERT INTO `ewi3620tu2`.`Players` (`Naam`, `Paswoord`, `Gespeeld`, `Gewonnen`, `Wanneer`, `PLAYER_Id`) VALUES ('" + playerName + "', '" + playerPassword + "', '0', '0', NOW(), NULL);";
   connection.query(querystring,function(err,result,fields){
     if(err) throw err;
@@ -64,6 +61,59 @@ app.get("/Register",function(req,res){
   });
 
 });
+
+app.get("/GameRegister",function(req,res){
+  var query = url.parse(req.url,true).query;
+  var Server = _escapeString((query["Server"]!=undefined ? query["Server"] : "UndefinedServer"));
+  var Winnaar = _escapeString((query["Winnaar"]!=undefined ? query["Winnaar"] : "UndefinedWinnaar"));
+  var Finished = _escapeString((query["Finished"]!=undefined ? query["Finished"] : "UndefinedFinished"));
+  var Gamemode = _escapeString((query["Gamemode"]!=undefined ? query["Gamemode"] : "UndefinedGamemode"));
+
+  var querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+Server+"', '"+Winnaar+"', b'"+Finished+"', '"+Gamemode+"', NULL);";
+
+  connection.query(querystring,function(err,result,fields){
+    if(err) throw err;
+    else res.send("Succesfully Registered Game")
+  });
+});
+
+app.get("ParticipantsRegister",function(req,res){
+  var query = url.parse(req.url,true).query;
+  var PLAYER_Id = _escapeString((query["PLAYER_Id"]!=undefined ? query["PLAYER_Id"] : "UndefinedPLAYER_Id"));
+  var GAME_Id = _escapeString((query["GAME_Id"]!=undefined ? query["GAME_Id"] : "UndefinedGAME_Id"));
+
+  var querystring = "INSERT INTO `ewi3620tu2`.`Participants` (`PLAYER_Id`, `GAME_Id`, `PARTICIPANTS_Id`) VALUES ('"+PLAYER_Id+"', '"+GAME_Id+"', NULL);";
+  connection.query(querystring,function(err,result,fields){
+    if(err) throw err;
+    else res.send("Succesfully logged player and game");
+  });
+});
+
+
+function _escapeString (str) {
+    return str.replace(/[\0\x08\x09\x1a\n\r"'\\\%]/g, function (char) {
+        switch (char) {
+            case "\0":
+                return "\\0";
+            case "\x08":
+                return "\\b";
+            case "\x09":
+                return "\\t";
+            case "\x1a":
+                return "\\z";
+            case "\n":
+                return "\\n";
+            case "\r":
+                return "\\r";
+            case "\"":
+            case "'":
+            case "\\":
+            case "%":
+                return "\\"+char; // prepends a backslash to backslash, percent,
+                                  // and double/single quotes
+        }
+    });
+}
 
 /*
 app.post("/check", function(req, res) {
