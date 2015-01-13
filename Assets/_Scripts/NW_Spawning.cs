@@ -266,6 +266,7 @@ public class NW_Spawning : MonoBehaviour {
 
 	void Update ()
 	{
+		Debug.Log("#: " + GameObject.FindGameObjectsWithTag("Player").Length);
 		if(!BasicFunctions.playOffline && canSpawn)
 		{
 			if (GameObject.FindGameObjectsWithTag("Player").Length == BasicFunctions.activeAccount.Number-1)
