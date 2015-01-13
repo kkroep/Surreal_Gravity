@@ -67,7 +67,8 @@ public class playerController : MonoBehaviour
 		private float JumpTime;
 		
 		public GameObject ScoreScreen;
-		//public AudioClip boundary_death_sound;
+		public AudioClip boundary_death_sound;
+		public AudioClip respawn_sound;
 
 	#endregion
 
@@ -211,7 +212,7 @@ public class playerController : MonoBehaviour
 												gamemode = "RAILGUN";
 										}
 
-										string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "Gamemode=" + gamemode;
+										string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode;
 										WWW www = new WWW (url);
 										StartCoroutine (WaitForGameLog (www));
 
@@ -333,7 +334,7 @@ public class playerController : MonoBehaviour
 
 		[RPC]
 		void PlayerRespawn (Vector3 SpawnPOsition)
-		{
+		{		AudioSource.PlayClipAtPoint (respawn_sound, transform.position);
 				isAlive = true;
 				transform.position = SpawnPOsition;
 				gameObject.GetComponent<MeshRenderer> ().enabled = true;
@@ -356,7 +357,7 @@ public class playerController : MonoBehaviour
 		{
 				if (networkView.isMine && !BasicFunctions.playOffline) {
 						if (collisionInfo.gameObject.tag == "DeathBoundary") {
-								//AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
+								AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
 								if (!referee) {
 										referee = (GameObject.FindGameObjectsWithTag ("Referee_Tag")) [0].GetComponent<Referee_script> ();
 								}
