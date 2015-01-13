@@ -68,7 +68,6 @@ app.get("/GameRegister",function(req,res){
   var ServerIDquery = "SELECT PLAYER_Id FROM `Players` WHERE Naam='"+Server+"'";
   var ServerID;
   connection.query(ServerIDquery,function(err,rows,fields){
-    console.log(rows[0]["PLAYER_Id"]);
     if(err) throw err;
     else ServerID = rows[0]["PLAYER_Id"];
     var Winnaar = _escapeString((query["Winnaar"]!=undefined ? query["Winnaar"] : "UndefinedWinnaar"));
