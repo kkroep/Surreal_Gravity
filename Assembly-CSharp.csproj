@@ -71,6 +71,7 @@
      <Compile Include="Assets\_Scripts\Referee_script.cs" />
      <Compile Include="Assets\_Scripts\RobotMovement.cs" />
      <Compile Include="Assets\_Scripts\RobotScript.cs" />
+     <Compile Include="Assets\_Scripts\ScoreScreen.cs" />
      <Compile Include="Assets\_Scripts\SpawnBlock.cs" />
      <Compile Include="Assets\_Scripts\TargetScript.cs" />
      <Compile Include="Assets\_Scripts\Wapen.cs" />

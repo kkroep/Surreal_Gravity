@@ -6513,7 +6513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &235739524
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15964,7 +15964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &637947012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25913,6 +25913,9 @@ MonoBehaviour:
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   kill_shot_sound: {fileID: 0}
   gravity_shot_sound: {fileID: 0}
+  kill_point_sound: {fileID: 0}
+  gravity_switch_sound: {fileID: 0}
+  bullet_hit_sound: {fileID: 0}
   VerticesPerUnit: 0
   Gibrange: 0
 --- !u!81 &1003792149
@@ -35672,7 +35675,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -42257,7 +42259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1608473002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47811,6 +47813,7 @@ MonoBehaviour:
   debugLives: {fileID: 1388610408}
   endGameText: {fileID: 2134406176}
   spawnLocations: []
+  respawnLocations: []
   Player1: {fileID: 2800000, guid: 76c5102b1c6f51d4faa2ac1f51d80204, type: 3}
   Player2: {fileID: 2800000, guid: 4a48bb7404b73924b80342e751a66fca, type: 3}
   Player3: {fileID: 2800000, guid: b346f0eeee248704d882ff3954f5e89f, type: 3}
@@ -48152,7 +48155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1854261335
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48653,6 +48656,9 @@ MonoBehaviour:
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   kill_shot_sound: {fileID: 0}
   gravity_shot_sound: {fileID: 0}
+  kill_point_sound: {fileID: 0}
+  gravity_switch_sound: {fileID: 0}
+  bullet_hit_sound: {fileID: 0}
   VerticesPerUnit: 0
   Gibrange: 0
 --- !u!114 &1863724709
@@ -48982,6 +48988,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreScreen: {fileID: 932806590}
+  player1: {fileID: 1608473003}
+  player2: {fileID: 637947013}
+  player3: {fileID: 235739525}
+  player4: {fileID: 1854261336}
+  score1: {fileID: 1763244348}
+  score2: {fileID: 756357034}
+  score3: {fileID: 1651642450}
+  score4: {fileID: 144835846}
 --- !u!4 &1878591220
 Transform:
   m_ObjectHideFlags: 0
