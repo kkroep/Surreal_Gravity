@@ -19,17 +19,53 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-//connection.query('use SURREAL');
+connection.query('use ewi3620tu2');
 
 app.get("/Players", function (req, res) {
   //res.json(connection.query('select * from todos'));
   var querystring = "SELECT DISTINCT Naam FROM Players;";
   connection.query(querystring, function(err, rows, fields) {
     if (err) throw err;
-    res.json(rows);
+    //res.json(rows);
+    res.send(rows);
   });
 });
 
+
+app.get("/Authenticate",function(req,res){
+  var query = url.parse(req.url,true).query;
+  var playerName = (query["playerName"]!=undefined ? query["playerName"] : "UndefinedName");
+  var playerPassword = (query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword");
+  console.log("playername: " + playerName + "  playerpassword: " + playerPassword);
+  var querystring = "SELECT DISTINCT * FROM Players WHERE Naam = \"" + playerName + "\" AND Paswoord = \"" + playerPassword + "\";";
+  connection.query(querystring,function(err,rows,fields){
+    if(err) throw err;
+    if(rows.length >= 1){
+      res.send("Succesfully Authorized");
+    }
+    else{
+      res.send("Unauthorized");
+    }
+    
+  })
+
+
+});
+
+app.get("/Register",function(req,res){
+  var query = url.parse(req.url,true).query;
+  var playerName = (query["playerName"]!=undefined ? query["playerName"] : "UndefinedName");
+  var playerPassword = (query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword");
+  //var querystring = "INSERT INTO 'ewi3620tu2'.'Players' ('Naam', 'Paswoord', 'Gespeeld', 'Gewonnen', 'Wanneer') VALUES ('" + playerName + ", '" + playerPassword + "', '0', '0', NOW());";
+  var querystring = "INSERT INTO `ewi3620tu2`.`Players` (`Naam`, `Paswoord`, `Gespeeld`, `Gewonnen`, `Wanneer`, `PLAYER_Id`) VALUES ('" + playerName + "', '" + playerPassword + "', '0', '0', NOW(), NULL);";
+  connection.query(querystring,function(err,result,fields){
+    if(err) throw err;
+    else res.send("Succesfully Registered");
+  });
+
+});
+
+/*
 app.post("/check", function(req, res) {
   var post = req.body;
   console.log(post);
@@ -78,3 +114,4 @@ app.post("/delete-todo", function (req, res) {
 var getRInt = function(bottom, top){
   return Math.floor((Math.random() * top) + bottom);
 };
+*/
