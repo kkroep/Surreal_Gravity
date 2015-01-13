@@ -66,13 +66,16 @@ public class playerController : MonoBehaviour
 		private bool Can_Jump = false;
 		private float JumpTime;
 		
-		public AudioClip boundary_death_sound;
+		public GameObject ScoreScreen;
+		//public AudioClip boundary_death_sound;
 
 	#endregion
 
 		void Start ()
 		{
 				if (networkView.isMine || BasicFunctions.playOffline) {
+
+
 						if (!BasicFunctions.playOffline) {
 								activeAccount.Number = playerNumber;
 						}
@@ -180,58 +183,56 @@ public class playerController : MonoBehaviour
 
 		void Update ()
 		{
-			if (Input.GetKeyDown (KeyCode.Escape)) {
-				if (!spawnScript) {
-						spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
-				}
-
-				if (Network.isServer) {
-						dontDestroy = true;
-						string gamemode;
-						if(BasicFunctions.ForkModus){
-							gamemode = "FORK";
-						}
-						else{
-							gamemode = "RAILGUN";
-						}
-						
-						string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server="+BasicFunctions.activeAccount.Name+"&Finished=0"+"&Gamemode="+gamemode;
-						Debug.Log (url);
-						WWW www = new WWW(url);
-						StartCoroutine(WaitForGameLog(www));
-						//spawnScript.closeServerInGame ();
-				} else if (Network.isClient) {
-						spawnScript.closeClientInGame ();
-				} else if (BasicFunctions.playOffline) {
-						Application.LoadLevel ("Menu_New");
-				}
 				if (Input.GetKeyDown (KeyCode.Escape)) {
-					if (!spawnScript) {
-							spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
-					}
+						if (!spawnScript) {
+								spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
+						}
 
-					if (Network.isServer) {
-							dontDestroy = true;
+						if (Network.isServer) {
+								dontDestroy = true;
+								spawnScript.closeServerInGame ();
+						} else if (Network.isClient) {
+								spawnScript.closeClientInGame ();
+						} else if (BasicFunctions.playOffline) {
+								Application.LoadLevel ("Menu_New");
+						}
+						if (Input.GetKeyDown (KeyCode.Escape)) {
+								if (!spawnScript) {
+										spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
+								}
+								string gamemode;
+
+								if (Network.isServer) {
+										dontDestroy = true;
+
+										if (BasicFunctions.ForkModus) {
+												gamemode = "FORK";
+										} else {
+												gamemode = "RAILGUN";
+										}
+
+										string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "Gamemode=" + gamemode;
+										WWW www = new WWW (url);
+										StartCoroutine (WaitForGameLog (www));
+
+										//BasicFunctions.activeAccounts[referee.winner-1];
 
 
-							
-
-							//BasicFunctions.activeAccounts[referee.winner-1];
-
-
-							
-					} else if (Network.isClient) {
-							spawnScript.closeClientInGame ();
-					} else if (BasicFunctions.playOffline) {
-							Application.LoadLevel ("Menu_New");
-					}
+										spawnScript.closeServerInGame ();
+								} else if (Network.isClient) {
+										spawnScript.closeClientInGame ();
+								} else if (BasicFunctions.playOffline) {
+										Application.LoadLevel ("Menu_New");
+								}
+						}
 				}
-			}
 		}
 	
 		void FixedUpdate ()
 		{
 				if (networkView.isMine || BasicFunctions.playOffline) {
+
+
 						if (Gravity_Shift_Counter > 1f) {
 								Gravity_Shift_Counter--;
 								transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
@@ -310,8 +311,8 @@ public class playerController : MonoBehaviour
 										time2death -= Time.fixedDeltaTime;
 										if (time2death <= 1f) {
 												if (!spawnChosen) {
-														int index = Random.Range (0, spawnScript.respawnLocations.Count - 1); //Take random integer
-														Vector3 randomSpawnPoint = spawnScript.respawnLocations [index];
+														int index = Random.Range (0, spawnScript.spawnLocations.Count - 1); //Take random integer
+														Vector3 randomSpawnPoint = spawnScript.spawnLocations [index];
 														transform.position = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
 														spawnChosen = true;
 												}
@@ -355,7 +356,7 @@ public class playerController : MonoBehaviour
 		{
 				if (networkView.isMine && !BasicFunctions.playOffline) {
 						if (collisionInfo.gameObject.tag == "DeathBoundary") {
-								AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
+								//AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
 								if (!referee) {
 										referee = (GameObject.FindGameObjectsWithTag ("Referee_Tag")) [0].GetComponent<Referee_script> ();
 								}
@@ -365,31 +366,21 @@ public class playerController : MonoBehaviour
 						}
 				}
 		}
-
 	
-	IEnumerator WaitForGameLog(WWW www)
-	{
-		Debug.Log("gamelog");
-		yield return www;
-		Debug.Log ("gamelog2");
-
+		IEnumerator WaitForGameLog (WWW www)
+		{
+				yield return www;
 		
-		if (www.error == null){
-			if(www.text.Equals ("Succesfully Registered Game")){
-				Debug.Log ("Succesfully logged");
+				if (www.error == null) {
+						if (www.text.Equals ("SSuccesfully Registered Game")) {
+								Debug.Log ("Succesfully logged");
 				
-			}
-			else{
-				Debug.Log ("Failed to log");
-			}
+						} else {
+								Debug.Log ("Failed to log");
+						}
 			
 			
-		}
-		else{
-			Debug.Log ("something went wrong");
-		}
+				}
 
-		spawnScript.closeServerInGame ();
-
-	}
+		}
 }
