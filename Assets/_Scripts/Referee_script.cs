@@ -90,8 +90,18 @@ public class Referee_script : MonoBehaviour {
 
 			if (scores[shooter-1] >= maxPoints)
 			{
+				string gamemode;
+				if (BasicFunctions.ForkModus) {
+					gamemode = "FORK";
+				} else {
+					gamemode = "RAILGUN";
+				}
 				networkView.RPC("finishGame", RPCMode.All, shooter);
 				networkView.RPC("setEndGameText", RPCMode.All);
+				string winnerLog = BasicFunctions.activeAccounts[winner-1];
+				string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode + "&Winnaar=" + winnerLog;
+				WWW www = new WWW (url);
+				StartCoroutine (WaitForGameLog (www));
 
 			}
 
@@ -192,5 +202,22 @@ public class Referee_script : MonoBehaviour {
 	public void setEndGameText ()
 	{
 		spawnScript.endGameText.text = "Game is over. Press ESC to end the game! \nWinner: " + BasicFunctions.activeAccounts[winner-1];
+	}
+
+	IEnumerator WaitForGameLog (WWW www)
+	{
+		yield return www;
+		
+		if (www.error == null) {
+			if (www.text.Equals ("SSuccesfully Registered Game")) {
+				Debug.Log ("Succesfully logged");
+				
+			} else {
+				Debug.Log ("Failed to log");
+			}
+			
+			
+		}
+		
 	}
 }
