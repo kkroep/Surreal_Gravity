@@ -224,6 +224,7 @@ public class NW_Server : MonoBehaviour {
 			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 			{
 				Debug.Log("" + i + ": " + BasicFunctions.activeAccounts[i]);
+				Debug.Log("" + i + ": " + BasicFunctions.accountNumbers[i]);
 			}
 		
 			if (BasicFunctions.activeAccounts.Count == BasicFunctions.amountPlayers)

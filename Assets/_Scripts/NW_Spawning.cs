@@ -28,6 +28,17 @@ public class NW_Spawning : MonoBehaviour {
 	public Texture Player3;
 	public Texture Player4;
 
+	void Awake ()
+	{
+		if (!BasicFunctions.playOffline)
+		{
+			if (Network.isServer)
+			{
+				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject; //Spawn referee
+			}
+		}
+	}
+
 	void Start ()
 	{
 		spawnLocations = new List<Vector3> ();
@@ -49,14 +60,7 @@ public class NW_Spawning : MonoBehaviour {
 			}
 		}
 
-		if (!BasicFunctions.playOffline)
-		{
-			if (Network.isServer)
-			{
-				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject; //Spawn referee
-			}
-		}
-		else
+		if (BasicFunctions.playOffline)
 		{
 			spawnPlayer();
 		}
@@ -75,7 +79,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
 			player = playerN;
-			networkView.RPC("removeSpawnPoint", RPCMode.All, index);
+			//networkView.RPC("removeSpawnPoint", RPCMode.All, index);
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 		}
 	}
@@ -264,10 +268,10 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		if(!BasicFunctions.playOffline && canSpawn)
 		{
-			if (GameObject.FindGameObjectsWithTag("Player").Length == BasicFunctions.activeAccount.Number-1)
+			if (GameObject.FindGameObjectsWithTag("Player").Length == (BasicFunctions.activeAccount.Number-1))
 			{
-				canSpawn = false;
 				spawnPlayer();
+				canSpawn = false;
 			}
 		}
 	}
