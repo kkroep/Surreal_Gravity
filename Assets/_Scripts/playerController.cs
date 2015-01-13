@@ -307,8 +307,8 @@ public class playerController : MonoBehaviour
 										time2death -= Time.fixedDeltaTime;
 										if (time2death <= 1f) {
 												if (!spawnChosen) {
-														int index = Random.Range (0, spawnScript.spawnLocations.Count - 1); //Take random integer
-														Vector3 randomSpawnPoint = spawnScript.spawnLocations [index];
+														int index = Random.Range (0, spawnScript.respawnLocations.Count - 1); //Take random integer
+														Vector3 randomSpawnPoint = spawnScript.respawnLocations [index];
 														transform.position = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
 														spawnChosen = true;
 												}

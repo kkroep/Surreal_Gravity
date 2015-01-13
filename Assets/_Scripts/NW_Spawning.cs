@@ -13,14 +13,15 @@ public class NW_Spawning : MonoBehaviour {
 	public Text endGameText;
 
 	public List<Vector3> spawnLocations;
+	public List<Vector3> respawnLocations;
 	private GameObject player;
 	private Vector3 randomSpawnPoint;
 	private bool refreshing = false;
 	private bool playOffline;
-	private int amountSpawnPoints = 5;
+	private bool canSpawn;
+	private int amountSpawnPoints = 10;
 	private GameObject referee;
 	private Referee_script refScript;
-	private bool canSpawn = true;
 
 	public Texture Player1;
 	public Texture Player2;
@@ -30,6 +31,8 @@ public class NW_Spawning : MonoBehaviour {
 	void Start ()
 	{
 		spawnLocations = new List<Vector3> ();
+		respawnLocations = new List<Vector3> ();
+		canSpawn = true;
 		for (int i = 0; i < amountSpawnPoints; i++)
 		{
 			int width = Random.Range(0, levelCreator.levelWidth);
@@ -63,6 +66,7 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		int index = Random.Range (0, spawnLocations.Count-1); //Take random integer
 		randomSpawnPoint = spawnLocations[index]; //Pick random spawnpoint (because of random int)
+
 		if (BasicFunctions.playOffline)
 		{
 			Object.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity);
@@ -71,6 +75,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
 			player = playerN;
+			networkView.RPC("removeSpawnPoint", RPCMode.All, index);
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 		}
 	}
@@ -129,6 +134,13 @@ public class NW_Spawning : MonoBehaviour {
 	public void addSpawnPoints (Vector3 spawnPos)
 	{
 		spawnLocations.Add (spawnPos);
+		respawnLocations.Add (spawnPos);
+	}
+
+	[RPC]
+	public void removeSpawnPoint (int index)
+	{
+		spawnLocations.RemoveAt(index);
 	}
 	/* Assign number to a player
 	 */
@@ -247,10 +259,10 @@ public class NW_Spawning : MonoBehaviour {
 		GameObject quitter = quitterView.gameObject;
 		Destroy(quitter);
 	}
-	
-	void Update () 
+
+	void Update ()
 	{
-		if (!BasicFunctions.playOffline && spawnLocations.Count == amountSpawnPoints && canSpawn)
+		if(!BasicFunctions.playOffline && canSpawn && spawnLocations.Count == amountSpawnPoints)
 		{
 			canSpawn = false;
 			spawnPlayer();
