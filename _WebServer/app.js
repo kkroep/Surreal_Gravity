@@ -117,8 +117,7 @@ app.get("/GameRegister",function(req,res){
 */
 });
 
-app.get("ParticipantsRegister",function(req,res){
-  res.send("hallo");
+app.get("/ParticipantsRegister",function(req,res){
   var query = url.parse(req.url,true).query;
   var PLAYER = _escapeString((query["PLAYER"]!=undefined ? query["PLAYER"] : "UndefinedPLAYER"));
   var SERVER = _escapeString((query["SERVER"]!=undefined ? query["SERVER"] : "UndefinedSERVER"))
@@ -130,23 +129,31 @@ app.get("ParticipantsRegister",function(req,res){
     if(err) throw err;
     else PLAYER_Id = rows[0]["PLAYER_Id"];
 
-    var GAME_Id;
 
-    GameIDquery = "SELECT GAME_Id from `Games` WHERE Server='"+SERVER+"' ORDER BY GAME_Id DESC;"
+    var ServerIDquery = "SELECT PLAYER_Id FROM `Players` WHERE Naam='"+SERVER+"'";
+    var SERVER_Id;
 
-    connection.query(GameIDquery,function(err,rows,fields){
+    connection.query(ServerIDquery,function(err,rows,fields){
       if(err) throw err;
-      else GAME_Id = ros[0]["GAME_Id"];
+      else SERVER_Id = rows[0]["PLAYER_Id"];
+    
 
-      var querystring = "INSERT INTO `ewi3620tu2`.`Participants` (`PLAYER_Id`, `GAME_Id`, `PARTICIPANTS_Id`) VALUES ('"+PLAYER_Id+"', '"+GAME_Id+"', NULL);";
+      var GAME_Id;
 
-      connection.query(querystring,function(err,rows,fields){
+      GameIDquery = "SELECT GAME_Id from `Games` WHERE Server='"+SERVER_Id+"' ORDER BY GAME_Id DESC;"
+
+      connection.query(GameIDquery,function(err,rows,fields){
         if(err) throw err;
-        else res.send("sucesfully logged participant");
+        else GAME_Id = rows[0]["GAME_Id"];
 
+        var querystring = "INSERT INTO `ewi3620tu2`.`Participants` (`PLAYER_Id`, `GAME_Id`, `PARTICIPANTS_Id`) VALUES ('"+PLAYER_Id+"', '"+GAME_Id+"', NULL);";
+
+        connection.query(querystring,function(err,rows,fields){
+          if(err) throw err;
+          else res.send("sucesfully logged participant");
+
+        });
       });
-
-
     });
   });
 });
