@@ -132,6 +132,7 @@ public class NW_Server : MonoBehaviour {
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
+			BasicFunctions.startingAccounts.Add(BasicFunctions.activeAccount.Name);
 			setTextsS();
 		}
 		else
@@ -190,6 +191,7 @@ public class NW_Server : MonoBehaviour {
 			{
 				BasicFunctions.activeAccounts.Add (UN + "[" + Number + "]");
 			}
+			BasicFunctions.startingAccounts.Add(UN);
 			BasicFunctions.accountNumbers.Add (Number);
 			
 			for(int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
@@ -213,6 +215,7 @@ public class NW_Server : MonoBehaviour {
 		if (Network.isClient)
 		{
 			BasicFunctions.activeAccounts.Add(UN);
+			BasicFunctions.startingAccounts.Add(UN);
 			BasicFunctions.accountNumbers.Add(Number);
 		}
 		if (BasicFunctions.activeAccounts.Count == BasicFunctions.amountPlayers)

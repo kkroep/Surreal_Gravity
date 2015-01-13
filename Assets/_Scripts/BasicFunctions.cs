@@ -10,6 +10,7 @@ public class BasicFunctions : MonoBehaviour {
 	public static int amountPlayers;
 	public static Account activeAccount;
 	public static List<string> activeAccounts = new List<string>();
+	public static List<string> startingAccounts = new List<string>();
 	public static List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
 	public static List<int> accountNumbers = new List<int>();
 
