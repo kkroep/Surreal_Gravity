@@ -7,12 +7,9 @@ public class Referee_script : MonoBehaviour {
 
 	public int playerCount;
 	public int Lives_count = 3;
-	//public int[] scores = new int[4]{0,0,0,0};
-	//public int[] lives = new int[4]{3,3,3,3};
 	public List<int> scores = new List<int>();
 	public List<int> lives = new List<int>();
 	public NW_Spawning spawnScript;
-	//public playerController[] players;
 	public List<playerController> players;
 	public float respawnTimer = 1.5f; //seconds 
 
@@ -32,16 +29,11 @@ public class Referee_script : MonoBehaviour {
 	///Initialization
 	void Start () {
 		playerCount = BasicFunctions.amountPlayers;
-		//players = new playerController[playerCount];
-		//scores = new int[playerCount];
-		//lives = new int[playerCount];
 		players = new List<playerController>();
 		scores = new List<int>();
 		lives = new List<int>();
 
 		for (int i=0; i<playerCount; i++) {
-			//scores [i] = 0;
-			//lives [i] = Lives_count;
 			scores.Add (0);
 			lives.Add (Lives_count);
 		}
@@ -57,7 +49,6 @@ public class Referee_script : MonoBehaviour {
 				for (int i=0; i<playerCount; i++) {
 					for (int j=0; j<playerCount; j++) {
 						if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
-							//players[i]=tmp[j].GetComponent<playerController>();
 							players.Add (tmp[j].GetComponent<playerController>());
 							break;
 						}
