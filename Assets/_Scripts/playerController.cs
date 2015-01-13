@@ -66,6 +66,7 @@ public class playerController : MonoBehaviour
 		private bool Can_Jump = false;
 		private float JumpTime;
 		
+		public GameObject ScoreScreen;
 		//public AudioClip boundary_death_sound;
 
 	#endregion
@@ -73,6 +74,8 @@ public class playerController : MonoBehaviour
 		void Start ()
 		{
 				if (networkView.isMine || BasicFunctions.playOffline) {
+
+
 						if (!BasicFunctions.playOffline) {
 								activeAccount.Number = playerNumber;
 						}
@@ -180,55 +183,56 @@ public class playerController : MonoBehaviour
 
 		void Update ()
 		{
-			if (Input.GetKeyDown (KeyCode.Escape)) {
-				if (!spawnScript) {
-						spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
-				}
-
-				if (Network.isServer) {
-						dontDestroy = true;
-						spawnScript.closeServerInGame ();
-				} else if (Network.isClient) {
-						spawnScript.closeClientInGame ();
-				} else if (BasicFunctions.playOffline) {
-						Application.LoadLevel ("Menu_New");
-				}
 				if (Input.GetKeyDown (KeyCode.Escape)) {
-					if (!spawnScript) {
-							spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
-					}
-					string gamemode;
+						if (!spawnScript) {
+								spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
+						}
 
-					if (Network.isServer) {
-							dontDestroy = true;
+						if (Network.isServer) {
+								dontDestroy = true;
+								spawnScript.closeServerInGame ();
+						} else if (Network.isClient) {
+								spawnScript.closeClientInGame ();
+						} else if (BasicFunctions.playOffline) {
+								Application.LoadLevel ("Menu_New");
+						}
+						if (Input.GetKeyDown (KeyCode.Escape)) {
+								if (!spawnScript) {
+										spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
+								}
+								string gamemode;
 
-							if(BasicFunctions.ForkModus){
-								gamemode = "FORK";
-							}
-							else{
-								gamemode = "RAILGUN";
-							}
+								if (Network.isServer) {
+										dontDestroy = true;
 
-							string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server="+BasicFunctions.activeAccount.Name+"&Finished=0"+"Gamemode="+gamemode;
-							WWW www = new WWW(url);
-							StartCoroutine(WaitForGameLog(www));
+										if (BasicFunctions.ForkModus) {
+												gamemode = "FORK";
+										} else {
+												gamemode = "RAILGUN";
+										}
 
-							//BasicFunctions.activeAccounts[referee.winner-1];
+										string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "Gamemode=" + gamemode;
+										WWW www = new WWW (url);
+										StartCoroutine (WaitForGameLog (www));
+
+										//BasicFunctions.activeAccounts[referee.winner-1];
 
 
-							spawnScript.closeServerInGame ();
-					} else if (Network.isClient) {
-							spawnScript.closeClientInGame ();
-					} else if (BasicFunctions.playOffline) {
-							Application.LoadLevel ("Menu_New");
-					}
+										spawnScript.closeServerInGame ();
+								} else if (Network.isClient) {
+										spawnScript.closeClientInGame ();
+								} else if (BasicFunctions.playOffline) {
+										Application.LoadLevel ("Menu_New");
+								}
+						}
 				}
-			}
 		}
 	
 		void FixedUpdate ()
 		{
 				if (networkView.isMine || BasicFunctions.playOffline) {
+
+
 						if (Gravity_Shift_Counter > 1f) {
 								Gravity_Shift_Counter--;
 								transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
@@ -362,23 +366,21 @@ public class playerController : MonoBehaviour
 						}
 				}
 		}
-
 	
-	IEnumerator WaitForGameLog(WWW www)
-	{
-		yield return www;
+		IEnumerator WaitForGameLog (WWW www)
+		{
+				yield return www;
 		
-		if (www.error == null){
-			if(www.text.Equals ("SSuccesfully Registered Game")){
-				Debug.Log ("Succesfully logged");
+				if (www.error == null) {
+						if (www.text.Equals ("SSuccesfully Registered Game")) {
+								Debug.Log ("Succesfully logged");
 				
-			}
-			else{
-				Debug.Log ("Failed to log");
-			}
+						} else {
+								Debug.Log ("Failed to log");
+						}
 			
 			
-		}
+				}
 
-	}
+		}
 }
