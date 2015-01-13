@@ -51,8 +51,8 @@ public class Camera_Control : MonoBehaviour {
 	private Account activeAccount = BasicFunctions.activeAccount;
 	private float lastShot;
 
-	public AudioClip kill_point_sound;
-	public AudioClip gravity_switch_sound;
+	//public AudioClip kill_point_sound;
+	//public AudioClip gravity_switch_sound;
 
 	//new
 	private int vertexsize;
@@ -164,7 +164,7 @@ public class Camera_Control : MonoBehaviour {
 				if (!BasicFunctions.playOffline)
 					player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
 				if(hit.collider.tag=="level"){
-				AudioSource.PlayClipAtPoint(gravity_switch_sound, transform.position);
+				//AudioSource.PlayClipAtPoint(gravity_switch_sound, transform.position);
 				player.Switch_Gravity(hit.normal*-1f);
 				}
 			}
@@ -209,7 +209,7 @@ public class Camera_Control : MonoBehaviour {
 					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
 				if(hit.collider.tag=="Player")
 				{
-					AudioSource.PlayClipAtPoint (kill_point_sound, transform.position);
+					//AudioSource.PlayClipAtPoint (kill_point_sound, transform.position);
 					if(!referee){
 						referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 					}
