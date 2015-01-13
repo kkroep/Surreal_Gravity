@@ -195,6 +195,7 @@ MonoBehaviour:
   Gibrange: .00999999978
   time2death: 1.5
   Sphere_collider_radius: .600000024
+  boundary_death_sound: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,6 +237,9 @@ MonoBehaviour:
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   gravity_shot_sound: {fileID: 8300000, guid: b3679ac07962d0542b3c251f130819dd, type: 3}
+  kill_point_sound: {fileID: 0}
+  gravity_switch_sound: {fileID: 0}
+  bullet_hit_sound: {fileID: 0}
   VerticesPerUnit: 150
   Gibrange: .00999999978
 --- !u!124 &12400000
