@@ -180,20 +180,20 @@ public class playerController : MonoBehaviour
 
 		void Update ()
 		{
-				if (Input.GetKeyDown (KeyCode.Escape)) {
-						if (!spawnScript) {
-								spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
-						}
-
-						if (Network.isServer) {
-								dontDestroy = true;
-								spawnScript.closeServerInGame ();
-						} else if (Network.isClient) {
-								spawnScript.closeClientInGame ();
-						} else if (BasicFunctions.playOffline) {
-								Application.LoadLevel ("Menu_New");
-						}
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				if (!spawnScript) {
+						spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 				}
+
+				if (Network.isServer) {
+						dontDestroy = true;
+						spawnScript.closeServerInGame ();
+				} else if (Network.isClient) {
+						spawnScript.closeClientInGame ();
+				} else if (BasicFunctions.playOffline) {
+						Application.LoadLevel ("Menu_New");
+				}
+			}
 		}
 	
 		void FixedUpdate ()

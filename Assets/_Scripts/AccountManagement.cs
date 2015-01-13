@@ -11,10 +11,9 @@ public class AccountManagement : MonoBehaviour {
 	public InputField loginU;
 	public InputField loginP;
 	public Text currentUName;
+	public bool loginServer;
 	public NW_Server networkServer;
 	public MenuFunctions menuF;
-	
-	//public Account activeAccount;
 	
 	public static bool loggedIn;
 	
@@ -26,6 +25,7 @@ public class AccountManagement : MonoBehaviour {
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
 		loggedIn = true;
+		loginServer = true;
 		if (BasicFunctions.firstStart)
 		{
 			BasicFunctions.activeAccount = new Account("Debug", "-");
@@ -53,43 +53,43 @@ public class AccountManagement : MonoBehaviour {
 	{
 		if (Pword.Equals(PwordC))
 		{
-
-			string url = "http://drproject.twi.tudelft.nl:8082/Register?playerName="+Uname+"&playerPassword="+Pword;
-			WWW www = new WWW(url);
-			StartCoroutine(WaitForRegistration(www));
-
-			/*
-			Account reg_acc = new Account (Uname, Pword);
-			if (Uname == " ")
+			if (loginServer)
 			{
-				Debug.Log("No Username is given");
-			}
-			else if (!list_of_accounts.containsUsername(reg_acc))
-			{
-				registerU.text = "";
-				registerP.text = "";
-				registerPC.text = "";
-				
-				list_of_accounts.addAccount(reg_acc);
-				using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
-				{
-					Account.writeAccount (reg_acc, swrite);
-					swrite.Close ();
-				}
-				Debug.Log("Account: " + reg_acc.Name + " created");
+				string url = "http://drproject.twi.tudelft.nl:8082/Register?playerName="+Uname+"&playerPassword="+Pword;
+				WWW www = new WWW(url);
+				StartCoroutine(WaitForRegistration(www));
 			}
 			else
 			{
-				Debug.Log("Username not available");
+				Account reg_acc = new Account (Uname, Pword);
+				if (Uname == " ")
+				{
+					Debug.Log("No Username is given");
+				}
+				else if (!list_of_accounts.containsUsername(reg_acc))
+				{
+					registerU.text = "";
+					registerP.text = "";
+					registerPC.text = "";
+					
+					list_of_accounts.addAccount(reg_acc);
+					using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
+					{
+						Account.writeAccount (reg_acc, swrite);
+						swrite.Close ();
+					}
+					Debug.Log("Account: " + reg_acc.Name + " created");
+				}
+				else
+				{
+					Debug.Log("Username not available");
+				}
 			}
-			*/
 		}
-
 		else
 		{
 			Debug.Log("Passwords don't match");
 		}
-
 	}
 	/* Lees de username, het password en het team in
 	 */
@@ -97,9 +97,7 @@ public class AccountManagement : MonoBehaviour {
 	{
 		string username = loginU.text.ToString();
 		string password = loginP.text.ToString();
-		//string team = chooseTeamText.text.ToString();
 		loginAccount (username, password);
-		//networkView.RPC("loginAccServer", RPCMode.AllBuffered, username, password);
 	}
 	/* Login op een account en geef de username en het gekozen team mee aan de Server
 	 */
@@ -107,47 +105,48 @@ public class AccountManagement : MonoBehaviour {
 	{
 		log_acc.Name = Uname;
 		log_acc.Word = Pword;
-
-		string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName="+Uname+"&playerPassword="+Pword;
-		WWW www = new WWW(url);
-		StartCoroutine(WaitForAuthorization(www));
-
-
-		/*
-		using (StreamReader slread = new StreamReader("Accounts.txt"))
+	
+		if (loginServer)
 		{
-			list_of_accounts = AccountList.readAccounts(slread);
-			slread.Close ();
-		}
-		
-		int i = 0;
-		while (i < list_of_accounts.sizeList)
-		{
-			Account acc2 = list_of_accounts.indexOf(i);
-			if (log_acc.equals(acc2))
-			{
-				Debug.Log("Account: " + this.log_acc.Name + "; " + this.log_acc.Word);
-				break;
-			}
-			i++;
-		}
-
-		
-		if (i != this.list_of_accounts.sizeList) //Dus account bestaat en password is correct
-		{
-			loginU.text = "";
-			loginP.text = "";
-			//activeAccount.Name = log_acc.Name;
-			//activeAccount.Word = log_acc.Word;
-			BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
-			currentUName.text = BasicFunctions.activeAccount.Name;
-			loggedIn = true;
+			Debug.Log ("SERVER");
+			string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName="+Uname+"&playerPassword="+Pword;
+			WWW www = new WWW(url);
+			StartCoroutine(WaitForAuthorization(www));
 		}
 		else
 		{
-			Debug.Log("Login info incorrect");
+			Debug.Log("NOTSERVER");
+			using (StreamReader slread = new StreamReader("Accounts.txt"))
+			{
+				list_of_accounts = AccountList.readAccounts(slread);
+				slread.Close ();
+			}
+			
+			int i = 0;
+			while (i < list_of_accounts.sizeList)
+			{
+				Account acc2 = list_of_accounts.indexOf(i);
+				if (log_acc.equals(acc2))
+				{
+					Debug.Log("Account: " + this.log_acc.Name + "; " + this.log_acc.Word);
+					break;
+				}
+				i++;
+			}
+
+			if (i != this.list_of_accounts.sizeList) //Dus account bestaat en password is correct
+			{
+				loginU.text = "";
+				loginP.text = "";
+				BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
+				currentUName.text = BasicFunctions.activeAccount.Name;
+				loggedIn = true;
+			}
+			else
+			{
+				Debug.Log("Login info incorrect");
+			}
 		}
-		*/
 	}
 
 	IEnumerator WaitForRegistration(WWW www)
@@ -162,14 +161,11 @@ public class AccountManagement : MonoBehaviour {
 			else{
 				Debug.Log ("Failed to register");
 			}
-
-
 		}
 
 		registerU.text = "";
 		registerP.text = "";
 		registerPC.text = "";
-
 	}
 
 	IEnumerator WaitForAuthorization(WWW www)

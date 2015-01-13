@@ -15,8 +15,10 @@ public class MenuFunctions : MonoBehaviour {
 
 	public Text currentUname;
 	public Toggle chooseModus;
+	public Toggle chooseLoginModus;
 	public Text chooseModusLabelServer;
 	public Text chooseModusLabelClient;
+	public Text chooseLoginLabel;
 	public InputField login;
 	public InputField reg1;
 	public InputField reg2;
@@ -121,6 +123,20 @@ public class MenuFunctions : MonoBehaviour {
 				networkView.RPC("SetGameMode", RPCMode.AllBuffered, false);
 				networkView.RPC("SetGameModeText", RPCMode.OthersBuffered, false);
 			}
+		}
+	}
+
+	public void ChooseLoginMode ()
+	{
+		if (chooseLoginModus.isOn)
+		{
+			chooseLoginLabel.text = "Webserver";
+			AccManager.loginServer = true;
+		}
+		else if (!chooseLoginModus.isOn)
+		{
+			chooseLoginLabel.text = "Local";
+			AccManager.loginServer = false;
 		}
 	}
 
