@@ -209,7 +209,7 @@ public class Referee_script : MonoBehaviour {
 		yield return www;
 		
 		if (www.error == null) {
-			if (www.text.Equals ("SSuccesfully Registered Game")) {
+			if (www.text.Equals ("Succesfully Registered Game")) {
 				Debug.Log ("Succesfully logged");
 				
 			} else {
