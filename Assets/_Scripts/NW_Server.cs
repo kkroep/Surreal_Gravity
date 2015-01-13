@@ -203,6 +203,7 @@ public class NW_Server : MonoBehaviour {
 				//	BasicFunctions.connectedPlayers.Add(adding);
 				//}
 				setTextsS ();
+				Debug.Log("" + i + ": " + BasicFunctions.activeAccounts[i]);
 				networkView.RPC("sendUNtoClients", RPCMode.Others, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);
 			}
 		}
@@ -214,13 +215,21 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isClient)
 		{
-			BasicFunctions.activeAccounts.Add(UN);
-			BasicFunctions.startingAccounts.Add(UN);
-			BasicFunctions.accountNumbers.Add(Number);
-		}
-		if (BasicFunctions.activeAccounts.Count == BasicFunctions.amountPlayers)
-		{
-			setTextsC();
+			if (!BasicFunctions.activeAccounts.Contains(UN))
+			{
+				BasicFunctions.activeAccounts.Add(UN);
+				BasicFunctions.startingAccounts.Add(UN);
+				BasicFunctions.accountNumbers.Add(Number);
+			}
+			for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
+			{
+				Debug.Log("" + i + ": " + BasicFunctions.activeAccounts[i]);
+			}
+		
+			if (BasicFunctions.activeAccounts.Count == BasicFunctions.amountPlayers)
+			{
+				setTextsC();
+			}
 		}
 	}
 
@@ -269,7 +278,6 @@ public class NW_Server : MonoBehaviour {
 	 */
 	public void setTextsC ()
 	{
-		Debug.Log(BasicFunctions.amountPlayers);
 		for (int k = 0; k < BasicFunctions.amountPlayers; k++)
 		{
 			if (k == (BasicFunctions.activeAccount.Number - 1))
