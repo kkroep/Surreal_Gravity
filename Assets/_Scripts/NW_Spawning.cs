@@ -19,7 +19,7 @@ public class NW_Spawning : MonoBehaviour {
 	private bool refreshing = false;
 	private bool playOffline;
 	private bool canSpawn;
-	private int amountSpawnPoints = 10;
+	private int amountSpawnPoints = 2;
 	private GameObject referee;
 	private Referee_script refScript;
 
@@ -262,10 +262,13 @@ public class NW_Spawning : MonoBehaviour {
 
 	void Update ()
 	{
-		if(!BasicFunctions.playOffline && canSpawn && spawnLocations.Count == amountSpawnPoints)
+		if(!BasicFunctions.playOffline && canSpawn)
 		{
-			canSpawn = false;
-			spawnPlayer();
+			if (GameObject.FindGameObjectsWithTag("Player").Length == BasicFunctions.activeAccount.Number-1)
+			{
+				canSpawn = false;
+				spawnPlayer();
+			}
 		}
 	}
 }

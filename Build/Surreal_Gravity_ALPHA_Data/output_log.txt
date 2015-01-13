@@ -12,36 +12,60 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.107 seconds
+- Completed reload, in  0.096 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-Received pong from 145.94.198.53:7318
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.56.1:7318
- 
-(Filename:  Line: 836)
-
-2
+Server: AB's Server registered
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 3.557323 ms
+UnloadTime: 4.071376 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3688.
-Total: 1.643008 ms (FindLiveObjects: 0.113341 ms CreateObjectMapping: 0.023203 ms MarkObjects: 0.311020 ms  DeleteObjects: 0.725565 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3781.
+Total: 1.782231 ms (FindLiveObjects: 0.126728 ms CreateObjectMapping: 0.023203 ms MarkObjects: 0.381524 ms  DeleteObjects: 0.750554 ms)
 
 has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Forkmodus = on
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -61,15 +85,37 @@ has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 22.630857 ms
+UnloadTime: 20.283703 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 253 unused Assets to reduce memory usage. Loaded Objects now: 1314.
+Total: 4.254329 ms (FindLiveObjects: 0.051316 ms CreateObjectMapping: 0.020526 ms MarkObjects: 0.503790 ms  DeleteObjects: 3.199895 ms)
+
+UnloadTime: 0.982146 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 270 unused Assets to reduce memory usage. Loaded Objects now: 1297.
-Total: 4.788017 ms (FindLiveObjects: 0.049084 ms CreateObjectMapping: 0.024096 ms MarkObjects: 0.483264 ms  DeleteObjects: 3.600160 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1314.
+Total: 0.975898 ms (FindLiveObjects: 0.043284 ms CreateObjectMapping: 0.015171 ms MarkObjects: 0.504236 ms  DeleteObjects: 0.004462 ms)
 
-The server has disconnected from the client. Most likely the server has shut down.
+UnloadTime: 0.934399 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1314.
+Total: 1.178485 ms (FindLiveObjects: 0.082105 ms CreateObjectMapping: 0.020080 ms MarkObjects: 0.614454 ms  DeleteObjects: 0.008032 ms)
+
+UnloadTime: 0.988393 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1314.
+Total: 1.049526 ms (FindLiveObjects: 0.045961 ms CreateObjectMapping: 0.017402 ms MarkObjects: 0.531456 ms  DeleteObjects: 0.004908 ms)
+
+View ID AllocatedID: 50 not found during lookup. Strange behaviour may occur
  
-(Filename:  Line: 745)
+(Filename:  Line: 1681)
+
+Received state update for view id' AllocatedID: 50' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
 
 Server disconnected
  
