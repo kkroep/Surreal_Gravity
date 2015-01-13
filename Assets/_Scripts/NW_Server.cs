@@ -35,6 +35,8 @@ public class NW_Server : MonoBehaviour {
 	private int serverPort;
 	private int index;
 	private int maxPlayers = 3;//(for now only 1) 3 //maxPlayers = # of clients
+	private List<Text> serverPlayers;
+	private List<Text> clientPlayers;
 
 	private HostData[] hostD;
 
@@ -42,6 +44,16 @@ public class NW_Server : MonoBehaviour {
 	{
 		showServers = false;
 		Screen.lockCursor = false;
+		serverPlayers = new List<Text>();
+		clientPlayers = new List<Text>();
+		serverPlayers.Add(p1);
+		serverPlayers.Add(p2);
+		serverPlayers.Add(p3);
+		serverPlayers.Add(p4);
+		clientPlayers.Add(p1c);
+		clientPlayers.Add(p2c);
+		clientPlayers.Add(p3c);
+		clientPlayers.Add(p4c);
 	}
 
 	public void startServer ()
@@ -120,7 +132,7 @@ public class NW_Server : MonoBehaviour {
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			BasicFunctions.accountNumbers.Add(BasicFunctions.activeAccount.Number); //this.AccManager.activeAccount.Number);
 			BasicFunctions.activeAccounts.Add(BasicFunctions.activeAccount.Name); //this.AccManager.activeAccount.Name); //Zet username in de lijst
-			setTexts1();
+			setTextsS();
 		}
 		else
 		{
@@ -173,18 +185,23 @@ public class NW_Server : MonoBehaviour {
 			if (!BasicFunctions.activeAccounts.Contains(UN))
 			{
 				BasicFunctions.activeAccounts.Add(UN);
-				BasicFunctions.accountNumbers.Add (Number);
 			}
+			else
+			{
+				BasicFunctions.activeAccounts.Add (UN + "[" + Number + "]");
+			}
+			BasicFunctions.accountNumbers.Add (Number);
 			
 			for(int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
 			{
 				Account adding = new Account (BasicFunctions.activeAccounts[i], "");
 				adding.Number = BasicFunctions.accountNumbers[i];
-				if (!BasicFunctions.connectedPlayers.Contains(adding))
-				{
-					BasicFunctions.connectedPlayers.Add(adding);
-				}
-				networkView.RPC("sendUNtoClients", RPCMode.AllBuffered, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);
+				//if (!BasicFunctions.connectedPlayers.Contains(adding))
+				//{
+				//	BasicFunctions.connectedPlayers.Add(adding);
+				//}
+				setTextsS ();
+				networkView.RPC("sendUNtoClients", RPCMode.Others, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);
 			}
 		}
 	}
@@ -195,13 +212,13 @@ public class NW_Server : MonoBehaviour {
 	{
 		if (Network.isClient)
 		{
-			if (!BasicFunctions.activeAccounts.Contains(UN))
-			{
-				BasicFunctions.activeAccounts.Add(UN);
-				BasicFunctions.accountNumbers.Add(Number);
-			}
+			BasicFunctions.activeAccounts.Add(UN);
+			BasicFunctions.accountNumbers.Add(Number);
 		}
-		networkView.RPC("setTexts", RPCMode.AllBuffered);
+		if (BasicFunctions.activeAccounts.Count == BasicFunctions.amountPlayers)
+		{
+			setTextsC();
+		}
 	}
 
 	[RPC]
@@ -213,7 +230,7 @@ public class NW_Server : MonoBehaviour {
 			BasicFunctions.accountNumbers.Remove(Number);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
 			clearTexts (true);
-			networkView.RPC("setTexts", RPCMode.AllBuffered);
+			setTextsS ();
 			networkView.RPC("deleteUNClients", RPCMode.AllBuffered, UN, Number);
 		}
 	}
@@ -226,68 +243,39 @@ public class NW_Server : MonoBehaviour {
 			BasicFunctions.activeAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
 			clearTexts(false);
-			networkView.RPC("setTexts", RPCMode.AllBuffered);
+			setTextsC();
 		}
 	}
 	/* Zet de text op de Server
 	 */
-	public void setTexts1 ()
+	public void setTextsS ()
 	{
-		p1.text = "-> " + BasicFunctions.activeAccounts[0];
+		for (int j = 0; j < BasicFunctions.amountPlayers; j++)
+		{
+			if (j == 0)
+			{
+				serverPlayers[j].text = "-> " + BasicFunctions.activeAccounts[j];
+			}
+			else
+			{
+				serverPlayers[j].text = BasicFunctions.activeAccounts[j];
+			}
+		}
 	}
 	/* Zet de text op de Clients
 	 */
-	[RPC]
-	public void setTexts ()
+	public void setTextsC ()
 	{
-		for (int i = 0; i < BasicFunctions.activeAccounts.Count; i++)
+		Debug.Log(BasicFunctions.amountPlayers);
+		for (int k = 0; k < BasicFunctions.amountPlayers; k++)
 		{
-			if (Network.isServer)
+			if (k == (BasicFunctions.activeAccount.Number - 1))
 			{
-				// Modulair maken   ************TO DO**************
-				if (BasicFunctions.activeAccounts.Count == 1)
-				{
-					p1.text = "-> " + BasicFunctions.activeAccounts[0];
-				}
-				else if (BasicFunctions.activeAccounts.Count == 2)
-				{
-					p1.text = "-> " + BasicFunctions.activeAccounts[0];
-					p2.text = BasicFunctions.activeAccounts[1];
-				}
-				else if (BasicFunctions.activeAccounts.Count == 3)
-				{
-					p1.text = "-> " + BasicFunctions.activeAccounts[0];
-					p2.text = BasicFunctions.activeAccounts[1];
-					p3.text = BasicFunctions.activeAccounts[2];
-				}
-				else if (BasicFunctions.activeAccounts.Count == 4)
-				{
-					p1.text = "-> " + BasicFunctions.activeAccounts[0];
-					p2.text = BasicFunctions.activeAccounts[1];
-					p3.text = BasicFunctions.activeAccounts[2];
-					p4.text = BasicFunctions.activeAccounts[3];
-				}
+				clientPlayers[k].text = "-> " + BasicFunctions.activeAccounts[k];
 			}
-			if (Network.isClient)
+			else
 			{
-				if (BasicFunctions.activeAccounts.Count == 2)
-				{
-					p1c.text = "-> " + BasicFunctions.activeAccounts[0];
-					p2c.text = BasicFunctions.activeAccounts[1];
-				}
-				else if (BasicFunctions.activeAccounts.Count == 3)
-				{
-					p1c.text = "-> " + BasicFunctions.activeAccounts[0];
-					p2c.text = BasicFunctions.activeAccounts[1];
-					p3c.text = BasicFunctions.activeAccounts[2];
-				}
-				else if (BasicFunctions.activeAccounts.Count == 4)
-				{
-					p1c.text = "-> " + BasicFunctions.activeAccounts[0];
-					p2c.text = BasicFunctions.activeAccounts[1];
-					p3c.text = BasicFunctions.activeAccounts[2];
-					p4c.text = BasicFunctions.activeAccounts[3];
-				}
+				clientPlayers[k].text = BasicFunctions.activeAccounts[k];
 			}
 		}
 	}

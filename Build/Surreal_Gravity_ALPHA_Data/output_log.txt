@@ -12,50 +12,46 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.065 seconds
+- Completed reload, in  0.107 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-WWW Error: couldn't connect to host
+Received pong from 145.94.198.53:7318
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 836)
 
-Server: Debug's Server registered
+Received pong from 192.168.56.1:7318
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 836)
 
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.049 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-Server: Debug's Server registered
+2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 2.986598 ms
+UnloadTime: 3.557323 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3685.
-Total: 1.956259 ms (FindLiveObjects: 0.124051 ms CreateObjectMapping: 0.026773 ms MarkObjects: 0.320391 ms  DeleteObjects: 0.719764 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3688.
+Total: 1.643008 ms (FindLiveObjects: 0.113341 ms CreateObjectMapping: 0.023203 ms MarkObjects: 0.311020 ms  DeleteObjects: 0.725565 ms)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Forkmodus = on
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Forkmodus = on
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 has not yet found all players
  
@@ -65,9 +61,15 @@ has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Forkmodus = on
+UnloadTime: 22.630857 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 270 unused Assets to reduce memory usage. Loaded Objects now: 1297.
+Total: 4.788017 ms (FindLiveObjects: 0.049084 ms CreateObjectMapping: 0.024096 ms MarkObjects: 0.483264 ms  DeleteObjects: 3.600160 ms)
+
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 745)
 
 Server disconnected
  

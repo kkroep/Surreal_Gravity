@@ -21,6 +21,8 @@ public class MenuFunctions : MonoBehaviour {
 	public InputField reg1;
 	public InputField reg2;
 
+	public bool isLoggedIn = false;
+
 	public AccountManagement AccManager;
 	public NW_Server serverStuff;
 
@@ -247,6 +249,12 @@ public class MenuFunctions : MonoBehaviour {
 			{
 				Register();
 			}
+		}
+		if (isLoggedIn)
+		{
+			isLoggedIn = false;
+			Account_Menu.SetActive(false);
+			Main_Menu.SetActive(true);
 		}
 	}
 

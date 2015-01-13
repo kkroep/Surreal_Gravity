@@ -5409,6 +5409,7 @@ MonoBehaviour:
   loginP: {fileID: 759025412}
   currentUName: {fileID: 613234192}
   networkServer: {fileID: 419670179}
+  menuF: {fileID: 1799212323}
 --- !u!4 &488400875
 Transform:
   m_ObjectHideFlags: 0
@@ -5669,7 +5670,7 @@ GameObject:
   - 222: {fileID: 500287902}
   - 114: {fileID: 500287901}
   m_Layer: 5
-  m_Name: P3
+  m_Name: P3C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6589,7 +6590,7 @@ GameObject:
   - 222: {fileID: 551589088}
   - 114: {fileID: 551589087}
   m_Layer: 5
-  m_Name: P4
+  m_Name: P4C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8690,7 +8691,7 @@ GameObject:
   - 222: {fileID: 718320395}
   - 114: {fileID: 718320394}
   m_Layer: 5
-  m_Name: P1
+  m_Name: P1C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20035,7 +20036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1477348004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24365,6 +24366,7 @@ MonoBehaviour:
   login: {fileID: 759025412}
   reg1: {fileID: 1727162462}
   reg2: {fileID: 1311821294}
+  isLoggedIn: 0
   AccManager: {fileID: 488400874}
   serverStuff: {fileID: 419670179}
   menu_click_sound: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
@@ -25112,7 +25114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1862472428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25554,7 +25556,7 @@ GameObject:
   - 222: {fileID: 1887522479}
   - 114: {fileID: 1887522478}
   m_Layer: 5
-  m_Name: P2
+  m_Name: P2C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

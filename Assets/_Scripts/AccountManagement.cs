@@ -12,6 +12,7 @@ public class AccountManagement : MonoBehaviour {
 	public InputField loginP;
 	public Text currentUName;
 	public NW_Server networkServer;
+	public MenuFunctions menuF;
 	
 	//public Account activeAccount;
 	
@@ -184,6 +185,7 @@ public class AccountManagement : MonoBehaviour {
 				BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
 				currentUName.text = BasicFunctions.activeAccount.Name;
 				loggedIn = true;
+				menuF.isLoggedIn = true;
 			}
 			else{
 				Debug.Log("Login info incorrect");
