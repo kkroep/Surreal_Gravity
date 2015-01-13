@@ -60,7 +60,10 @@ public class Referee_script : MonoBehaviour {
 				}
 				spawnScript.showScores ();
 				spawnScript.showLives ();
-				Allplayers_Spawned = true;
+				if (players.Count == playerCount)
+				{
+					Allplayers_Spawned = true;
+				}
 			}
 		}
 	}
