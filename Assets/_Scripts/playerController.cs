@@ -180,6 +180,7 @@ public class playerController : MonoBehaviour
 
 		void Update ()
 		{
+<<<<<<< HEAD
 			if (Input.GetKeyDown (KeyCode.Escape)) {
 				if (!spawnScript) {
 						spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
@@ -192,6 +193,37 @@ public class playerController : MonoBehaviour
 						spawnScript.closeClientInGame ();
 				} else if (BasicFunctions.playOffline) {
 						Application.LoadLevel ("Menu_New");
+=======
+				if (Input.GetKeyDown (KeyCode.Escape)) {
+						if (!spawnScript) {
+								spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
+						}
+						string gamemode;
+
+						if (Network.isServer) {
+								dontDestroy = true;
+
+								if(BasicFunctions.ForkModus){
+									gamemode = "FORK";
+								}
+								else{
+									gamemode = "RAILGUN";
+								}
+
+								string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server="+BasicFunctions.activeAccount.Name+"&Finished=0"+"Gamemode="+gamemode;
+								WWW www = new WWW(url);
+								StartCoroutine(WaitForGameLog(www));
+
+								//BasicFunctions.activeAccounts[referee.winner-1];
+
+
+								spawnScript.closeServerInGame ();
+						} else if (Network.isClient) {
+								spawnScript.closeClientInGame ();
+						} else if (BasicFunctions.playOffline) {
+								Application.LoadLevel ("Menu_New");
+						}
+>>>>>>> e4b880dffa488eada20526a50fa4298ec1379891
 				}
 			}
 		}
@@ -332,4 +364,23 @@ public class playerController : MonoBehaviour
 						}
 				}
 		}
+
+	
+	IEnumerator WaitForGameLog(WWW www)
+	{
+		yield return www;
+		
+		if (www.error == null){
+			if(www.text.Equals ("SSuccesfully Registered Game")){
+				Debug.Log ("Succesfully logged");
+				
+			}
+			else{
+				Debug.Log ("Failed to log");
+			}
+			
+			
+		}
+
+	}
 }
