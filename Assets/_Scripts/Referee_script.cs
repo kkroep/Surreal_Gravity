@@ -26,6 +26,9 @@ public class Referee_script : MonoBehaviour {
 	private string encodedScore2;
 	private string encodedLives;
 
+	//public AudioClip score_up_sound;
+	//public AudioClip less_live_sound;
+
 	///Initialization
 	void Start () {
 		playerCount = BasicFunctions.amountPlayers;
