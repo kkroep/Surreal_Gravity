@@ -93,12 +93,10 @@ app.get("/GameRegister",function(req,res){
           else res.send("Succesfully Registered Game")
         });
 
-      });
-      
-    }
-
-    
+      });      
+    }    
   });
+
   /*
   var Winnaar = _escapeString((query["Winnaar"]!=undefined ? query["Winnaar"] : "UndefinedWinnaar"));
   var Finished = _escapeString((query["Finished"]!=undefined ? query["Finished"] : "UndefinedFinished"));
@@ -121,7 +119,7 @@ app.get("/GameRegister",function(req,res){
 
 app.get("ParticipantsRegister",function(req,res){
   var query = url.parse(req.url,true).query;
-  var PLAYER_Id = _escapeString((query["PLAYER_Id"]!=undefined ? query["PLAYER_Id"] : "UndefinedPLAYER_Id"));
+  var PLAYER = _escapeString((query["PLAYER"]!=undefined ? query["PLAYER"] : "UndefinedPLAYER"));
   var GAME_Id = _escapeString((query["GAME_Id"]!=undefined ? query["GAME_Id"] : "UndefinedGAME_Id"));
 
   var querystring = "INSERT INTO `ewi3620tu2`.`Participants` (`PLAYER_Id`, `GAME_Id`, `PARTICIPANTS_Id`) VALUES ('"+PLAYER_Id+"', '"+GAME_Id+"', NULL);";
