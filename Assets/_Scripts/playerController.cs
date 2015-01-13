@@ -308,7 +308,7 @@ public class playerController : MonoBehaviour
 						} else {
 								//DIT STUK IS DE SPELER ALS IE DOOD IS
 								rigidbody.velocity = new Vector3 (0f, 0f, 0f);
-								if (!isAlive) {
+								if (!isAlive && !endGame) {
 										time2death -= Time.fixedDeltaTime;
 										if (time2death <= 1f) {
 												if (!spawnChosen) {
@@ -373,7 +373,7 @@ public class playerController : MonoBehaviour
 				yield return www;
 		
 				if (www.error == null) {
-						if (www.text.Equals ("SSuccesfully Registered Game")) {
+						if (www.text.Equals ("Succesfully Registered Game")) {
 								Debug.Log ("Succesfully logged");
 				
 						} else {
