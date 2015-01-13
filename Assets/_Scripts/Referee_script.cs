@@ -20,7 +20,7 @@ public class Referee_script : MonoBehaviour {
 	private bool Allplayers_Spawned = false;
 
 	private int maxPoints = 10;
-	private int winner;
+	public int winner;
 
 	private string encodedScore;
 	private string encodedScore2;
