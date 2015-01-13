@@ -65,6 +65,8 @@ public class playerController : MonoBehaviour
 		public float Sphere_collider_radius = 0.6f;
 		private bool Can_Jump = false;
 		private float JumpTime;
+		
+		public AudioClip boundary_death_sound;
 
 	#endregion
 
@@ -320,6 +322,7 @@ public class playerController : MonoBehaviour
 		{
 				if (networkView.isMine && !BasicFunctions.playOffline) {
 						if (collisionInfo.gameObject.tag == "DeathBoundary") {
+								AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
 								if (!referee) {
 										referee = (GameObject.FindGameObjectsWithTag ("Referee_Tag")) [0].GetComponent<Referee_script> ();
 								}
