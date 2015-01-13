@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: fc410d2e10517a94dad3b4db2b7eb11a
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - referee: {instanceID: 0}
+  - stab_sound: {fileID: 8300000, guid: 5895641817d72d64d975d10b26c13240, type: 3}
+  - stab_someone_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

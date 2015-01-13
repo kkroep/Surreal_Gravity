@@ -8,8 +8,8 @@ public class Wapen : MonoBehaviour {
 	private playerController playerScript;
 	private bool Can_Hit = false;
 
-	//public AudioClip stab_sound; 
-	//public AudioClip kill_point_sound;
+	public AudioClip stab_sound; 
+	public AudioClip stab_someone_sound;
 
 	void Start ()
 	{
@@ -30,7 +30,7 @@ public class Wapen : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetMouseButtonDown (0)) {
-			//AudioSource.PlayClipAtPoint (stab_sound, transform.position);
+			AudioSource.PlayClipAtPoint (stab_sound, transform.position);
 			collider.enabled = true;
 			Can_Hit = true;
 			transform.localPosition += new Vector3(0f,0f,0.25f);
@@ -49,7 +49,7 @@ public class Wapen : MonoBehaviour {
 		{
 			if(Can_Hit && hit.tag=="Player")// Input.GetKeyDown ("space"))
 			{
-				//AudioSource.PlayClipAtPoint (kill_point_sound, transform.position);
+				AudioSource.PlayClipAtPoint (stab_someone_sound, transform.position);
 
 				if(!referee)
 				{
