@@ -13,7 +13,7 @@ public class Wapen : MonoBehaviour {
 
 	void Start ()
 	{
-		if (!BasicFunctions.playOffline && BasicFunctions.ForkModus)
+		if (BasicFunctions.ForkModus)
 		{
 			Debug.Log("Forkmodus = on");
 			referee = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
@@ -29,17 +29,19 @@ public class Wapen : MonoBehaviour {
 
 
 	void Update(){
-		if (Input.GetMouseButtonDown (0) && !transform.parent.GetComponent<playerController>().endGame) {
-			AudioSource.PlayClipAtPoint (stab_sound, transform.position);
-			collider.enabled = true;
-			Can_Hit = true;
-			transform.localPosition += new Vector3(0f,0f,0.25f);
+		if (networkView.isMine || BasicFunctions.playOffline) {
+						if (Input.GetMouseButtonDown (0) && !transform.parent.GetComponent<playerController> ().endGame) {
+								AudioSource.PlayClipAtPoint (stab_sound, transform.position);
+								collider.enabled = true;
+								Can_Hit = true;
+								transform.localPosition += new Vector3 (0f, 0f, 0.25f);
+						}
+						if (Input.GetMouseButtonUp (0) && !transform.parent.GetComponent<playerController> ().endGame) {
+								collider.enabled = false;
+								Can_Hit = false;
+								transform.localPosition -= new Vector3 (0f, 0f, 0.25f);
+						}
 				}
-		if (Input.GetMouseButtonUp(0) && !transform.parent.GetComponent<playerController>().endGame) {
-			collider.enabled = false;
-			Can_Hit = false;
-			transform.localPosition -= new Vector3(0f,0f,0.25f);
-		}
 
 	}
 
