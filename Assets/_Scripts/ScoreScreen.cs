@@ -40,7 +40,6 @@ public class ScoreScreen : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 		/*players = new List<Text> ();
 		playersT.Add(player1);
 		playersT.Add(player2);
@@ -78,6 +77,10 @@ public class ScoreScreen : MonoBehaviour
 
 	public void UpdateScore (int shooter, int target)
 	{
+		if (!referee)
+		{
+			referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+		}
 		deaths [target-1] += 1;
 		kills [shooter-1] += 1;
 		scores[shooter-1] += 1;
