@@ -330,6 +330,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &188888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 488888}
+  - 33: {fileID: 3388888}
+  - 23: {fileID: 2388888}
+  - 95: {fileID: 9588888}
+  m_Layer: 0
+  m_Name: forkmodel1Lowerpoly
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &189000
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,13 +389,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.04500008, y: -5.46099997, z: 2.70900011}
+  m_LocalPosition: {x: 6.41998386, y: -6.39997625, z: -4.79094791}
   m_LocalScale: {x: 1, y: .5, z: 1}
   m_Children:
   - {fileID: 489000}
   - {fileID: 450124}
   - {fileID: 450126}
   - {fileID: 437830}
+  - {fileID: 488888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &450124
@@ -625,6 +644,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 450158}
   m_RootOrder: 0
+--- !u!4 &488888
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188888}
+  m_LocalRotation: {x: -.0267448928, y: .235808104, z: .960772932, w: -.143508524}
+  m_LocalPosition: {x: -.0729999989, y: -.291999996, z: .26699999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 450122}
+  m_RootOrder: 4
 --- !u!4 &489000
 Transform:
   m_ObjectHideFlags: 1
@@ -689,13 +720,33 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2388888
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188888}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 8744c38254f837d4ba3d47deb380765a, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!23 &2397408
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -716,6 +767,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137830}
   m_Mesh: {fileID: 4300000, guid: d52b1f3559faa2947aec1bd4604c74c6, type: 3}
+--- !u!33 &3388888
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188888}
+  m_Mesh: {fileID: 4300000, guid: 7c88223d6f83fe740afd7bb5ded445f6, type: 3}
 --- !u!33 &3397408
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -775,6 +833,21 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 57edc92e1471d21469bddf624cda44fb, type: 3}
   m_Controller: {fileID: 9100000, guid: 7ce5e146df9b43147941fef1d8bc8f5f, type: 2}
   m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9588888
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188888}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7c88223d6f83fe740afd7bb5ded445f6, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
@@ -878,7 +951,6 @@ MonoBehaviour:
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   gravity_shot_sound: {fileID: 8300000, guid: cfa5d7a6a23df8f4bb462c0d6b69376d, type: 3}
-  kill_point_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
   gravity_switch_sound: {fileID: 8300000, guid: 7810a188ecffb9e41850de1417de0600,
     type: 3}
   bullet_hit_sound: {fileID: 8300000, guid: d8d43fadd6caa574db27cf5a280db59f, type: 3}

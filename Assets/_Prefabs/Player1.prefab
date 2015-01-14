@@ -1316,6 +1316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d8666654396c043aee45446a686286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armature: Armature
+  body: Circle
 --- !u!114 &11492236
 MonoBehaviour:
   m_ObjectHideFlags: 1
