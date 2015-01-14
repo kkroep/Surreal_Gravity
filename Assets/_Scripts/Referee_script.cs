@@ -196,7 +196,7 @@ public class Referee_script : MonoBehaviour {
 		players[target-1].isAlive = false;
 		players[target-1].time2death = respawnTimer;
 		players[target-1].setScreenTimer();
-		players [target - 1].gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		//players [target - 1].gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		players [target - 1].gameObject.GetComponent<SphereCollider> ().enabled = false;
 	}
 	/* Called when someone scores a point
@@ -260,7 +260,7 @@ public class Referee_script : MonoBehaviour {
 			players[i].endGame = true;
 			for (int j = 0; j < playerCount; j++)
 			{
-				players [j].gameObject.GetComponent<MeshRenderer> ().enabled = false;
+				//players [j].gameObject.GetComponent<MeshRenderer> ().enabled = false;
 				players [j].gameObject.GetComponent<SphereCollider> ().enabled = false;
 				players [j].setEndScreenTimer(winner);
 			}

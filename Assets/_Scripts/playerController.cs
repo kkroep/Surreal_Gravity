@@ -379,7 +379,7 @@ public class playerController : MonoBehaviour
 		AudioSource.PlayClipAtPoint (respawn_sound, transform.position);
 		isAlive = true;
 		transform.position = SpawnPOsition;
-		gameObject.GetComponent<MeshRenderer> ().enabled = true;
+		//gameObject.GetComponent<MeshRenderer> ().enabled = true;
 		gameObject.GetComponent<SphereCollider> ().enabled = true;
 	}
 
