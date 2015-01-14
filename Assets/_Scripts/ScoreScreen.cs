@@ -114,7 +114,6 @@ public class ScoreScreen : MonoBehaviour
 		}
 	}
 
-
 	public void UpdateScoreDB (int target)
 	{
 		deaths[target-1] += 1;

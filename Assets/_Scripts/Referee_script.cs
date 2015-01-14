@@ -142,6 +142,10 @@ public class Referee_script : MonoBehaviour {
 	 */
 	public void fragged(int target)
 	{
+		if (!scoreScreen)
+		{
+			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+		}
 		networkView.RPC("KillPlayer", RPCMode.All, target);
 		scoreScreen.UpdateScoreDB (target);
 		scoreScreen.EncodeStringsDB ();
