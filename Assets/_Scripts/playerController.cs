@@ -176,17 +176,17 @@ public class playerController : MonoBehaviour
 		}
 	}
 
-	public void PlayGetHit ()
+	public void PlayGetHit (int target)
 	{ 
-		if (networkView.isMine)
+		if (BasicFunctions.activeAccount.Number == target)
 		{
 			AudioSource.PlayClipAtPoint (getting_hit_sound, transform.position);
 		}
 	}
 
-	public void PlayDead ()
+	public void PlayDead (int target)
 	{
-		if (networkView.isMine)
+		if (BasicFunctions.activeAccount.Number == target)
 		{
 			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
 		}

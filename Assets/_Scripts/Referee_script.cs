@@ -87,7 +87,7 @@ public class Referee_script : MonoBehaviour {
 
 			//respawn player
 			networkView.RPC("KillPlayer", RPCMode.All, target);
-			players[target-1].PlayDead ();
+			networkView.RPC("PlayDead", RPCMode.All, target);;
 
 			lives [target-1] = Lives_count;
 			//deaths [target-1] += 1;
@@ -130,7 +130,7 @@ public class Referee_script : MonoBehaviour {
 
 		}else{
 			//if the player does not die
-			players[target-1].PlayGetHit();
+			networkView.RPC("PlayGetHit", RPCMode.All, target);
 			lives [target-1]--;
 			encodedLives = lives[0].ToString();
 			for (int i = 1; i <playerCount; i++)
@@ -190,6 +190,17 @@ public class Referee_script : MonoBehaviour {
 			WWW www = new WWW (url);
 			StartCoroutine (WaitForGameLog (www));
 		}
+	}
+	[RPC]
+	public void PlayGetHit (int target)
+	{
+		PlayGetHit(target);
+	}
+
+	[RPC]
+	public void PlayDead (int target)
+	{
+		PlayDead (target);
 	}
 	/* Called when a player is killed
 	 */
