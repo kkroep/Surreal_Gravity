@@ -68,11 +68,14 @@ public class playerController : MonoBehaviour
 		public GameObject ScoreScreen;
 		public AudioClip boundary_death_sound;
 		public AudioClip respawn_sound;
+		
+		private bool quitting;
 
 	#endregion
 
 		void Start ()
 		{
+				quitting = false;
 				if (networkView.isMine || BasicFunctions.playOffline) {
 
 
@@ -198,7 +201,8 @@ public class playerController : MonoBehaviour
 
 		void Update ()
 		{
-				if (Input.GetKeyDown (KeyCode.Escape)) {
+				if (Input.GetKeyDown (KeyCode.Escape) && quitting == false) {
+						quitting = true;
 						
 						if (!spawnScript) {
 								spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
