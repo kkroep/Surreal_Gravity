@@ -12,49 +12,17 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.115 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.047 seconds
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
+- Completed reload, in  0.097 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_ALPHA_Data\Managed\System.dll (this message is harmless)
-Server: AB's Server registered
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-0: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-1: Debug
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.56.1:22134
+Received pong from 192.168.56.1:20662
  
 (Filename:  Line: 836)
 
-Received pong from 145.94.198.53:22134
+Received pong from 145.94.196.75:20662
  
 (Filename:  Line: 836)
 
@@ -62,11 +30,7 @@ Received pong from 145.94.198.53:22134
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-1: Debug
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-2: Kwok
+0: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -74,7 +38,7 @@ Received pong from 145.94.198.53:22134
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-0: AB
+0: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -82,23 +46,196 @@ Received pong from 145.94.198.53:22134
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-0: AB
+1: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-1: Debug
+WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
+UnloadTime: 2.931266 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3794.
+Total: 2.438631 ms (FindLiveObjects: 0.160195 ms CreateObjectMapping: 0.030343 ms MarkObjects: 0.480586 ms  DeleteObjects: 1.062466 ms)
+
+IndexOutOfRangeException: Array index is out of range.
+  at ScoreScreen.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-2: Kwok
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Server disconnected
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Server disconnected
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Forkmodus = on
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at NW_Spawning.showScoresRPC () [0x00000] in <filename unknown>:0 
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+NW_Spawning:showScores()
+Referee_script:Update()
+ 
+(Filename:  Line: -1)
+
+Forkmodus = on
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at NW_Spawning.showScoresRPC () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.UpdateScoreDB (Int32 target) [0x00000] in <filename unknown>:0 
+  at Referee_script.fragged (Int32 target) [0x00000] in <filename unknown>:0 
+  at playerController.OnCollisionStay (UnityEngine.Collision collisionInfo) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ScoreScreen.showScoreLiveS () [0x00000] in <filename unknown>:0 
+  at NW_Spawning.closeClientInGame () [0x00000] in <filename unknown>:0 
+  at playerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 

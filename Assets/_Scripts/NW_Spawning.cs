@@ -22,6 +22,7 @@ public class NW_Spawning : MonoBehaviour {
 	private int amountSpawnPoints = 10;
 	private GameObject referee;
 	private Referee_script refScript;
+	private ScoreScreen scoreScreen;
 
 	public Texture Player1;
 	public Texture Player2;
@@ -86,9 +87,9 @@ public class NW_Spawning : MonoBehaviour {
 
 	public void showScores ()
 	{
-		if (!refScript) //if script not yet assigned, assign it
+		if (!scoreScreen) //if script not yet assigned, assign it
 		{
-			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+			scoreScreen = (GameObject.FindGameObjectWithTag("ScoreScreen")).GetComponent<ScoreScreen>();
 		}
 		networkView.RPC("showScoresRPC", RPCMode.All);
 	}
@@ -106,7 +107,8 @@ public class NW_Spawning : MonoBehaviour {
 	public void closeClientInGame ()
 	{
 		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
-		refScript.showScoreLive();
+		refScript.showScoreLiveR();
+		scoreScreen.showScoreLiveS();
 		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
 		BasicFunctions.amountPlayers = 0;
 		BasicFunctions.activeAccounts.Clear ();
@@ -183,14 +185,14 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void showScoresRPC ()
 	{
-		if (!refScript)
+		if (!scoreScreen)
 		{
-			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+			scoreScreen = (GameObject.FindGameObjectWithTag("ScoreScreen")).GetComponent<ScoreScreen>();
 		}
 		debugScore.text = "Scores: \n";
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
-			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + refScript.scores[i] + "\n";
+			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + scoreScreen.scores[i] + "\n";
 		}
 	}
 
@@ -227,7 +229,13 @@ public class NW_Spawning : MonoBehaviour {
 				networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
 			else
 				BasicFunctions.amountPlayers = 1;
-			refScript.scores.RemoveAt((Number-1));
+			if (!scoreScreen)
+			{
+				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+			}
+			scoreScreen.kills.RemoveAt((Number-1));
+			scoreScreen.deaths.RemoveAt((Number-1));
+			scoreScreen.scores.RemoveAt((Number-1));
 			refScript.lives.RemoveAt((Number-1));
 			refScript.players.RemoveAt((Number-1));
 			refScript.playerCount -= 1;
