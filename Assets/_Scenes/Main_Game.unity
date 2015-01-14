@@ -49013,6 +49013,7 @@ MonoBehaviour:
   deaths: 
   scores: 
   time2show: 0
+  winner: 0
   gamemode: 
   offline: 0
 --- !u!4 &1878591220
