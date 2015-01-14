@@ -15,27 +15,30 @@ public class ScoreScreen : MonoBehaviour
 	public Text score3;
 	public Text score4;
 
-	private List<Text> players;
-	private List<Text> scores;
+	private List<Text> playersT;
+	private List<Text> scoresT;
+	private List<int> kills;
+	private List<int> deaths;
+	private List<int> scores;
 
 	// Use this for initialization
 	void Start ()
 	{
 		/*players = new List<Text> ();
-		players.Add(player1);
-		players.Add(player2);
-		players.Add(player3);
-		players.Add(player4);
-		scores.Add (score1);
-		scores.Add (score2);
-		scores.Add (score3);
-		scores.Add (score4);
+		playersT.Add(player1);
+		playersT.Add(player2);
+		playersT.Add(player3);
+		playersT.Add(player4);
+		scoresT.Add (score1);
+		scoresT.Add (score2);
+		scoresT.Add (score3);
+		scoresT.Add (score4);
 
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
-			players[i].enabled = true;
-			players[i].text = "" + BasicFunctions.activeAccounts[i];
-			scores[i].text = "" + 0;
+			playersT[i].enabled = true;
+			playersT[i].text = "" + BasicFunctions.activeAccounts[i];
+			scoresT[i].text = "" + 0;
 		}*/
 	}
 	

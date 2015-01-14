@@ -21,6 +21,8 @@ public class Referee_script : MonoBehaviour {
 	private int maxPoints = 10;
 	public int winner;
 
+	private ScoreScreen scoreScreen;
+
 	private string encodedKills;
 	private string encodedDeaths;
 	private string encodedDeaths2;
@@ -33,6 +35,7 @@ public class Referee_script : MonoBehaviour {
 
 	///Initialization
 	void Start () {
+		//scoreScreen = GameObject.FindGameObjectWithTag
 		playerCount = BasicFunctions.amountPlayers;
 		players = new List<playerController>();
 		kills = new List<int>();
