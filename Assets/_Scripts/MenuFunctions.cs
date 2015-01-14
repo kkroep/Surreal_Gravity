@@ -255,7 +255,7 @@ public class MenuFunctions : MonoBehaviour {
 				reg2.Select ();
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.KeypadEnter))
+		else if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
 		{
 			if (canLogin)
 			{

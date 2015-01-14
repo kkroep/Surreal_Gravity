@@ -506,7 +506,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300010}
   - 114: {fileID: 11492236}
-  - 148: {fileID: 14888424}
+  - 148: {fileID: 14867020}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -1454,15 +1454,15 @@ NetworkView:
   m_ViewID:
     m_ID: 0
     m_Type: 0
---- !u!148 &14888424
+--- !u!148 &14867020
 NetworkView:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100062}
   m_Enabled: 1
-  m_StateSynchronization: 0
-  m_Observed: {fileID: 0}
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 400062}
   m_ViewID:
     m_ID: 0
     m_Type: 0

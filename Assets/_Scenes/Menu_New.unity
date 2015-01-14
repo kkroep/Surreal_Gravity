@@ -5408,7 +5408,6 @@ MonoBehaviour:
   loginU: {fileID: 496393790}
   loginP: {fileID: 759025412}
   currentUName: {fileID: 613234192}
-  loginServer: 0
   networkServer: {fileID: 419670179}
   menuF: {fileID: 1799212323}
 --- !u!4 &488400875
@@ -21245,7 +21244,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
