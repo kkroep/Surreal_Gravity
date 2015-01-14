@@ -308,7 +308,7 @@ public class NW_Server : MonoBehaviour {
 			refreshT -= Time.deltaTime;
 			if (refreshT <= 0)
 			{
-				waitRefresh = 3;
+				waitRefresh = 1;
 				refreshing = false;
 				hostD = MasterServer.PollHostList ();
 				showServers = true;
@@ -320,7 +320,7 @@ public class NW_Server : MonoBehaviour {
 			waitRefresh -= Time.deltaTime;
 			if (waitRefresh <= 0)
 			{
-				refreshT = 2;
+				refreshT = 1;
 				refreshHost();
 			}
 		}

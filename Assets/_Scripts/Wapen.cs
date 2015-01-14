@@ -28,21 +28,24 @@ public class Wapen : MonoBehaviour {
 	}
 
 
-	void Update(){
-		if (networkView.isMine || BasicFunctions.playOffline) {
-						if (Input.GetMouseButtonDown (0) && !transform.parent.GetComponent<playerController> ().endGame) {
-								AudioSource.PlayClipAtPoint (stab_sound, transform.position);
-								collider.enabled = true;
-								Can_Hit = true;
-								transform.localPosition += new Vector3 (0f, 0f, 0.25f);
-						}
-						if (Input.GetMouseButtonUp (0) && !transform.parent.GetComponent<playerController> ().endGame) {
-								collider.enabled = false;
-								Can_Hit = false;
-								transform.localPosition -= new Vector3 (0f, 0f, 0.25f);
-						}
-				}
-
+	void Update()
+	{
+		if (networkView.isMine || BasicFunctions.playOffline) 
+		{
+			if (Input.GetMouseButtonDown (0) && !transform.parent.GetComponent<playerController> ().endGame) 
+			{
+				AudioSource.PlayClipAtPoint (stab_sound, transform.position);
+				collider.enabled = true;
+				Can_Hit = true;
+				transform.localPosition += new Vector3 (0f, 0f, 0.25f);
+			}
+			if (Input.GetMouseButtonUp (0) && !transform.parent.GetComponent<playerController> ().endGame) 
+			{
+				collider.enabled = false;
+				Can_Hit = false;
+				transform.localPosition -= new Vector3 (0f, 0f, 0.25f);
+			}
+		}
 	}
 
 	void OnTriggerStay (Collider hit)

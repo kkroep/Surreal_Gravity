@@ -131,12 +131,12 @@ public class MenuFunctions : MonoBehaviour {
 		if (chooseLoginModus.isOn)
 		{
 			chooseLoginLabel.text = "Webserver";
-			AccManager.loginServer = true;
+			BasicFunctions.loginServer = true;
 		}
 		else if (!chooseLoginModus.isOn)
 		{
 			chooseLoginLabel.text = "Local";
-			AccManager.loginServer = false;
+			BasicFunctions.loginServer = false;
 		}
 	}
 
@@ -255,7 +255,7 @@ public class MenuFunctions : MonoBehaviour {
 				reg2.Select ();
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.KeypadEnter))
+		else if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
 		{
 			if (canLogin)
 			{

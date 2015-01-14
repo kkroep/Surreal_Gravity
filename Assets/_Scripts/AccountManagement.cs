@@ -11,7 +11,6 @@ public class AccountManagement : MonoBehaviour {
 	public InputField loginU;
 	public InputField loginP;
 	public Text currentUName;
-	public bool loginServer;
 	public NW_Server networkServer;
 	public MenuFunctions menuF;
 	
@@ -25,7 +24,7 @@ public class AccountManagement : MonoBehaviour {
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
 		loggedIn = true;
-		loginServer = true;
+		BasicFunctions.loginServer = true;
 		if (BasicFunctions.firstStart)
 		{
 			BasicFunctions.activeAccount = new Account("Debug", "-");
@@ -53,7 +52,7 @@ public class AccountManagement : MonoBehaviour {
 	{
 		if (Pword.Equals(PwordC))
 		{
-			if (loginServer)
+			if (BasicFunctions.loginServer)
 			{
 				string url = "http://drproject.twi.tudelft.nl:8082/Register?playerName="+Uname+"&playerPassword="+Pword;
 				WWW www = new WWW(url);
@@ -106,7 +105,7 @@ public class AccountManagement : MonoBehaviour {
 		log_acc.Name = Uname;
 		log_acc.Word = Pword;
 	
-		if (loginServer)
+		if (BasicFunctions.loginServer)
 		{
 			string url = "http://drproject.twi.tudelft.nl:8082/Authenticate?playerName="+Uname+"&playerPassword="+Pword;
 			WWW www = new WWW(url);
