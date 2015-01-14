@@ -195,6 +195,7 @@ public class Referee_script : MonoBehaviour {
 	public void KillPlayer(int target){
 		players[target-1].isAlive = false;
 		players[target-1].time2death = respawnTimer;
+		players[target-1].setScreenTimer();
 		players [target - 1].gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		players [target - 1].gameObject.GetComponent<SphereCollider> ().enabled = false;
 	}

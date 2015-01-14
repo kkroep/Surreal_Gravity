@@ -31,6 +31,7 @@ public class ScoreScreen : MonoBehaviour
 	public List<int> deaths;
 	public List<int> scores;
 
+	public float time2show;
 	public string gamemode;
 
 	public bool offline;
@@ -44,6 +45,8 @@ public class ScoreScreen : MonoBehaviour
 	private string encodedScore2;
 
 	private List<Text> playersT;
+	private List<Text> killsT;
+	private List<Text> deathsT;
 	private List<Text> scoresT;
 
 	private Referee_script referee;
@@ -51,15 +54,27 @@ public class ScoreScreen : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		time2show = 0f;
+
 		kills = new List<int> ();
 		deaths = new List<int> ();
 		scores = new List<int> ();
 		playersT = new List<Text> ();
+		killsT = new List<Text> ();
+		deathsT = new List<Text> ();
 		scoresT = new List<Text> ();
 		playersT.Add(player1);
 		playersT.Add(player2);
 		playersT.Add(player3);
 		playersT.Add(player4);
+		killsT.Add (kill1);
+		killsT.Add (kill2);
+		killsT.Add (kill3);
+		killsT.Add (kill4);
+		deathsT.Add (death1);
+		deathsT.Add (death2);
+		deathsT.Add (death3);
+		deathsT.Add (death4);
 		scoresT.Add (score1);
 		scoresT.Add (score2);
 		scoresT.Add (score3);
@@ -68,8 +83,9 @@ public class ScoreScreen : MonoBehaviour
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
 			playersT[i].gameObject.SetActive(true);
-			scoresT[i].gameObject.SetActive(true);
 			playersT[i].text = "" + BasicFunctions.activeAccounts[i];
+			killsT[i].text = "" + 0;
+			deathsT[i].text = "" + 0;
 			scoresT[i].text = "" + 0;
 		}
 
@@ -83,11 +99,23 @@ public class ScoreScreen : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		if(time2show > 0)
+		{
+			time2show-=Time.deltaTime;
+			if(time2show<=0){
+				time2show=0;
+				scoreScreen.SetActive (false);
+			}else
+			scoreScreen.SetActive (true);
+		}
+		else{
+
 		if (Input.GetKeyDown (KeyCode.Tab)) {
 			scoreScreen.SetActive (true);
 		}
 		if (Input.GetKeyUp (KeyCode.Tab)) {
 			scoreScreen.SetActive (false);
+			}
 		}
 	}
 
@@ -114,6 +142,8 @@ public class ScoreScreen : MonoBehaviour
 	}
 	public void UpdateScoreScreen(){
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++) {
+			deathsT [i].text = "" + deaths[i];
+			killsT [i].text = "" + kills[i];
 			scoresT [i].text = "" + scores[i];
 		}
 	}

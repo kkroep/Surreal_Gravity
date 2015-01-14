@@ -73,6 +73,7 @@ public class playerController : MonoBehaviour
 	public AudioClip boundary_death_sound;
 	public AudioClip respawn_sound;
 	private bool quitting;
+	private ScoreScreen scoreScreen;
 
 	#endregion
 
@@ -147,6 +148,15 @@ public class playerController : MonoBehaviour
 	public void Fire_Kill_Bullet (Vector3 pos1, Vector3 pos2, int shooter)
 	{
 		networkView.RPC ("fireKillLaser", RPCMode.Others, pos1, pos2, shooter);
+	}
+
+	public void setScreenTimer ()
+	{
+		if (!scoreScreen)
+		{
+			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+		}
+		scoreScreen.time2show = time2death;
 	}
 
 	[RPC]
