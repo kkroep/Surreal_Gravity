@@ -47810,7 +47810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e746f7ea0d8354342bb01bf3edc8ca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 100058, guid: 213a0b4ed60c82e4cbe7dd66069b0f0b, type: 2}
+  playerPrefab: {fileID: 150122, guid: 205a9291897ba7f4c85d23ceb7e712cc, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   levelCreator: {fileID: 1444913547}
   debugScore: {fileID: 1073285364}
@@ -49012,6 +49012,7 @@ MonoBehaviour:
   kills: 
   deaths: 
   scores: 
+  time2show: 0
   gamemode: 
   offline: 0
 --- !u!4 &1878591220
