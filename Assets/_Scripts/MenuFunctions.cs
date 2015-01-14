@@ -131,12 +131,12 @@ public class MenuFunctions : MonoBehaviour {
 		if (chooseLoginModus.isOn)
 		{
 			chooseLoginLabel.text = "Webserver";
-			AccManager.loginServer = true;
+			BasicFunctions.loginServer = true;
 		}
 		else if (!chooseLoginModus.isOn)
 		{
 			chooseLoginLabel.text = "Local";
-			AccManager.loginServer = false;
+			BasicFunctions.loginServer = false;
 		}
 	}
 

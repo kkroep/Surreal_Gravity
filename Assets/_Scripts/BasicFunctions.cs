@@ -7,6 +7,7 @@ public class BasicFunctions : MonoBehaviour {
 	public static bool playOffline;
 	public static bool firstStart = true;
 	public static bool ForkModus = true;
+	public static bool loginServer;
 	public static int amountPlayers;
 	public static Account activeAccount;
 	public static List<string> activeAccounts = new List<string>();
