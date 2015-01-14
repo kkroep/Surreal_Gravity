@@ -51,6 +51,9 @@ public class ScoreScreen : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		kills = new List<int> ();
+		deaths = new List<int> ();
+		scores = new List<int> ();
 		playersT = new List<Text> ();
 		scoresT = new List<Text> ();
 		playersT.Add(player1);
@@ -65,15 +68,16 @@ public class ScoreScreen : MonoBehaviour
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
 			playersT[i].gameObject.SetActive(true);
+			scoresT[i].gameObject.SetActive(true);
 			playersT[i].text = "" + BasicFunctions.activeAccounts[i];
 			scoresT[i].text = "" + 0;
 		}
 
-		/*for (int i=0; i<BasicFunctions.amountPlayers; i++) {
+		for (int i=0; i<BasicFunctions.amountPlayers; i++) {
 			kills.Add (0);
 			deaths.Add (0);
 			scores.Add (0);
-		}*/
+		}
 	}
 	
 	// Update is called once per frame
@@ -118,7 +122,7 @@ public class ScoreScreen : MonoBehaviour
 	{
 		deaths[target-1] += 1;
 		scores[target-1] -= 1;
-		Debug.Log ("Target: " + deaths[target-1]);
+		EncodeStringsDB ();
 	}
 
 	public void EncodeStrings ()
@@ -189,5 +193,6 @@ public class ScoreScreen : MonoBehaviour
 			deaths[i] = int.Parse(deaths_update[i]);
 			scores[i] = int.Parse(scores_update[i]);
 		}
+		UpdateScoreScreen();
 	}
 }

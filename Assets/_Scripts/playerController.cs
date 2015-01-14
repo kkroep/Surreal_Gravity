@@ -369,7 +369,7 @@ public class playerController : MonoBehaviour
 				if (!referee) {
 					referee = (GameObject.FindGameObjectsWithTag ("Referee_Tag")) [0].GetComponent<Referee_script> ();
 				}
-				if (referee.players [BasicFunctions.activeAccount.Number - 1].isAlive) {
+				if (/*referee.players [BasicFunctions.activeAccount.Number - 1].*/isAlive) {
 					referee.fragged (BasicFunctions.activeAccount.Number);
 				}
 			}

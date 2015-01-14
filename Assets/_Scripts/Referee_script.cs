@@ -21,7 +21,7 @@ public class Referee_script : MonoBehaviour {
 	//private int maxPoints = 10;
 	public int winner;
 
-	private ScoreScreen scoreScreen;
+	public ScoreScreen scoreScreen;
 
 	/*private string encodedKills;
 	private string encodedDeaths;
@@ -148,7 +148,7 @@ public class Referee_script : MonoBehaviour {
 		}
 		networkView.RPC("KillPlayer", RPCMode.All, target);
 		scoreScreen.UpdateScoreDB (target);
-		scoreScreen.EncodeStringsDB ();
+		//scoreScreen.EncodeStringsDB ();
 		/*deaths[target-1] += 1;
 		scores[target-1] -= 1;
 		encodedDeaths2 = deaths[0].ToString();
