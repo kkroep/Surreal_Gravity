@@ -7,6 +7,8 @@ public class Referee_script : MonoBehaviour {
 
 	public int playerCount;
 	public int Lives_count = 3;
+	public List<int> kills = new List<int>();
+	public List<int> deaths = new List<int>();
 	public List<int> scores = new List<int>();
 	public List<int> lives = new List<int>();
 	public NW_Spawning spawnScript;
@@ -19,6 +21,9 @@ public class Referee_script : MonoBehaviour {
 	private int maxPoints = 10;
 	public int winner;
 
+	private string encodedKills;
+	private string encodedDeaths;
+	private string encodedDeaths2;
 	private string encodedScore;
 	private string encodedScore2;
 	private string encodedLives;
@@ -30,10 +35,14 @@ public class Referee_script : MonoBehaviour {
 	void Start () {
 		playerCount = BasicFunctions.amountPlayers;
 		players = new List<playerController>();
+		kills = new List<int>();
+		deaths = new List<int>();
 		scores = new List<int>();
 		lives = new List<int>();
 
 		for (int i=0; i<playerCount; i++) {
+			kills.Add (0);
+			deaths.Add (0);
 			scores.Add (0);
 			lives.Add (Lives_count);
 		}
@@ -77,18 +86,24 @@ public class Referee_script : MonoBehaviour {
 			networkView.RPC("KillPlayer", RPCMode.All, target);
 
 			lives [target-1] = Lives_count;
-			scores[shooter-1] +=1;
+			deaths [target-1] += 1;
+			kills [shooter-1] += 1;
+			scores[shooter-1] += 1;
 
 			//encode scores to send with RPC
+			encodedKills = kills[0].ToString();
+			encodedDeaths = deaths[0].ToString();
 			encodedScore = scores[0].ToString();
 			encodedLives = lives[0].ToString();
 			for(int i=1; i<playerCount; i++){
+				encodedKills += " " + kills[i];
+				encodedDeaths += " " + deaths[i];
 				encodedScore += " " + scores[i];
 				encodedLives += " " + lives[i];
 			}
 
 			//call RPC
-			networkView.RPC("UpdateScores", RPCMode.All, encodedScore);
+			networkView.RPC("UpdateInfo", RPCMode.All, encodedKills, encodedDeaths, encodedScore);
 			networkView.RPC("showLives", RPCMode.All, encodedLives);
 
 			if (scores[shooter-1] >= maxPoints)
@@ -124,24 +139,31 @@ public class Referee_script : MonoBehaviour {
 	public void fragged(int target)
 	{
 		networkView.RPC("KillPlayer", RPCMode.All, target);
+		deaths[target-1] += 1;
 		scores[target-1] -= 1;
+		encodedDeaths2 = deaths[0].ToString();
 		encodedScore2 = scores[0].ToString();
 		for(int i=1; i<playerCount; i++){
+			encodedDeaths2 += " " + deaths[i];
 			encodedScore2 += " " + scores[i];
 		}
-		networkView.RPC("UpdateScores", RPCMode.All, encodedScore2);
+		networkView.RPC("UpdateDeathBInfo", RPCMode.All, encodedDeaths2, encodedScore2);
 	}
 
 	public void showScoreLive ()
 	{
+		string enc_kills = kills[0].ToString ();
+		string enc_deaths = deaths[0].ToString ();
 		string enc_score = scores[0].ToString ();
 		string enc_lives = lives[0].ToString ();
 		for (int i = 1; i < playerCount; i++)
 		{
+			enc_kills += " " + kills[i];
+			enc_deaths += " " + deaths[i];
 			enc_score += " " + scores[i];
 			enc_lives += " " + lives[i];
 		}
-		networkView.RPC("UpdateScores", RPCMode.All, enc_score);
+		networkView.RPC("UpdateInfo", RPCMode.All, enc_kills, enc_deaths, enc_score);
 		networkView.RPC("showLives", RPCMode.All, enc_lives);
 	}
 	/* Called when a player is killed
@@ -156,17 +178,37 @@ public class Referee_script : MonoBehaviour {
 	/* Called when someone scores a point
 	 */
 	[RPC]
-	public void UpdateScores(string encodedScore_update){
+	public void UpdateInfo(string encodedKills_update, string encodedDeaths_update, string encodedScore_update){
 		if (!spawnScript)
 		{
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 		}
+		string[] kills_update = encodedKills_update.Split(' ');
+		string[] deaths_update = encodedDeaths_update.Split(' ');
 		string[] scores_update = encodedScore_update.Split(' ');
-		for (int i = 0; i < scores.Count/*Length*/; i++)
+		for (int i = 0; i < scores.Count; i++)
 		{
+			kills[i] = int.Parse(kills_update[i]);
+			deaths[i] = int.Parse(deaths_update[i]);
 			scores[i] = int.Parse(scores_update[i]);
 		}
-		spawnScript.showScores();
+		//spawnScript.showScores();
+	}
+
+	[RPC]
+	public void UpdateDeathBInfo (string encodedDeaths_update, string encodedScore_update)
+	{
+		if (!spawnScript)
+		{
+			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+		}
+		string[] deaths_update = encodedDeaths_update.Split(' ');
+		string[] scores_update = encodedScore_update.Split(' ');
+		for (int i = 0; i < scores.Count; i++)
+		{
+			deaths[i] = int.Parse(deaths_update[i]);
+			scores[i] = int.Parse(scores_update[i]);
+		}
 	}
 	/* Called when someone loses a live
 	 */
