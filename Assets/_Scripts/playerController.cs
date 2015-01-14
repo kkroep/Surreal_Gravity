@@ -397,7 +397,7 @@ public class playerController : MonoBehaviour
 		isAlive = true;
 		transform.position = SpawnPOsition;
 		//gameObject.GetComponent<MeshRenderer> ().enabled = true;
-		gameObject.GetComponent<SphereCollider> ().enabled = true;
+		//gameObject.GetComponent<SphereCollider> ().enabled = true;
 	}
 
 	[RPC]
