@@ -34,7 +34,8 @@ public class Camera_Control : MonoBehaviour {
 	public float minimumY = -60F;
 	public float maximumY = 60F;
 
-	float rotationY = 0F;
+	public bool can_rotate = true;
+	public float rotationY = 0F;
 	#endregion
 	#region [init other]
 	public playerController player;
@@ -226,7 +227,7 @@ public class Camera_Control : MonoBehaviour {
 		{
 			if(Gravity_Switch_Timer>0f)
 			{
-				
+				transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 			}else
 			{
 				#region [look around]

@@ -14,8 +14,12 @@ public class playerController : MonoBehaviour
 	private Vector3 TruePosition;
 	private Quaternion TrueRotation;
 	public float Gravity_Shift_Time = 10f;
+
 	private Quaternion before_shift;
 	private Quaternion after_shift;
+	private float before_shift_cam;
+	private float after_shift_cam;
+
 	private float Gravity_Shift_Counter;
 	private Animator anim;
 
@@ -117,9 +121,11 @@ public class playerController : MonoBehaviour
 						}*/
 			if (new_Gravity != Gravity_Direction) {
 				before_shift = transform.rotation;
+				before_shift_cam = Main_Camera.rotationY;
 				if (new_Gravity == Gravity_Direction * -1f) {
 					//180 Graden draaien heeft aparte behandeling nodig
 					after_shift = Quaternion.LookRotation (transform.forward * -1f, new_Gravity * -1f);
+					after_shift_cam = before_shift_cam*-1f;
 				} else {
 					//berekenen wat voor extra hoek erij moet.
 					Vector3 player2point = hitpoint - transform.position;
@@ -244,10 +250,12 @@ public class playerController : MonoBehaviour
 			if (Gravity_Shift_Counter > 1f) {
 				Gravity_Shift_Counter--;
 				transform.rotation = Quaternion.Lerp (after_shift, before_shift, Gravity_Shift_Counter / Gravity_Shift_Time);
+				Main_Camera.rotationY = Mathf.Lerp(after_shift_cam, before_shift_cam, Gravity_Shift_Counter / Gravity_Shift_Time);
 				rigidbody.velocity = new Vector3 (0f, 0f, 0f);
 			} else if (Gravity_Shift_Counter == 1f) {
 				Gravity_Shift_Counter = 0f;
 				transform.rotation = after_shift;
+				Main_Camera.rotationY = after_shift_cam;
 				rigidbody.velocity = new Vector3 (0f, 0f, 0f);
 			} else {
 
