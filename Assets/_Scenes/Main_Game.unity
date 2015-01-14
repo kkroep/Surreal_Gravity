@@ -47810,7 +47810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e746f7ea0d8354342bb01bf3edc8ca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 150122, guid: 205a9291897ba7f4c85d23ceb7e712cc, type: 2}
+  playerPrefab: {fileID: 170394, guid: d4c38105438b4f14088a62dd23dc5a65, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   levelCreator: {fileID: 1444913547}
   debugScore: {fileID: 1073285364}
