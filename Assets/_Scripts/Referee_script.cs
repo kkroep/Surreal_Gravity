@@ -70,7 +70,7 @@ public class Referee_script : MonoBehaviour {
 				{
 					spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 				}
-				spawnScript.showScores ();
+				//spawnScript.showScores ();
 				spawnScript.showLives ();
 				if (players.Count == playerCount)
 				{
@@ -235,7 +235,7 @@ public class Referee_script : MonoBehaviour {
 			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 		}
 		string[] lives_update = encodedLives_update.Split(' ');
-		for (int i = 0; i < lives.Count/*Length*/; i++)
+		for (int i = 0; i < lives.Count; i++)
 		{
 			lives[i] = int.Parse(lives_update[i]);
 		}

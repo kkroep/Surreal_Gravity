@@ -85,14 +85,14 @@ public class NW_Spawning : MonoBehaviour {
 		}
 	}
 
-	public void showScores ()
+	/*public void showScores ()
 	{
 		if (!scoreScreen) //if script not yet assigned, assign it
 		{
 			scoreScreen = (GameObject.FindGameObjectWithTag("ScoreScreen")).GetComponent<ScoreScreen>();
 		}
 		networkView.RPC("showScoresRPC", RPCMode.All);
-	}
+	}*/
 
 	public void showLives ()
 	{
@@ -182,7 +182,7 @@ public class NW_Spawning : MonoBehaviour {
 		Application.LoadLevel("Menu_New");
 	}
 
-	[RPC]
+	/*[RPC]
 	public void showScoresRPC ()
 	{
 		if (!scoreScreen)
@@ -194,7 +194,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + scoreScreen.scores[i] + "\n";
 		}
-	}
+	}*/
 
 	[RPC]
 	public void showLivesRPC ()
