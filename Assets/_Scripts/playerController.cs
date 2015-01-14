@@ -117,12 +117,12 @@ public class playerController : MonoBehaviour
 								before_shift = transform.rotation;
 								if (new_Gravity == Gravity_Direction * -1f) {
 										//180 Graden draaien heeft aparte behandeling nodig
-										after_shift = Quaternion.LookRotation (transform.forward, new_Gravity * -1f);
+										after_shift = Quaternion.LookRotation (transform.forward * -1f, new_Gravity * -1f);
 								} else {
 										//berekenen wat voor extra hoek erij moet.
 										Vector3 player2point = hitpoint - transform.position; 
 										//berekenen wat voor extra hoek erij moet.
-										Vector3 extra_tmp = BasicFunctions.ProjectVectorOnPlane (new_Gravity * -1f, player2point);
+					Vector3 extra_tmp = BasicFunctions.ProjectVectorOnPlane (new_Gravity * -1f, BasicFunctions.ProjectVectorOnPlane(Gravity_Direction * -1f, player2point));
 										after_shift = Quaternion.LookRotation (Gravity_Direction * -1f + extra_tmp, new_Gravity * -1f);
 								}
 								Gravity_Shift_Counter = Gravity_Shift_Time;
