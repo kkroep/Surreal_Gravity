@@ -115,8 +115,12 @@ public class playerController : MonoBehaviour
 						}*/
 						if (new_Gravity != Gravity_Direction) {
 								before_shift = transform.rotation;
-								//Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, transform.forward);
-								after_shift = Quaternion.LookRotation (Gravity_Direction * -1f, new_Gravity * -1f);
+								if (new_Gravity == Gravity_Direction * -1f) {
+										//180 Graden draaien heeft aparte behandeling nodig
+										after_shift = Quaternion.LookRotation (transform.forward, new_Gravity * -1f);
+								} else {
+										after_shift = Quaternion.LookRotation (Gravity_Direction * -1f, new_Gravity * -1f);
+								}
 								Gravity_Shift_Counter = Gravity_Shift_Time;
 								Gravity_Direction = new_Gravity;
 						}
