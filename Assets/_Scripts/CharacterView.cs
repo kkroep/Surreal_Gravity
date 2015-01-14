@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CharacterView : MonoBehaviour {
 
-	private GameObject armature;
-	private GameObject circle;
+	public string armature;
+	public string body;
 //	private GameObject armMesh;
 //	private GameObject armsArmature;
 
@@ -19,8 +19,8 @@ public class CharacterView : MonoBehaviour {
 		if(networkView.isMine || BasicFunctions.playOffline)
 		{
 
-			Destroy(transform.Find("Armature").gameObject);
-			Destroy (transform.Find ("Circle").gameObject);
+			Destroy(transform.Find(armature).gameObject);
+			Destroy (transform.Find (body).gameObject);
 		}
 	}
 

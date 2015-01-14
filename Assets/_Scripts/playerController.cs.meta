@@ -11,7 +11,7 @@ MonoImporter:
   - kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   - jump_sound: {fileID: 8300000, guid: ce2b756d4abf1c448bac5fe7810a5143, type: 3}
   - ScoreScreen: {instanceID: 0}
-  - boundary_death_sound: {fileID: 8300000, guid: 2a8c40d777aab5e4cb59f85e7a46280a,
+  - boundary_death_sound: {fileID: 8300000, guid: d294498da43ac594994ed5ec5aa854f6,
       type: 3}
   - respawn_sound: {fileID: 8300000, guid: 21fec11ecf6a53d41807001d39213d0c, type: 3}
   executionOrder: 0

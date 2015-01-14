@@ -166,7 +166,7 @@ public class Camera_Control : MonoBehaviour {
 					player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
 				if(hit.collider.tag=="level"){
 				AudioSource.PlayClipAtPoint(gravity_switch_sound, transform.position);
-				player.Switch_Gravity(hit.normal*-1f);
+					player.Switch_Gravity(hit.normal*-1f, hit.point);
 				}
 			}
 		}
