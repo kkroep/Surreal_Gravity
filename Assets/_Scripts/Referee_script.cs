@@ -288,6 +288,29 @@ public class Referee_script : MonoBehaviour {
 			
 			
 		}
+
+		for(int i=0;i<BasicFunctions.startingAccounts.Count-1;i++){
+			string urlParticipant = "http://drproject.twi.tudelft.nl:8082/ParticipantsRegister?SERVER="+BasicFunctions.activeAccount.Name + "&PLAYER="+BasicFunctions.startingAccounts[i];
+			WWW www2 = new WWW(urlParticipant);
+			StartCoroutine (WaitForParticipantRegister(www2));
+		}
 		
+		string finalurlparticipant = "http://drproject.twi.tudelft.nl:8082/ParticipantsRegister?SERVER="+BasicFunctions.activeAccount.Name + "&PLAYER="+BasicFunctions.startingAccounts[BasicFunctions.startingAccounts.Count-1];
+		WWW www3 = new WWW(finalurlparticipant);
+		yield return StartCoroutine (WaitForParticipantRegister(www3));
 	}
+	
+	IEnumerator WaitForParticipantRegister (WWW www)
+	{
+		yield return www;
+		
+		if (www.error == null) {
+			if (www.text.Equals ("succesfully logged participant")) {
+				Debug.Log ("Succesfully logged participant");
+			} else {
+				Debug.Log ("Failed to log participant");
+			}
+		}
+	}
+		
 }
