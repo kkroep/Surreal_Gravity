@@ -72,6 +72,7 @@ public class playerController : MonoBehaviour
 	public GameObject ScoreScreen;
 	public AudioClip boundary_death_sound;
 	public AudioClip respawn_sound;
+	public AudioClip getting_hit_sound;
 	private bool quitting;
 	private ScoreScreen scoreScreen;
 
@@ -172,6 +173,22 @@ public class playerController : MonoBehaviour
 			}
 			scoreScreen.time2show = 1000f;
 			scoreScreen.winner = winner;
+		}
+	}
+
+	public void PlayGetHit ()
+	{ 
+		if (networkView.isMine)
+		{
+			AudioSource.PlayClipAtPoint (getting_hit_sound, transform.position);
+		}
+	}
+
+	public void PlayDead ()
+	{
+		if (networkView.isMine)
+		{
+			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
 		}
 	}
 
