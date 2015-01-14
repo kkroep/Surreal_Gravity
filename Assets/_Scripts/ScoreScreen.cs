@@ -11,11 +11,22 @@ public class ScoreScreen : MonoBehaviour
 	public Text player2;
 	public Text player3;
 	public Text player4;
+
+	public Text kill1;
+	public Text kill2;
+	public Text kill3;
+	public Text kill4;
+
+	public Text death1;
+	public Text death2;
+	public Text death3;
+	public Text death4;
+
 	public Text score1;
 	public Text score2;
 	public Text score3;
 	public Text score4;
-
+	
 	public List<int> kills;
 	public List<int> deaths;
 	public List<int> scores;
@@ -40,7 +51,8 @@ public class ScoreScreen : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		/*players = new List<Text> ();
+		playersT = new List<Text> ();
+		scoresT = new List<Text> ();
 		playersT.Add(player1);
 		playersT.Add(player2);
 		playersT.Add(player3);
@@ -52,16 +64,16 @@ public class ScoreScreen : MonoBehaviour
 
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
-			playersT[i].enabled = true;
+			playersT[i].gameObject.SetActive(true);
 			playersT[i].text = "" + BasicFunctions.activeAccounts[i];
 			scoresT[i].text = "" + 0;
-		}*/
+		}
 
-		for (int i=0; i<BasicFunctions.amountPlayers; i++) {
+		/*for (int i=0; i<BasicFunctions.amountPlayers; i++) {
 			kills.Add (0);
 			deaths.Add (0);
 			scores.Add (0);
-		}
+		}*/
 	}
 	
 	// Update is called once per frame
@@ -96,6 +108,12 @@ public class ScoreScreen : MonoBehaviour
 			referee.EndGame(shooter);
 		}
 	}
+	public void UpdateScoreScreen(){
+		for (int i = 0; i < BasicFunctions.amountPlayers; i++) {
+			scoresT [i].text = "" + scores[i];
+		}
+	}
+
 
 	public void UpdateScoreDB (int target)
 	{
@@ -159,6 +177,7 @@ public class ScoreScreen : MonoBehaviour
 			deaths[i] = int.Parse(deaths_update[i]);
 			scores[i] = int.Parse(scores_update[i]);
 		}
+		UpdateScoreScreen();
 	}
 
 	[RPC]
