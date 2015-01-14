@@ -207,7 +207,7 @@ public class playerController : MonoBehaviour
 				spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			}
 
-			if (Network.isServer) {
+			if (Network.isServer && networkView.isMine) {
 				dontDestroy = true;
 				string gamemode;
 				if (!endGame) {
