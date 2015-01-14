@@ -170,7 +170,7 @@ public class playerController : MonoBehaviour
 			{
 				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 			}
-			scoreScreen.time2show = int.MaxValue;
+			scoreScreen.time2show = 1000f;
 			scoreScreen.winner = winner;
 		}
 	}
