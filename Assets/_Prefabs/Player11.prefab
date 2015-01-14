@@ -357,8 +357,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130492}
-  m_LocalRotation: {x: .099407129, y: -.0474380776, z: -.993739903, w: .0186786447}
-  m_LocalPosition: {x: -.00999999978, y: -.338, z: .0299999993}
+  m_LocalRotation: {x: .0251125656, y: -.0459150337, z: -.99838382, w: .0221601706}
+  m_LocalPosition: {x: -.00878143311, y: -.274000168, z: .0707454681}
   m_LocalScale: {x: 1.00216734, y: 1.98962998, z: 1.00820267}
   m_Children: []
   m_Father: {fileID: 450122}
@@ -369,8 +369,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150122}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.7088709, y: -9.60544014, z: -13.4209547}
+  m_LocalRotation: {x: 0, y: -.00231611985, z: 0, w: .999997318}
+  m_LocalPosition: {x: 18.5211926, y: -18.5507603, z: -24.0121632}
   m_LocalScale: {x: 1, y: .5, z: 1}
   m_Children:
   - {fileID: 489000}
@@ -694,7 +694,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130492}
-  m_Mesh: {fileID: 4300000, guid: 30f18da1266f6f248acb124093f0e267, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3aa2c1512294ee04c89983b88a437a0e, type: 3}
 --- !u!33 &3397408
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -772,7 +772,7 @@ MonoBehaviour:
   referee: {fileID: 0}
   KillLaser_On: 0
   stab_sound: {fileID: 8300000, guid: 5895641817d72d64d975d10b26c13240, type: 3}
-  stab_someone_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
+  stab_someone_sound: {fileID: 8300000, guid: 25dd15a7d4986ef4bb6ad5135f9fc314, type: 3}
 --- !u!114 &11488996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -848,6 +848,8 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -88
   maximumY: 88
+  can_rotate: 1
+  rotationY: 0
   player: {fileID: 11488996}
   playercam: {fileID: 189000}
   referee: {fileID: 0}
