@@ -150,7 +150,7 @@ app.get("/ParticipantsRegister",function(req,res){
 
         connection.query(querystring,function(err,rows,fields){
           if(err) throw err;
-          else res.send("sucesfully logged participant");
+          else res.send("succesfully logged participant");
 
         });
       });
