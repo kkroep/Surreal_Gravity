@@ -52,7 +52,7 @@ public class Camera_Control : MonoBehaviour {
 	private float lastShot;
 
 	//public AudioClip kill_point_sound;
-	//public AudioClip gravity_switch_sound;
+	public AudioClip gravity_switch_sound;
 	public AudioClip bullet_hit_sound;
 
 	//new
@@ -211,7 +211,6 @@ public class Camera_Control : MonoBehaviour {
 				if(hit.collider.tag=="Player")
 				{
 					AudioSource.PlayClipAtPoint (bullet_hit_sound, transform.position);
-					AudioSource.PlayClipAtPoint (kill_point_sound, transform.position);
 					if(!referee){
 						referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 					}
