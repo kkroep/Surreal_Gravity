@@ -52,7 +52,7 @@ public class Camera_Control : MonoBehaviour {
 	private float lastShot;
 
 	//public AudioClip kill_point_sound;
-	public AudioClip gravity_switch_sound;
+	//public AudioClip gravity_switch_sound;
 	public AudioClip bullet_hit_sound;
 
 	//new
@@ -165,7 +165,7 @@ public class Camera_Control : MonoBehaviour {
 				if (!BasicFunctions.playOffline)
 					player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
 				if(hit.collider.tag=="level"){
-				AudioSource.PlayClipAtPoint(gravity_switch_sound, transform.position);
+				//AudioSource.PlayClipAtPoint(gravity_switch_sound, transform.position);
 					player.Switch_Gravity(hit.normal*-1f, hit.point);
 				}
 			}
