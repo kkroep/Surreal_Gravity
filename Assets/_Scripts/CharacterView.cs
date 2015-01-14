@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CharacterView : MonoBehaviour {
 
-	public string armature;
-	public string body;
+	public string armature = "Armature";
+	public string body = "Circle";
 //	private GameObject armMesh;
 //	private GameObject armsArmature;
 
