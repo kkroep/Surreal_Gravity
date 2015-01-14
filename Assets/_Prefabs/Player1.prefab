@@ -1256,7 +1256,7 @@ MonoBehaviour:
   time2death: 1.5
   Sphere_collider_radius: .300000012
   ScoreScreen: {fileID: 0}
-  boundary_death_sound: {fileID: 8300000, guid: 2a8c40d777aab5e4cb59f85e7a46280a,
+  boundary_death_sound: {fileID: 8300000, guid: d294498da43ac594994ed5ec5aa854f6,
     type: 3}
   respawn_sound: {fileID: 8300000, guid: 21fec11ecf6a53d41807001d39213d0c, type: 3}
 --- !u!114 &11400002
