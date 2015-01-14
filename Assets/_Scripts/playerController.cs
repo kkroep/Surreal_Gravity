@@ -65,7 +65,6 @@ public class playerController : MonoBehaviour
 		public float Sphere_collider_radius = 0.6f;
 		private bool Can_Jump = false;
 		private float JumpTime;
-		
 		public GameObject ScoreScreen;
 		public AudioClip boundary_death_sound;
 		public AudioClip respawn_sound;
@@ -107,12 +106,19 @@ public class playerController : MonoBehaviour
 		public void Switch_Gravity (Vector3 new_Gravity)
 		{
 				if (networkView.isMine || BasicFunctions.playOffline) {
-						if (new_Gravity != Gravity_Direction) {
+						/*if (new_Gravity != Gravity_Direction) {
 								before_shift = transform.rotation;
 								Gravity_Direction = new_Gravity;
 								Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, transform.forward);
 								after_shift = Quaternion.LookRotation (New_Player_Forward_tmp, Gravity_Direction * -1f);
 								Gravity_Shift_Counter = Gravity_Shift_Time;
+						}*/
+						if (new_Gravity != Gravity_Direction) {
+								before_shift = transform.rotation;
+								//Vector3 New_Player_Forward_tmp = BasicFunctions.ProjectVectorOnPlane (Gravity_Direction, transform.forward);
+								after_shift = Quaternion.LookRotation (Gravity_Direction * -1f, new_Gravity * -1f);
+								Gravity_Shift_Counter = Gravity_Shift_Time;
+								Gravity_Direction = new_Gravity;
 						}
 				}
 		}
@@ -185,29 +191,27 @@ public class playerController : MonoBehaviour
 		void Update ()
 		{
 				if (Input.GetKeyDown (KeyCode.Escape)) {
+						
 						if (!spawnScript) {
 								spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 						}
 
 						if (Network.isServer) {
-							dontDestroy = true;
-							string gamemode;
-							if (!endGame)
-							{
-								if (BasicFunctions.ForkModus) {
-									gamemode = "FORK";
-								} else {
-									gamemode = "RAILGUN";
-								}
+								dontDestroy = true;
+								string gamemode;
+								if (!endGame) {
+										if (BasicFunctions.ForkModus) {
+												gamemode = "FORK";
+										} else {
+												gamemode = "RAILGUN";
+										}
 					
-								string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode;
-								WWW www = new WWW (url);
-								StartCoroutine (WaitForGameLog (www));
-							}
-							else
-							{
-								spawnScript.closeServerInGame();
-							}
+										string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode;
+										WWW www = new WWW (url);
+										StartCoroutine (WaitForGameLog (www));
+								} else {
+										spawnScript.closeServerInGame ();
+								}
 						} else if (Network.isClient) {
 								spawnScript.closeClientInGame ();
 						} else if (BasicFunctions.playOffline) {
@@ -321,7 +325,8 @@ public class playerController : MonoBehaviour
 
 		[RPC]
 		void PlayerRespawn (Vector3 SpawnPOsition)
-		{		AudioSource.PlayClipAtPoint (respawn_sound, transform.position);
+		{
+				AudioSource.PlayClipAtPoint (respawn_sound, transform.position);
 				isAlive = true;
 				transform.position = SpawnPOsition;
 				gameObject.GetComponent<MeshRenderer> ().enabled = true;
@@ -357,15 +362,15 @@ public class playerController : MonoBehaviour
 	
 		IEnumerator WaitForGameLog (WWW www)
 		{
-			yield return www;
+				yield return www;
 		
-			if (www.error == null) {
-				if (www.text.Equals ("Succesfully Registered Game")) {
-					Debug.Log ("Succesfully logged");
-				} else {
-					Debug.Log ("Failed to log");
-				}			
-			}
-			spawnScript.closeServerInGame();
+				if (www.error == null) {
+						if (www.text.Equals ("Succesfully Registered Game")) {
+								Debug.Log ("Succesfully logged");
+						} else {
+								Debug.Log ("Failed to log");
+						}			
+				}
+				spawnScript.closeServerInGame ();
 		}
 }

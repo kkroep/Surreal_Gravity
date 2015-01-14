@@ -14,6 +14,7 @@ public class ScoreScreen : MonoBehaviour
 	public Text score2;
 	public Text score3;
 	public Text score4;
+	public bool offline;
 
 	private List<Text> playersT;
 	private List<Text> scoresT;

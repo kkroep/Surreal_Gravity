@@ -120,7 +120,7 @@ public class Referee_script : MonoBehaviour {
 				networkView.RPC("finishGame", RPCMode.All, shooter);
 				networkView.RPC("setEndGameText", RPCMode.All);
 				string winnerLog = BasicFunctions.activeAccounts[winner-1];
-				string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode + "&Winnaar=" + winnerLog;
+				string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccounts[0] + "&Finished=1" + "&Gamemode=" + gamemode + "&Winnaar=" + winnerLog;
 				WWW www = new WWW (url);
 				StartCoroutine (WaitForGameLog (www));
 
