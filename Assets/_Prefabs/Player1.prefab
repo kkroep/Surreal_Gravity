@@ -1292,7 +1292,7 @@ MonoBehaviour:
   kill_point_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
   gravity_switch_sound: {fileID: 8300000, guid: 7810a188ecffb9e41850de1417de0600,
     type: 3}
-  bullet_hit_sound: {fileID: 0}
+  bullet_hit_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
   VerticesPerUnit: 150
   Gibrange: .00999999978
 --- !u!114 &11400004
