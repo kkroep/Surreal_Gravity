@@ -51,8 +51,8 @@ public class Camera_Control : MonoBehaviour {
 	private Account activeAccount = BasicFunctions.activeAccount;
 	private float lastShot;
 
-	public AudioClip kill_point_sound;
-	public AudioClip gravity_switch_sound;
+	//public AudioClip kill_point_sound;
+	//public AudioClip gravity_switch_sound;
 	public AudioClip bullet_hit_sound;
 
 	//new
