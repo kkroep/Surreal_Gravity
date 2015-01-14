@@ -195,6 +195,7 @@ public class playerController : MonoBehaviour
 		void Update ()
 		{
 				if (Input.GetKeyDown (KeyCode.Escape)) {
+						
 						if (!spawnScript) {
 								spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 						}

@@ -21,6 +21,8 @@ public class Referee_script : MonoBehaviour {
 	private int maxPoints = 10;
 	public int winner;
 
+	private ScoreScreen scoreScreen;
+
 	private string encodedKills;
 	private string encodedDeaths;
 	private string encodedDeaths2;
@@ -33,6 +35,7 @@ public class Referee_script : MonoBehaviour {
 
 	///Initialization
 	void Start () {
+		//scoreScreen = GameObject.FindGameObjectWithTag
 		playerCount = BasicFunctions.amountPlayers;
 		players = new List<playerController>();
 		kills = new List<int>();
@@ -117,7 +120,7 @@ public class Referee_script : MonoBehaviour {
 				networkView.RPC("finishGame", RPCMode.All, shooter);
 				networkView.RPC("setEndGameText", RPCMode.All);
 				string winnerLog = BasicFunctions.activeAccounts[winner-1];
-				string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode + "&Winnaar=" + winnerLog;
+				string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccounts[0] + "&Finished=1" + "&Gamemode=" + gamemode + "&Winnaar=" + winnerLog;
 				WWW www = new WWW (url);
 				StartCoroutine (WaitForGameLog (www));
 
