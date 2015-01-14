@@ -162,6 +162,19 @@ public class playerController : MonoBehaviour
 		}
 	}
 
+	public void setEndScreenTimer (int winner)
+	{
+		if (networkView.isMine)
+		{
+			if (!scoreScreen)
+			{
+				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+			}
+			scoreScreen.time2show = int.MaxValue;
+			scoreScreen.winner = winner;
+		}
+	}
+
 	[RPC]
 	void fireGravityLaser (Vector3 pos1, Vector3 pos2, int number)
 	{

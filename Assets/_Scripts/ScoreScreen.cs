@@ -32,6 +32,7 @@ public class ScoreScreen : MonoBehaviour
 	public List<int> scores;
 
 	public float time2show;
+	public int winner;
 	public string gamemode;
 
 	public bool offline;

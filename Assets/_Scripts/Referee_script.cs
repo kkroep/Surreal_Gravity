@@ -262,6 +262,7 @@ public class Referee_script : MonoBehaviour {
 			{
 				players [j].gameObject.GetComponent<MeshRenderer> ().enabled = false;
 				players [j].gameObject.GetComponent<SphereCollider> ().enabled = false;
+				players [j].setEndScreenTimer(winner);
 			}
 		}
 	}
