@@ -194,13 +194,19 @@ public class Referee_script : MonoBehaviour {
 	[RPC]
 	public void PlayGetHit (int target)
 	{
-		PlayGetHit(target);
+		for (int i = 0; i < playerCount; i++)
+		{
+			players[i].PlayGetHit(target);
+		}
 	}
 
 	[RPC]
 	public void PlayDead (int target)
 	{
-		PlayDead (target);
+		for (int i = 0; i < playerCount; i++)
+		{
+			players[i].PlayDead(target);
+		}
 	}
 	/* Called when a player is killed
 	 */
