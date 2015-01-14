@@ -180,7 +180,7 @@ public class Referee_script : MonoBehaviour {
 	public void EndGame (int shooter)
 	{
 		networkView.RPC("finishGame", RPCMode.All, shooter);
-		networkView.RPC("setEndGameText", RPCMode.All);
+		//networkView.RPC("setEndGameText", RPCMode.All);
 		if (BasicFunctions.loginServer && Network.isServer)
 		{
 			string winnerLog = BasicFunctions.activeAccounts[winner-1];

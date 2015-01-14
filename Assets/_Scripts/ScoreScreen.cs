@@ -26,6 +26,8 @@ public class ScoreScreen : MonoBehaviour
 	public Text score2;
 	public Text score3;
 	public Text score4;
+
+	public Text endScreen;
 	
 	public List<int> kills;
 	public List<int> deaths;
@@ -81,6 +83,8 @@ public class ScoreScreen : MonoBehaviour
 		scoresT.Add (score3);
 		scoresT.Add (score4);
 
+		winner = 0;
+
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
 			playersT[i].gameObject.SetActive(true);
@@ -109,14 +113,20 @@ public class ScoreScreen : MonoBehaviour
 			}else
 			scoreScreen.SetActive (true);
 		}
-		else{
-
-		if (Input.GetKeyDown (KeyCode.Tab)) {
-			scoreScreen.SetActive (true);
-		}
-		if (Input.GetKeyUp (KeyCode.Tab)) {
-			scoreScreen.SetActive (false);
+		else
+		{
+			if (Input.GetKeyDown (KeyCode.Tab)) {
+				scoreScreen.SetActive (true);
 			}
+			if (Input.GetKeyUp (KeyCode.Tab)) {
+				scoreScreen.SetActive (false);
+			}
+		}
+		if (winner != 0)
+		{
+			endScreen.enabled = true;
+			endScreen.gameObject.SetActive(true);
+			endScreen.text = "Winner: " + BasicFunctions.activeAccounts[winner-1];
 		}
 	}
 
