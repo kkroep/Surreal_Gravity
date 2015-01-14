@@ -152,11 +152,14 @@ public class playerController : MonoBehaviour
 
 	public void setScreenTimer ()
 	{
-		if (!scoreScreen)
+		if (networkView.isMine)
 		{
-			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+			if (!scoreScreen)
+			{
+				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+			}
+			scoreScreen.time2show = time2death;
 		}
-		scoreScreen.time2show = time2death;
 	}
 
 	[RPC]
