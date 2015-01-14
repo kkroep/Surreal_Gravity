@@ -103,7 +103,7 @@ public class playerController : MonoBehaviour
 				}
 		}
 	
-		public void Switch_Gravity (Vector3 new_Gravity)
+		public void Switch_Gravity (Vector3 new_Gravity, Vector3 hitpoint)
 		{
 				if (networkView.isMine || BasicFunctions.playOffline) {
 						/*if (new_Gravity != Gravity_Direction) {
@@ -119,7 +119,11 @@ public class playerController : MonoBehaviour
 										//180 Graden draaien heeft aparte behandeling nodig
 										after_shift = Quaternion.LookRotation (transform.forward, new_Gravity * -1f);
 								} else {
-										after_shift = Quaternion.LookRotation (Gravity_Direction * -1f, new_Gravity * -1f);
+										//berekenen wat voor extra hoek erij moet.
+										Vector3 player2point = hitpoint - transform.position; 
+										//berekenen wat voor extra hoek erij moet.
+										Vector3 extra_tmp = BasicFunctions.ProjectVectorOnPlane (new_Gravity * -1f, player2point);
+										after_shift = Quaternion.LookRotation (Gravity_Direction * -1f + extra_tmp, new_Gravity * -1f);
 								}
 								Gravity_Shift_Counter = Gravity_Shift_Time;
 								Gravity_Direction = new_Gravity;
