@@ -118,7 +118,6 @@ app.get("/GameRegister",function(req,res){
 });
 
 app.get("/ParticipantsRegister",function(req,res){
-  console.log("hoi");
   var query = url.parse(req.url,true).query;
   var PLAYER = _escapeString((query["PLAYER"]!=undefined ? query["PLAYER"] : "UndefinedPLAYER"));
   var SERVER = _escapeString((query["SERVER"]!=undefined ? query["SERVER"] : "UndefinedSERVER"))
@@ -152,7 +151,6 @@ app.get("/ParticipantsRegister",function(req,res){
         connection.query(querystring,function(err,rows,fields){
           if(err) throw err;
           else res.send("succesfully logged participant");
-          console.log("Participant: " + PLAYER_Id + " " + SERVER_Id)
 
         });
       });
