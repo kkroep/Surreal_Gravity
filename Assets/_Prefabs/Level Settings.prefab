@@ -44,11 +44,11 @@ MonoBehaviour:
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
   numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 80
+  approxBlocksPerLargeStack: 70
   approxBlocksPerSmallStack: 0
-  levelWidth: 25
-  levelHeight: 25
-  levelDepth: 25
+  levelWidth: 18
+  levelHeight: 18
+  levelDepth: 18
   checkRadius: 0
   xScaling: 1
   yScaling: 1
