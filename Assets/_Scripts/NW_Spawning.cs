@@ -19,7 +19,7 @@ public class NW_Spawning : MonoBehaviour {
 	private bool refreshing = false;
 	private bool playOffline;
 	private bool canSpawn;
-	private int amountSpawnPoints = 2;
+	private int amountSpawnPoints = 10;
 	private GameObject referee;
 	private Referee_script refScript;
 
@@ -79,7 +79,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
 			player = playerN;
-			//networkView.RPC("removeSpawnPoint", RPCMode.All, index);
+			networkView.RPC("removeSpawnPoint", RPCMode.All, index);
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 		}
 	}
