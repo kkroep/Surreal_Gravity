@@ -23,7 +23,7 @@ public class Wapen : MonoBehaviour {
 			this.enabled = false;
 		}
 
-		playerScript = gameObject.transform.parent.parent.GetComponent<playerController>();
+		playerScript = gameObject.transform.parent.GetComponent<playerController>();
 		//Debug.Log("S: " + playerScript.playerNumber);
 	}
 
@@ -32,14 +32,14 @@ public class Wapen : MonoBehaviour {
 	{
 		if (networkView.isMine || BasicFunctions.playOffline) 
 		{
-			if (Input.GetMouseButtonDown (0) && !transform.parent.parent.GetComponent<playerController> ().endGame) 
+			if (Input.GetMouseButtonDown (0) && !transform.parent.GetComponent<playerController> ().endGame) 
 			{
 				AudioSource.PlayClipAtPoint (stab_sound, transform.position);
 				collider.enabled = true;
 				Can_Hit = true;
 				transform.localPosition += new Vector3 (0f, 0f, 0.25f);
 			}
-			if (Input.GetMouseButtonUp (0) && !transform.parent.parent.GetComponent<playerController> ().endGame) 
+			if (Input.GetMouseButtonUp (0) && !transform.parent.GetComponent<playerController> ().endGame) 
 			{
 				collider.enabled = false;
 				Can_Hit = false;
@@ -60,7 +60,7 @@ public class Wapen : MonoBehaviour {
 				{
 					referee = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 				}
-				if (hit.gameObject.GetComponent<playerController>().isAlive && gameObject.transform.parent.parent.GetComponent<playerController>().isAlive)
+				if (hit.gameObject.GetComponent<playerController>().isAlive && gameObject.transform.parent.GetComponent<playerController>().isAlive)
 				{
 					referee.frag(playerScript.playerNumber, hit.gameObject.GetComponent<playerController>().playerNumber);
 					Can_Hit = false;
