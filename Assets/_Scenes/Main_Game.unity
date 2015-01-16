@@ -47878,7 +47878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e746f7ea0d8354342bb01bf3edc8ca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 170394, guid: d4c38105438b4f14088a62dd23dc5a65, type: 2}
+  playerForkPrefab: {fileID: 170394, guid: d4c38105438b4f14088a62dd23dc5a65, type: 2}
+  playerRailPrefab: {fileID: 132752, guid: 9e792307528b9f1469390ce133c4be79, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   levelCreator: {fileID: 1444913547}
   debugScore: {fileID: 1073285364}

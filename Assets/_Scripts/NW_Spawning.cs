@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class NW_Spawning : MonoBehaviour {
 
-	public GameObject playerPrefab;
+	public GameObject playerForkPrefab;
+	public GameObject playerRailPrefab;
 	public GameObject refereePrefab;
 	public Copy_LevelCreator levelCreator;
 	public Text debugScore;
@@ -74,11 +75,19 @@ public class NW_Spawning : MonoBehaviour {
 
 		if (BasicFunctions.playOffline)
 		{
-			Object.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity);
+			Object.Instantiate (playerRailPrefab, randomSpawnPoint, Quaternion.identity);
 		}
 		else
 		{
-			GameObject playerN = Network.Instantiate (playerPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
+			GameObject playerN;
+			if (BasicFunctions.ForkModus)
+			{
+				playerN = Network.Instantiate (playerForkPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
+			}
+			else
+			{
+				playerN = Network.Instantiate (playerRailPrefab, randomSpawnPoint, Quaternion.identity, 0) as GameObject; //Instantiate player on the spawn point
+			}
 			player = playerN;
 			networkView.RPC("removeSpawnPoint", RPCMode.All, index);
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
@@ -156,23 +165,26 @@ public class NW_Spawning : MonoBehaviour {
 		NetworkView playerN = NetworkView.Find(player);
 		playerN.GetComponent<playerController>().activeAccount = new Account(Uname, Pword);
 		playerN.GetComponent<playerController>().playerNumber = Number;
-		switch (Number)
+		if (BasicFunctions.ForkModus)
 		{
-		case 1:
-			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player1);
-			break;
-		case 2: 
-			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player2);
-			break;
-		case 3: 
-			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player3);
-			break;
-		case 4: 
-			playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player4);
-			break;
-		default : 
-			Debug.Log("DIKKE TERROR ERROR");
-			break;
+			switch (Number)
+			{
+			case 1:
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player1);
+				break;
+			case 2: 
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player2);
+				break;
+			case 3: 
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player3);
+				break;
+			case 4: 
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player4);
+				break;
+			default : 
+				Debug.Log("DIKKE TERROR ERROR");
+				break;
+			}
 		}
 	}
 
