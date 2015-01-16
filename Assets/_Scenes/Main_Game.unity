@@ -566,7 +566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &34450233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19383,7 +19383,7 @@ GameObject:
   - 222: {fileID: 741614706}
   - 114: {fileID: 741614705}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Leven1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19400,11 +19400,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 124, y: 50}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: 100, y: 20}
+  m_SizeDelta: {x: 120, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &741614705
 MonoBehaviour:
@@ -23724,7 +23724,7 @@ RectTransform:
   - {fileID: 235739524}
   - {fileID: 1854261335}
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 4, y: -3}
@@ -28036,7 +28036,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -118.5, y: -121.300003}
@@ -35802,7 +35802,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -35856,12 +35855,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 741614704}
   - {fileID: 932806591}
   - {fileID: 1073285363}
   - {fileID: 1388610410}
   - {fileID: 2134406175}
   - {fileID: 2121156851}
+  - {fileID: 741614704}
   - {fileID: 1873282139}
   - {fileID: 1757875242}
   m_Father: {fileID: 0}
@@ -36279,7 +36278,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -240, y: -121}
@@ -38141,9 +38140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57e522924807284c81a072edeb0fef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingBlock1: {fileID: 0}
-  buildingBlock2: {fileID: 0}
-  buildingBlock3: {fileID: 0}
+  buildingBlock1: {fileID: 114444, guid: de6641d66001c0c49a3ddde42ebdb239, type: 2}
+  buildingBlock2: {fileID: 156308, guid: 7782260d9a52013438268d15c38e9798, type: 2}
+  buildingBlock3: {fileID: 158096, guid: 579e4aebda13d7247bc4433b11766d2e, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
   numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
@@ -38163,7 +38162,7 @@ MonoBehaviour:
   plusz: 0
   negz: 0
   smoothen: 11
-  blocktypes: 0
+  blocktypes: 3
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0
@@ -46255,7 +46254,7 @@ GameObject:
   - 222: {fileID: 1757875244}
   - 114: {fileID: 1757875243}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Leven3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46275,8 +46274,8 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 539.299988, y: 50}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: 360, y: 20}
+  m_SizeDelta: {x: 120, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1757875243
 MonoBehaviour:
@@ -49101,7 +49100,7 @@ GameObject:
   - 222: {fileID: 1873282141}
   - 114: {fileID: 1873282140}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Leven2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49121,8 +49120,8 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 334, y: 50}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: 230, y: 20}
+  m_SizeDelta: {x: 120, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1873282140
 MonoBehaviour:
@@ -54082,7 +54081,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -55544,7 +55542,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 2.28879999e-05, y: -200}
@@ -55838,7 +55836,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
