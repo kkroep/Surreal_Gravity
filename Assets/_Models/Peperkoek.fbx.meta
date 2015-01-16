@@ -68,7 +68,469 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Neck
+        weight: 1
+      - path: Armature/Neck/ShoulderL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL/LowerArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR/LowerArmR
+        weight: 1
+      - path: Armature/Neck/UpperBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL/LowerLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR/LowerLegR
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump
+      takeName: Jump
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Neck
+        weight: 1
+      - path: Armature/Neck/ShoulderL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL/LowerArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR/LowerArmR
+        weight: 1
+      - path: Armature/Neck/UpperBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL/LowerLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR/LowerLegR
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimUp
+      takeName: AimUp
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Neck
+        weight: 1
+      - path: Armature/Neck/ShoulderL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL/LowerArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR/LowerArmR
+        weight: 1
+      - path: Armature/Neck/UpperBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL/LowerLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR/LowerLegR
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimUpDown
+      takeName: AimUpDown
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Neck
+        weight: 1
+      - path: Armature/Neck/ShoulderL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL/LowerArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR/LowerArmR
+        weight: 1
+      - path: Armature/Neck/UpperBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL/LowerLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR/LowerLegR
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Stab
+      takeName: Stab
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Neck
+        weight: 1
+      - path: Armature/Neck/ShoulderL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL/LowerArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR/LowerArmR
+        weight: 1
+      - path: Armature/Neck/UpperBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL/LowerLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR/LowerLegR
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Swing
+      takeName: Swing
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Neck
+        weight: 1
+      - path: Armature/Neck/ShoulderL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL/LowerArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR/LowerArmR
+        weight: 1
+      - path: Armature/Neck/UpperBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL/LowerLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR/LowerLegR
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Neck
+        weight: 1
+      - path: Armature/Neck/ShoulderL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderL/UpperArmL/LowerArmL
+        weight: 1
+      - path: Armature/Neck/ShoulderR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR
+        weight: 1
+      - path: Armature/Neck/ShoulderR/UpperArmR/LowerArmR
+        weight: 1
+      - path: Armature/Neck/UpperBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupL/UpperLegL/LowerLegL
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR
+        weight: 1
+      - path: Armature/Neck/UpperBody/MidBody/LowerBody/HeupR/UpperLegR/LowerLegR
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

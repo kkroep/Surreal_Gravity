@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &170390
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -357,12 +357,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170390}
-  m_LocalRotation: {x: .0251125656, y: -.0459150337, z: -.99838382, w: .0221601706}
-  m_LocalPosition: {x: .109999999, y: -.419999987, z: -.119000003}
-  m_LocalScale: {x: 1.00216734, y: 1.98962998, z: 1.00820267}
+  m_LocalRotation: {x: .0251085348, y: -.0468427837, z: -.998281419, w: .0246901028}
+  m_LocalPosition: {x: -.394237816, y: -.0521291606, z: 1.27180541}
+  m_LocalScale: {x: 1.00082028, y: .998071492, z: 1.00387526}
   m_Children: []
-  m_Father: {fileID: 470394}
-  m_RootOrder: 3
+  m_Father: {fileID: 470392}
+  m_RootOrder: 0
 --- !u!4 &470392
 Transform:
   m_ObjectHideFlags: 1
@@ -372,7 +372,8 @@ Transform:
   m_LocalRotation: {x: .00099457067, y: -9.70562469e-05, z: -.00250462838, w: .999996364}
   m_LocalPosition: {x: .505012512, y: -.314348221, z: -1.39051914}
   m_LocalScale: {x: 1, y: 2.01612902, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 470390}
   m_Father: {fileID: 470394}
   m_RootOrder: 0
 --- !u!4 &470394
@@ -382,13 +383,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170394}
   m_LocalRotation: {x: 0, y: -.00231611985, z: 0, w: .999997318}
-  m_LocalPosition: {x: 686.833923, y: 167.732407, z: -677.781067}
+  m_LocalPosition: {x: 1.60795999, y: 13.0610437, z: .511881828}
   m_LocalScale: {x: 1, y: .5, z: 1}
   m_Children:
   - {fileID: 470392}
   - {fileID: 470396}
   - {fileID: 470398}
-  - {fileID: 470390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &470396
