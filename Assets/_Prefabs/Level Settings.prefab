@@ -40,7 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57e522924807284c81a072edeb0fef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingBlock: {fileID: 0}
+  buildingBlock1: {fileID: 114444, guid: de6641d66001c0c49a3ddde42ebdb239, type: 2}
+  buildingBlock2: {fileID: 156308, guid: 7782260d9a52013438268d15c38e9798, type: 2}
+  buildingBlock3: {fileID: 158096, guid: 579e4aebda13d7247bc4433b11766d2e, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
   numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
@@ -60,6 +62,7 @@ MonoBehaviour:
   plusz: 0
   negz: 0
   smoothen: 11
+  blocktypes: 3
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

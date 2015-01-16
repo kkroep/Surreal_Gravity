@@ -160,7 +160,6 @@ public class Copy_LevelCreator : MonoBehaviour {
 							counter++;
 
 						if(counter>=60 /*&& removedCounter>0*/){
-							Debug.Log ("Counter");
 							removedCounter--;
 							gridCopy[width,height,depth]=Random.Range (1,blocktypes+1);
 						}
