@@ -33,7 +33,7 @@ public class Wapen : MonoBehaviour {
 	void Update()
 	{
 		transform.localRotation = transform.parent.transform.GetChild(1).transform.localRotation;
-		transform.localPosition = transform.parent.transform.GetChild(1).transform.localPosition /*+ new Vector3(0f,-0.5f, 0f)*/+transform.localRotation*stab_vector*stabbing;
+		transform.localPosition = transform.parent.transform.GetChild(1).transform.localPosition + transform.localRotation*new Vector3(0f,-0.5f, 0.1f)+transform.localRotation*stab_vector*stabbing;
 		if (networkView.isMine || BasicFunctions.playOffline) 
 		{
 			if (Input.GetMouseButtonDown (0) && !transform.parent.GetComponent<playerController> ().endGame) 
