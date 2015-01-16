@@ -34,6 +34,7 @@ public class Referee_script : MonoBehaviour {
 		for (int i=0; i<playerCount; i++) {
 			lives.Add (Lives_count);
 		}
+		Debug.Log("#: " + playerCount);
 	}
 
 	void Update(){
@@ -68,7 +69,7 @@ public class Referee_script : MonoBehaviour {
 	public void frag(int shooter, int target){
 		//check if a player actually dies
 		if (lives [target-1] <= 1) {
-
+			networkView.RPC("showWPanel", RPCMode.All, target);
 			//respawn player
 			networkView.RPC("KillPlayer", RPCMode.All, target);
 			networkView.RPC("PlayDead", RPCMode.All, target);;
@@ -96,6 +97,7 @@ public class Referee_script : MonoBehaviour {
 				encodedLives += " " + lives[i];
 			}
 			networkView.RPC("showLives", RPCMode.All, encodedLives);
+			networkView.RPC("showWPanel", RPCMode.All, target);
 		}
 	}
 	/* Killed by Boundary of Death
@@ -146,6 +148,18 @@ public class Referee_script : MonoBehaviour {
 		for (int i = 0; i < playerCount; i++)
 		{
 			players[i].PlayDead(target);
+		}
+	}
+
+	[RPC]
+	public void showWPanel (int target)
+	{
+		for (int i = 0; i < playerCount; i++)
+		{
+			if (players[i].activeAccount.Number == target)
+			{
+				players[i].showWP = true;
+			}
 		}
 	}
 	/* Called when a player is killed
