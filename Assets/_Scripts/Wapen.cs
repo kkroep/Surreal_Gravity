@@ -7,6 +7,8 @@ public class Wapen : MonoBehaviour {
 	public bool KillLaser_On = false;
 	private playerController playerScript;
 	private bool Can_Hit = false;
+	private Vector3 stab_vector = new Vector3 (0f, 0f, 0.25f);
+	private float stabbing = 0f;
 
 	public AudioClip stab_sound; 
 	public AudioClip stab_someone_sound;
@@ -30,6 +32,8 @@ public class Wapen : MonoBehaviour {
 
 	void Update()
 	{
+		transform.localRotation = transform.parent.transform.GetChild(1).transform.localRotation;
+		transform.localPosition = transform.parent.transform.GetChild(1).transform.localPosition /*+ new Vector3(0f,-0.5f, 0f)*/+transform.localRotation*stab_vector*stabbing;
 		if (networkView.isMine || BasicFunctions.playOffline) 
 		{
 			if (Input.GetMouseButtonDown (0) && !transform.parent.GetComponent<playerController> ().endGame) 
@@ -37,13 +41,13 @@ public class Wapen : MonoBehaviour {
 				AudioSource.PlayClipAtPoint (stab_sound, transform.position);
 				collider.enabled = true;
 				Can_Hit = true;
-				transform.localPosition += new Vector3 (0f, 0f, 0.25f);
+				stabbing=1f;
 			}
 			if (Input.GetMouseButtonUp (0) && !transform.parent.GetComponent<playerController> ().endGame) 
 			{
 				collider.enabled = false;
 				Can_Hit = false;
-				transform.localPosition -= new Vector3 (0f, 0f, 0.25f);
+				stabbing=0f;
 			}
 		}
 	}

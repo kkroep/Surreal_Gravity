@@ -3,6 +3,7 @@ var http = require("http");
 var bodyParser = require("body-parser");
 var url = require("url");
 var mysql = require("mysql");
+var ejs = require("ejs");
 var app = express();
 
 var port = 8082;
@@ -11,6 +12,8 @@ http.createServer(app).listen(port);
 
 app.use(express.static(__dirname + "/Static"));
 app.use(bodyParser.json({strict: true}));
+
+app.set('view engine', 'ejs');
 
 var connection = mysql.createConnection({
   host  : 'localhost',
@@ -23,13 +26,34 @@ connection.query('use ewi3620tu2');
 
 app.get("/Players", function (req, res) {
   //res.json(connection.query('select * from todos'));
-  var querystring = "SELECT DISTINCT Naam FROM Players;";
+  var querystring = "SELECT * FROM Players;";
   connection.query(querystring, function(err, rows, fields) {
     if (err) throw err;
     //res.json(rows);
     res.send(rows);
   });
 });
+
+app.get("/Participants", function (req, res) {
+  //res.json(connection.query('select * from todos'));
+  var querystring = "SELECT * FROM Participants;";
+  connection.query(querystring, function(err, rows, fields) {
+    if (err) throw err;
+    //res.json(rows);
+    res.send(rows);
+  });
+});
+
+app.get("/Games", function (req, res) {
+  //res.json(connection.query('select * from todos'));
+  var querystring = "SELECT * FROM Games;";
+  connection.query(querystring, function(err, rows, fields) {
+    if (err) throw err;
+    //res.json(rows);
+    res.send(rows);
+  });
+});
+
 
 
 app.get("/Authenticate",function(req,res){
@@ -181,8 +205,17 @@ app.get("/Addgespeeld",function(req,res){
 
   });
 });
-  
 
+/*
+app.get("/ShowDatabase",function(req,res){
+  var querystring = "SELECT DISTINCT Naam FROM Players;";
+  connection.query(querystring, function(err, rows, fields) {
+    if (err) throw err;
+    //res.json(rows);
+    res.render('Static/Database',{games_array: rows});
+  });
+})
+*/
 
 
 
