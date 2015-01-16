@@ -7,8 +7,7 @@ public class playerController : MonoBehaviour
 	#region [init look around]
 	public float speed;
 	public float jumpSpeed = 8.0F;
-	private Vector3 moveDirection = Vector3.zero;
-	private Vector3 Current_Global_Force;
+	//private Vector3 Current_Global_Force;
 	public Camera_Control Main_Camera;
 	private float speed_multiplier = 1f;
 	private Vector3 TruePosition;
@@ -42,6 +41,7 @@ public class playerController : MonoBehaviour
 
 	#region [init other]
 
+	public GameObject Wounded_Panel;
 	public float Gravity_Strength = 10f;
 	public Vector3 Initial_Gravity_Direction;
 	public Vector3 Gravity_Direction;
@@ -52,7 +52,6 @@ public class playerController : MonoBehaviour
 	public GameObject KillLine;
 	public Account activeAccount; //= BasicFunctions.activeAccount;
 	public int playerNumber;
-	private int hitCounter = 0;
 	public AudioClip kill_shot_sound;
 	//public AudioClip gravity_shot_sound;
 	public AudioClip jump_sound;
@@ -78,11 +77,16 @@ public class playerController : MonoBehaviour
 	private ScoreScreen scoreScreen;
 	private float timer = 2f;
 	private bool canAnim = false;
+	public bool showWP = false;
+	private float WoundedTimer = 0.2f;
 
 	#endregion
 
 	void Start ()
 	{
+		Wounded_Panel = GameObject.FindGameObjectWithTag("WPanel");
+		if (networkView.isMine)
+			Wounded_Panel.SetActive(false);
 		quitting = false;
 		if (networkView.isMine || BasicFunctions.playOffline) {
 			if (!BasicFunctions.playOffline) {
@@ -91,15 +95,20 @@ public class playerController : MonoBehaviour
 				{
 					referee = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
 				}
+				if (!Wounded_Panel)
+				{
+					Wounded_Panel = GameObject.FindGameObjectWithTag("WPanel");
+				}
 			}
 			//activeAccount.Points = 0;
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
-			Current_Global_Force = Gravity_Direction * Gravity_Strength;
+			//Current_Global_Force = Gravity_Direction * Gravity_Strength;
 			anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			JumpTime = Time.time;
+			anim.SetBool("Walk", true);
 		}
 	}
 
@@ -260,13 +269,36 @@ public class playerController : MonoBehaviour
 
 	void Update ()
 	{
-		/*if (timer > 0)
+		if (timer > 0)
 			timer -= Time.deltaTime;
 		if (timer <= 0)
 		{
 			timer = 0;
 			canAnim = true;
+		}
+
+		/*if (canAnim)
+		{
+			networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
+			canAnim = false;
 		}*/
+
+		if (showWP)
+		{
+			/*if (!Wounded_Panel)
+			{
+				Wounded_Panel = GameObject.FindGameObjectWithTag("WPanel");
+			}*/
+			//WoundedTimer = 0.5f;
+			Wounded_Panel.SetActive(true);
+			WoundedTimer -= Time.deltaTime;
+			if (WoundedTimer <= 0)
+			{
+				Wounded_Panel.SetActive(false);
+				WoundedTimer = 0.2f;
+				showWP = false;
+			}
+		}
 
 		if (Input.GetKeyDown (KeyCode.Escape) && quitting == false) {
 			quitting = true;
@@ -360,19 +392,19 @@ public class playerController : MonoBehaviour
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
 				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump && canAnim) || (Input.GetAxis ("Vertical") != 0 && Can_Jump && canAnim)) {
-					anim.SetBool ("Walk", true);
+					/*anim.SetBool ("Walk", true);
 					if (!BasicFunctions.playOffline)
 					{
 						networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
-					}
+					}*/
 				} else {
 					if (canAnim)
 					{
-						anim.SetBool ("Walk", false);
+						/*anim.SetBool ("Walk", false);
 						if (!BasicFunctions.playOffline)
 						{
 							networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
-						}	
+						}	*/
 					}
 				}
 
@@ -440,6 +472,7 @@ public class playerController : MonoBehaviour
 	{
 		//referee.players [player - 1].anim.SetBool ("Walk", set);
 		anim.SetBool ("Walk", set);
+		Debug.Log(anim.GetBool("Walk"));
 	}
 
 	[RPC]

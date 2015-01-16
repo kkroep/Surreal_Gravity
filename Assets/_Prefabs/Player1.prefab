@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2370432}
   - 65: {fileID: 6570432}
   - 114: {fileID: 11470424}
-  - 148: {fileID: 14870428}
+  - 148: {fileID: 14823518}
   m_Layer: 0
   m_Name: forkmodel1LowerpolyV2
   m_TagString: Untagged
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170394}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3d8666654396c043aee45446a686286, type: 3}
   m_Name: 
@@ -808,6 +808,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
+  Wounded_Panel: {fileID: 151574, guid: 51c2b7d6eeb2bad4c8ff3a8b61f62c2a, type: 2}
   Gravity_Strength: 5
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
@@ -830,6 +831,7 @@ MonoBehaviour:
     type: 3}
   respawn_sound: {fileID: 8300000, guid: 21fec11ecf6a53d41807001d39213d0c, type: 3}
   getting_hit_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
+  showWP: 0
 --- !u!114 &11470430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -956,15 +958,15 @@ SkinnedMeshRenderer:
     m_Center: {x: .127684534, y: .365830839, z: -.00601281226}
     m_Extent: {x: .390901566, y: .74592191, z: .423110962}
   m_DirtyAABB: 0
---- !u!148 &14870428
+--- !u!148 &14823518
 NetworkView:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170390}
   m_Enabled: 1
-  m_StateSynchronization: 0
-  m_Observed: {fileID: 0}
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 470390}
   m_ViewID:
     m_ID: 0
     m_Type: 0
