@@ -344,13 +344,13 @@ public class playerController : MonoBehaviour
 			//DIT STUK BEWEEGT DE SPELER ALLEEN ALS IE NIET DOOD IS
 			if (isAlive && !endGame) {
 				speed_multiplier = Mathf.Lerp (speed_multiplier, 1f, Time.fixedDeltaTime * 2f);
-				Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction * 0.6f, Sphere_collider_radius);
+				/*Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction * 0.6f, Sphere_collider_radius);
 
 				for (int i=0; i<hitColliders.Length; i++) {
 					if (hitColliders [i].tag == "level") {
 						Can_Jump = true;
 					}
-				}
+				}*/
 
 				//HIER WORDT DE VELOCITY BEREKEND
 				Vector3 New_Velocity = new Vector3 (0f, 0f, 0f);
@@ -379,11 +379,18 @@ public class playerController : MonoBehaviour
 
 				rigidbody.velocity = New_Velocity;
 
-				if (Input.GetKeyDown ("space") && isAlive && !endGame && Can_Jump && (JumpTime + 0.35f) < Time.time) {
-					rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
-					AudioSource.PlayClipAtPoint (jump_sound, transform.position);
-					Can_Jump = false;
-					JumpTime = Time.time;
+				if (Input.GetKeyDown ("space") && isAlive && !endGame && (JumpTime + 0.35f) < Time.time) {
+					Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction * 0.6f, Sphere_collider_radius);
+					
+					for (int i=0; i<hitColliders.Length; i++) {
+						if (hitColliders [i].tag == "level") {
+							rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
+							AudioSource.PlayClipAtPoint (jump_sound, transform.position);
+							JumpTime = Time.time;
+							break;
+						}
+					}
+					
 					//anim.SetBool ("Jump", true);
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
 				} else {
