@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public class Copy_LevelCreator : MonoBehaviour {
 	
-	public GameObject buildingBlock;
+	public GameObject buildingBlock1;
+	public GameObject buildingBlock2;
+	public GameObject buildingBlock3;
 	public GameObject MainRobotSettings;
 	public int numberOfLargeSpawns;
 	public int numberOfSmallSpawns;
@@ -24,6 +26,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	public bool plusz;
 	public bool negz;
 	public int smoothen;
+	public int blocktypes;
 
 	private int[,,] grid;
 	private int[] targetPosition;
@@ -63,6 +66,8 @@ public class Copy_LevelCreator : MonoBehaviour {
 			//draw(levelWidth, levelHeight, levelDepth, grid);
 			draw ();
 
+			resetMatrix();
+
 			/*
 			if (Network.isServer)
 			{
@@ -83,19 +88,19 @@ public class Copy_LevelCreator : MonoBehaviour {
 				{
 
 					int counter = 0;
-					if(grid[width,height,depth]==1){
-						gridCopy[width,height,depth]=1;
-						if(grid[width+1,height,depth]==1)
+					if(grid[width,height,depth]>0){
+						gridCopy[width,height,depth] = Random.Range (1,blocktypes+1);
+						if(grid[width+1,height,depth]>0)
 							counter++;
-						if(grid[width-1,height,depth]==1)
+						if(grid[width-1,height,depth]>0)
 							counter++;
-						if(grid[width,height+1,depth]==1)
+						if(grid[width,height+1,depth]>0)
 							counter++;
-						if(grid[width,height-1,depth]==1)
+						if(grid[width,height-1,depth]>0)
 							counter++;
-						if(grid[width,height,depth+1]==1)
+						if(grid[width,height,depth+1]>0)
 							counter++;
-						if(grid[width,height,depth-1]==1)
+						if(grid[width,height,depth-1]>0)
 							counter++;
 
 						if(counter<=1){
@@ -117,46 +122,47 @@ public class Copy_LevelCreator : MonoBehaviour {
 				{
 					int counter = 0;
 					if(grid[width,height,depth]==0){
-						if(grid[width+1,height,depth]==1)
+						if(grid[width+1,height,depth]>0)
 							counter += ratio;
-						if(grid[width-1,height,depth]==1)
+						if(grid[width-1,height,depth]>0)
 							counter += ratio;
-						if(grid[width,height+1,depth]==1)
+						if(grid[width,height+1,depth]>0)
 							counter += ratio;
-						if(grid[width,height-1,depth]==1)
+						if(grid[width,height-1,depth]>0)
 							counter += ratio;
-						if(grid[width,height,depth+1]==1)
+						if(grid[width,height,depth+1]>0)
 							counter += ratio;
-						if(grid[width,height,depth-1]==1)
+						if(grid[width,height,depth-1]>0)
 							counter += ratio;
-						if(grid[width+1,height+1,depth]==1)
+						if(grid[width+1,height+1,depth]>0)
 							counter++;
-						if(grid[width+1,height-1,depth]==1)
+						if(grid[width+1,height-1,depth]>0)
 							counter++;
-						if(grid[width-1,height+1,depth]==1)
+						if(grid[width-1,height+1,depth]>0)
 							counter++;
-						if(grid[width-1,height-1,depth]==1)
+						if(grid[width-1,height-1,depth]>0)
 							counter++;
-						if(grid[width+1,height,depth+1]==1)
+						if(grid[width+1,height,depth+1]>0)
 							counter++;
-						if(grid[width+1,height,depth-1]==1)
+						if(grid[width+1,height,depth-1]>0)
 							counter++;
-						if(grid[width-1,height,depth+1]==1)
+						if(grid[width-1,height,depth+1]>0)
 							counter++;
-						if(grid[width-1,height,depth-1]==1)
+						if(grid[width-1,height,depth-1]>0)
 							counter++;
-						if(grid[width,height+1,depth+1]==1)
+						if(grid[width,height+1,depth+1]>0)
 							counter++;
-						if(grid[width,height+1,depth-1]==1)
+						if(grid[width,height+1,depth-1]>0)
 							counter++;
-						if(grid[width,height-1,depth+1]==1)
+						if(grid[width,height-1,depth+1]>0)
 							counter++;
-						if(grid[width,height-1,depth-1]==1)
+						if(grid[width,height-1,depth-1]>0)
 							counter++;
-						
+
 						if(counter>=60 /*&& removedCounter>0*/){
+							Debug.Log ("Counter");
 							removedCounter--;
-							gridCopy[width,height,depth]=1;
+							gridCopy[width,height,depth]=Random.Range (1,blocktypes+1);
 						}
 						
 					}
@@ -203,6 +209,8 @@ public class Copy_LevelCreator : MonoBehaviour {
 	//function responsible for filling the grid matrix with spawns
 	void createMainSpawn(int approxBlocks){
 		int checkResult;
+		int blocktype = Random.Range (1,blocktypes+1);
+
 		
 		//random offset for the blocks per spawn
 		int delta = Random.Range (Mathf.FloorToInt (approxBlocks * -0.1f), Mathf.CeilToInt (approxBlocksPerLargeStack * 0.1f+1f));
@@ -219,11 +227,11 @@ public class Copy_LevelCreator : MonoBehaviour {
 		}while (checkResult>0 && iterations<50);
 		
 		//Make the grid at position targetposition equal to 1
-		grid [targetPosition[0],targetPosition[1],targetPosition[2]] = 1;
+		grid [targetPosition[0],targetPosition[1],targetPosition[2]] = blocktype;
 		
 		//Create the secondary spawns for the main spawn
 		for(int i=0; i<Blocks; i++){
-			createSpawn();
+			createSpawn(blocktype);
 			
 		}
 		
@@ -233,7 +241,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	}
 
 	//function responsible for creating secondary spawn
-	void createSpawn()
+	void createSpawn(int blocktype)
 	{
 		//lists that contain the forward and backward direction
 		List<int> xList = new List<int>();
@@ -331,7 +339,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 		} while (checkResult>0 && iterations<50);
 
 		//Set the grid at the new targetposition equal to 1		
-		grid[targetPosition[0],targetPosition[1],targetPosition[2]]=1;
+		grid[targetPosition[0],targetPosition[1],targetPosition[2]] = blocktype;
 	}
 
 	//function that loops through the gread and instanciates a building block when it encounters a 1
@@ -343,13 +351,33 @@ public class Copy_LevelCreator : MonoBehaviour {
 			{
 				for (int depth=0;depth<levelDepth;depth++)
 				{
-					if(grid[width,height,depth]>0)
+					if(grid[width,height,depth]==1)
 					{
 						if(BasicFunctions.playOffline){
-							Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity);
+							Instantiate (buildingBlock1, new Vector3(width,height,depth), Quaternion.identity);
 						}
 						else{
-							Network.Instantiate (buildingBlock, new Vector3(width,height,depth), Quaternion.identity,0);
+							 Network.Instantiate (buildingBlock1, new Vector3(width,height,depth), Quaternion.identity,0);
+
+						}
+					}
+					if(grid[width,height,depth]==2)
+					{
+						if(BasicFunctions.playOffline){
+							Instantiate (buildingBlock2, new Vector3(width,height,depth), Quaternion.identity);
+						}
+						else{
+							Network.Instantiate (buildingBlock2, new Vector3(width,height,depth), Quaternion.identity,0);
+
+						}
+					}
+					if(grid[width,height,depth]==3)
+					{
+						if(BasicFunctions.playOffline){
+							Instantiate (buildingBlock3, new Vector3(width,height,depth), Quaternion.identity);
+						}
+						else{
+							Network.Instantiate (buildingBlock3, new Vector3(width,height,depth), Quaternion.identity,0);
 						}
 					}
 					/*if(grid[width,height,depth]>0){
@@ -405,5 +433,21 @@ public class Copy_LevelCreator : MonoBehaviour {
 	
 	public void setGrid(int x, int y, int z, int to){
 		this.grid[x,y,z] = to;
+	}
+
+	public void resetMatrix(){
+		for(int width=1;width<levelWidth-1;width++)
+		{
+			for (int height=1;height<levelHeight-1;height++)
+			{
+				for (int depth=1;depth<levelDepth-1;depth++)
+				{
+					if(grid[width,height,depth]>1){
+						grid[width,height,depth]=1;
+					}
+				}
+			}
+		}
+
 	}
 }
