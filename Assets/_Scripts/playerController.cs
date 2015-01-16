@@ -75,6 +75,8 @@ public class playerController : MonoBehaviour
 	public AudioClip getting_hit_sound;
 	private bool quitting;
 	private ScoreScreen scoreScreen;
+	private float timer = 2f;
+	private bool canAnim = false;
 
 	#endregion
 
@@ -82,10 +84,12 @@ public class playerController : MonoBehaviour
 	{
 		quitting = false;
 		if (networkView.isMine || BasicFunctions.playOffline) {
-
-
 			if (!BasicFunctions.playOffline) {
 				activeAccount.Number = playerNumber;
+				if (!referee)
+				{
+					referee = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
+				}
 			}
 			//activeAccount.Points = 0;
 			Screen.lockCursor = true;
@@ -249,6 +253,14 @@ public class playerController : MonoBehaviour
 
 	void Update ()
 	{
+		/*if (timer > 0)
+			timer -= Time.deltaTime;
+		if (timer <= 0)
+		{
+			timer = 0;
+			canAnim = true;
+		}*/
+
 		if (Input.GetKeyDown (KeyCode.Escape) && quitting == false) {
 			quitting = true;
 
@@ -340,12 +352,21 @@ public class playerController : MonoBehaviour
 				New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
-				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump) || (Input.GetAxis ("Vertical") != 0 && Can_Jump)) {
-					//anim.SetBool ("Walk", true);
-					//networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
+				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump && canAnim) || (Input.GetAxis ("Vertical") != 0 && Can_Jump && canAnim)) {
+					anim.SetBool ("Walk", true);
+					if (!BasicFunctions.playOffline)
+					{
+						networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
+					}
 				} else {
-					//anim.SetBool ("Walk", false);
-					//networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
+					if (canAnim)
+					{
+						anim.SetBool ("Walk", false);
+						if (!BasicFunctions.playOffline)
+						{
+							networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
+						}	
+					}
 				}
 
 
@@ -403,7 +424,8 @@ public class playerController : MonoBehaviour
 	[RPC]
 	void WalkAnim (int player, bool set)
 	{
-		referee.players [player - 1].anim.SetBool ("Walk", set);
+		//referee.players [player - 1].anim.SetBool ("Walk", set);
+		anim.SetBool ("Walk", set);
 	}
 
 	[RPC]

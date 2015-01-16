@@ -37,7 +37,7 @@ app.get("/Authenticate",function(req,res){
   var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
   var playerPassword = _escapeString((query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword"));
   console.log("LOGGING IN playername: " + playerName + "  playerpassword: " + playerPassword);
-  var querystring = "SELECT DISTINCT * FROM Players WHERE Naam = \"" + playerName + "\" AND Paswoord = \"" + playerPassword + "\";";
+  var querystring = "SELECT DISTINCT * FROM Players WHERE BINARY Naam = \"" + playerName + "\" AND BINARY Paswoord = \"" + playerPassword + "\";";
   connection.query(querystring,function(err,rows,fields){
     if(err) throw err;
     if(rows.length >= 1){
@@ -157,6 +157,34 @@ app.get("/ParticipantsRegister",function(req,res){
     });
   });
 });
+
+app.get("/Addwin",function(req,res){
+  var query = url.parse(req.url,true).query;
+  var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
+
+  var querystring = "UPDATE `Players` SET Gewonnen = Gewonnen + 1 WHERE Naam='"+playerName+"'";
+  connection.query(querystring,function(err,rows,fields){
+    if(err) throw err;
+    else res.send("succesfully added win to player: "+ playerName);
+
+  });
+});
+
+app.get("/Addgespeeld",function(req,res){
+  var query = url.parse(req.url,true).query;
+  var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
+
+  var querystring = "UPDATE `Players` SET Gespeeld = Gespeeld + 1 WHERE Naam='"+playerName+"'";
+  connection.query(querystring,function(err,rows,fields){
+    if(err) throw err;
+    else res.send("succesfully added played game to player: "+ playerName);
+
+  });
+});
+  
+
+
+
 
 
 function _escapeString (str) {
