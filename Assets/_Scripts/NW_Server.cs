@@ -167,6 +167,7 @@ public class NW_Server : MonoBehaviour {
 	public void beginGame ()
 	{
 		BasicFunctions.firstStart = false;
+		BasicFunctions.playOffline = false;
 		Application.LoadLevel("Main_Game");
 	}
 
