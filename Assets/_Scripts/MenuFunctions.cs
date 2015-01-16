@@ -37,6 +37,11 @@ public class MenuFunctions : MonoBehaviour {
 	private bool canLogin = false;
 	private bool canReg = false;
 
+	void Start ()
+	{
+		BasicFunctions.ForkModus = true;
+	}
+
 	public void goToMultiplayer ()
 	{
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
