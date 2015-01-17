@@ -8,27 +8,29 @@ public class NW_Spawning : MonoBehaviour {
 	public GameObject playerForkPrefab;
 	public GameObject playerRailPrefab;
 	public GameObject refereePrefab;
+	public GameObject serverQuitText;
+	
+	public Texture Player1;
+	public Texture Player2;
+	public Texture Player3;
+	public Texture Player4;
+
 	public Copy_LevelCreator levelCreator;
-	public Text debugScore;
-	public Text debugLives;
-	public Text endGameText;
 
 	public List<Vector3> spawnLocations;
 	public List<Vector3> respawnLocations;
+
+	public bool serverHasQuit = false;
+
 	private GameObject player;
+	private GameObject referee;
 	private Vector3 randomSpawnPoint;
 	private bool refreshing = false;
 	private bool playOffline;
 	private bool canSpawn;
 	private int amountSpawnPoints = 10;
-	private GameObject referee;
 	private Referee_script refScript;
 	private ScoreScreen scoreScreen;
-
-	public Texture Player1;
-	public Texture Player2;
-	public Texture Player3;
-	public Texture Player4;
 
 	void Awake ()
 	{
@@ -94,35 +96,25 @@ public class NW_Spawning : MonoBehaviour {
 		}
 	}
 
-	/*public void showScores ()
-	{
-		if (!scoreScreen) //if script not yet assigned, assign it
-		{
-			scoreScreen = (GameObject.FindGameObjectWithTag("ScoreScreen")).GetComponent<ScoreScreen>();
-		}
-		networkView.RPC("showScoresRPC", RPCMode.All);
-	}*/
-
-	public void showLives ()
+	/*public void showLives ()
 	{
 		if (!refScript)
 		{
 			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
 		}
 		networkView.RPC("showLivesRPC", RPCMode.All);
-	}
+	}*/
 	/* Leave game gracefully as client
 	 */ 
 	public void closeClientInGame ()
 	{
-		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
-		refScript.showScoreLiveR();
-		scoreScreen.showScoreLiveS();
-		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
-		BasicFunctions.amountPlayers = 0;
-		BasicFunctions.activeAccounts.Clear ();
-		BasicFunctions.accountNumbers.Clear ();
-		Network.Disconnect();
+		//networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+		//scoreScreen.showScoreLiveS();
+		//networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
+		//BasicFunctions.amountPlayers = 0;
+		//BasicFunctions.activeAccounts.Clear ();
+		//BasicFunctions.accountNumbers.Clear ();
+		//Network.Disconnect();
 		playerController.dontDestroy = true;
 		Application.LoadLevel("Menu_New");
 	}
@@ -133,16 +125,21 @@ public class NW_Spawning : MonoBehaviour {
 		if (BasicFunctions.amountPlayers > 1)
 		{
 			networkView.RPC("clearAccountsInGame", RPCMode.All);
-			networkView.RPC("quitGame", RPCMode.All);
+			networkView.RPC("quitGame", RPCMode.Others);
+			Application.LoadLevel("Menu_New");
 		}
 		else
 		{
 			BasicFunctions.amountPlayers = 0;
 			BasicFunctions.activeAccounts.Clear();
+			BasicFunctions.startingAccounts.Clear();
 			BasicFunctions.accountNumbers.Clear();
 			Application.LoadLevel("Menu_New");
 		}
 	}
+
+	public void closeServerAfterGame ()
+	{}
 	/* Fill spawnpositionvector
 	 */
 	[RPC]
@@ -191,24 +188,17 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	public void quitGame ()
 	{
-		Application.LoadLevel("Menu_New");
+		//Application.LoadLevel("Menu_New");
+		serverHasQuit = true;
+		serverQuitText.SetActive(true);
+		if (!refScript)
+		{
+			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+		}
+		refScript.EndGameQuit();
 	}
 
 	/*[RPC]
-	public void showScoresRPC ()
-	{
-		if (!scoreScreen)
-		{
-			scoreScreen = (GameObject.FindGameObjectWithTag("ScoreScreen")).GetComponent<ScoreScreen>();
-		}
-		debugScore.text = "Scores: \n";
-		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
-		{
-			debugScore.text = debugScore.text + BasicFunctions.activeAccounts[i] + ": " + scoreScreen.scores[i] + "\n";
-		}
-	}*/
-
-	[RPC]
 	public void showLivesRPC ()
 	{
 		if (!refScript)
@@ -220,13 +210,14 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			debugLives.text = debugLives.text + BasicFunctions.activeAccounts[i] + ": " + refScript.lives[i] + "\n";
 		}
-	}
+	}*/
 
 	[RPC]
 	void clearAccountsInGame ()
 	{
 		BasicFunctions.amountPlayers = 0;
 		BasicFunctions.activeAccounts.Clear();
+		BasicFunctions.startingAccounts.Clear();
 		BasicFunctions.accountNumbers.Clear();
 	}
 

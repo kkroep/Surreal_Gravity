@@ -307,30 +307,43 @@ public class playerController : MonoBehaviour
 				spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			}
 
-			if (Network.isServer && networkView.isMine) {
+			if (Network.isServer && networkView.isMine)
+			{
 				dontDestroy = true;
 				string gamemode;
-				if (!endGame) {
-					if (BasicFunctions.ForkModus) {
+				if (!endGame)
+				{
+					if (BasicFunctions.ForkModus)
+					{
 						gamemode = "FORK";
-					} else {
+					}
+					else
+					{
 						gamemode = "RAILGUN";
 					}
+					if (BasicFunctions.loginServer)
+					{
+						string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode;
+						WWW www = new WWW (url);
+						StartCoroutine (WaitForGameLog (www));
+					}
 
-					string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode;
-					WWW www = new WWW (url);
-
-					StartCoroutine (WaitForGameLog (www));
-
-
-
-
-				} else {
 					spawnScript.closeServerInGame ();
 				}
-			} else if (Network.isClient) {
-				spawnScript.closeClientInGame ();
-			} else if (BasicFunctions.playOffline) {
+				else
+				{
+					//spawnScript.closeServerInGame ();
+				}
+			}
+			else if (Network.isClient)
+			{
+				if (spawnScript.serverHasQuit)
+				{
+					spawnScript.closeClientInGame ();
+				}
+			}
+			else if (BasicFunctions.playOffline)
+			{
 				Application.LoadLevel ("Menu_New");
 			}
 		}

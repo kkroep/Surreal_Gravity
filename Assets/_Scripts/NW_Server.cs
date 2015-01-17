@@ -199,10 +199,6 @@ public class NW_Server : MonoBehaviour {
 			{
 				Account adding = new Account (BasicFunctions.activeAccounts[i], "");
 				adding.Number = BasicFunctions.accountNumbers[i];
-				//if (!BasicFunctions.connectedPlayers.Contains(adding))
-				//{
-				//	BasicFunctions.connectedPlayers.Add(adding);
-				//}
 				setTextsS ();
 				Debug.Log("" + i + ": " + BasicFunctions.activeAccounts[i]);
 				networkView.RPC("sendUNtoClients", RPCMode.Others, BasicFunctions.activeAccounts[i], BasicFunctions.accountNumbers[i]);

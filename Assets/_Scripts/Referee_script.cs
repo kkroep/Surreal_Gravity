@@ -56,7 +56,7 @@ public class Referee_script : MonoBehaviour {
 				{
 					spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
 				}
-				spawnScript.showLives ();
+				//spawnScript.showLives ();
 				if (players.Count == playerCount)
 				{
 					Allplayers_Spawned = true;
@@ -112,7 +112,7 @@ public class Referee_script : MonoBehaviour {
 		scoreScreen.UpdateScoreDB (target);
 	}
 
-	public void showScoreLiveR ()
+	/*public void showScoreLiveR ()
 	{
 		string enc_lives = lives[0].ToString ();
 		for (int i = 1; i < playerCount; i++)
@@ -120,7 +120,7 @@ public class Referee_script : MonoBehaviour {
 			enc_lives += " " + lives[i];
 		}
 		networkView.RPC("showLives", RPCMode.All, enc_lives);
-	}
+	}*/
 
 	public void EndGame (int shooter)
 	{
@@ -131,6 +131,20 @@ public class Referee_script : MonoBehaviour {
 			string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccounts[0] + "&Finished=1" + "&Gamemode=" + scoreScreen.gamemode + "&Winnaar=" + winnerLog;
 			WWW www = new WWW (url);
 			StartCoroutine (WaitForGameLog (www));
+		}
+	}
+
+	public void EndGameQuit ()
+	{
+		for (int i = 0; i < playerCount; i++)
+		{
+			players[i].endGame = true;
+			for (int j = 0; j < playerCount; j++)
+			{
+				//players [j].gameObject.GetComponent<MeshRenderer> ().enabled = false;
+				players [j].gameObject.GetComponent<CapsuleCollider> ().enabled = false;
+				players [j].setEndScreenTimer(0);
+			}
 		}
 	}
 	[RPC]
@@ -173,7 +187,7 @@ public class Referee_script : MonoBehaviour {
 	}
 	/* Called when someone loses a live
 	 */
-	[RPC]
+	/*[RPC]
 	public void showLives (string encodedLives_update){
 		if (!spawnScript)
 		{
@@ -184,8 +198,8 @@ public class Referee_script : MonoBehaviour {
 		{
 			lives[i] = int.Parse(lives_update[i]);
 		}
-		spawnScript.showLives();
-	}
+		//spawnScript.showLives();
+	}*/
 	/* When game is over, make all the players invisible and prevent them from moving
 	 */
 	[RPC]
@@ -205,11 +219,11 @@ public class Referee_script : MonoBehaviour {
 	}
 	/* Show text when the game is over
 	 */
-	[RPC]
+	/*[RPC]
 	public void setEndGameText ()
 	{
 		spawnScript.endGameText.text = "Game is over. Press ESC to end the game! \nWinner: " + BasicFunctions.activeAccounts[winner-1];
-	}
+	}*/
 
 	IEnumerator WaitForGameLog (WWW www)
 	{
