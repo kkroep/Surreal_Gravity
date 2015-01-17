@@ -38,8 +38,9 @@ public class ScoreScreen : MonoBehaviour
 	public string gamemode;
 
 	public bool offline;
+	public bool showScreen = false;
 
-	private int maxPoints = 10;
+	private int maxPoints = 1;
 
 	private string encodedKills;
 	private string encodedDeaths;
@@ -100,34 +101,51 @@ public class ScoreScreen : MonoBehaviour
 			scores.Add (0);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+	public void showScoreScreen ()
 	{
-		if(time2show > 0)
-		{
-			time2show-=Time.deltaTime;
-			if(time2show<=0){
-				time2show=0;
-				scoreScreen.SetActive (false);
-			}else
-			scoreScreen.SetActive (true);
-		}
-		else
-		{
-			if (Input.GetKeyDown (KeyCode.Tab)) {
-				scoreScreen.SetActive (true);
-			}
-			if (Input.GetKeyUp (KeyCode.Tab)) {
-				scoreScreen.SetActive (false);
-			}
-		}
+		showScreen = true;
+		scoreScreen.SetActive(true);
 		if (winner != 0)
 		{
+			Debug.Log("W: " + winner);
 			endScreen.enabled = true;
 			endScreen.gameObject.SetActive(true);
 			endScreen.text = "Winner: " + BasicFunctions.activeAccounts[winner-1];
 		}
+	}
+	
+	// Update is called once per frame
+	void Update ()
+	{
+		if (!showScreen)
+		{
+			if(time2show > 0)
+			{
+				time2show-=Time.deltaTime;
+				if(time2show<=0){
+					time2show=0;
+					scoreScreen.SetActive (false);
+				}else
+				scoreScreen.SetActive (true);
+			}
+			else
+			{
+				if (Input.GetKeyDown (KeyCode.Tab)) {
+					scoreScreen.SetActive (true);
+				}
+				if (Input.GetKeyUp (KeyCode.Tab)) {
+					scoreScreen.SetActive (false);
+				}
+			}
+		}
+		/*if (winner != 0)
+		{
+			Debug.Log("W: " + winner);
+			endScreen.enabled = true;
+			endScreen.gameObject.SetActive(true);
+			endScreen.text = "Winner: " + BasicFunctions.activeAccounts[winner-1];
+		}*/
 	}
 
 	public void UpdateScore (int shooter, int target)

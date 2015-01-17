@@ -85,7 +85,7 @@ GameObject:
   - 54: {fileID: 5432812}
   - 114: {fileID: 11432806}
   - 65: {fileID: 6532812}
-  - 148: {fileID: 14832810}
+  - 148: {fileID: 14857552}
   - 114: {fileID: 11432808}
   - 33: {fileID: 3300000}
   - 136: {fileID: 13600000}
@@ -1365,7 +1365,7 @@ Animator:
   m_GameObject: {fileID: 132752}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 519f33d9528c7a44791dcb2603e09ccc, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7ce5e146df9b43147941fef1d8bc8f5f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4cf42cc16ef77f4418c22f5bf6fbf8a2, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1438,6 +1438,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
+  Wounded_Panel: {fileID: 0}
   Gravity_Strength: 5
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}
@@ -1460,6 +1461,7 @@ MonoBehaviour:
     type: 3}
   respawn_sound: {fileID: 8300000, guid: 21fec11ecf6a53d41807001d39213d0c, type: 3}
   getting_hit_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
+  showWP: 0
 --- !u!114 &11432808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1639,18 +1641,6 @@ NetworkView:
   m_ViewID:
     m_ID: 0
     m_Type: 0
---- !u!148 &14832810
-NetworkView:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132752}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 432752}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
 --- !u!148 &14832812
 NetworkView:
   m_ObjectHideFlags: 1
@@ -1660,6 +1650,18 @@ NetworkView:
   m_Enabled: 1
   m_StateSynchronization: 0
   m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14857552
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132752}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 11432806}
   m_ViewID:
     m_ID: 0
     m_Type: 0

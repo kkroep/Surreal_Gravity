@@ -38,25 +38,29 @@ public class Referee_script : MonoBehaviour {
 	}
 
 	void Update(){
-		if (!Allplayers_Spawned) {
+		if (!Allplayers_Spawned)
+		{
 			Debug.Log("has not yet found all players");
 			tmp = GameObject.FindGameObjectsWithTag("Player");			
-
-			if(tmp.Length==playerCount){
+			Debug.Log("Count: " + playerCount);
+			if (tmp.Length==playerCount)
+			{
+				if (!spawnScript)
+				{
+					spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
+				}
 				Debug.Log("has found all players");
-				for (int i=0; i<playerCount; i++) {
-					for (int j=0; j<playerCount; j++) {
-						if(tmp[j].GetComponent<playerController>().playerNumber==i+1){
+				for (int i=0; i<playerCount; i++)
+				{
+					for (int j=0; j<playerCount; j++)
+					{
+						if(tmp[j].GetComponent<playerController>().playerNumber==i+1)
+						{
 							players.Add (tmp[j].GetComponent<playerController>());
 							break;
 						}
 					}
 				}
-				if (!spawnScript)
-				{
-					spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
-				}
-				//spawnScript.showLives ();
 				if (players.Count == playerCount)
 				{
 					Allplayers_Spawned = true;
@@ -96,7 +100,7 @@ public class Referee_script : MonoBehaviour {
 			{
 				encodedLives += " " + lives[i];
 			}
-			networkView.RPC("showLives", RPCMode.All, encodedLives);
+			//networkView.RPC("showLives", RPCMode.All, encodedLives);
 			networkView.RPC("showWPanel", RPCMode.All, target);
 		}
 	}
@@ -183,7 +187,7 @@ public class Referee_script : MonoBehaviour {
 		players[target-1].isAlive = false;
 		players[target-1].time2death = respawnTimer;
 		players[target-1].setScreenTimer();
-		players [target - 1].gameObject.GetComponent<CapsuleCollider> ().enabled = false;
+		players[target-1].gameObject.GetComponent<CapsuleCollider> ().enabled = false;
 	}
 	/* Called when someone loses a live
 	 */

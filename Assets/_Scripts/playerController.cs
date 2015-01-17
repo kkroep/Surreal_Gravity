@@ -85,10 +85,9 @@ public class playerController : MonoBehaviour
 	void Start ()
 	{
 		Wounded_Panel = GameObject.FindGameObjectWithTag("WPanel");
-		if (networkView.isMine)
-			Wounded_Panel.SetActive(false);
 		quitting = false;
 		if (networkView.isMine || BasicFunctions.playOffline) {
+			Wounded_Panel.SetActive(false);
 			if (!BasicFunctions.playOffline) {
 				activeAccount.Number = playerNumber;
 				if (!referee)
@@ -100,11 +99,9 @@ public class playerController : MonoBehaviour
 					Wounded_Panel = GameObject.FindGameObjectWithTag("WPanel");
 				}
 			}
-			//activeAccount.Points = 0;
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
-			//Current_Global_Force = Gravity_Direction * Gravity_Strength;
 			anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			JumpTime = Time.time;
@@ -191,8 +188,9 @@ public class playerController : MonoBehaviour
 			{
 				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 			}
-			scoreScreen.time2show = 1000f;
+			//scoreScreen.time2show = 1000f;
 			scoreScreen.winner = winner;
+			scoreScreen.showScoreScreen();
 		}
 	}
 
@@ -309,6 +307,7 @@ public class playerController : MonoBehaviour
 
 			if (Network.isServer && networkView.isMine)
 			{
+				Debug.Log("ISSERVER");
 				dontDestroy = true;
 				string gamemode;
 				if (!endGame)
@@ -327,19 +326,26 @@ public class playerController : MonoBehaviour
 						WWW www = new WWW (url);
 						StartCoroutine (WaitForGameLog (www));
 					}
-
-					spawnScript.closeServerInGame ();
+					else
+					{
+						spawnScript.closeServer (false);
+					}
 				}
 				else
 				{
-					//spawnScript.closeServerInGame ();
+					spawnScript.closeServer (true);
 				}
 			}
-			else if (Network.isClient)
+			else if (Network.isClient || networkView.isMine)
 			{
+				Debug.Log("ISGEENSERVER");
 				if (spawnScript.serverHasQuit)
 				{
-					spawnScript.closeClientInGame ();
+					spawnScript.closeClientInGame (true);
+				}
+				else if (endGame)
+				{
+					spawnScript.closeClientInGame (false);
 				}
 			}
 			else if (BasicFunctions.playOffline)
@@ -502,7 +508,7 @@ public class playerController : MonoBehaviour
 				if (!referee) {
 					referee = (GameObject.FindGameObjectsWithTag ("Referee_Tag")) [0].GetComponent<Referee_script> ();
 				}
-				if (/*referee.players [BasicFunctions.activeAccount.Number - 1].*/isAlive) {
+				if (/*referee.players [BasicFunctions.activeAccount.Number - 1].*/this.isAlive) {
 					referee.fragged (BasicFunctions.activeAccount.Number);
 				}
 			}
@@ -530,7 +536,7 @@ public class playerController : MonoBehaviour
 		string finalurlparticipant = "http://drproject.twi.tudelft.nl:8082/ParticipantsRegister?SERVER="+BasicFunctions.activeAccount.Name + "&PLAYER="+BasicFunctions.startingAccounts[BasicFunctions.startingAccounts.Count-1];
 		WWW www3 = new WWW(finalurlparticipant);
 		yield return StartCoroutine (WaitForParticipantRegister(www3));
-		spawnScript.closeServerInGame ();
+		spawnScript.closeServer (false);
 	}
 
 	IEnumerator WaitForParticipantRegister (WWW www)

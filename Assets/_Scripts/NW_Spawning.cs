@@ -106,26 +106,35 @@ public class NW_Spawning : MonoBehaviour {
 	}*/
 	/* Leave game gracefully as client
 	 */ 
-	public void closeClientInGame ()
+	public void closeClientInGame (bool serverQuit)
 	{
-		//networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
-		//scoreScreen.showScoreLiveS();
-		//networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
-		//BasicFunctions.amountPlayers = 0;
-		//BasicFunctions.activeAccounts.Clear ();
-		//BasicFunctions.accountNumbers.Clear ();
-		//Network.Disconnect();
+		if (!serverQuit)
+		{
+			networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+			/*if (!scoreScreen)
+			{
+				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+			}
+			scoreScreen.showScoreLiveS();*/
+			networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
+			BasicFunctions.amountPlayers = 0;
+			BasicFunctions.activeAccounts.Clear ();
+			BasicFunctions.accountNumbers.Clear ();
+			Network.Disconnect();
+		}
 		playerController.dontDestroy = true;
 		Application.LoadLevel("Menu_New");
 	}
 	/* Close the server gracefully
 	 */
-	public void closeServerInGame ()
+	public void closeServer (bool gameEnded)
 	{
 		if (BasicFunctions.amountPlayers > 1)
 		{
 			networkView.RPC("clearAccountsInGame", RPCMode.All);
-			networkView.RPC("quitGame", RPCMode.Others);
+			networkView.RPC("quitGame", RPCMode.Others, gameEnded);
+			MasterServer.UnregisterHost();
+			Network.Disconnect(); 
 			Application.LoadLevel("Menu_New");
 		}
 		else
@@ -134,12 +143,11 @@ public class NW_Spawning : MonoBehaviour {
 			BasicFunctions.activeAccounts.Clear();
 			BasicFunctions.startingAccounts.Clear();
 			BasicFunctions.accountNumbers.Clear();
+			MasterServer.UnregisterHost();
+			Network.Disconnect(); 
 			Application.LoadLevel("Menu_New");
 		}
 	}
-
-	public void closeServerAfterGame ()
-	{}
 	/* Fill spawnpositionvector
 	 */
 	[RPC]
@@ -186,18 +194,20 @@ public class NW_Spawning : MonoBehaviour {
 	}
 
 	[RPC]
-	public void quitGame ()
+	public void quitGame (bool gameEnded)
 	{
-		//Application.LoadLevel("Menu_New");
 		serverHasQuit = true;
-		serverQuitText.SetActive(true);
-		if (!refScript)
+		Debug.Log("TROLL");
+		if (!gameEnded)
 		{
-			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+			serverQuitText.SetActive(true);
+			if (!refScript)
+			{
+				refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
+			}
+			refScript.EndGameQuit();
 		}
-		refScript.EndGameQuit();
 	}
-
 	/*[RPC]
 	public void showLivesRPC ()
 	{
@@ -224,37 +234,42 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	void deleteUNServerInGame (string UN, int Number)
 	{
-		if (Network.isServer)
+		BasicFunctions.activeAccounts.Remove(UN);
+		BasicFunctions.accountNumbers.Remove(Number);
+		if (BasicFunctions.amountPlayers > 2)
+			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
+		else
+			BasicFunctions.amountPlayers = 1;
+		if (!scoreScreen)
 		{
-			BasicFunctions.activeAccounts.Remove(UN);
-			BasicFunctions.accountNumbers.Remove(Number);
-			if (BasicFunctions.amountPlayers > 2)
-				networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
-			else
-				BasicFunctions.amountPlayers = 1;
-			if (!scoreScreen)
-			{
-				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
-			}
-			scoreScreen.kills.RemoveAt((Number-1));
-			scoreScreen.deaths.RemoveAt((Number-1));
-			scoreScreen.scores.RemoveAt((Number-1));
-			refScript.lives.RemoveAt((Number-1));
-			refScript.players.RemoveAt((Number-1));
-			refScript.playerCount -= 1;
-			if (BasicFunctions.amountPlayers > 2)
-				networkView.RPC("deleteUNClientsInGame", RPCMode.AllBuffered, UN, Number);
+			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
+		scoreScreen.kills.RemoveAt((Number-1));
+		scoreScreen.deaths.RemoveAt((Number-1));
+		scoreScreen.scores.RemoveAt((Number-1));
+		refScript.lives.RemoveAt((Number-1));
+		refScript.players.RemoveAt((Number-1));
+		refScript.playerCount -= 1;
+		if (BasicFunctions.amountPlayers > 2)
+			networkView.RPC("deleteUNClientsInGame", RPCMode.Others, UN, Number, BasicFunctions.amountPlayers);
 	}
 	
 	[RPC]
-	void deleteUNClientsInGame (string UN, int Number)
+	void deleteUNClientsInGame (string UN, int Number, int amountPlayers)
 	{
-		if (Network.isClient)
+		BasicFunctions.activeAccounts.Remove(UN);
+		BasicFunctions.accountNumbers.Remove(Number);
+		BasicFunctions.amountPlayers = amountPlayers;
+		if (!scoreScreen)
 		{
-			BasicFunctions.activeAccounts.Remove(UN);
-			BasicFunctions.accountNumbers.Remove(Number);
+			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
+		scoreScreen.kills.RemoveAt((Number-1));
+		scoreScreen.deaths.RemoveAt((Number-1));
+		scoreScreen.scores.RemoveAt((Number-1));
+		refScript.lives.RemoveAt((Number-1));
+		refScript.players.RemoveAt((Number-1));
+		refScript.playerCount -= 1;
 	}
 	/* Set the amount of players currently connected
 	 */
