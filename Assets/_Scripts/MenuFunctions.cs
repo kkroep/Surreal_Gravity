@@ -19,9 +19,12 @@ public class MenuFunctions : MonoBehaviour {
 	public Text chooseModusLabelServer;
 	public Text chooseModusLabelClient;
 	public Text chooseLoginLabel;
+	public Text pointsText;
+	public Text clientPointsText;
 	public InputField login;
 	public InputField reg1;
 	public InputField reg2;
+	public Slider pointsSlider;
 
 	public bool isLoggedIn = false;
 
@@ -207,6 +210,13 @@ public class MenuFunctions : MonoBehaviour {
 		AccManager.loginAccount();
 	}
 
+	public void setPoints (float points)
+	{
+		pointsText.text = "" + points;
+		networkView.RPC("SetMaxPoints", RPCMode.AllBuffered, (int) points);
+		networkView.RPC("SetPointsText", RPCMode.OthersBuffered, (int) points);
+	}
+
 	public void setTabL ()
 	{
 		canTabL = true;
@@ -304,5 +314,17 @@ public class MenuFunctions : MonoBehaviour {
 		{
 			chooseModusLabelClient.text = "RailGun";
 		}
+	}
+
+	[RPC]
+	public void SetMaxPoints (int points)
+	{
+		BasicFunctions.maxPoints = points;
+	}
+
+	[RPC]
+	public void SetPointsText (int points)
+	{
+		clientPointsText.text = "" + points;
 	}
 }

@@ -28,6 +28,7 @@ public class ScoreScreen : MonoBehaviour
 	public Text score4;
 
 	public Text endScreen;
+	public Text maxPointsText;
 	
 	public List<int> kills;
 	public List<int> deaths;
@@ -39,8 +40,6 @@ public class ScoreScreen : MonoBehaviour
 
 	public bool offline;
 	public bool showScreen = false;
-
-	private int maxPoints = 1;
 
 	private string encodedKills;
 	private string encodedDeaths;
@@ -94,6 +93,8 @@ public class ScoreScreen : MonoBehaviour
 			deathsT[i].text = "" + 0;
 			scoresT[i].text = "" + 0;
 		}
+
+		maxPointsText.text = "First to " + BasicFunctions.maxPoints;
 
 		for (int i=0; i<BasicFunctions.amountPlayers; i++) {
 			kills.Add (0);
@@ -159,7 +160,7 @@ public class ScoreScreen : MonoBehaviour
 		scores[shooter-1] += 1;
 		Debug.Log("Shooter: " + kills[shooter-1] + ", Target: " + deaths[target-1]);
 
-		if (scores[shooter-1] >= maxPoints)
+		if (scores[shooter-1] >= BasicFunctions.maxPoints)
 		{
 			if (BasicFunctions.ForkModus) {
 				gamemode = "FORK";
