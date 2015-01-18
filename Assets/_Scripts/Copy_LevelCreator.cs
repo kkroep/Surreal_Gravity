@@ -121,47 +121,90 @@ public class Copy_LevelCreator : MonoBehaviour {
 				for (int depth=1;depth<levelDepth-1;depth++)
 				{
 					int counter = 0;
+					List<int> blockt = new List<int>();
+					blockt.Add (0);blockt.Add (0);blockt.Add (0);blockt.Add (0);
 					if(grid[width,height,depth]==0){
-						if(grid[width+1,height,depth]>0)
+						if(grid[width+1,height,depth]>0){
 							counter += ratio;
-						if(grid[width-1,height,depth]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width-1,height,depth]>0){
 							counter += ratio;
-						if(grid[width,height+1,depth]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height+1,depth]>0){
 							counter += ratio;
-						if(grid[width,height-1,depth]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height-1,depth]>0){
 							counter += ratio;
-						if(grid[width,height,depth+1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height,depth+1]>0){
 							counter += ratio;
-						if(grid[width,height,depth-1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height,depth-1]>0){
 							counter += ratio;
-						if(grid[width+1,height+1,depth]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width+1,height+1,depth]>0){
 							counter++;
-						if(grid[width+1,height-1,depth]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width+1,height-1,depth]>0){
 							counter++;
-						if(grid[width-1,height+1,depth]>0)
+						}
+						if(grid[width-1,height+1,depth]>0){
 							counter++;
-						if(grid[width-1,height-1,depth]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width-1,height-1,depth]>0){
 							counter++;
-						if(grid[width+1,height,depth+1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width+1,height,depth+1]>0){
 							counter++;
-						if(grid[width+1,height,depth-1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width+1,height,depth-1]>0){
 							counter++;
-						if(grid[width-1,height,depth+1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width-1,height,depth+1]>0){
 							counter++;
-						if(grid[width-1,height,depth-1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width-1,height,depth-1]>0){
 							counter++;
-						if(grid[width,height+1,depth+1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height+1,depth+1]>0){
 							counter++;
-						if(grid[width,height+1,depth-1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height+1,depth-1]>0){
 							counter++;
-						if(grid[width,height-1,depth+1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height-1,depth+1]>0){
 							counter++;
-						if(grid[width,height-1,depth-1]>0)
+							blockt[grid[width+1,height,depth]] += 1;
+						}
+						if(grid[width,height-1,depth-1]>0){
 							counter++;
+							blockt[grid[width+1,height,depth]] += 1;
+						}
 
 						if(counter>=60 /*&& removedCounter>0*/){
 							removedCounter--;
-							gridCopy[width,height,depth]=Random.Range (1,blocktypes+1);
+							gridCopy[width,height,depth]=1;
+							if(blockt[1]>blockt[0]){
+								gridCopy[width,height,depth]=2;
+							}
+							if(blockt[2]>blockt[0] && blockt[2]>blockt[1]){
+								gridCopy[width,height,depth]=3;
+							}
 						}
 						
 					}
@@ -449,4 +492,5 @@ public class Copy_LevelCreator : MonoBehaviour {
 		}
 
 	}
+
 }
