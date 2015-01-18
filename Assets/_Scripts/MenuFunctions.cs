@@ -15,11 +15,14 @@ public class MenuFunctions : MonoBehaviour {
 
 	public Text currentUname;
 	public Toggle chooseModus;
+	public Toggle Music_button;
 	public Toggle chooseLoginModus;
+	public Text Music_text;
 	public Text chooseModusLabelServer;
 	public Text chooseModusLabelClient;
 	public Text chooseLoginLabel;
 	public Text pointsText;
+	public Text SensitivityText;
 	public Text clientPointsText;
 	public InputField login;
 	public InputField reg1;
@@ -135,6 +138,19 @@ public class MenuFunctions : MonoBehaviour {
 		}
 	}
 
+
+	public void Music_On_OFF ()
+	{
+		if (Music_button.isOn)
+		{
+			Music_text.text = "ON";
+		}
+		else
+		{
+			Music_text.text = "OFF";
+		}
+	}
+
 	public void ChooseLoginMode ()
 	{
 		if (chooseLoginModus.isOn)
@@ -215,6 +231,11 @@ public class MenuFunctions : MonoBehaviour {
 		pointsText.text = "" + points;
 		networkView.RPC("SetMaxPoints", RPCMode.AllBuffered, (int) points);
 		networkView.RPC("SetPointsText", RPCMode.OthersBuffered, (int) points);
+	}
+
+	public void setMouseSensitivity (float points)
+	{
+		SensitivityText.text = "" + points;
 	}
 
 	public void setTabL ()

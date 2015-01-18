@@ -3614,7 +3614,7 @@ GameObject:
   - 222: {fileID: 313306555}
   - 114: {fileID: 313306554}
   m_Layer: 5
-  m_Name: On/Off label
+  m_Name: On_Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4011,7 +4011,7 @@ GameObject:
   - 224: {fileID: 359961006}
   - 114: {fileID: 359961007}
   m_Layer: 5
-  m_Name: On/Off
+  m_Name: On_Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4079,7 +4079,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1799212323}
-        m_MethodName: 
+        m_MethodName: Music_On_OFF
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15104,7 +15104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1041065387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22369,14 +22369,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1799212323}
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: setMouseSensitivity
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 12
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -22820,7 +22820,7 @@ GameObject:
   - 222: {fileID: 1599253106}
   - 114: {fileID: 1599253105}
   m_Layer: 5
-  m_Name: Sensitivity
+  m_Name: SensitivityAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25559,11 +25559,14 @@ MonoBehaviour:
   Credits_Menu: {fileID: 438838259}
   currentUname: {fileID: 613234192}
   chooseModus: {fileID: 1103030531}
+  Music_button: {fileID: 359961007}
   chooseLoginModus: {fileID: 1671894315}
+  Music_text: {fileID: 313306554}
   chooseModusLabelServer: {fileID: 1904518798}
   chooseModusLabelClient: {fileID: 691311960}
   chooseLoginLabel: {fileID: 777434931}
   pointsText: {fileID: 1901245135}
+  SensitivityText: {fileID: 1599253105}
   clientPointsText: {fileID: 1840879246}
   login: {fileID: 759025412}
   reg1: {fileID: 1727162462}
@@ -27852,7 +27855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1938757264
 RectTransform:
   m_ObjectHideFlags: 0
