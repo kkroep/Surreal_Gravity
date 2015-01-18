@@ -99,7 +99,7 @@ public class RobotMovement : MonoBehaviour {
 				this.transform.position = Vector3.Lerp(start, end, fracJourney);
 			}
 
-			if (target>=(vectorPath.Count-2) && fracJourney>0.97){
+			if (target>=(vectorPath.Count-2) && fracJourney>0.90){
 				destroyTarget = true;
 				moving = false;
 				rotating = false;
@@ -107,7 +107,7 @@ public class RobotMovement : MonoBehaviour {
 				rotatingcompleted = true;
 			}
 
-			if (fracJourney>0.97 && target<(vectorPath.Count-2)){
+			if (fracJourney>0.90 && target<(vectorPath.Count-2)){
 				selectNext ();
 				rotatingcompleted = false;
 			}

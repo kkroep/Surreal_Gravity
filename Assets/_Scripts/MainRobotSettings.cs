@@ -9,14 +9,25 @@ public class MainRobotSettings : MonoBehaviour {
 	public List<GameObject> robots;
 
 	private int selectBlock;
-
+	private bool hasspawned = false;
+	public Copy_LevelCreator level;
 
 	void Start(){
 		playerController.dontDestroy = false;
-		if(Network.isServer && !BasicFunctions.playOffline){
+		hasspawned = false;
+		level = GameObject.FindGameObjectWithTag("levelSettings").GetComponent<Copy_LevelCreator>();
+
+	}
+
+
+
+	void Update(){
+
+		if(Network.isServer && !BasicFunctions.playOffline && !hasspawned && level.gridinitialised){
 			for(int i=0;i<numberRobots;i++){
-				Network.Instantiate (robot, new Vector3(10,10,10), Quaternion.identity,0);
+				Network.Instantiate (robot, level.getSpawn (), Quaternion.identity,0);
 			}
+			hasspawned = true;
 		}
 
 		/*
