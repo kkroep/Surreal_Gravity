@@ -106,16 +106,21 @@ public class NW_Spawning : MonoBehaviour {
 	}*/
 	/* Leave game gracefully as client
 	 */ 
-	public void closeClientInGame (bool serverQuit)
+	public void closeClientIngame ()
+	{
+		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
+		BasicFunctions.amountPlayers = 0;
+		BasicFunctions.activeAccounts.Clear ();
+		BasicFunctions.accountNumbers.Clear ();
+		Network.Disconnect();
+		playerController.dontDestroy = true;
+		Application.LoadLevel("Menu_New");
+	}
+	public void closeClient (bool serverQuit)
 	{
 		if (!serverQuit)
 		{
-			networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
-			/*if (!scoreScreen)
-			{
-				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
-			}
-			scoreScreen.showScoreLiveS();*/
 			networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
 			BasicFunctions.amountPlayers = 0;
 			BasicFunctions.activeAccounts.Clear ();
@@ -244,12 +249,17 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
+		if (!refScript)
+		{
+			refScript = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
+		}
 		scoreScreen.kills.RemoveAt((Number-1));
 		scoreScreen.deaths.RemoveAt((Number-1));
 		scoreScreen.scores.RemoveAt((Number-1));
 		refScript.lives.RemoveAt((Number-1));
 		refScript.players.RemoveAt((Number-1));
 		refScript.playerCount -= 1;
+		scoreScreen.deleteEntry();
 		if (BasicFunctions.amountPlayers > 2)
 			networkView.RPC("deleteUNClientsInGame", RPCMode.Others, UN, Number, BasicFunctions.amountPlayers);
 	}
@@ -264,12 +274,17 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
+		if (!refScript)
+		{
+			refScript = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
+		}
 		scoreScreen.kills.RemoveAt((Number-1));
 		scoreScreen.deaths.RemoveAt((Number-1));
 		scoreScreen.scores.RemoveAt((Number-1));
 		refScript.lives.RemoveAt((Number-1));
 		refScript.players.RemoveAt((Number-1));
 		refScript.playerCount -= 1;
+		scoreScreen.deleteEntry();
 	}
 	/* Set the amount of players currently connected
 	 */

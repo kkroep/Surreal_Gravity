@@ -227,6 +227,20 @@ public class ScoreScreen : MonoBehaviour
 		networkView.RPC("UpdateInfo", RPCMode.All, enc_kills, enc_deaths, enc_score);
 	}
 
+	public void deleteEntry ()
+	{
+		for (int j = 0; j < playersT.Count; j++)
+		{
+			playersT[j].gameObject.SetActive(false);
+		}
+		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
+		{
+			playersT[i].gameObject.SetActive(true);
+			playersT[i].text = BasicFunctions.activeAccounts[i];
+		}
+		EncodeStrings();
+	}
+
 	[RPC]
 	public void UpdateInfo(string encodedKills_update, string encodedDeaths_update, string encodedScore_update)
 	{

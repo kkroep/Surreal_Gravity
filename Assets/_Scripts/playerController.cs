@@ -283,11 +283,6 @@ public class playerController : MonoBehaviour
 
 		if (showWP)
 		{
-			/*if (!Wounded_Panel)
-			{
-				Wounded_Panel = GameObject.FindGameObjectWithTag("WPanel");
-			}*/
-			//WoundedTimer = 0.5f;
 			Wounded_Panel.SetActive(true);
 			WoundedTimer -= Time.deltaTime;
 			if (WoundedTimer <= 0)
@@ -341,11 +336,15 @@ public class playerController : MonoBehaviour
 				Debug.Log("ISGEENSERVER");
 				if (spawnScript.serverHasQuit)
 				{
-					spawnScript.closeClientInGame (true);
+					spawnScript.closeClient (true);
 				}
 				else if (endGame)
 				{
-					spawnScript.closeClientInGame (false);
+					spawnScript.closeClient (false);
+				}
+				else
+				{
+					spawnScript.closeClientIngame ();
 				}
 			}
 			else if (BasicFunctions.playOffline)
