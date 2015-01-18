@@ -46,7 +46,7 @@ MonoBehaviour:
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
   numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 70
+  approxBlocksPerLargeStack: 60
   approxBlocksPerSmallStack: 0
   levelWidth: 18
   levelHeight: 18
@@ -61,8 +61,9 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
-  smoothen: 11
+  smoothen: 10
   blocktypes: 3
+  gridinitialised: 0
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
