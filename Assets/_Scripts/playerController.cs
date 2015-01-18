@@ -79,6 +79,9 @@ public class playerController : MonoBehaviour
 	private bool canAnim = false;
 	public bool showWP = false;
 	private float WoundedTimer = 0.2f;
+	public GameObject Leven1;
+	public GameObject Leven2;
+	public GameObject Leven3;
 
 	#endregion
 
@@ -98,6 +101,9 @@ public class playerController : MonoBehaviour
 				{
 					Wounded_Panel = GameObject.FindGameObjectWithTag("WPanel");
 				}
+				Leven1 = GameObject.FindGameObjectWithTag("Leven1");
+				Leven2 = GameObject.FindGameObjectWithTag("Leven2");
+				Leven3 = GameObject.FindGameObjectWithTag("Leven3");
 			}
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
@@ -483,6 +489,24 @@ public class playerController : MonoBehaviour
 		transform.position = SpawnPOsition;
 		//gameObject.GetComponent<MeshRenderer> ().enabled = true;
 		gameObject.GetComponent<CapsuleCollider> ().enabled = true;
+		if (networkView.isMine)
+		{
+			if (!Leven1)
+			{
+				Leven1 = GameObject.FindGameObjectWithTag("Leven1");
+			}
+			if (!Leven2)
+			{
+				Leven2 = GameObject.FindGameObjectWithTag("Leven2");
+			}
+			if (!Leven3)
+			{
+				Leven3 = GameObject.FindGameObjectWithTag("Leven3");
+			}
+			Leven1.SetActive(true);
+			Leven2.SetActive(true);
+			Leven3.SetActive(true);
+		}
 	}
 
 	[RPC]

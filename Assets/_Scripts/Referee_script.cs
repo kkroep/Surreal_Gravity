@@ -13,12 +13,13 @@ public class Referee_script : MonoBehaviour {
 	public float respawnTimer = 1.5f; //seconds 
 
 	public GameObject[] tmp;
-	private bool Allplayers_Spawned = false;
 
 	public int winner;
 
 	public ScoreScreen scoreScreen;
 
+	private bool Allplayers_Spawned = false;
+	
 	private string encodedLives;
 
 	//public AudioClip score_up_sound;
@@ -31,10 +32,10 @@ public class Referee_script : MonoBehaviour {
 		players = new List<playerController>();
 		lives = new List<int>();
 
-		for (int i=0; i<playerCount; i++) {
+		for (int i=0; i<playerCount; i++)
+		{
 			lives.Add (Lives_count);
 		}
-		Debug.Log("#: " + playerCount);
 	}
 
 	void Update(){
@@ -72,7 +73,9 @@ public class Referee_script : MonoBehaviour {
 	 */
 	public void frag(int shooter, int target){
 		//check if a player actually dies
-		if (lives [target-1] <= 1) {
+		if (lives [target-1] <= 1)
+		{
+			networkView.RPC("updateLives", RPCMode.Others, 1, (target-1));
 			networkView.RPC("showWPanel", RPCMode.All, target);
 			//respawn player
 			networkView.RPC("KillPlayer", RPCMode.All, target);
@@ -84,15 +87,22 @@ public class Referee_script : MonoBehaviour {
 			//encode scores to send with RPC
 			scoreScreen.EncodeStrings ();
 			encodedLives = lives[0].ToString();
-			for(int i=1; i<playerCount; i++){
+			for(int i=1; i<playerCount; i++)
+			{
 				encodedLives += " " + lives[i];
 			}
-
-			//call RPC
-			networkView.RPC("showLives", RPCMode.All, encodedLives);
-
-		}else{
+		}
+		else
+		{
 			//if the player does not die
+			if (lives [target-1] == 3)
+			{
+				networkView.RPC("updateLives", RPCMode.Others, 3, (target-1));
+			}
+			else if (lives [target-1] == 2)
+			{
+				networkView.RPC("updateLives", RPCMode.Others, 2, (target-1));
+			}
 			networkView.RPC("PlayGetHit", RPCMode.All, target);
 			lives [target-1]--;
 			encodedLives = lives[0].ToString();
@@ -100,7 +110,6 @@ public class Referee_script : MonoBehaviour {
 			{
 				encodedLives += " " + lives[i];
 			}
-			//networkView.RPC("showLives", RPCMode.All, encodedLives);
 			networkView.RPC("showWPanel", RPCMode.All, target);
 		}
 	}
@@ -115,16 +124,6 @@ public class Referee_script : MonoBehaviour {
 		networkView.RPC("KillPlayer", RPCMode.All, target);
 		scoreScreen.UpdateScoreDB (target);
 	}
-
-	/*public void showScoreLiveR ()
-	{
-		string enc_lives = lives[0].ToString ();
-		for (int i = 1; i < playerCount; i++)
-		{
-			enc_lives += " " + lives[i];
-		}
-		networkView.RPC("showLives", RPCMode.All, enc_lives);
-	}*/
 
 	public void EndGame (int shooter)
 	{
@@ -170,6 +169,38 @@ public class Referee_script : MonoBehaviour {
 	}
 
 	[RPC]
+	public void updateLives (int L, int Number)
+	{
+		if (networkView.isMine)
+		{
+			if (L == 1)
+			{
+				if (!players[Number].Leven1)
+				{
+					players[Number].Leven1 = GameObject.FindGameObjectWithTag("Leven1");
+				}
+				players[Number].Leven1.SetActive(false);
+			}
+			else if (L == 2)
+			{
+				if (!players[Number].Leven2)
+				{
+					players[Number].Leven2 = GameObject.FindGameObjectWithTag("Leven2");
+				}
+				players[Number].Leven2.SetActive(false);
+			}
+			else
+			{
+				if (!players[Number].Leven3)
+				{
+					players[Number].Leven3 = GameObject.FindGameObjectWithTag("Leven3");
+				}
+				players[Number].Leven3.SetActive(false);
+			}
+		}
+	}
+
+	[RPC]
 	public void showWPanel (int target)
 	{
 		for (int i = 0; i < playerCount; i++)
@@ -189,21 +220,6 @@ public class Referee_script : MonoBehaviour {
 		players[target-1].setScreenTimer();
 		players[target-1].gameObject.GetComponent<CapsuleCollider> ().enabled = false;
 	}
-	/* Called when someone loses a live
-	 */
-	/*[RPC]
-	public void showLives (string encodedLives_update){
-		if (!spawnScript)
-		{
-			spawnScript = GameObject.FindGameObjectWithTag("SpawnTag").GetComponent<NW_Spawning>();
-		}
-		string[] lives_update = encodedLives_update.Split(' ');
-		for (int i = 0; i < lives.Count; i++)
-		{
-			lives[i] = int.Parse(lives_update[i]);
-		}
-		//spawnScript.showLives();
-	}*/
 	/* When game is over, make all the players invisible and prevent them from moving
 	 */
 	[RPC]
@@ -221,13 +237,6 @@ public class Referee_script : MonoBehaviour {
 			}
 		}
 	}
-	/* Show text when the game is over
-	 */
-	/*[RPC]
-	public void setEndGameText ()
-	{
-		spawnScript.endGameText.text = "Game is over. Press ESC to end the game! \nWinner: " + BasicFunctions.activeAccounts[winner-1];
-	}*/
 
 	IEnumerator WaitForGameLog (WWW www)
 	{

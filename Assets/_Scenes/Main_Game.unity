@@ -10262,6 +10262,7 @@ MonoBehaviour:
   numberRobots: 3
   robot: {fileID: 100000, guid: 42f56b3ec0a3c53489a5f44867a4288d, type: 2}
   robots: []
+  level: {fileID: 0}
 --- !u!4 &388386768
 Transform:
   m_ObjectHideFlags: 0
@@ -19450,7 +19451,7 @@ GameObject:
   - 114: {fileID: 741614705}
   m_Layer: 5
   m_Name: Leven1
-  m_TagString: Untagged
+  m_TagString: Leven1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38146,7 +38147,7 @@ MonoBehaviour:
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
   numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
-  approxBlocksPerLargeStack: 70
+  approxBlocksPerLargeStack: 60
   approxBlocksPerSmallStack: 0
   levelWidth: 18
   levelHeight: 18
@@ -38161,8 +38162,9 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
-  smoothen: 11
+  smoothen: 10
   blocktypes: 3
+  gridinitialised: 0
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0
@@ -46255,7 +46257,7 @@ GameObject:
   - 114: {fileID: 1757875243}
   m_Layer: 5
   m_Name: Leven3
-  m_TagString: Untagged
+  m_TagString: Leven3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49100,7 +49102,7 @@ GameObject:
   - 114: {fileID: 1873282140}
   m_Layer: 5
   m_Name: Leven2
-  m_TagString: Untagged
+  m_TagString: Leven2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49274,6 +49276,7 @@ MonoBehaviour:
   winner: 0
   gamemode: 
   offline: 0
+  showScreen: 0
 --- !u!4 &1878591220
 Transform:
   m_ObjectHideFlags: 0

@@ -21,6 +21,9 @@ TagManager:
   - ScoreScreen
   - WPanel
   - ServerD
+  - Leven1
+  - Leven2
+  - Leven3
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
