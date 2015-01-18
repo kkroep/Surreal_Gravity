@@ -47,7 +47,7 @@ public class RobotMovement : MonoBehaviour {
 
 	void FixedUpdate() {
 		if(Network.isServer){
-			if(pathfind.tracedBack == true){
+			if(reset){
 				path = pathfind.path;
 				string pathstring = routeToString (path);
 				networkView.RPC ("resetFunction",RPCMode.All,pathstring);
