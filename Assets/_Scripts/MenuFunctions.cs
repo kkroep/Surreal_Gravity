@@ -12,6 +12,8 @@ public class MenuFunctions : MonoBehaviour {
 	public GameObject Control_Menu;
 	public GameObject Settings_Menu;
 	public GameObject Credits_Menu;
+	public GameObject Multiplayer_Button;
+	public GameObject CantMulti_Text;
 
 	public Text currentUname;
 	public Toggle chooseModus;
@@ -369,6 +371,11 @@ public class MenuFunctions : MonoBehaviour {
 			isLoggedIn = false;
 			Account_Menu.SetActive(false);
 			Main_Menu.SetActive(true);
+		}
+		if (AccountManagement.loggedIn)
+		{
+			CantMulti_Text.SetActive(false);
+			Multiplayer_Button.SetActive(true);
 		}
 	}
 
