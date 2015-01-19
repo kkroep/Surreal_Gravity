@@ -8,12 +8,12 @@ public class BasicFunctions : MonoBehaviour {
 	public static bool firstStart = true;
 	public static bool ForkModus = true;
 	public static bool loginServer;
+	public static bool MusicOn = true;
 	public static int amountPlayers;
 	public static int maxPoints = 10;
 	public static Account activeAccount;
 	public static List<string> activeAccounts = new List<string>();
 	public static List<string> startingAccounts = new List<string>();
-	//public static List<Account> connectedPlayers = new List<Account>(); //Alleen voor de server
 	public static List<int> accountNumbers = new List<int>();
 
 	void Awake ()

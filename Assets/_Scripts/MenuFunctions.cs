@@ -50,7 +50,10 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToMultiplayer ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		if (AccountManagement.loggedIn)
 		{
 			Main_Menu.SetActive(false);
@@ -61,7 +64,10 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToSingleplayer ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		BasicFunctions.playOffline = true;
 		BasicFunctions.ForkModus = false;
 		BasicFunctions.firstStart = false;
@@ -70,7 +76,10 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToServer ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		serverStuff.startServer();
 		Multiplayer_Menu.SetActive(false);
 		Server_Menu.SetActive(true);
@@ -78,14 +87,20 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToClient ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Multiplayer_Menu.SetActive(false);
 		Client_Menu.SetActive(true);
 	}
 
 	public void goToAccount ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Main_Menu.SetActive(false);
 		Account_Menu.SetActive(true);
 		if (BasicFunctions.activeAccount != null)
@@ -94,33 +109,49 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToSettings ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Main_Menu.SetActive(false);
 		Settings_Menu.SetActive(true);
 	}
 
 	public void goToControls ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Settings_Menu.SetActive(false);
 		Control_Menu.SetActive(true);
 	}
 
 	public void goToCredits ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Settings_Menu.SetActive(false);
 		Credits_Menu.SetActive(true);
 	}
 
 	public void Refresh ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		serverStuff.refreshHost();
 	}
 
 	public void ChooseModus ()
 	{
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		if (Network.isServer)
 		{
 			if (chooseModus.isOn)
@@ -138,21 +169,30 @@ public class MenuFunctions : MonoBehaviour {
 		}
 	}
 
-
 	public void Music_On_OFF ()
 	{
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		if (Music_button.isOn)
 		{
 			Music_text.text = "ON";
+			BasicFunctions.MusicOn = true;
 		}
 		else
 		{
 			Music_text.text = "OFF";
+			BasicFunctions.MusicOn = false;
 		}
 	}
 
 	public void ChooseLoginMode ()
 	{
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		if (chooseLoginModus.isOn)
 		{
 			chooseLoginLabel.text = "Webserver";
@@ -167,13 +207,19 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void StartGame ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		serverStuff.startGame();
 	}
 
 	public void Disconnect ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		if (Network.isServer)
 		{
 			serverStuff.closeServer();
@@ -192,7 +238,10 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void Back ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Account_Menu.SetActive(false);
 		Multiplayer_Menu.SetActive(false);
 		Settings_Menu.SetActive(false);
@@ -202,7 +251,10 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void BackSettings ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Control_Menu.SetActive(false);
 		Credits_Menu.SetActive(false);
 		Settings_Menu.SetActive(true);
@@ -210,19 +262,28 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void QuitGame ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		Application.Quit ();
 	}
 
 	public void Register ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		AccManager.registerAccount();
 	}
 	
 	public void Login ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
 		AccManager.loginAccount();
 	}
 

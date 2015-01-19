@@ -323,6 +323,7 @@ public class playerController : MonoBehaviour
 					}
 					if (BasicFunctions.loginServer)
 					{
+						endGame = true;
 						string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccount.Name + "&Finished=0" + "&Gamemode=" + gamemode;
 						WWW www = new WWW (url);
 						StartCoroutine (WaitForGameLog (www));
