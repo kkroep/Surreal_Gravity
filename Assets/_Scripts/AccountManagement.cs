@@ -23,7 +23,10 @@ public class AccountManagement : MonoBehaviour {
 	{
 		list_of_accounts = new AccountList ();
 		log_acc = new Account ("", "");
-		BasicFunctions.loginServer = true;
+		if (BasicFunctions.firstStart)
+		{
+			BasicFunctions.loginServer = true;
+		}
 		if (BasicFunctions.firstStart)
 		{
 			//BasicFunctions.activeAccount = new Account("Debug", "-");

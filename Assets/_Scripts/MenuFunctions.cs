@@ -48,11 +48,14 @@ public class MenuFunctions : MonoBehaviour {
 
 	void Start ()
 	{
-		BasicFunctions.ForkModus = true;
+		if (BasicFunctions.firstStart)
+		{
+			BasicFunctions.ForkModus = true;
+		}
 	}
 
 	public void goToMultiplayer ()
-	{
+		{
 		if (BasicFunctions.MusicOn)
 		{
 			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
@@ -108,6 +111,14 @@ public class MenuFunctions : MonoBehaviour {
 		Account_Menu.SetActive(true);
 		if (BasicFunctions.activeAccount != null)
 			currentUname.text = BasicFunctions.activeAccount.Name;
+		if (BasicFunctions.loginServer)
+		{
+			chooseLoginModus.isOn = true;
+		}
+		else
+		{
+			chooseLoginModus.isOn = false;
+		}
 	}
 
 	public void goToSettings ()
@@ -118,6 +129,14 @@ public class MenuFunctions : MonoBehaviour {
 		}
 		Main_Menu.SetActive(false);
 		Settings_Menu.SetActive(true);
+		if (BasicFunctions.MusicOn)
+		{
+			Music_button.isOn = true;
+		}
+		else
+		{
+			Music_button.isOn = false;
+		}
 	}
 
 	public void goToControls ()
