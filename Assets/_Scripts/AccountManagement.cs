@@ -66,9 +66,6 @@ public class AccountManagement : MonoBehaviour {
 				}
 				else if (!list_of_accounts.containsUsername(reg_acc))
 				{
-					registerU.text = "";
-					registerP.text = "";
-					registerPC.text = "";
 					
 					list_of_accounts.addAccount(reg_acc);
 					using (StreamWriter swrite = new StreamWriter ("Accounts.txt", true))
@@ -76,18 +73,24 @@ public class AccountManagement : MonoBehaviour {
 						Account.writeAccount (reg_acc, swrite);
 						swrite.Close ();
 					}
-					Debug.Log("Account: " + reg_acc.Name + " created");
+					menuF.errorMessage.gameObject.SetActive(true);
+					menuF.errorMessage.text = "Account is created";;
 				}
 				else
 				{
-					Debug.Log("Username not available");
+					menuF.errorMessage.gameObject.SetActive(true);
+					menuF.errorMessage.text = "Failed to register";
 				}
 			}
 		}
 		else
 		{
-			Debug.Log("Passwords don't match");
+			menuF.errorMessage.gameObject.SetActive(true);
+			menuF.errorMessage.text = "Failed to register";
 		}
+		registerU.text = "";
+		registerP.text = "";
+		registerPC.text = "";
 	}
 	/* Lees de username, het password en het team in
 	 */
@@ -136,12 +139,14 @@ public class AccountManagement : MonoBehaviour {
 				loginP.text = "";
 				BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
 				currentUName.text = BasicFunctions.activeAccount.Name;
+				menuF.errorMessage.gameObject.SetActive(false);
 				loggedIn = true;
 				menuF.isLoggedIn = true;
 			}
 			else
 			{
-				Debug.Log("Login info incorrect");
+				menuF.errorMessage.gameObject.SetActive(true);
+				menuF.errorMessage.text = "Login info incorrect";
 			}
 		}
 	}
@@ -152,12 +157,18 @@ public class AccountManagement : MonoBehaviour {
 
 		if (www.error == null){
 			if(www.text.Equals ("Succesfully Registered")){
-				Debug.Log ("Succesfully Registered");
-
+				menuF.errorMessage.gameObject.SetActive(true);
+				menuF.errorMessage.text = "Account is created";
 			}
 			else{
-				Debug.Log ("Failed to register");
+				menuF.errorMessage.gameObject.SetActive(true);
+				menuF.errorMessage.text = "Failed to register";
 			}
+		}
+		else
+		{
+			menuF.errorMessage.gameObject.SetActive(true);
+			menuF.errorMessage.text = "Can't connect to Webserver\nTry registering locally";
 		}
 
 		registerU.text = "";
@@ -175,14 +186,18 @@ public class AccountManagement : MonoBehaviour {
 			if(www.text.Equals("Succesfully Authorized")){
 				BasicFunctions.activeAccount = new Account(log_acc.Name, log_acc.Word);
 				currentUName.text = BasicFunctions.activeAccount.Name;
+				menuF.errorMessage.gameObject.SetActive(false);
 				loggedIn = true;
 				menuF.isLoggedIn = true;
 			}
 			else{
-				Debug.Log("Login info incorrect");
+				menuF.errorMessage.gameObject.SetActive(true);
+				menuF.errorMessage.text = "Login info incorrect";
 			}
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
+			menuF.errorMessage.gameObject.SetActive(true);
+			menuF.errorMessage.text = "Can't connect to Webserver\nTry logging in locally";
 		}  
 		loginU.text = "";
 		loginP.text = "";

@@ -26,6 +26,7 @@ public class MenuFunctions : MonoBehaviour {
 	public Text pointsText;
 	public Text SensitivityText;
 	public Text clientPointsText;
+	public Text errorMessage;
 	public InputField login;
 	public InputField reg1;
 	public InputField reg2;
@@ -244,6 +245,7 @@ public class MenuFunctions : MonoBehaviour {
 		{
 			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 		}
+		errorMessage.gameObject.SetActive(false);
 		Account_Menu.SetActive(false);
 		Multiplayer_Menu.SetActive(false);
 		Settings_Menu.SetActive(false);
