@@ -832,6 +832,9 @@ MonoBehaviour:
   respawn_sound: {fileID: 8300000, guid: 21fec11ecf6a53d41807001d39213d0c, type: 3}
   getting_hit_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
   showWP: 0
+  Leven1: {fileID: 0}
+  Leven2: {fileID: 0}
+  Leven3: {fileID: 0}
 --- !u!114 &11470430
 MonoBehaviour:
   m_ObjectHideFlags: 1

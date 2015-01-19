@@ -18,15 +18,15 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\System.dll (this message is harmless)
-Received pong from 192.168.0.166:9921
+Received pong from 192.168.56.1:22637
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.56.1:9921
+Received pong from 192.168.0.166:22637
  
 (Filename:  Line: 836)
 
-0: Debug
+0: AB
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -34,7 +34,7 @@ Received pong from 192.168.56.1:9921
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-0: Debug
+0: AB
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -42,7 +42,7 @@ Received pong from 192.168.56.1:9921
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-1: Debug[2]
+1: Debug
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -51,11 +51,11 @@ Received pong from 192.168.56.1:9921
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 4.411844 ms
+UnloadTime: 3.421666 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3940.
-Total: 3.596141 ms (FindLiveObjects: 0.161980 ms CreateObjectMapping: 0.033467 ms MarkObjects: 0.542165 ms  DeleteObjects: 1.079868 ms)
+Total: 2.371695 ms (FindLiveObjects: 0.131636 ms CreateObjectMapping: 0.026773 ms MarkObjects: 0.383308 ms  DeleteObjects: 0.736720 ms)
 
 has not yet found all players
  
@@ -165,21 +165,15 @@ Forkmodus = on
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-TROLL
+Shooter: 1, Target: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Shooter: 2, Target: 2
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 The server has disconnected from the client. Most likely the server has shut down.
  
 (Filename:  Line: 745)
-
-ISGEENSERVER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 9.246264 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 857 unused Assets to reduce memory usage. Loaded Objects now: 1395.
-Total: 6.696078 ms (FindLiveObjects: 0.070503 ms CreateObjectMapping: 0.081213 ms MarkObjects: 0.525655 ms  DeleteObjects: 4.971858 ms)
 

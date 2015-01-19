@@ -488,7 +488,11 @@ public class playerController : MonoBehaviour
 		AudioSource.PlayClipAtPoint (respawn_sound, transform.position);
 		isAlive = true;
 		transform.position = SpawnPOsition;
-		//gameObject.GetComponent<MeshRenderer> ().enabled = true;
+		if (!networkView.isMine)
+		{
+			gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+		}
+		gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
 		gameObject.GetComponent<CapsuleCollider> ().enabled = true;
 		if (networkView.isMine)
 		{
