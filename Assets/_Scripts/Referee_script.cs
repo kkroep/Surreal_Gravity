@@ -79,7 +79,7 @@ public class Referee_script : MonoBehaviour {
 			networkView.RPC("showWPanel", RPCMode.All, target);
 			//respawn player
 			networkView.RPC("KillPlayer", RPCMode.All, target);
-			networkView.RPC("PlayDead", RPCMode.All, target);;
+			networkView.RPC("PlayDead", RPCMode.All, target);
 
 			lives [target-1] = Lives_count;
 			scoreScreen.UpdateScore(shooter, target);
@@ -103,7 +103,7 @@ public class Referee_script : MonoBehaviour {
 			{
 				networkView.RPC("updateLives", RPCMode.Others, 2, (target-1));
 			}
-			networkView.RPC("PlayGetHit", RPCMode.All, target-1);
+			networkView.RPC("PlayGetHit", RPCMode.All, target);
 			//networkView.RPC("showRedPlayer", RPCMode.All, target);
 			players[target-1].hitColorRed();
 			lives [target-1]--;
@@ -123,6 +123,7 @@ public class Referee_script : MonoBehaviour {
 		{
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
+		players[target-1].PlayDead();
 		networkView.RPC("KillPlayer", RPCMode.All, target);
 		scoreScreen.UpdateScoreDB (target);
 	}
@@ -159,7 +160,10 @@ public class Referee_script : MonoBehaviour {
 	{
 		for (int i = 0; i < playerCount; i++)
 		{
-			players[i].PlayGetHit(target);
+			if (players[i].activeAccount.Number == target)
+			{
+				players[i].PlayGetHit();
+			}
 		}
 	}
 
@@ -168,7 +172,10 @@ public class Referee_script : MonoBehaviour {
 	{
 		for (int i = 0; i < playerCount; i++)
 		{
-			players[i].PlayDead(target);
+			if (players[i].activeAccount.Number == target)
+			{
+				players[i].PlayDead();
+			}
 		}
 	}
 
@@ -182,7 +189,6 @@ public class Referee_script : MonoBehaviour {
 				players[i].hitColorRed();
 			}
 		}
-		//players[target-1].hitColorRed();
 	}
 
 	[RPC]
