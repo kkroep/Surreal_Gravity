@@ -155,7 +155,7 @@ public class playerController : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log ("ERROR in animation. playercontroller.cs")
+			Debug.Log ("ERROR in animation. playercontroller.cs");
 		}
 	}
 
