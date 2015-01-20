@@ -244,20 +244,16 @@ public class playerController : MonoBehaviour
 		}
 	}
 
-	public void PlayGetHit (int target)
-	{ 
-		if (BasicFunctions.activeAccount.Number == target)
-		{
+	public void PlayGetHit ()
+	{
+		if (networkView.isMine)
 			AudioSource.PlayClipAtPoint (getting_hit_sound, transform.position);
-		}
 	}
 
-	public void PlayDead (int target)
+	public void PlayDead ()
 	{
-		if (BasicFunctions.activeAccount.Number == target)
-		{
+		if (networkView.isMine)
 			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
-		}
 	}
 
 	public void PlayEndGameSound ()
@@ -514,14 +510,10 @@ public class playerController : MonoBehaviour
 				New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
-				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump && canAnim) || (Input.GetAxis ("Vertical") != 0 && Can_Jump && canAnim)) {
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
-				} else {
+				if ((Input.GetAxis ("Horizontal")==0 && Input.GetAxis ("Vertical")==0 )) {
 					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoWalk");
-					if (canAnim)
-					{
-						Debug.Log ("Moet niet gecalled worden? :?");
-					}
+				} else {
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 				}
 
 
@@ -541,10 +533,10 @@ public class playerController : MonoBehaviour
 					
 					//anim.SetBool ("Jump", true);
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Jump");
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 				} else {
 					//anim.SetBool ("Jump", false);
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoJump");
+					//networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoJump");
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
 				}
 
