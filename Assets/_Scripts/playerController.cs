@@ -228,6 +228,18 @@ public class playerController : MonoBehaviour
 		}
 	}
 
+	public void PlayEndGameSound ()
+	{
+		if (BasicFunctions.ForkModus) 
+		{
+			AudioSource.PlayClipAtPoint (endfork_sound, transform.position);
+		}
+		else
+		{
+			AudioSource.PlayClipAtPoint (endrailgun_sound, transform.position);
+		}
+	}
+
 	/* Color change */
 	public void hitColorRed()
 	{
