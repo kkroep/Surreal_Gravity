@@ -103,7 +103,7 @@ public class Referee_script : MonoBehaviour {
 			{
 				networkView.RPC("updateLives", RPCMode.Others, 2, (target-1));
 			}
-			networkView.RPC("PlayGetHit", RPCMode.All, target-1);
+			networkView.RPC("PlayGetHit", RPCMode.All, target);
 			//networkView.RPC("showRedPlayer", RPCMode.All, target);
 			players[target-1].hitColorRed();
 			lives [target-1]--;
