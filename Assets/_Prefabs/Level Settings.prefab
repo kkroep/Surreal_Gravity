@@ -64,6 +64,7 @@ MonoBehaviour:
   smoothen: 10
   blocktypes: 3
   gridinitialised: 0
+  spawnradius: 2
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
