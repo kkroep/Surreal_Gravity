@@ -246,13 +246,18 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	private Node smallestFValueNode(){
-		Node smallest = openList[0];
-		for(int i =1;i<openList.Count;i++){
-			if (openList[i].totalValue < smallest.totalValue){
-				smallest = openList[i];
+		if(openList.Count>0){
+			Node smallest = openList[0];
+			for(int i =1;i<openList.Count;i++){
+				if (openList[i].totalValue < smallest.totalValue){
+					smallest = openList[i];
+				}
 			}
+			return smallest;
 		}
-		return smallest;
+		else{
+			return null;
+		}
 	}
 
 	public void setTargetNode(Vector3 position){
