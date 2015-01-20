@@ -209,6 +209,8 @@ public class Referee_script : MonoBehaviour {
 					players[Number].Leven1 = GameObject.FindGameObjectWithTag("Leven1");
 				}
 				players[Number].Leven1.SetActive(false);
+				players[Number].Leven2.SetActive(false);
+				players[Number].Leven3.SetActive(false);
 			}
 			else if (L == 2)
 			{
@@ -217,6 +219,7 @@ public class Referee_script : MonoBehaviour {
 					players[Number].Leven2 = GameObject.FindGameObjectWithTag("Leven2");
 				}
 				players[Number].Leven2.SetActive(false);
+				players[Number].Leven3.SetActive(false);
 			}
 			else
 			{
