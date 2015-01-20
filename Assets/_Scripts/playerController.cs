@@ -87,6 +87,9 @@ public class playerController : MonoBehaviour
 	private float ColorChangeTime;
 	private bool ColorRed;
 
+	public AudioClip endfork_sound;
+	public AudioClip endrailgun_sound;
+
 	#endregion
 
 	void Start ()
@@ -112,10 +115,47 @@ public class playerController : MonoBehaviour
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
-			anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			JumpTime = Time.time;
-			anim.SetBool("Walk", true);
+
+			networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
+			//anim.SetBool("Walk", true);
+		}
+	}
+
+	[RPC]
+	public void Loop_toch_naar_de_tering (string animatietype)
+	{
+		if(!anim)
+			anim = GetComponent<Animator> ();
+
+		if (animatietype == "Stab") 
+		{
+			anim.SetBool ("Stab", true);
+		}
+		else if (animatietype == "Walk")
+		{
+			anim.SetBool ("Walk", true);
+		}
+		else if (animatietype == "Jump")
+		{
+			anim.SetBool ("Jump", true);
+		}
+		else if (animatietype == "NoStab") 
+		{
+			anim.SetBool ("Stab", false);
+		}
+		else if (animatietype == "NoWalk")
+		{
+			anim.SetBool ("Walk", false);
+		}
+		else if (animatietype == "NoJump")
+		{
+			anim.SetBool ("Jump", false);
+		}
+		else
+		{
+			Debug.Log ("ERROR in animation. playercontroller.cs");
 		}
 	}
 
@@ -217,6 +257,18 @@ public class playerController : MonoBehaviour
 		if (BasicFunctions.activeAccount.Number == target)
 		{
 			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
+		}
+	}
+
+	public void PlayEndGameSound ()
+	{
+		if (BasicFunctions.ForkModus) 
+		{
+			AudioSource.PlayClipAtPoint (endfork_sound, transform.position);
+		}
+		else
+		{
+			AudioSource.PlayClipAtPoint (endrailgun_sound, transform.position);
 		}
 	}
 
@@ -463,19 +515,12 @@ public class playerController : MonoBehaviour
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
 				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump && canAnim) || (Input.GetAxis ("Vertical") != 0 && Can_Jump && canAnim)) {
-					/*anim.SetBool ("Walk", true);
-					if (!BasicFunctions.playOffline)
-					{
-						networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
-					}*/
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 				} else {
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoWalk");
 					if (canAnim)
 					{
-						/*anim.SetBool ("Walk", false);
-						if (!BasicFunctions.playOffline)
-						{
-							networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
-						}	*/
+						Debug.Log ("Moet niet gecalled worden? :?");
 					}
 				}
 
@@ -496,8 +541,10 @@ public class playerController : MonoBehaviour
 					
 					//anim.SetBool ("Jump", true);
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Jump");
 				} else {
 					//anim.SetBool ("Jump", false);
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoJump");
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
 				}
 
@@ -571,14 +618,15 @@ public class playerController : MonoBehaviour
 	void WalkAnim (int player, bool set)
 	{
 		//referee.players [player - 1].anim.SetBool ("Walk", set);
-		anim.SetBool ("Walk", set);
-		Debug.Log(anim.GetBool("Walk"));
+		//anim.SetBool ("Walk", set);
+		Debug.Log ("dit mag niet aangeroepen worden! zoek in playercontroller naar RPC");
+		//Debug.Log(anim.GetBool("Walk"));
 	}
 
 	[RPC]
 	void JumpAnim (int player, bool set)
 	{
-		referee.players [player - 1].anim.SetBool ("Jump", set);
+		Debug.Log ("dit mag niet aangeroepen worden! zoek in playercontroller naar RPC");
 	}
 
 	void OnCollisionStay (Collision collisionInfo)
