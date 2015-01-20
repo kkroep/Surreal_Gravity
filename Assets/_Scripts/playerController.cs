@@ -528,13 +528,12 @@ public class playerController : MonoBehaviour
 								rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
 								AudioSource.PlayClipAtPoint (jump_sound, transform.position);
 								JumpTime = Time.time;
-								networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Jump");
+								networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 								break;
 							}
 						}
 					}
-				} else
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoJump");
+				} 
 			} else {
 				//DIT STUK IS DE SPELER ALS IE DOOD IS
 				rigidbody.velocity = new Vector3 (0f, 0f, 0f);
