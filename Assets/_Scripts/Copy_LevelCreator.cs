@@ -537,4 +537,39 @@ public class Copy_LevelCreator : MonoBehaviour {
 		return randomspawn;
 	}
 
+	public Vector3 getRobotSpawn(){
+		Vector3 randomspawn;
+		int checkresult;
+		int x;
+		int y;
+		int z;
+		int safecounter = 150;
+		do{
+			checkresult = 10;
+			x = Random.Range (spawnradius+2,(levelWidth-spawnradius-2));y = Random.Range (spawnradius+2,(levelHeight-spawnradius-2));z = Random.Range (spawnradius+2,(levelDepth-spawnradius-2));
+			if (grid[x,y-1,z] > 0 && grid[x,y,z] == 0){
+				checkresult = 0;
+				for(int i=x;i<=x+spawnradius;i++){
+					for(int j=y;i<=y+spawnradius;i++){
+						for(int k=z;i<=z+spawnradius;i++){
+							if (grid[i,j,k]>0){
+								checkresult++;
+							}
+						}
+					}
+				}
+			}
+			
+			
+			//checkresult = Physics.OverlapSphere(randomspawn,2).Length;
+			safecounter--;
+		}while(checkresult>0 && safecounter>0);
+		randomspawn = new Vector3(x,y,z);
+		if(safecounter == 0){
+			randomspawn = new Vector3(levelWidth,levelHeight,levelDepth);
+		}
+		
+		return randomspawn;
+	}
+
 }

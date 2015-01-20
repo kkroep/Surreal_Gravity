@@ -73,58 +73,62 @@ public class Pathfinder : MonoBehaviour{
 	void Update(){
 		if(Network.isServer && nodeGridInitialised){
 			if(findPath){
-				if(reset){
-					startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
-					if(openList != null && closedList != null){
-						for (int i=0; i<openList.Count;i++){
-							openList[i].parentNode = null;
-						}
-						for (int i=0; i<closedList.Count;i++){
-							closedList[i].parentNode = null;
-						}
-						startNode = path[1];
-					}
-
-
-					path = new List<Node>();
-					openList = new List<Node>();
-					closedList = new List<Node>();
-
-					checkingNode = startNode;
-					CalculateAllHeuristics();
-
-					levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
-					level = levelcreator.GetComponent<Copy_LevelCreator>();
-					grid = level.getGrid ();
-					reset = false;
-				}
-
-				int j = 0;
-
-				while(j<(1.7/Time.deltaTime)){
-
-
-					if (foundTarget == false){
-
-						FindPath();
-
-					}
-
-					if (foundTarget == true){
-
-						if(tracedBack == false){
-							TraceBackPath ();
-							reset = true;
-							/*
-							for (int i=0;i<path.Count;i++){
-								Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
+				if(Mathf.RoundToInt(this.transform.position.x)<nodeGrid.Length && Mathf.RoundToInt(this.transform.position.y)<nodeGrid.Length && Mathf.RoundToInt(this.transform.position.z)<nodeGrid.Length){
+					if(reset){
+						startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
+						//Debug.Log (Mathf.RoundToInt(this.transform.position.x) + ", " + Mathf.RoundToInt(this.transform.position.y) + "," + Mathf.RoundToInt(this.transform.position.z));
+						if(openList != null && closedList != null){
+							for (int i=0; i<openList.Count;i++){
+								openList[i].parentNode = null;
 							}
-							*/
+							for (int i=0; i<closedList.Count;i++){
+								closedList[i].parentNode = null;
+							}
+							startNode = path[1];
+						}
+
+
+						path = new List<Node>();
+						openList = new List<Node>();
+						closedList = new List<Node>();
+
+						checkingNode = startNode;
+						CalculateAllHeuristics();
+
+						levelcreator = GameObject.FindGameObjectWithTag("levelSettings");
+						level = levelcreator.GetComponent<Copy_LevelCreator>();
+						grid = level.getGrid ();
+						reset = false;
+					}
+
+					int j = 0;
+
+					while(j<(1.7/Time.deltaTime)){
+
+
+						if (foundTarget == false){
+
+							FindPath();
 
 						}
+
+						if (foundTarget == true){
+
+							if(tracedBack == false){
+								TraceBackPath ();
+								reset = true;
+								/*
+								for (int i=0;i<path.Count;i++){
+									Debug.Log (path[i].xPosition + "," + path[i].yPosition + "," + path[i].zPosition);
+								}
+								*/
+
+							}
+						}
+						j++;
 					}
-					j++;
 				}
+			
 
 			}
 		}
