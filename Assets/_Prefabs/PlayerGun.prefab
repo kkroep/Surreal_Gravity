@@ -336,7 +336,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &132784
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -630,7 +630,6 @@ Transform:
   - {fileID: 432754}
   - {fileID: 432756}
   - {fileID: 432758}
-  - {fileID: 432788}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &432754
@@ -848,10 +847,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132782}
-  m_LocalRotation: {x: -.0578529984, y: .685963333, z: .715218663, w: .120704636}
-  m_LocalPosition: {x: .246280268, y: -.00399926072, z: .337830096}
+  m_LocalRotation: {x: -.044964321, y: .756736398, z: .639869928, w: .126074553}
+  m_LocalPosition: {x: .217999995, y: -.104000002, z: .280000001}
   m_LocalScale: {x: .453900367, y: .278264612, z: .202876866}
-  m_Children: []
+  m_Children:
+  - {fileID: 432788}
   m_Father: {fileID: 432758}
   m_RootOrder: 0
 --- !u!4 &432788
@@ -860,14 +860,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132784}
-  m_LocalRotation: {x: .244560048, y: -.31597805, z: .541405141, w: .739749134}
-  m_LocalPosition: {x: .178016663, y: -.404567719, z: .278297424}
-  m_LocalScale: {x: .0487569794, y: .0428457372, z: .0489989258}
+  m_LocalRotation: {x: -.52506125, y: -.751816571, z: -.31425339, w: .245616347}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .170230895, y: .10659153, z: .152569309}
   m_Children:
   - {fileID: 432790}
   - {fileID: 432792}
-  m_Father: {fileID: 432752}
-  m_RootOrder: 3
+  m_Father: {fileID: 432786}
+  m_RootOrder: 0
 --- !u!4 &432790
 Transform:
   m_ObjectHideFlags: 1
@@ -1365,7 +1365,7 @@ Animator:
   m_GameObject: {fileID: 132752}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 519f33d9528c7a44791dcb2603e09ccc, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4cf42cc16ef77f4418c22f5bf6fbf8a2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ce5e146df9b43147941fef1d8bc8f5f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
