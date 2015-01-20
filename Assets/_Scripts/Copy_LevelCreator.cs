@@ -514,9 +514,9 @@ public class Copy_LevelCreator : MonoBehaviour {
 			x = Random.Range (spawnradius+1,(levelWidth-spawnradius-1));y = Random.Range (spawnradius+2,(levelHeight-spawnradius-1));z = Random.Range (spawnradius+1,(levelDepth-spawnradius-1));
 			if (grid[x,y-1,z] > 0){
 				checkresult = 0;
-				for(int i=x-spawnradius;i<=x+spawnradius;i++){
+				for(int i=x;i<=x+spawnradius;i++){
 					for(int j=y;i<=y+spawnradius;i++){
-						for(int k=z-spawnradius;i<=z+spawnradius;i++){
+						for(int k=z;i<=z+spawnradius;i++){
 							if (grid[i,j,k]>0){
 								checkresult++;
 							}
