@@ -115,7 +115,6 @@ public class playerController : MonoBehaviour
 			Screen.lockCursor = true;
 			rigidbody.freezeRotation = true;
 			Gravity_Direction = Initial_Gravity_Direction;
-			anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			JumpTime = Time.time;
 
@@ -127,6 +126,8 @@ public class playerController : MonoBehaviour
 	[RPC]
 	public void Loop_toch_naar_de_tering ()
 	{
+		if(!anim)
+			anim = GetComponent<Animator> ();
 		anim.SetBool("Walk", true);
 	}
 
