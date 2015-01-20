@@ -25653,6 +25653,7 @@ MonoBehaviour:
   reg1: {fileID: 1727162462}
   reg2: {fileID: 1311821294}
   pointsSlider: {fileID: 80298762}
+  sensitivitySlider: {fileID: 1570440124}
   Multiplayer_Button: {fileID: 915467083}
   Multiplayer_Text: {fileID: 1691037106}
   isLoggedIn: 0
