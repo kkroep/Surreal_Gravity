@@ -10,10 +10,14 @@ public class NW_Spawning : MonoBehaviour {
 	public GameObject refereePrefab;
 	public GameObject serverQuitText;
 	
-	public Texture Player1;
-	public Texture Player2;
-	public Texture Player3;
-	public Texture Player4;
+	public Texture Player1F;
+	public Texture Player2F;
+	public Texture Player3F;
+	public Texture Player4F;
+	public Texture Player1R;
+	public Texture Player2R;
+	public Texture Player3R;
+	public Texture Player4R;
 
 	public Copy_LevelCreator levelCreator;
 
@@ -50,10 +54,10 @@ public class NW_Spawning : MonoBehaviour {
 		canSpawn = true;
 		for (int i = 0; i < amountSpawnPoints; i++)
 		{
-			int width = Random.Range(0, levelCreator.levelWidth);
-			int height = Random.Range(0, levelCreator.levelHeight);
-			int depth = Random.Range(0, levelCreator.levelDepth);
-			Vector3 spawn = new Vector3 (width, height, depth);
+			//int width = Random.Range(0, levelCreator.levelWidth);
+			//int height = Random.Range(0, levelCreator.levelHeight);
+			//int depth = Random.Range(0, levelCreator.levelDepth);
+			Vector3 spawn = levelCreator.getSpawn();//new Vector3 (width, height, depth);
 			if (Network.isServer)
 			{
 				networkView.RPC("addSpawnPoints", RPCMode.All, spawn);
@@ -180,16 +184,37 @@ public class NW_Spawning : MonoBehaviour {
 			switch (Number)
 			{
 			case 1:
-				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player1);
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player1F);
 				break;
 			case 2: 
-				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player2);
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player2F);
 				break;
 			case 3: 
-				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player3);
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player3F);
 				break;
 			case 4: 
-				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player4);
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player4F);
+				break;
+			default : 
+				Debug.Log("DIKKE TERROR ERROR");
+				break;
+			}
+		}
+		else
+		{
+			switch (Number)
+			{
+			case 1:
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player1R);
+				break;
+			case 2: 
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player2R);
+				break;
+			case 3: 
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player3R);
+				break;
+			case 4: 
+				playerN.transform.Find ("Circle").renderer.material.SetTexture("_MainTex", Player4R);
 				break;
 			default : 
 				Debug.Log("DIKKE TERROR ERROR");

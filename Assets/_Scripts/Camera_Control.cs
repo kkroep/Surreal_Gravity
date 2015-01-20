@@ -203,12 +203,13 @@ public class Camera_Control : MonoBehaviour {
 				}
 				KillLineCurrent.SetPosition(0, hit.point);
 				//\new
-				
-				int shootNumber = activeAccount.Number;
-				KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = shootNumber;
-				//Debug.Log("Shooter: " + KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber);
+	
 				if (!BasicFunctions.playOffline)
+				{
+					int shootNumber = activeAccount.Number;
+					KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = shootNumber;
 					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
+				}
 				if(hit.collider.tag=="Player")
 				{
 					AudioSource.PlayClipAtPoint (bullet_hit_sound, transform.position);
