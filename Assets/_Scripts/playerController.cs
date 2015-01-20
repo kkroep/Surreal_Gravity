@@ -131,7 +131,7 @@ public class playerController : MonoBehaviour
 
 		if (animatietype == "Stab") 
 		{
-			anim.SetBool ("Jump", true);
+			anim.SetBool ("Stab", true);
 		}
 		else if (animatietype == "Walk")
 		{
@@ -141,11 +141,21 @@ public class playerController : MonoBehaviour
 		{
 			anim.SetBool ("Jump", true);
 		}
-		else
+		else if (animatietype == "NoStab") 
+		{
+			anim.SetBool ("Stab", false);
+		}
+		else if (animatietype == "NoWalk")
 		{
 			anim.SetBool ("Walk", false);
+		}
+		else if (animatietype == "NoJump")
+		{
 			anim.SetBool ("Jump", false);
-			anim.SetBool ("Stab", false);
+		}
+		else
+		{
+			Debug.Log ("ERROR in animation. playercontroller.cs")
 		}
 	}
 
@@ -507,7 +517,7 @@ public class playerController : MonoBehaviour
 				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump && canAnim) || (Input.GetAxis ("Vertical") != 0 && Can_Jump && canAnim)) {
 					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 				} else {
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Idle");
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoWalk");
 					if (canAnim)
 					{
 						Debug.Log ("Moet niet gecalled worden? :?");
@@ -534,6 +544,7 @@ public class playerController : MonoBehaviour
 					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Jump");
 				} else {
 					//anim.SetBool ("Jump", false);
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoJump");
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
 				}
 
