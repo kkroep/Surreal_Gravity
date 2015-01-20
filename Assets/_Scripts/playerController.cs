@@ -224,36 +224,37 @@ public class playerController : MonoBehaviour
 	public void hitColorRed()
 	{
 		//moet op de renderer van de circle van de player prefab worden toegepast
-		networkView.RPC("hitColorRedRPC", RPCMode.All);
+		//networkView.RPC("hitColorRedRPC", RPCMode.All);
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
+		ColorRed = true;
+		ColorChangeTime = Time.time + ColorChangeLength;
 	}
 
 	public void hitColorRegular()
 	{
 		//moet op de renderer van de circle van de player prefab worden toegepast
-		networkView.RPC("hitColorRegularRPC", RPCMode.All);
+		//networkView.RPC("hitColorRegularRPC", RPCMode.All);
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
+		ColorRed = false;
 	}
 
 	[RPC]
 	public void hitColorRedRPC ()
 	{
-		//if (networkView.isMine)
-		//{
-			if (GetComponentInChildren<SkinnedMeshRenderer>())
-				GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
-			ColorRed = true;
-			ColorChangeTime = Time.time + ColorChangeLength;
-		//}
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
+		ColorRed = true;
+		ColorChangeTime = Time.time + ColorChangeLength;
 	}
 
 	[RPC]
 	public void hitColorRegularRPC ()
 	{
-		//if (networkView.isMine)
-		//{
-			if (GetComponentInChildren<SkinnedMeshRenderer>())
-				GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
-			ColorRed = false;
-		//}
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
+		ColorRed = false;
 	}
 
 	[RPC]
