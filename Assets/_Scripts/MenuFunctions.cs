@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.IO;
 
 public class MenuFunctions : MonoBehaviour {
 
@@ -30,6 +32,7 @@ public class MenuFunctions : MonoBehaviour {
 	public InputField reg1;
 	public InputField reg2;
 	public Slider pointsSlider;
+	public Slider sensitivitySlider;
 	public Button Multiplayer_Button;
 	public Text Multiplayer_Text;
 
@@ -52,6 +55,14 @@ public class MenuFunctions : MonoBehaviour {
 		if (BasicFunctions.firstStart)
 		{
 			BasicFunctions.ForkModus = true;
+		}
+
+		using (StreamReader sread = new StreamReader("Settings.txt"))
+		{
+			sread.ReadLine();
+			BasicFunctions.Sensitivity = float.Parse(sread.ReadLine());
+			Debug.Log("Sens: " + BasicFunctions.Sensitivity);
+			sread.Close();
 		}
 	}
 
@@ -139,6 +150,8 @@ public class MenuFunctions : MonoBehaviour {
 		{
 			Music_button.isOn = false;
 		}
+		sensitivitySlider.value = BasicFunctions.Sensitivity;
+		SensitivityText.text = "" + sensitivitySlider.value;
 	}
 
 	public void goToControls ()
@@ -323,6 +336,14 @@ public class MenuFunctions : MonoBehaviour {
 	{
 		SensitivityText.text = "" + points;
 		BasicFunctions.Sensitivity = points;
+
+		using (StreamWriter swrite = new StreamWriter ("Settings.txt", false))
+		{
+			string sens = points.ToString();
+			swrite.WriteLine ("Sensitivity");
+			swrite.WriteLine (sens);
+			swrite.Close ();
+		}
 	}
 
 	public void setTabL ()
