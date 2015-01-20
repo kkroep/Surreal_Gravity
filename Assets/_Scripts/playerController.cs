@@ -115,8 +115,16 @@ public class playerController : MonoBehaviour
 			anim = GetComponent<Animator> ();
 			spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			JumpTime = Time.time;
-			anim.SetBool("Walk", true);
+
+			networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered);
+			//anim.SetBool("Walk", true);
 		}
+	}
+
+	[RPC]
+	public void Loop_toch_naar_de_tering ()
+	{
+		anim.SetBool("Walk", true);
 	}
 
 	void OnSerializeNetworkView (BitStream stream, NetworkMessageInfo info)
