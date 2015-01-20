@@ -25,7 +25,7 @@ public class MainRobotSettings : MonoBehaviour {
 
 		if(Network.isServer && !BasicFunctions.playOffline && !hasspawned && level.gridinitialised){
 			for(int i=0;i<numberRobots;i++){
-				Network.Instantiate (robot, level.getSpawn (), Quaternion.identity,0);
+				Network.Instantiate (robot, level.getRobotSpawn (), Quaternion.identity,0);
 			}
 			hasspawned = true;
 		}

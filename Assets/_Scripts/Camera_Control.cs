@@ -45,6 +45,7 @@ public class Camera_Control : MonoBehaviour {
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
 	public Rigidbody Gravity_Bullet;
+	public Transform GunTransform;
 
 	public AudioClip kill_shot_sound;
 	public AudioClip gravity_shot_sound;
@@ -142,30 +143,30 @@ public class Camera_Control : MonoBehaviour {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
-				Vector3 incomingVec = hit.point - transform.position;
+				//Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
 				//LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
 				//LightningLineCurrent.SetPosition(0, hit.point);
 				
 				//\new
-				float Distance = Mathf.Sqrt((transform.position - hit.point).sqrMagnitude);
+				float Distance = Mathf.Sqrt((GunTransform.position - hit.point).sqrMagnitude);
 				float floatvertexsize = VerticesPerUnit * Distance;
 				vertexsize = (int) floatvertexsize;
 				if ( vertexsize > 30000 ){
 					vertexsize = 30000;
 				}
 				LightningLineCurrent.SetVertexCount(vertexsize);
-				LightningLineCurrent.SetPosition(vertexsize-1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+				LightningLineCurrent.SetPosition(vertexsize-1, GunTransform.position+new Vector3(0.01f,-0.01f,0.01f));
 				for(int i=1; i<(vertexsize-1) ;i++)
 				{
 					float multiplier = ((i*1.0f)/(vertexsize-1));
-					LightningLineCurrent.SetPosition(i, (multiplier*(transform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
+					LightningLineCurrent.SetPosition(i, (multiplier*(GunTransform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 				}
 				LightningLineCurrent.SetPosition(0, hit.point);
 				//\new
 				
 				if (!BasicFunctions.playOffline)
-					player.Fire_Grav_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
+					player.Fire_Grav_Bullet(GunTransform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
 				if(hit.collider.tag=="level"){
 				//AudioSource.PlayClipAtPoint(gravity_switch_sound, transform.position);
 					player.Switch_Gravity(hit.normal*-1f, hit.point);
@@ -183,24 +184,24 @@ public class Camera_Control : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
 				//Debug.Log(hit.collider.tag);
-				Vector3 incomingVec = hit.point - transform.position;
+				//Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
 				//KillLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
 				//KillLineCurrent.SetPosition(0, hit.point);
 				
 				//new
-				float Distance = Mathf.Sqrt((transform.position - hit.point).sqrMagnitude);
+				float Distance = Mathf.Sqrt((GunTransform.position - hit.point).sqrMagnitude);
 				float floatvertexsize = VerticesPerUnit * Distance;
 				vertexsize = (int) floatvertexsize;
 				if ( vertexsize > 30000 ){
 					vertexsize = 30000;
 				}
 				KillLineCurrent.SetVertexCount(vertexsize);
-				KillLineCurrent.SetPosition(vertexsize-1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
+				KillLineCurrent.SetPosition(vertexsize-1, GunTransform.position+new Vector3(0.01f,-0.01f,0.01f));
 				for(int i=1; i<(vertexsize-1) ;i++)
 				{
 					float multiplier = ((i*1.0f)/(vertexsize-1));
-					KillLineCurrent.SetPosition(i, (multiplier*(transform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
+					KillLineCurrent.SetPosition(i, (multiplier*(GunTransform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 				}
 				KillLineCurrent.SetPosition(0, hit.point);
 				//\new
@@ -209,7 +210,7 @@ public class Camera_Control : MonoBehaviour {
 				{
 					int shootNumber = activeAccount.Number;
 					KillLineCurrent.GetComponent<Gravity_trace_script>().shooterNumber = shootNumber;
-					player.Fire_Kill_Bullet(transform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
+					player.Fire_Kill_Bullet(GunTransform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point, shootNumber);
 				}
 				if(hit.collider.tag=="Player")
 				{
