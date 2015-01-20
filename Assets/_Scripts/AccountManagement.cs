@@ -52,20 +52,28 @@ public class AccountManagement : MonoBehaviour {
 	 */
 	public void registerAccount (string Uname, string Pword, string PwordC)
 	{
-		if (Pword.Equals(PwordC))
+		if (Pword.Equals(PwordC) && Pword.Length>0 && PwordC.Length > 0)
 		{
 			if (BasicFunctions.loginServer)
 			{
-				string url = "http://drproject.twi.tudelft.nl:8082/Register?playerName="+Uname+"&playerPassword="+Pword;
-				WWW www = new WWW(url);
-				StartCoroutine(WaitForRegistration(www));
+				if(Uname == ""){
+					Debug.Log("empty name");
+					menuF.errorMessage.gameObject.SetActive(true);
+					menuF.errorMessage.text = "Username can not be empty";
+				}
+				else{
+					string url = "http://drproject.twi.tudelft.nl:8082/Register?playerName="+Uname+"&playerPassword="+Pword;
+					WWW www = new WWW(url);
+					StartCoroutine(WaitForRegistration(www));
+				}
 			}
 			else
 			{
 				Account reg_acc = new Account (Uname, Pword);
 				if (Uname == " ")
 				{
-					Debug.Log("No Username is given");
+					menuF.errorMessage.gameObject.SetActive(true);
+					menuF.errorMessage.text = "Username can not be empty";
 				}
 				else if (!list_of_accounts.containsUsername(reg_acc))
 				{
@@ -89,7 +97,7 @@ public class AccountManagement : MonoBehaviour {
 		else
 		{
 			menuF.errorMessage.gameObject.SetActive(true);
-			menuF.errorMessage.text = "Failed to register";
+			menuF.errorMessage.text = "Passwords must match and not be empty";
 		}
 		registerU.text = "";
 		registerP.text = "";
@@ -163,9 +171,13 @@ public class AccountManagement : MonoBehaviour {
 				menuF.errorMessage.gameObject.SetActive(true);
 				menuF.errorMessage.text = "Account is created";
 			}
+			else if(www.text.Equals ("Can not create empty game account")){
+				menuF.errorMessage.gameObject.SetActive(true);
+				menuF.errorMessage.text = "Username can not be empty";
+			}
 			else{
 				menuF.errorMessage.gameObject.SetActive(true);
-				menuF.errorMessage.text = "Failed to register";
+				menuF.errorMessage.text = "Failed to register, username is taken";
 			}
 		}
 		else

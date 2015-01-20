@@ -82,6 +82,10 @@ public class playerController : MonoBehaviour
 	public GameObject Leven1;
 	public GameObject Leven2;
 	public GameObject Leven3;
+	//Color change
+	private float ColorChangeLength = 0.3f;
+	private float ColorChangeTime;
+	private bool ColorRed;
 
 	#endregion
 
@@ -216,6 +220,43 @@ public class playerController : MonoBehaviour
 		}
 	}
 
+	/* Color change */
+	public void hitColorRed()
+	{
+		//moet op de renderer van de circle van de player prefab worden toegepast
+		//networkView.RPC("hitColorRedRPC", RPCMode.All);
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
+		ColorRed = true;
+		ColorChangeTime = Time.time + ColorChangeLength;
+	}
+
+	public void hitColorRegular()
+	{
+		//moet op de renderer van de circle van de player prefab worden toegepast
+		//networkView.RPC("hitColorRegularRPC", RPCMode.All);
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
+		ColorRed = false;
+	}
+
+	[RPC]
+	public void hitColorRedRPC ()
+	{
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
+		ColorRed = true;
+		ColorChangeTime = Time.time + ColorChangeLength;
+	}
+
+	[RPC]
+	public void hitColorRegularRPC ()
+	{
+		if (GetComponentInChildren<SkinnedMeshRenderer>())
+			GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
+		ColorRed = false;
+	}
+
 	[RPC]
 	void fireGravityLaser (Vector3 pos1, Vector3 pos2, int number)
 	{
@@ -287,6 +328,11 @@ public class playerController : MonoBehaviour
 			canAnim = false;
 		}*/
 
+		if (ColorRed && Time.time > ColorChangeTime)
+		{
+			hitColorRegular();
+		}
+
 		if (showWP)
 		{
 			Wounded_Panel.SetActive(true);
@@ -338,7 +384,7 @@ public class playerController : MonoBehaviour
 					spawnScript.closeServer (true);
 				}
 			}
-			else if (Network.isClient || networkView.isMine)
+			else if (Network.isClient && networkView.isMine)
 			{
 				Debug.Log("ISGEENSERVER");
 				if (spawnScript.serverHasQuit)
