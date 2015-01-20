@@ -83,7 +83,7 @@ public class playerController : MonoBehaviour
 	public GameObject Leven2;
 	public GameObject Leven3;
 	//Color change
-	public float ColorChangeLength;
+	private float ColorChangeLength = 0.3f;
 	private float ColorChangeTime;
 	private bool ColorRed;
 
@@ -224,16 +224,36 @@ public class playerController : MonoBehaviour
 	public void hitColorRed()
 	{
 		//moet op de renderer van de circle van de player prefab worden toegepast
-		this.renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
-		ColorRed = true;
-		ColorChangeTime = Time.time + ColorChangeLength;
+		networkView.RPC("hitColorRedRPC", RPCMode.All);
 	}
 
 	public void hitColorRegular()
 	{
 		//moet op de renderer van de circle van de player prefab worden toegepast
-		this.renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
-		ColorRed = false;
+		networkView.RPC("hitColorRegularRPC", RPCMode.All);
+	}
+
+	[RPC]
+	public void hitColorRedRPC ()
+	{
+		//if (networkView.isMine)
+		//{
+			if (GetComponentInChildren<SkinnedMeshRenderer>())
+				GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
+			ColorRed = true;
+			ColorChangeTime = Time.time + ColorChangeLength;
+		//}
+	}
+
+	[RPC]
+	public void hitColorRegularRPC ()
+	{
+		//if (networkView.isMine)
+		//{
+			if (GetComponentInChildren<SkinnedMeshRenderer>())
+				GetComponentInChildren<SkinnedMeshRenderer>().renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
+			ColorRed = false;
+		//}
 	}
 
 	[RPC]

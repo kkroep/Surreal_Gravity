@@ -12,17 +12,17 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.071 seconds
+- Completed reload, in  0.066 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\System.dll (this message is harmless)
-Received pong from 145.94.198.169:21796
+Received pong from 145.94.198.169:14489
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.56.1:21796
+Received pong from 192.168.56.1:14489
  
 (Filename:  Line: 836)
 
@@ -42,7 +42,7 @@ Received pong from 192.168.56.1:21796
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-1: Kees
+1: AB[2]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -51,50 +51,11 @@ Received pong from 192.168.56.1:21796
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 2.690747 ms
+UnloadTime: 2.644786 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3953.
-Total: 2.360539 ms (FindLiveObjects: 0.121819 ms CreateObjectMapping: 0.026327 ms MarkObjects: 0.385093 ms  DeleteObjects: 0.722887 ms)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at (wrapper managed-to-managed) object:ElementAddr (object,int,int,int)
-  at Copy_LevelCreator.getSpawn () [0x00000] in <filename unknown>:0 
-  at NW_Spawning.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Count: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Count: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Count: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Count: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Total: 3.541255 ms (FindLiveObjects: 0.179383 ms CreateObjectMapping: 0.034359 ms MarkObjects: 0.536364 ms  DeleteObjects: 1.037477 ms)
 
 has not yet found all players
  
@@ -204,17 +165,21 @@ Forkmodus = on
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at playerController.hitColorRed () [0x00000] in <filename unknown>:0 
-  at Referee_script.showRedPlayer (Int32 target) [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-Referee_script:frag(Int32, Int32)
-Wapen:OnTriggerStay(Collider)
+TROLL
  
-(Filename:  Line: -1)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 The server has disconnected from the client. Most likely the server has shut down.
  
 (Filename:  Line: 745)
+
+ISGEENSERVER
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 7.466712 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 1399.
+Total: 5.415408 ms (FindLiveObjects: 0.052654 ms CreateObjectMapping: 0.027666 ms MarkObjects: 0.501558 ms  DeleteObjects: 3.736256 ms)
 

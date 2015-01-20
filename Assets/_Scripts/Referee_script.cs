@@ -105,7 +105,8 @@ public class Referee_script : MonoBehaviour {
 				networkView.RPC("updateLives", RPCMode.Others, 2, (target-1));
 			}
 			networkView.RPC("PlayGetHit", RPCMode.All, target-1);
-			networkView.RPC("showRedPlayer", RPCMode.All, target-1);
+			//networkView.RPC("showRedPlayer", RPCMode.All, target);
+			players[target-1].hitColorRed();
 			lives [target-1]--;
 			encodedLives = lives[0].ToString();
 			for (int i = 1; i <playerCount; i++)
@@ -174,7 +175,26 @@ public class Referee_script : MonoBehaviour {
 	[RPC]
 	public void showRedPlayer (int target)
 	{
-		players[target].hitColorRed();
+		for (int i = 0; i < playerCount; i++)
+		{
+			if (players[i].activeAccount.Number == target)
+			{
+				players[i].hitColorRed();
+			}
+		}
+		//players[target-1].hitColorRed();
+	}
+
+	[RPC]
+	public void showWPanel (int target)
+	{
+		for (int i = 0; i < playerCount; i++)
+		{
+			if (players[i].activeAccount.Number == target)
+			{
+				players[i].showWP = true;
+			}
+		}
 	}
 
 	[RPC]
@@ -205,18 +225,6 @@ public class Referee_script : MonoBehaviour {
 					players[Number].Leven3 = GameObject.FindGameObjectWithTag("Leven3");
 				}
 				players[Number].Leven3.SetActive(false);
-			}
-		}
-	}
-
-	[RPC]
-	public void showWPanel (int target)
-	{
-		for (int i = 0; i < playerCount; i++)
-		{
-			if (players[i].activeAccount.Number == target)
-			{
-				players[i].showWP = true;
 			}
 		}
 	}
