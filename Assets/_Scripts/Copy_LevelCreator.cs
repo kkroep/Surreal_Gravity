@@ -84,7 +84,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 
 	void smoothLevel(){
 		int[,,] gridCopy = new int[levelWidth,levelHeight,levelDepth];
-		int removedCounter = 0;
+		//int removedCounter = 0;
 		for(int width=1;width<levelWidth-1;width++)
 		{
 			for (int height=1;height<levelHeight-1;height++)
@@ -109,7 +109,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 							counter++;
 
 						if(counter<=1){
-							removedCounter++;
+							//removedCounter++;
 							gridCopy[width,height,depth]=0;
 						}
 
@@ -205,7 +205,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 
 
 						if(counter>=60 /*&& removedCounter>0*/){
-							removedCounter--;
+							//removedCounter--;
 							gridCopy[width,height,depth]=1;
 							if(blockt[1]>blockt[0]){
 								gridCopy[width,height,depth]=2;
@@ -533,7 +533,6 @@ public class Copy_LevelCreator : MonoBehaviour {
 		if(safecounter == 0){
 			randomspawn = new Vector3(levelWidth,levelHeight,levelDepth);
 		}
-		Debug.Log (randomspawn.ToString ());
 
 		return randomspawn;
 	}

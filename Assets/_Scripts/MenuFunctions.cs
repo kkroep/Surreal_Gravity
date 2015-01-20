@@ -12,7 +12,6 @@ public class MenuFunctions : MonoBehaviour {
 	public GameObject Control_Menu;
 	public GameObject Settings_Menu;
 	public GameObject Credits_Menu;
-	public GameObject Multiplayer_Button;
 	public GameObject CantMulti_Text;
 
 	public Text currentUname;
@@ -31,6 +30,8 @@ public class MenuFunctions : MonoBehaviour {
 	public InputField reg1;
 	public InputField reg2;
 	public Slider pointsSlider;
+	public Button Multiplayer_Button;
+	public Text Multiplayer_Text;
 
 	public bool isLoggedIn = false;
 
@@ -396,7 +397,8 @@ public class MenuFunctions : MonoBehaviour {
 		if (AccountManagement.loggedIn)
 		{
 			CantMulti_Text.SetActive(false);
-			Multiplayer_Button.SetActive(true);
+			Multiplayer_Button.interactable = true;
+			Multiplayer_Text.color = new Color(0.118f, 1, 0.729f, 1);
 		}
 	}
 
