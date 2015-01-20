@@ -505,19 +505,12 @@ public class playerController : MonoBehaviour
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
 				if ((Input.GetAxis ("Horizontal") != 0 && Can_Jump && canAnim) || (Input.GetAxis ("Vertical") != 0 && Can_Jump && canAnim)) {
-					/*anim.SetBool ("Walk", true);
-					if (!BasicFunctions.playOffline)
-					{
-						networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
-					}*/
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 				} else {
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Idle");
 					if (canAnim)
 					{
-						/*anim.SetBool ("Walk", false);
-						if (!BasicFunctions.playOffline)
-						{
-							networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
-						}	*/
+						Debug.Log ("Moet niet gecalled worden? :?");
 					}
 				}
 
@@ -538,6 +531,7 @@ public class playerController : MonoBehaviour
 					
 					//anim.SetBool ("Jump", true);
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Jump");
 				} else {
 					//anim.SetBool ("Jump", false);
 					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
@@ -613,14 +607,15 @@ public class playerController : MonoBehaviour
 	void WalkAnim (int player, bool set)
 	{
 		//referee.players [player - 1].anim.SetBool ("Walk", set);
-		anim.SetBool ("Walk", set);
-		Debug.Log(anim.GetBool("Walk"));
+		//anim.SetBool ("Walk", set);
+		Debug.Log ("dit mag niet aangeroepen worden! zoek in playercontroller naar RPC");
+		//Debug.Log(anim.GetBool("Walk"));
 	}
 
 	[RPC]
 	void JumpAnim (int player, bool set)
 	{
-		referee.players [player - 1].anim.SetBool ("Jump", set);
+		Debug.Log ("dit mag niet aangeroepen worden! zoek in playercontroller naar RPC");
 	}
 
 	void OnCollisionStay (Collision collisionInfo)
