@@ -13,7 +13,7 @@ public class BlockDestroy : MonoBehaviour {
 	void Kill(){
 		canBeSelected = false;
 		Network.Destroy (this.gameObject);
-		Instantiate (SmokeEffect, this.transform.position, this.transform.rotation);
+		Network.Instantiate (SmokeEffect, this.transform.position, this.transform.rotation,0);
 	}
 
 	void canSelect(bool can){

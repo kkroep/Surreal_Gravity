@@ -97,12 +97,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaterialList:
-  - {fileID: 2100000, guid: 5cf4d339e7ac004458e9106ba3740f1f, type: 2}
-  - {fileID: 2100000, guid: 5cf4d339e7ac004458e9106ba3740f1f, type: 2}
-  - {fileID: 2100000, guid: 5cf4d339e7ac004458e9106ba3740f1f, type: 2}
-  - {fileID: 2100000, guid: 5cf4d339e7ac004458e9106ba3740f1f, type: 2}
-  - {fileID: 2100000, guid: 5cf4d339e7ac004458e9106ba3740f1f, type: 2}
-  - {fileID: 2100000, guid: 5cf4d339e7ac004458e9106ba3740f1f, type: 2}
+  - {fileID: 2100000, guid: b6aee03a162470442a68a2a65cb1e29d, type: 2}
+  - {fileID: 2100000, guid: f41c1aa22ef19934398aaa88f0bd8717, type: 2}
+  - {fileID: 2100000, guid: efa2391fa4453bd488e965eb8a46ed08, type: 2}
+  - {fileID: 2100000, guid: ab78ddaf45fa86c459799736231edd02, type: 2}
+  - {fileID: 2100000, guid: 271db0db06dffd943bbd2949076f08a7, type: 2}
+  - {fileID: 2100000, guid: 720b3ceeb21c5984996ef2a15b22e308, type: 2}
 --- !u!148 &14858096
 NetworkView:
   m_ObjectHideFlags: 1
