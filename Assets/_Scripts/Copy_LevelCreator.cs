@@ -28,6 +28,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	public int smoothen;
 	public int blocktypes;
 	public bool gridinitialised;
+	public int spawnradius;
 
 	private int[,,] grid;
 	private int[] targetPosition;
@@ -507,11 +508,31 @@ public class Copy_LevelCreator : MonoBehaviour {
 		int x;
 		int y;
 		int z;
+		int safecounter = 50;
 		do{
-			x = Random.Range (1,levelWidth-1);y = Random.Range (1,levelHeight-1);z = Random.Range (1,levelDepth-1);
-			randomspawn = new Vector3(x,y,z);
-			checkresult = grid[x,y,z];
-		}while(checkresult>0);
+			checkresult = 10;
+			x = Random.Range (1,levelWidth-1);y = Random.Range (2,levelHeight-1);z = Random.Range (1,levelDepth-1);
+			if (grid[x,y-1,z] == 1){
+				checkresult = 0;
+				for(int i=x-spawnradius;i<=x+spawnradius;i++){
+					for(int j=y;i<=y+spawnradius;i++){
+						for(int k=z-spawnradius;i<=z+spawnradius;i++){
+							if (grid[i,j,k]>0){
+								checkresult++;
+							}
+						}
+					}
+				}
+			}
+
+
+			//checkresult = Physics.OverlapSphere(randomspawn,2).Length;
+			safecounter--;
+		}while(checkresult>0 && safecounter>0);
+		randomspawn = new Vector3(x,y,z);
+		if(safecounter == 0){
+			randomspawn = new Vector3(levelWidth,levelHeight,levelDepth);
+		}
 		return randomspawn;
 	}
 
