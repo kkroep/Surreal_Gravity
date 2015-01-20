@@ -135,6 +135,7 @@ public class Referee_script : MonoBehaviour {
 		{
 			string winnerLog = BasicFunctions.activeAccounts[winner-1];
 			string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccounts[0] + "&Finished=1" + "&Gamemode=" + scoreScreen.gamemode + "&Winnaar=" + winnerLog;
+
 			WWW www = new WWW (url);
 			StartCoroutine (WaitForGameLog (www));
 		}
@@ -274,12 +275,14 @@ public class Referee_script : MonoBehaviour {
 		yield return www;
 		
 		if (www.error == null) {
+			/*
 			if (www.text.Equals ("Succesfully Registered Game")) {
 				Debug.Log ("Succesfully logged");
 				
 			} else {
 				Debug.Log ("Failed to log");
 			}
+			*/
 		}
 
 		for(int i=0;i<BasicFunctions.startingAccounts.Count-1;i++){
@@ -298,11 +301,13 @@ public class Referee_script : MonoBehaviour {
 		yield return www;
 		
 		if (www.error == null) {
+			/*
 			if (www.text.Equals ("succesfully logged participant")) {
 				Debug.Log ("Succesfully logged participant");
 			} else {
 				Debug.Log ("Failed to log participant");
 			}
+			*/
 		}
 	}
 }
