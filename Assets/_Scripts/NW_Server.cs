@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class NW_Server : MonoBehaviour {
 
-	public MenuButtons menuBtns;
+	public MenuFunctions menuFunct;
 	
 	public Text p1;
 	public Text p2;
@@ -72,7 +72,7 @@ public class NW_Server : MonoBehaviour {
 
 	public void closeServer ()
 	{
-		networkView.RPC("clearAccounts", RPCMode.AllBuffered);
+		networkView.RPC("clearAccounts", RPCMode.All);
 		showServers = false;
 		clearTexts (true);
 		MasterServer.UnregisterHost();
@@ -93,6 +93,7 @@ public class NW_Server : MonoBehaviour {
 		BasicFunctions.activeAccounts.Clear ();
 		BasicFunctions.accountNumbers.Clear ();
 		Network.Disconnect();
+		BasicFunctions.playOffline = false;
 	}
 
 	public void startGame ()
@@ -120,8 +121,8 @@ public class NW_Server : MonoBehaviour {
 	{
 		Debug.Log ("Server disconnected");
 		hostD = null;
-		menuBtns.Client_Menu.SetActive (false);
-		menuBtns.Multiplayer_Menu.SetActive (true);
+		menuFunct.Client_Menu.SetActive (false);
+		menuFunct.Multiplayer_Menu.SetActive (true);
 	}
 
 	public void ClientIsConnected ()
@@ -137,8 +138,9 @@ public class NW_Server : MonoBehaviour {
 		}
 		else
 		{
-			menuBtns.Multiplayer_Menu.SetActive(false);
-			menuBtns.Client_Menu.SetActive(true);
+			//menuBtns.Multiplayer_Menu.SetActive(false);
+			//menuBtns.Client_Menu.SetActive(true);
+			menuFunct.goToClient();
 			BasicFunctions.activeAccount.Number = BasicFunctions.amountPlayers + 1;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers
 			networkView.RPC("sendUNtoServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number); //Geef je username mee aan de Server
@@ -174,8 +176,14 @@ public class NW_Server : MonoBehaviour {
 	[RPC]
 	public void clearAccounts ()
 	{
+		BasicFunctions.amountPlayers = 0;
 		BasicFunctions.activeAccounts.Clear();
+		BasicFunctions.startingAccounts.Clear();
 		BasicFunctions.accountNumbers.Clear();
+		if (Network.isClient)
+		{
+			Network.Disconnect();
+		}
 	}
 	/* Stuur UI data naar de Server
 	 */
@@ -237,11 +245,12 @@ public class NW_Server : MonoBehaviour {
 		if (Network.isServer)
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
+			BasicFunctions.startingAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
 			clearTexts (true);
 			setTextsS ();
-			networkView.RPC("deleteUNClients", RPCMode.AllBuffered, UN, Number);
+			networkView.RPC("deleteUNClients", RPCMode.Others, UN, Number);
 		}
 	}
 
@@ -251,6 +260,7 @@ public class NW_Server : MonoBehaviour {
 		if (Network.isClient)
 		{
 			BasicFunctions.activeAccounts.Remove(UN);
+			BasicFunctions.startingAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
 			clearTexts(false);
 			setTextsC();

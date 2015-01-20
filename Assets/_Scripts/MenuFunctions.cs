@@ -12,6 +12,8 @@ public class MenuFunctions : MonoBehaviour {
 	public GameObject Control_Menu;
 	public GameObject Settings_Menu;
 	public GameObject Credits_Menu;
+	public GameObject Multiplayer_Button;
+	public GameObject CantMulti_Text;
 
 	public Text currentUname;
 	public Toggle chooseModus;
@@ -24,6 +26,7 @@ public class MenuFunctions : MonoBehaviour {
 	public Text pointsText;
 	public Text SensitivityText;
 	public Text clientPointsText;
+	public Text errorMessage;
 	public InputField login;
 	public InputField reg1;
 	public InputField reg2;
@@ -45,11 +48,14 @@ public class MenuFunctions : MonoBehaviour {
 
 	void Start ()
 	{
-		BasicFunctions.ForkModus = true;
+		if (BasicFunctions.firstStart)
+		{
+			BasicFunctions.ForkModus = true;
+		}
 	}
 
 	public void goToMultiplayer ()
-	{
+		{
 		if (BasicFunctions.MusicOn)
 		{
 			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
@@ -105,6 +111,14 @@ public class MenuFunctions : MonoBehaviour {
 		Account_Menu.SetActive(true);
 		if (BasicFunctions.activeAccount != null)
 			currentUname.text = BasicFunctions.activeAccount.Name;
+		if (BasicFunctions.loginServer)
+		{
+			chooseLoginModus.isOn = true;
+		}
+		else
+		{
+			chooseLoginModus.isOn = false;
+		}
 	}
 
 	public void goToSettings ()
@@ -115,6 +129,14 @@ public class MenuFunctions : MonoBehaviour {
 		}
 		Main_Menu.SetActive(false);
 		Settings_Menu.SetActive(true);
+		if (BasicFunctions.MusicOn)
+		{
+			Music_button.isOn = true;
+		}
+		else
+		{
+			Music_button.isOn = false;
+		}
 	}
 
 	public void goToControls ()
@@ -242,6 +264,7 @@ public class MenuFunctions : MonoBehaviour {
 		{
 			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 		}
+		errorMessage.gameObject.SetActive(false);
 		Account_Menu.SetActive(false);
 		Multiplayer_Menu.SetActive(false);
 		Settings_Menu.SetActive(false);
@@ -369,6 +392,11 @@ public class MenuFunctions : MonoBehaviour {
 			isLoggedIn = false;
 			Account_Menu.SetActive(false);
 			Main_Menu.SetActive(true);
+		}
+		if (AccountManagement.loggedIn)
+		{
+			CantMulti_Text.SetActive(false);
+			Multiplayer_Button.SetActive(true);
 		}
 	}
 
