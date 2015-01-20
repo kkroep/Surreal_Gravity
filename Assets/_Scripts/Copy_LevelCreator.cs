@@ -508,11 +508,11 @@ public class Copy_LevelCreator : MonoBehaviour {
 		int x;
 		int y;
 		int z;
-		int safecounter = 50;
+		int safecounter = 100;
 		do{
 			checkresult = 10;
 			x = Random.Range (spawnradius+1,(levelWidth-spawnradius-1));y = Random.Range (spawnradius+2,(levelHeight-spawnradius-1));z = Random.Range (spawnradius+1,(levelDepth-spawnradius-1));
-			if (grid[x,y-1,z] > 0){
+			if (grid[x,y-1,z] > 0 && grid[x,y,z] == 0){
 				checkresult = 0;
 				for(int i=x;i<=x+spawnradius;i++){
 					for(int j=y;i<=y+spawnradius;i++){
