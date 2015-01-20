@@ -160,7 +160,7 @@ public class Referee_script : MonoBehaviour {
 	{
 		for (int i = 0; i < playerCount; i++)
 		{
-			if (players[i].activeAccount.Number == target && networkView.isMine)
+			if (players[i].activeAccount.Number == target)
 			{
 				players[i].PlayGetHit();
 			}
@@ -172,7 +172,7 @@ public class Referee_script : MonoBehaviour {
 	{
 		for (int i = 0; i < playerCount; i++)
 		{
-			if (players[i].activeAccount.Number == target && networkView.isMine)
+			if (players[i].activeAccount.Number == target)
 			{
 				players[i].PlayDead();
 			}

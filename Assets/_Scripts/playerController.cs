@@ -246,12 +246,14 @@ public class playerController : MonoBehaviour
 
 	public void PlayGetHit ()
 	{
-		AudioSource.PlayClipAtPoint (getting_hit_sound, transform.position);
+		if (networkView.isMine)
+			AudioSource.PlayClipAtPoint (getting_hit_sound, transform.position);
 	}
 
 	public void PlayDead ()
 	{
-		AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
+		if (networkView.isMine)
+			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
 	}
 
 	public void PlayEndGameSound ()
