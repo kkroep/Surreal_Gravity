@@ -129,15 +129,15 @@ public class playerController : MonoBehaviour
 		if(!anim)
 			anim = GetComponent<Animator> ();
 
-		if (animatietype = "Stab") 
+		if (animatietype == "Stab") 
 		{
 			anim.SetBool ("Jump", true);
 		}
-		else if (animatietype = "Walk")
+		else if (animatietype == "Walk")
 		{
 			anim.SetBool ("Walk", true);
 		}
-		else if (animatietype = "Jump")
+		else if (animatietype == "Jump")
 		{
 			anim.SetBool ("Jump", true);
 		}
