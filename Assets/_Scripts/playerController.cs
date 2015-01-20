@@ -519,27 +519,22 @@ public class playerController : MonoBehaviour
 
 				rigidbody.velocity = New_Velocity;
 
-				if (Input.GetKeyDown ("space") && isAlive && !endGame && (JumpTime + 0.35f) < Time.time) {
+				if (Input.GetKeyDown("space")){
+				    if(isAlive && !endGame && (JumpTime + 0.35f) < Time.time) {
 					Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction * 0.6f, Sphere_collider_radius);
 					
-					for (int i=0; i<hitColliders.Length; i++) {
-						if (hitColliders [i].tag == "level") {
-							rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
-							AudioSource.PlayClipAtPoint (jump_sound, transform.position);
-							JumpTime = Time.time;
-							break;
+						for (int i=0; i<hitColliders.Length; i++) {
+							if (hitColliders [i].tag == "level") {
+								rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
+								AudioSource.PlayClipAtPoint (jump_sound, transform.position);
+								JumpTime = Time.time;
+								networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Jump");
+								break;
+							}
 						}
 					}
-					
-					//anim.SetBool ("Jump", true);
-					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
-				} else {
-					//anim.SetBool ("Jump", false);
-					//networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoJump");
-					//networkView.RPC("JumpAnim", RPCMode.All, BasicFunctions.activeAccount.Number, false);
-				}
-
+				} else
+					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoJump");
 			} else {
 				//DIT STUK IS DE SPELER ALS IE DOOD IS
 				rigidbody.velocity = new Vector3 (0f, 0f, 0f);
