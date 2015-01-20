@@ -12744,7 +12744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &915467082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12785,7 +12785,7 @@ MonoBehaviour:
     m_NormalColor: {r: .0588235296, g: .337254912, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
     m_PressedColor: {r: .247058824, g: 0, b: .501960814, a: 1}
-    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_DisabledColor: {r: .492647052, g: .492647052, b: .492647052, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .00999999978
   m_SpriteState:
@@ -12797,7 +12797,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 915467084}
   m_OnClick:
     m_PersistentCalls:
@@ -21823,7 +21823,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -23688,7 +23687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .117647059, g: 1, b: .729411781, a: 1}
+  m_Color: {r: .514705896, g: .514705896, b: .514705896, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
     m_FontSize: 22
@@ -23941,7 +23940,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2.74181366e-05, y: -27}
+  m_AnchoredPosition: {x: 0, y: 14}
   m_SizeDelta: {x: 325, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1708874264
@@ -23956,7 +23955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .117647059, g: 1, b: .729411781, a: 1}
+  m_Color: {r: .0588235296, g: 0, b: .729411781, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
     m_FontSize: 14
@@ -25637,7 +25636,6 @@ MonoBehaviour:
   Control_Menu: {fileID: 1635848125}
   Settings_Menu: {fileID: 1041065386}
   Credits_Menu: {fileID: 438838259}
-  Multiplayer_Button: {fileID: 915467081}
   CantMulti_Text: {fileID: 1708874262}
   currentUname: {fileID: 613234192}
   chooseModus: {fileID: 1103030531}
@@ -25655,6 +25653,8 @@ MonoBehaviour:
   reg1: {fileID: 1727162462}
   reg2: {fileID: 1311821294}
   pointsSlider: {fileID: 80298762}
+  Multiplayer_Button: {fileID: 915467083}
+  Multiplayer_Text: {fileID: 1691037106}
   isLoggedIn: 0
   AccManager: {fileID: 488400874}
   serverStuff: {fileID: 419670179}
