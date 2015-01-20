@@ -17,11 +17,6 @@ public class Referee_script : MonoBehaviour {
 
 	public ScoreScreen scoreScreen;
 
-	/* Color change
-	public float ColorChangeLength;
-	private float ColorChangeTime;
-	private bool ColorRed;
-	*/
 	private bool Allplayers_Spawned = false;
 	
 	private string encodedLives;
@@ -30,7 +25,8 @@ public class Referee_script : MonoBehaviour {
 	//public AudioClip less_live_sound;
 
 	///Initialization
-	void Start () {
+	void Start ()
+	{
 		scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		playerCount = BasicFunctions.amountPlayers;
 		players = new List<playerController>();
@@ -42,13 +38,8 @@ public class Referee_script : MonoBehaviour {
 		}
 	}
 
-	void Update(){
-
-		/* color change
-		if ((ColorRed)&&(Time.time > ColorChangeTime)){
-			hitColorRegular(GameObject x);
-		}
-		*/
+	void Update()
+	{
 		if (!Allplayers_Spawned)
 		{
 			Debug.Log("has not yet found all players");
@@ -113,7 +104,8 @@ public class Referee_script : MonoBehaviour {
 			{
 				networkView.RPC("updateLives", RPCMode.Others, 2, (target-1));
 			}
-			networkView.RPC("PlayGetHit", RPCMode.All, target);
+			networkView.RPC("PlayGetHit", RPCMode.All, target-1);
+			networkView.RPC("showRedPlayer", RPCMode.All, target-1);
 			lives [target-1]--;
 			encodedLives = lives[0].ToString();
 			for (int i = 1; i <playerCount; i++)
@@ -160,6 +152,7 @@ public class Referee_script : MonoBehaviour {
 			}
 		}
 	}
+
 	[RPC]
 	public void PlayGetHit (int target)
 	{
@@ -176,6 +169,12 @@ public class Referee_script : MonoBehaviour {
 		{
 			players[i].PlayDead(target);
 		}
+	}
+
+	[RPC]
+	public void showRedPlayer (int target)
+	{
+		players[target].hitColorRed();
 	}
 
 	[RPC]
@@ -224,7 +223,8 @@ public class Referee_script : MonoBehaviour {
 	/* Called when a player is killed
 	 */
 	[RPC]
-	public void KillPlayer(int target){
+	public void KillPlayer(int target)
+	{
 		players[target-1].isAlive = false;
 		players[target-1].time2death = respawnTimer;
 		players[target-1].setScreenTimer();
@@ -289,18 +289,4 @@ public class Referee_script : MonoBehaviour {
 			}
 		}
 	}
-	/* Color change
-	void hitColorRed(GameObject x){
-		//moet op de renderer van de circle van de player prefab worden toegepast
-		x.renderer.material.color = new Color (0.8f,0f,0f, 1.0f);
-		ColorRed = true;
-		ColorChangeTime = Time.time + ColorChangeLength;
-	}
-
-	void hitColorRegular(GameObject x){
-		//moet op de renderer van de circle van de player prefab worden toegepast
-		x.renderer.material.color = new Color (0.8f,0.8f,0.8f, 1.0f);
-		ColorRed = false;
-	}
-	*/
 }

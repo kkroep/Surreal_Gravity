@@ -32,6 +32,7 @@ public class NW_Spawning : MonoBehaviour {
 	private bool refreshing = false;
 	private bool playOffline;
 	private bool canSpawn;
+	private bool canInitLevel = true;
 	private int amountSpawnPoints = 10;
 	private Referee_script refScript;
 	private ScoreScreen scoreScreen;
@@ -52,26 +53,6 @@ public class NW_Spawning : MonoBehaviour {
 		spawnLocations = new List<Vector3> ();
 		respawnLocations = new List<Vector3> ();
 		canSpawn = true;
-		for (int i = 0; i < amountSpawnPoints; i++)
-		{
-			//int width = Random.Range(0, levelCreator.levelWidth);
-			//int height = Random.Range(0, levelCreator.levelHeight);
-			//int depth = Random.Range(0, levelCreator.levelDepth);
-			Vector3 spawn = levelCreator.getSpawn();//new Vector3 (width, height, depth);
-			if (Network.isServer)
-			{
-				networkView.RPC("addSpawnPoints", RPCMode.All, spawn);
-			}
-			else if (BasicFunctions.playOffline)
-			{
-				spawnLocations.Add (spawn);
-			}
-		}
-
-		if (BasicFunctions.playOffline)
-		{
-			spawnPlayer();
-		}
 	}
 	
 	public void spawnPlayer ()
@@ -332,6 +313,32 @@ public class NW_Spawning : MonoBehaviour {
 
 	void Update ()
 	{
+		if (levelCreator.gridinitialised && canInitLevel)
+		{
+			for (int i = 0; i < amountSpawnPoints; i++)
+			{
+				//int width = Random.Range(0, levelCreator.levelWidth);
+				//int height = Random.Range(0, levelCreator.levelHeight);
+				//int depth = Random.Range(0, levelCreator.levelDepth);
+				Vector3 spawn = levelCreator.getSpawn();//new Vector3 (width, height, depth);
+				if (Network.isServer)
+				{
+					networkView.RPC("addSpawnPoints", RPCMode.All, spawn);
+				}
+				else if (BasicFunctions.playOffline)
+				{
+					spawnLocations.Add (spawn);
+				}
+			}
+			
+			if (BasicFunctions.playOffline)
+			{
+				spawnPlayer();
+			}
+			canInitLevel = false;
+		}
+
+
 		if(!BasicFunctions.playOffline && canSpawn)
 		{
 			if (GameObject.FindGameObjectsWithTag("Player").Length == (BasicFunctions.activeAccount.Number-1))
