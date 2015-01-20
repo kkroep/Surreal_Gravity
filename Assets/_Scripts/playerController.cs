@@ -118,7 +118,8 @@ public class playerController : MonoBehaviour
 			spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			JumpTime = Time.time;
 
-			networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
+			if(!BasicFunctions.playOffline)
+				networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 			//anim.SetBool("Walk", true);
 		}
 	}
@@ -510,12 +511,14 @@ public class playerController : MonoBehaviour
 				New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
-				if ((Input.GetAxis ("Horizontal")==0 && Input.GetAxis ("Vertical")==0 )) {
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoWalk");
-				} else {
-					networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
-				}
+				if(!BasicFunctions.playOffline){
+					if (Input.GetAxis ("Horizontal")==0 && Input.GetAxis ("Vertical")==0) {
+						networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoWalk");
+					} else {
 
+						networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
+					}
+				}
 
 				rigidbody.velocity = New_Velocity;
 
@@ -528,7 +531,8 @@ public class playerController : MonoBehaviour
 								rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
 								AudioSource.PlayClipAtPoint (jump_sound, transform.position);
 								JumpTime = Time.time;
-								networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
+								if(!BasicFunctions.playOffline)
+									networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
 								break;
 							}
 						}
