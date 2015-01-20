@@ -87,6 +87,9 @@ public class playerController : MonoBehaviour
 	private float ColorChangeTime;
 	private bool ColorRed;
 
+	public AudioClip endfork_sound;
+	public AudioClip endrailgun_sound;
+
 	#endregion
 
 	void Start ()

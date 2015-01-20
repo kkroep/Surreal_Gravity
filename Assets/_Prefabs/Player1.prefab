@@ -835,6 +835,8 @@ MonoBehaviour:
   Leven1: {fileID: 0}
   Leven2: {fileID: 0}
   Leven3: {fileID: 0}
+  endfork_sound: {fileID: 8300000, guid: f21c2c2e260d9554cac58a2f71239592, type: 3}
+  endrailgun_sound: {fileID: 8300000, guid: 2507328258434a74e924f5d8e604f885, type: 3}
 --- !u!114 &11470430
 MonoBehaviour:
   m_ObjectHideFlags: 1

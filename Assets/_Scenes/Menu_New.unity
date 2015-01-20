@@ -21823,6 +21823,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -25653,8 +25654,8 @@ MonoBehaviour:
   reg1: {fileID: 1727162462}
   reg2: {fileID: 1311821294}
   pointsSlider: {fileID: 80298762}
-  Multiplayer_Button: {fileID: 915467083}
-  Multiplayer_Text: {fileID: 1691037106}
+  Multiplayer_Button: {fileID: 0}
+  Multiplayer_Text: {fileID: 0}
   isLoggedIn: 0
   AccManager: {fileID: 488400874}
   serverStuff: {fileID: 419670179}
