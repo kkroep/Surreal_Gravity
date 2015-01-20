@@ -200,7 +200,9 @@ public class ScoreScreen : MonoBehaviour
 			encodedScore += " " + scores[i];
 		}
 		if (Network.connections.Length >= 1)
-		networkView.RPC("UpdateInfo", RPCMode.All, encodedKills, encodedDeaths, encodedScore);
+		{
+			networkView.RPC("UpdateInfo", RPCMode.All, encodedKills, encodedDeaths, encodedScore);
+		}
 	}
 
 	public void EncodeStringsDB ()

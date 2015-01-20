@@ -10259,7 +10259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4ed0c043003a6479b4febd47378d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRobots: 3
+  numberRobots: 1
   robot: {fileID: 100000, guid: 42f56b3ec0a3c53489a5f44867a4288d, type: 2}
   robots: []
   level: {fileID: 0}
@@ -48164,10 +48164,14 @@ MonoBehaviour:
   playerRailPrefab: {fileID: 132752, guid: 9e792307528b9f1469390ce133c4be79, type: 2}
   refereePrefab: {fileID: 100000, guid: 01d6a9c8ed5aa0d4faedd7c2e55f9ab4, type: 2}
   serverQuitText: {fileID: 567585910}
-  Player1: {fileID: 2800000, guid: 76c5102b1c6f51d4faa2ac1f51d80204, type: 3}
-  Player2: {fileID: 2800000, guid: 4a48bb7404b73924b80342e751a66fca, type: 3}
-  Player3: {fileID: 2800000, guid: b346f0eeee248704d882ff3954f5e89f, type: 3}
-  Player4: {fileID: 2800000, guid: 2c01517657141e84c9ae50fbe3ce11bb, type: 3}
+  Player1F: {fileID: 2800000, guid: 76c5102b1c6f51d4faa2ac1f51d80204, type: 3}
+  Player2F: {fileID: 2800000, guid: 4a48bb7404b73924b80342e751a66fca, type: 3}
+  Player3F: {fileID: 2800000, guid: b346f0eeee248704d882ff3954f5e89f, type: 3}
+  Player4F: {fileID: 2800000, guid: 2c01517657141e84c9ae50fbe3ce11bb, type: 3}
+  Player1R: {fileID: 2800000, guid: f6908e2a11f5e3848aa58d965a8e72ff, type: 3}
+  Player2R: {fileID: 2800000, guid: 68a62b76356315943b3f5df67eebaf01, type: 3}
+  Player3R: {fileID: 2800000, guid: 1db741556dd2dc249b74edc0e98ce5b2, type: 3}
+  Player4R: {fileID: 2800000, guid: 5f0737576418bc24ba1c2ae5d60f744c, type: 3}
   levelCreator: {fileID: 1444913547}
   spawnLocations: []
   respawnLocations: []
