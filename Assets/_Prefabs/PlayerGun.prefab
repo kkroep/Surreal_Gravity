@@ -316,7 +316,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &132782
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -326,7 +326,7 @@ GameObject:
   - 23: {fileID: 2332806}
   - 65: {fileID: 6500000}
   - 148: {fileID: 14800000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11495864}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -624,10 +624,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.17473936, y: 2.51630688, z: -6.39393139}
+  m_LocalPosition: {x: 729.836975, y: 348.348755, z: -564.110168}
   m_LocalScale: {x: 1, y: .400000006, z: 1}
   m_Children:
-  - {fileID: 432786}
   - {fileID: 432754}
   - {fileID: 432756}
   - {fileID: 432758}
@@ -647,7 +646,7 @@ Transform:
   - {fileID: 432760}
   - {fileID: 432762}
   m_Father: {fileID: 432752}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &432756
 Transform:
   m_ObjectHideFlags: 1
@@ -659,7 +658,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 432752}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &432758
 Transform:
   m_ObjectHideFlags: 1
@@ -669,9 +668,10 @@ Transform:
   m_LocalRotation: {x: 4.21468513e-08, y: 3.16254649e-08, z: 7.89963295e-09, w: 1}
   m_LocalPosition: {x: -.0340000018, y: -.409999996, z: -.237000003}
   m_LocalScale: {x: 1, y: 2.49999928, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 432786}
   m_Father: {fileID: 432752}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &432760
 Transform:
   m_ObjectHideFlags: 1
@@ -848,11 +848,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132782}
-  m_LocalRotation: {x: -.057852976, y: .685963333, z: .715218723, w: .120704614}
-  m_LocalPosition: {x: .212272644, y: -.419999957, z: .100820541}
-  m_LocalScale: {x: .456282914, y: .27841267, z: .5}
+  m_LocalRotation: {x: -.0578529984, y: .685963333, z: .715218663, w: .120704636}
+  m_LocalPosition: {x: .246280268, y: -.00399926072, z: .337830096}
+  m_LocalScale: {x: .453900367, y: .278264612, z: .202876866}
   m_Children: []
-  m_Father: {fileID: 432752}
+  m_Father: {fileID: 432758}
   m_RootOrder: 0
 --- !u!4 &432788
 Transform:
@@ -867,7 +867,7 @@ Transform:
   - {fileID: 432790}
   - {fileID: 432792}
   m_Father: {fileID: 432752}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &432790
 Transform:
   m_ObjectHideFlags: 1
@@ -1386,21 +1386,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc410d2e10517a94dad3b4db2b7eb11a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  referee: {fileID: 0}
-  KillLaser_On: 0
-  stab_sound: {fileID: 8300000, guid: 5895641817d72d64d975d10b26c13240, type: 3}
-  stab_someone_sound: {fileID: 8300000, guid: 25dd15a7d4986ef4bb6ad5135f9fc314, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1432,8 +1417,6 @@ MonoBehaviour:
   Main_Camera: {fileID: 11432810}
   Gravity_Shift_Time: 15
   axes: 1
-  sensitivityX: 6
-  sensitivityY: 6
   minimumX: -360
   maximumX: 360
   minimumY: -90
@@ -1525,6 +1508,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36078abafc855a046a82aeb127e7d4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11495864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddcf4c0102d8708438adf593419fd2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!122 &12200000
@@ -1630,8 +1624,8 @@ NetworkView:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132782}
   m_Enabled: 1
-  m_StateSynchronization: 0
-  m_Observed: {fileID: 0}
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 11495864}
   m_ViewID:
     m_ID: 0
     m_Type: 0

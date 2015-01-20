@@ -67,6 +67,10 @@ public class Wapen : MonoBehaviour {
 				stabbing=0f;
 			}
 		}
+	}
+
+	void FixedUpdate()
+	{
 		if (!networkView.isMine)
 		{
 			transform.position = Vector3.Lerp (transform.position, TruePosition, Time.fixedDeltaTime * 5f);

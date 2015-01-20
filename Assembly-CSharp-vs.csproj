@@ -60,6 +60,7 @@
      <Compile Include="Assets\_Scripts\DestroyAnimation.cs" />
      <Compile Include="Assets\_Scripts\GameController_Script.cs" />
      <Compile Include="Assets\_Scripts\Gravity_trace_script.cs" />
+     <Compile Include="Assets\_Scripts\Gun.cs" />
      <Compile Include="Assets\_Scripts\Killbytime.cs" />
      <Compile Include="Assets\_Scripts\LevelCreator.cs" />
      <Compile Include="Assets\_Scripts\MainRobotSettings.cs" />
