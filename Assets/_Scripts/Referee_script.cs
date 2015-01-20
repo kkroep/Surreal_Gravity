@@ -200,8 +200,10 @@ public class Referee_script : MonoBehaviour {
 	[RPC]
 	public void updateLives (int L, int Number)
 	{
-		if (networkView.isMine)
+		for (int i = 0; i < playerCount; i++)//if (networkView.isMine)
 		{
+			if (players[i].activeAccount.Number == Number+1)
+			{
 			if (L == 1)
 			{
 				if (!players[Number].Leven1)
@@ -228,6 +230,7 @@ public class Referee_script : MonoBehaviour {
 					players[Number].Leven3 = GameObject.FindGameObjectWithTag("Leven3");
 				}
 				players[Number].Leven3.SetActive(false);
+			}
 			}
 		}
 	}

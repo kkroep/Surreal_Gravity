@@ -5,9 +5,12 @@ public class Wapen : MonoBehaviour {
 
 	public Referee_script referee;
 	public bool KillLaser_On = false;
+
 	private playerController playerScript;
 	private bool Can_Hit = false;
 	private Vector3 stab_vector = new Vector3 (0f, 0f, 0.25f);
+	private Vector3 TruePosition;
+	private Quaternion TrueRotation;
 	private float stabbing = 0f;
 
 	public AudioClip stab_sound; 
@@ -29,6 +32,18 @@ public class Wapen : MonoBehaviour {
 		//Debug.Log("S: " + playerScript.playerNumber);
 	}
 
+	void OnSerializeNetworkView (BitStream stream, NetworkMessageInfo info)
+	{
+		if (stream.isWriting) {
+			TruePosition = transform.position;
+			TrueRotation = transform.rotation;
+			stream.Serialize (ref TruePosition);
+			stream.Serialize (ref TrueRotation);
+		} else {
+			stream.Serialize (ref TruePosition);
+			stream.Serialize (ref TrueRotation);
+		}
+	}
 
 	void Update()
 	{
@@ -49,6 +64,11 @@ public class Wapen : MonoBehaviour {
 				Can_Hit = false;
 				stabbing=0f;
 			}
+		}
+		if (!networkView.isMine)
+		{
+			transform.position = Vector3.Lerp (transform.position, TruePosition, Time.fixedDeltaTime * 5f);
+			transform.rotation = Quaternion.Lerp (transform.rotation, TrueRotation, Time.fixedDeltaTime * 5f);
 		}
 	}
 
