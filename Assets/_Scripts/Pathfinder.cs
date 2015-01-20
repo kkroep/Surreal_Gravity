@@ -73,7 +73,7 @@ public class Pathfinder : MonoBehaviour{
 	void Update(){
 		if(Network.isServer && nodeGridInitialised){
 			if(findPath){
-				if(Mathf.RoundToInt(this.transform.position.x)<nodeGrid.Length && Mathf.RoundToInt(this.transform.position.y)<nodeGrid.Length && Mathf.RoundToInt(this.transform.position.z)<nodeGrid.Length){
+				if(Mathf.RoundToInt(this.transform.position.x)<nodeGrid.GetLength (0) && Mathf.RoundToInt(this.transform.position.y)<nodeGrid.GetLength (0) && Mathf.RoundToInt(this.transform.position.z)<nodeGrid.GetLength (0)){
 					if(reset){
 						startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
 						//Debug.Log (Mathf.RoundToInt(this.transform.position.x) + ", " + Mathf.RoundToInt(this.transform.position.y) + "," + Mathf.RoundToInt(this.transform.position.z));
