@@ -468,7 +468,14 @@ public class playerController : MonoBehaviour
 							spawnChosen = true;
 						}
 						if (time2death <= 0f) {
-							networkView.RPC ("PlayerRespawn", RPCMode.All, transform.position);
+							if (!BasicFunctions.playOffline)
+								networkView.RPC ("PlayerRespawn", RPCMode.All, transform.position);
+							else
+							{
+								AudioSource.PlayClipAtPoint (respawn_sound, transform.position);
+								isAlive = true;
+								gameObject.GetComponent<CapsuleCollider>().enabled = true;
+							}
 							spawnChosen = false;
 						}
 					}
@@ -530,14 +537,26 @@ public class playerController : MonoBehaviour
 
 	void OnCollisionStay (Collision collisionInfo)
 	{
-		if (networkView.isMine && !BasicFunctions.playOffline) {
+		if (networkView.isMine || BasicFunctions.playOffline) {
 			if (collisionInfo.gameObject.tag == "DeathBoundary") {
 				AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
-				if (!referee) {
-					referee = (GameObject.FindGameObjectsWithTag ("Referee_Tag")) [0].GetComponent<Referee_script> ();
+				if (!BasicFunctions.playOffline)
+				{
+					if (!referee) {
+						referee = (GameObject.FindGameObjectsWithTag ("Referee_Tag")) [0].GetComponent<Referee_script> ();
+					}
+					if (this.isAlive) {
+						referee.fragged (BasicFunctions.activeAccount.Number);
+					}
 				}
-				if (/*referee.players [BasicFunctions.activeAccount.Number - 1].*/this.isAlive) {
-					referee.fragged (BasicFunctions.activeAccount.Number);
+				else
+				{
+					if (this.isAlive)
+					{
+						this.isAlive = false;
+						time2death = 1.5f;
+						gameObject.GetComponent<CapsuleCollider>().enabled = false;
+					}
 				}
 			}
 		}

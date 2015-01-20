@@ -29,6 +29,7 @@ public class ScoreScreen : MonoBehaviour
 
 	public Text endScreen;
 	public Text maxPointsText;
+	public Text gameModeText;
 	
 	public List<int> kills;
 	public List<int> deaths;
@@ -94,6 +95,14 @@ public class ScoreScreen : MonoBehaviour
 			scoresT[i].text = "" + 0;
 		}
 
+		if (BasicFunctions.ForkModus)
+		{
+			gameModeText.text = "Fork-mode";
+		}
+		else
+		{
+			gameModeText.text = "Railgun-mode";
+		}
 		maxPointsText.text = "First to " + BasicFunctions.maxPoints;
 
 		for (int i=0; i<BasicFunctions.amountPlayers; i++) {
@@ -119,7 +128,7 @@ public class ScoreScreen : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (!showScreen)
+		if (!showScreen && !BasicFunctions.playOffline)
 		{
 			if(time2show > 0)
 			{
@@ -140,13 +149,6 @@ public class ScoreScreen : MonoBehaviour
 				}
 			}
 		}
-		/*if (winner != 0)
-		{
-			Debug.Log("W: " + winner);
-			endScreen.enabled = true;
-			endScreen.gameObject.SetActive(true);
-			endScreen.text = "Winner: " + BasicFunctions.activeAccounts[winner-1];
-		}*/
 	}
 
 	public void UpdateScore (int shooter, int target)
@@ -197,7 +199,7 @@ public class ScoreScreen : MonoBehaviour
 			encodedDeaths += " " + deaths[i];
 			encodedScore += " " + scores[i];
 		}
-
+		if (Network.connections.Length >= 1)
 		networkView.RPC("UpdateInfo", RPCMode.All, encodedKills, encodedDeaths, encodedScore);
 	}
 
