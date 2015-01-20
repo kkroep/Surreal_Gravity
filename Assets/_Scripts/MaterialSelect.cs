@@ -7,6 +7,7 @@ public class MaterialSelect : MonoBehaviour {
 	// Randomly select a material from the list when instantiated
 	void Start () {
 		renderer.material = MaterialList [(int) (Random.Range (0, MaterialList.Length-0.0001f))];
+		/*
 		if(this.name.Equals("BuildingBlock1(Clone)")){
 			renderer.material.color = Color.red;
 		}
@@ -16,6 +17,7 @@ public class MaterialSelect : MonoBehaviour {
 		else if(this.name.Equals ("BuildingBlock3(Clone)")){
 			renderer.material.color = Color.green;
 		}
+		*/
 
 	}
 }

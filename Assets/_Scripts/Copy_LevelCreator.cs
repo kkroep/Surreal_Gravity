@@ -511,8 +511,8 @@ public class Copy_LevelCreator : MonoBehaviour {
 		int safecounter = 50;
 		do{
 			checkresult = 10;
-			x = Random.Range (1,levelWidth-1);y = Random.Range (2,levelHeight-1);z = Random.Range (1,levelDepth-1);
-			if (grid[x,y-1,z] == 1){
+			x = Random.Range (spawnradius+1,(levelWidth-spawnradius-1));y = Random.Range (spawnradius+2,(levelHeight-spawnradius-1));z = Random.Range (spawnradius+1,(levelDepth-spawnradius-1));
+			if (grid[x,y-1,z] > 0){
 				checkresult = 0;
 				for(int i=x-spawnradius;i<=x+spawnradius;i++){
 					for(int j=y;i<=y+spawnradius;i++){
@@ -533,6 +533,8 @@ public class Copy_LevelCreator : MonoBehaviour {
 		if(safecounter == 0){
 			randomspawn = new Vector3(levelWidth,levelHeight,levelDepth);
 		}
+		Debug.Log (randomspawn.ToString ());
+
 		return randomspawn;
 	}
 
