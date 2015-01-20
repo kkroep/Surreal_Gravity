@@ -54,10 +54,10 @@ public class NW_Spawning : MonoBehaviour {
 		canSpawn = true;
 		for (int i = 0; i < amountSpawnPoints; i++)
 		{
-			int width = Random.Range(0, levelCreator.levelWidth);
-			int height = Random.Range(0, levelCreator.levelHeight);
-			int depth = Random.Range(0, levelCreator.levelDepth);
-			Vector3 spawn = new Vector3 (width, height, depth);
+			//int width = Random.Range(0, levelCreator.levelWidth);
+			//int height = Random.Range(0, levelCreator.levelHeight);
+			//int depth = Random.Range(0, levelCreator.levelDepth);
+			Vector3 spawn = levelCreator.getSpawn();//new Vector3 (width, height, depth);
 			if (Network.isServer)
 			{
 				networkView.RPC("addSpawnPoints", RPCMode.All, spawn);
