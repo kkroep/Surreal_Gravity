@@ -322,6 +322,7 @@ public class MenuFunctions : MonoBehaviour {
 	public void setMouseSensitivity (float points)
 	{
 		SensitivityText.text = "" + points;
+		BasicFunctions.Sensitivity = points;
 	}
 
 	public void setTabL ()
