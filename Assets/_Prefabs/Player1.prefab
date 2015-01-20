@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &170390
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -357,11 +357,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170390}
-  m_LocalRotation: {x: .0251125656, y: -.0459150374, z: -.99838376, w: .0221601706}
-  m_LocalPosition: {x: .0500000007, y: -.310000002, z: .0250000004}
-  m_LocalScale: {x: 1.00353312, y: 2.0008986, z: 1.01256263}
+  m_LocalRotation: {x: -.108389333, y: -.0005419355, z: .000523675175, w: .99410826}
+  m_LocalPosition: {x: .00300000003, y: -.187000006, z: .0560000017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 470394}
+  m_Father: {fileID: 470392}
   m_RootOrder: 0
 --- !u!4 &470392
 Transform:
@@ -370,11 +370,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170392}
   m_LocalRotation: {x: .00099457067, y: -9.70562469e-05, z: -.00250462838, w: .999996364}
-  m_LocalPosition: {x: -.0529999994, y: -.310000002, z: .0979999974}
+  m_LocalPosition: {x: -.0529999994, y: -.532000005, z: .0979999974}
   m_LocalScale: {x: 1, y: 2.01612902, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 470390}
   m_Father: {fileID: 470394}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &470394
 Transform:
   m_ObjectHideFlags: 1
@@ -382,10 +383,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170394}
   m_LocalRotation: {x: 0, y: -.00231611985, z: 0, w: .999997318}
-  m_LocalPosition: {x: 33.9760017, y: -29.2099991, z: -56.7190018}
+  m_LocalPosition: {x: 738.268005, y: 496.794006, z: -661.924988}
   m_LocalScale: {x: 1, y: .5, z: 1}
   m_Children:
-  - {fileID: 470390}
   - {fileID: 470392}
   - {fileID: 470396}
   - {fileID: 470398}
@@ -404,7 +404,7 @@ Transform:
   - {fileID: 470400}
   - {fileID: 470402}
   m_Father: {fileID: 470394}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &470398
 Transform:
   m_ObjectHideFlags: 1
@@ -416,7 +416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 470394}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &470400
 Transform:
   m_ObjectHideFlags: 1
@@ -808,7 +808,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -90
   maximumY: 90
-  Wounded_Panel: {fileID: 151574, guid: 51c2b7d6eeb2bad4c8ff3a8b61f62c2a, type: 2}
+  Wounded_Panel: {fileID: 0}
   Gravity_Strength: 5
   Initial_Gravity_Direction: {x: 0, y: -1, z: 0}
   Gravity_Direction: {x: 0, y: 0, z: 0}

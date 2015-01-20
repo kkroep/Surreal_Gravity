@@ -73,9 +73,10 @@ public class Camera_Control : MonoBehaviour {
 		}
 		else
 		{
-			//GetComponent<Camera_Control>().enabled = false;
+			GetComponent<Camera_Control>().enabled = false;
 			GetComponent<AudioListener>().enabled = false;
-			playercam.SetActive(false);
+			GetComponent<Camera>().enabled = false;
+			//playercam.SetActive(false);
 		}
 	}
 	

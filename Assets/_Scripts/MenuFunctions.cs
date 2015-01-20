@@ -63,6 +63,7 @@ public class MenuFunctions : MonoBehaviour {
 		}
 		if (AccountManagement.loggedIn)
 		{
+			BasicFunctions.ForkModus = true;
 			Main_Menu.SetActive(false);
 			Multiplayer_Menu.SetActive(true);
 			NW_Server.showServers = true;
