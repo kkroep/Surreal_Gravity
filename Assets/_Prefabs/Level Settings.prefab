@@ -61,7 +61,7 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
-  smoothen: 10
+  smoothen: 20
   blocktypes: 3
   gridinitialised: 0
   spawnradius: 2

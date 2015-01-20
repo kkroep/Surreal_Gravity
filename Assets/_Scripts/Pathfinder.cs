@@ -71,7 +71,7 @@ public class Pathfinder : MonoBehaviour{
 	}
 
 	void Update(){
-		if(Network.isServer){
+		if(Network.isServer && nodeGridInitialised){
 			if(findPath){
 				if(reset){
 					startNode = nodeGrid[Mathf.RoundToInt(this.transform.position.x),Mathf.RoundToInt(this.transform.position.y),Mathf.RoundToInt(this.transform.position.z)];
