@@ -84,9 +84,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaterialList:
-  - {fileID: 2100000, guid: 70156d6d2b4d7da49b8ad05375ef2bf3, type: 2}
-  - {fileID: 2100000, guid: 70156d6d2b4d7da49b8ad05375ef2bf3, type: 2}
-  - {fileID: 2100000, guid: 70156d6d2b4d7da49b8ad05375ef2bf3, type: 2}
+  - {fileID: 2100000, guid: b32f696da75f378418ebbf39e592cc52, type: 2}
+  - {fileID: 2100000, guid: b32f696da75f378418ebbf39e592cc52, type: 2}
+  - {fileID: 2100000, guid: b32f696da75f378418ebbf39e592cc52, type: 2}
   - {fileID: 2100000, guid: 9daf01b8af4ded148b838f9054645f7a, type: 2}
   - {fileID: 2100000, guid: 9daf01b8af4ded148b838f9054645f7a, type: 2}
   - {fileID: 2100000, guid: 9daf01b8af4ded148b838f9054645f7a, type: 2}
