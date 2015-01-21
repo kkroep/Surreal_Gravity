@@ -132,12 +132,12 @@ app.get("/UnityGlobalInfo", function (req,res){
 
   var totalGamesQuery = "SELECT * FROM `totalGames`;";
   connection.query(totalGamesQuery,function(err,rows,fields){
-    if(err) throw err;
+    if(err) res.send("error");
     else totalGames = rows[0]["COUNT(*)"];
     sendstring += totalGames + ",";
     var mostPlayedQuery = "SELECT PlayerNaam, Total FROM `totalPlayerGames` ORDER BY Total DESC;";
     connection.query(mostPlayedQuery,function (err,rows,fields){
-      if(err) throw err;
+      if(err) res.send("error");
       else{ 
         mostPlayedName = rows[0]["PlayerNaam"];
         mostPlayedNumber = rows[0]["Total"];
@@ -146,7 +146,7 @@ app.get("/UnityGlobalInfo", function (req,res){
 
       var mostWinsQuery = "SELECT WinnaarNaam, Total from `totalPlayerWins` ORDER BY Total DESC;";
       connection.query(mostWinsQuery,function (err,rows,fields){
-        if(err) throw err;
+        if(err) res.send("error");
         else{ 
           mostWinsName = rows[0]["WinnaarNaam"];
           mostWinsNumber = rows[0]["Total"];
@@ -169,13 +169,16 @@ app.get("/UnityAccountInfo",function (req,res){
 
   var totalGamesPlayerQuery = "SELECT Total from `totalPlayerGames` WHERE PlayerNaam='"+playerName+"';";
   connection.query(totalGamesPlayerQuery,function (err,rows,fields){
-    if(err) throw err;
-    else totalGamesPlayer = rows[0]["Total"];
+    if(err) res.send("no games played");
+    if(rows.length>0){
+      console.log(rows.length);
+
+    totalGamesPlayer = rows[0]["Total"];
     sendstring += totalGamesPlayer + ",";
 
     var totalWinsPlayerQuery = "SELECT Total from `totalPlayerWins` WHERE WinnaarNaam='"+playerName+"';";
     connection.query(totalWinsPlayerQuery,function (err,rows,fields){
-      if(err) throw err;
+      if(err) res.send("no games played");
       else totalWinsPlayer = rows[0]["Total"];
       if(totalGamesPlayer>totalWinsPlayer){
         WinToLose = totalWinsPlayer/(totalGamesPlayer-totalWinsPlayer);
@@ -186,6 +189,10 @@ app.get("/UnityAccountInfo",function (req,res){
       sendstring += totalWinsPlayer + "," + WinToLose;
       res.send(sendstring);
     });
+    }
+    else{
+      res.send("0,0,0")
+    }
   });
 
 });
