@@ -11,6 +11,7 @@ public class BasicFunctions : MonoBehaviour {
 	public static bool MusicOn = true;
 	public static int amountPlayers;
 	public static int maxPoints = 10;
+	public static int maxRobots = 3;
 	public static float Sensitivity = 10f;
 	public static Account activeAccount;
 	public static List<string> activeAccounts = new List<string>();

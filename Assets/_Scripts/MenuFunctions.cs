@@ -26,13 +26,16 @@ public class MenuFunctions : MonoBehaviour {
 	public Text chooseModusLabelServer;
 	public Text chooseModusLabelClient;
 	public Text chooseLoginLabel;
+	public Text robotsText;
 	public Text pointsText;
 	public Text SensitivityText;
+	public Text clientRobotsText;
 	public Text clientPointsText;
 	public Text errorMessage;
 	public InputField login;
 	public InputField reg1;
 	public InputField reg2;
+	public Slider robotsSlider;
 	public Slider pointsSlider;
 	public Slider sensitivitySlider;
 	public Button Multiplayer_Button;
@@ -299,6 +302,13 @@ public class MenuFunctions : MonoBehaviour {
 		AccManager.loginAccount();
 	}
 
+	public void setRobots (float robots)
+	{
+		robotsText.text = "" + robots;
+		networkView.RPC("SetMaxRobots", RPCMode.AllBuffered, (int) robots);
+		networkView.RPC("SetRobotsText", RPCMode.OthersBuffered, (int) robots);
+	}
+
 	public void setPoints (float points)
 	{
 		pointsText.text = "" + points;
@@ -426,9 +436,21 @@ public class MenuFunctions : MonoBehaviour {
 	}
 
 	[RPC]
+	public void SetMaxRobots (int robots)
+	{
+		BasicFunctions.maxRobots = robots;
+	}
+
+	[RPC]
 	public void SetMaxPoints (int points)
 	{
 		BasicFunctions.maxPoints = points;
+	}
+
+	[RPC]
+	public void SetRobotsText (int robots)
+	{
+		clientRobotsText.text = "" + robots;
 	}
 
 	[RPC]
@@ -438,16 +460,24 @@ public class MenuFunctions : MonoBehaviour {
 	}
 
 	IEnumerator WaitForGlobalStats(WWW www){
-		yield return www;
-
-		Debug.Log (www.text);
-
+		if (www.error == null)
+		{
+			yield return www;
+			string[] global_data = www.text.Split(',');
+			TotalPlayed.text = global_data[0];
+			MostPlayed.text = global_data[1] + " (" + global_data[2] + ")";
+			MostWon.text = global_data[3] + " (" + global_data[4] + ")";
+		}
 	}
 
 	IEnumerator WaitForAccountStats(WWW www){
-		yield return www;
-
-		Debug.Log (www.text);
-
+		if (www.error == null)
+		{
+			yield return www;
+			string[] local_data = www.text.Split(',');
+			AmountPlayed.text = local_data[0];
+			AmountWon.text = local_data[1];
+			WLRatio.text = local_data[2].Substring(0, 5);
+		}
 	}
 }

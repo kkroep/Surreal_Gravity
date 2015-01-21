@@ -12,25 +12,26 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.109 seconds
+- Completed reload, in  0.063 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\System.Core.dll (this message is harmless)
+WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_NABETA_Data\Managed\System.dll (this message is harmless)
 Sens: 10
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 192.168.56.1:23438
+Received pong from 145.94.198.144:4261
  
 (Filename:  Line: 836)
 
-Received pong from 145.94.198.144:23438
+Received pong from 192.168.56.1:4261
  
 (Filename:  Line: 836)
 
-0: Roberto
+0: Test
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -38,7 +39,7 @@ Received pong from 145.94.198.144:23438
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-0: Roberto
+0: Test
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -46,7 +47,7 @@ Received pong from 145.94.198.144:23438
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-1: AB
+1: Test[2]
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -54,12 +55,11 @@ Received pong from 145.94.198.144:23438
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 3.849152 ms
+UnloadTime: 3.239160 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3992.
-Total: 2.469418 ms (FindLiveObjects: 0.129851 ms CreateObjectMapping: 0.028558 ms MarkObjects: 0.447565 ms  DeleteObjects: 0.739843 ms)
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3998.
+Total: 2.584545 ms (FindLiveObjects: 0.132975 ms CreateObjectMapping: 0.029004 ms MarkObjects: 0.410974 ms  DeleteObjects: 0.751892 ms)
 
 has not yet found all players
  
@@ -113,27 +113,19 @@ has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Shooter: 1, Target: 1
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Shooter: 2, Target: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Shooter: 3, Target: 3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+(Filename:  Line: 745)
 
 ISGEENSERVER
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-UnloadTime: 9.892402 ms
+UnloadTime: 10.145858 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 411 unused Assets to reduce memory usage. Loaded Objects now: 1481.
-Total: 5.902241 ms (FindLiveObjects: 0.056224 ms CreateObjectMapping: 0.025434 ms MarkObjects: 0.525655 ms  DeleteObjects: 4.041029 ms)
+Unloading 342 unused Assets to reduce memory usage. Loaded Objects now: 1681.
+Total: 5.009787 ms (FindLiveObjects: 0.061133 ms CreateObjectMapping: 0.040606 ms MarkObjects: 0.596158 ms  DeleteObjects: 3.156608 ms)
 
 Sens: 10
  

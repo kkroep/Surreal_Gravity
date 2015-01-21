@@ -87,6 +87,7 @@ public class playerController : MonoBehaviour
 	private float ColorChangeTime;
 	private bool ColorRed;
 	private bool isWalking = true;
+	public Gun gunscript;
 
 	public AudioClip endfork_sound;
 	public AudioClip endrailgun_sound;

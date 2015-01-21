@@ -37,6 +37,7 @@ public class ScoreScreen : MonoBehaviour
 	public Color p2;
 	public Color p3;
 	public Color p4;
+	public Color DB;
 	
 	public List<int> kills;
 	public List<int> deaths;
@@ -159,6 +160,7 @@ public class ScoreScreen : MonoBehaviour
 				{
 					if (shooter == 0)
 					{
+						shotByScreen.color = DB;
 						shotByScreen.text = "Killed by DeathBoundary";
 					}
 					else

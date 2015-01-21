@@ -21,9 +21,6 @@ public class Referee_script : MonoBehaviour {
 	
 	private string encodedLives;
 
-	//public AudioClip score_up_sound;
-	//public AudioClip less_live_sound;
-
 	///Initialization
 	void Start ()
 	{
@@ -124,6 +121,7 @@ public class Referee_script : MonoBehaviour {
 		{
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
+		lives [target-1] = Lives_count;
 		networkView.RPC("KillPlayer", RPCMode.All, 0, target);
 		scoreScreen.UpdateScoreDB (target);
 	}
