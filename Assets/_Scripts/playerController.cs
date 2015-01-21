@@ -270,13 +270,13 @@ public class playerController : MonoBehaviour
 	public void PlayDead ()
 	{
 		if (networkView.isMine)
-			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position, 2.0f);
+			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position, 4.0f);
 	}
 
 	public void PlayShotDead ()
 	{
 		if (networkView.isMine)
-			AudioSource.PlayClipAtPoint (shot_death_sound, transform.position, 2.0f);
+			AudioSource.PlayClipAtPoint (shot_death_sound, transform.position, 3.0f);
 	}
 
 	public void PlayEndGameSound ()
