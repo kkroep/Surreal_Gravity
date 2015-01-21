@@ -147,18 +147,14 @@ app.get("/GameRegister",function(req,res){
 */
 });
 
-app.get("/UnityAccountInfo", function (req,res){
+app.get("/UnityGlobalInfo", function (req,res){
 
-  var query = url.parse(req.url,true).query;
-  var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
+
   var totalGames;
   var mostPlayedName;
   var mostPlayedNumber;
   var mostWinsName;
   var mostWinsNumber;
-  var totalGamesPlayer;
-  var totalWinsPlayer;
-  var WinToLose;
   var sendstring = "";
 
   var totalGamesQuery = "SELECT * FROM `totalGames`;";
@@ -181,29 +177,40 @@ app.get("/UnityAccountInfo", function (req,res){
         else{ 
           mostWinsName = rows[0]["WinnaarNaam"];
           mostWinsNumber = rows[0]["Total"];
-          sendstring += mostWinsName + "," + mostWinsNumber +",";
+          sendstring += mostWinsName + "," + mostWinsNumber;
+          res.send(sendstring);
           
         }
-
-        var totalGamesPlayerQuery = "SELECT Total from `totalPlayerGames` WHERE PlayerNaam='"+playerName+"';";
-        connection.query(totalGamesPlayerQuery,function (err,rows,fields){
-          if(err) throw err;
-          else totalGamesPlayer = rows[0]["Total"];
-          sendstring += totalGamesPlayer + ",";
-
-          var totalWinsPlayerQuery = "SELECT Total from `totalPlayerWins` WHERE WinnaarNaam='"+playerName+"';";
-          connection.query(totalWinsPlayerQuery,function (err,rows,fields){
-            if(err) throw err;
-            else totalWinsPlayer = rows[0]["Total"];
-            WinToLose = totalWinsPlayer/(totalGamesPlayer-totalWinsPlayer);
-            sendstring += totalWinsPlayer + "," + WinToLose;
-            res.send(sendstring);
-          });
-        });
       });
     });
   });
 
+
+});
+
+app.get("/UnityAccountInfo",function (req,res){
+  var query = url.parse(req.url,true).query;  
+  var totalGamesPlayer;
+  var totalWinsPlayer;
+  var WinToLose;
+  var sendstring = "";
+  var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
+
+  var totalGamesPlayerQuery = "SELECT Total from `totalPlayerGames` WHERE PlayerNaam='"+playerName+"';";
+  connection.query(totalGamesPlayerQuery,function (err,rows,fields){
+    if(err) throw err;
+    else totalGamesPlayer = rows[0]["Total"];
+    sendstring += totalGamesPlayer + ",";
+
+    var totalWinsPlayerQuery = "SELECT Total from `totalPlayerWins` WHERE WinnaarNaam='"+playerName+"';";
+    connection.query(totalWinsPlayerQuery,function (err,rows,fields){
+      if(err) throw err;
+      else totalWinsPlayer = rows[0]["Total"];
+      WinToLose = totalWinsPlayer/(totalGamesPlayer-totalWinsPlayer);
+      sendstring += totalWinsPlayer + "," + WinToLose;
+      res.send(sendstring);
+    });
+  });
 
 });
 

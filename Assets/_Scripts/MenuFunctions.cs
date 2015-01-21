@@ -129,9 +129,22 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToStats ()
 	{
+
+
+		string urlGlobal = "http://drproject.twi.tudelft.nl:8082/UnityGlobalInfo";
+		WWW www = new WWW (urlGlobal);
+		StartCoroutine (WaitForGlobalStats (www));
+
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		if (BasicFunctions.activeAccount != null){
+
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		if (BasicFunctions.activeAccount != null)
 			statsUname.text = BasicFunctions.activeAccount.Name + ":";
+			string urlAccount = "http://drproject.twi.tudelft.nl:8082/UnityAccountInfo?playerName="+BasicFunctions.activeAccount.Name;
+			WWW wwwAccount = new WWW(urlAccount);
+			StartCoroutine(WaitForAccountStats(wwwAccount));		
+		}
 		Main_Menu.SetActive(false);
 		Stats_Menu.SetActive(true);
 	}
@@ -422,5 +435,19 @@ public class MenuFunctions : MonoBehaviour {
 	public void SetPointsText (int points)
 	{
 		clientPointsText.text = "" + points;
+	}
+
+	IEnumerator WaitForGlobalStats(WWW www){
+		yield return www;
+
+		Debug.Log (www.text);
+
+	}
+
+	IEnumerator WaitForAccountStats(WWW www){
+		yield return www;
+
+		Debug.Log (www.text);
+
 	}
 }
