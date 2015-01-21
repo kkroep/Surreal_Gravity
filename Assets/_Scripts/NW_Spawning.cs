@@ -80,15 +80,6 @@ public class NW_Spawning : MonoBehaviour {
 			networkView.RPC("setNumbers", RPCMode.All, playerN.networkView.viewID, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Word, BasicFunctions.activeAccount.Number);
 		}
 	}
-
-	/*public void showLives ()
-	{
-		if (!refScript)
-		{
-			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
-		}
-		networkView.RPC("showLivesRPC", RPCMode.All);
-	}*/
 	/* Leave game gracefully as client
 	 */ 
 	public void closeClientIngame ()
@@ -218,19 +209,6 @@ public class NW_Spawning : MonoBehaviour {
 			refScript.EndGameQuit();
 		}
 	}
-	/*[RPC]
-	public void showLivesRPC ()
-	{
-		if (!refScript)
-		{
-			refScript = (GameObject.FindGameObjectsWithTag("Referee_Tag"))[0].GetComponent<Referee_script>();
-		}
-		debugLives.text = "Lives \n";
-		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
-		{
-			debugLives.text = debugLives.text + BasicFunctions.activeAccounts[i] + ": " + refScript.lives[i] + "\n";
-		}
-	}*/
 
 	[RPC]
 	void clearAccountsInGame ()
@@ -316,9 +294,6 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			for (int i = 0; i < amountSpawnPoints; i++)
 			{
-				//int width = Random.Range(0, levelCreator.levelWidth);
-				//int height = Random.Range(0, levelCreator.levelHeight);
-				//int depth = Random.Range(0, levelCreator.levelDepth);
 				Vector3 spawn = levelCreator.getSpawn();//new Vector3 (width, height, depth);
 				if (Network.isServer)
 				{

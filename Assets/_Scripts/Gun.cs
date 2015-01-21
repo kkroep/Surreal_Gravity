@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour {
 
 	void Start ()
 	{
+		if (BasicFunctions.playOffline)
+			this.enabled = false;
 		start_local_pos = transform.localPosition;
 	}
 

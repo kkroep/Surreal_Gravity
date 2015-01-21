@@ -511,7 +511,7 @@ public class playerController : MonoBehaviour
 				New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
-				if(!BasicFunctions.playOffline){
+				/*if(!BasicFunctions.playOffline){
 					if (Input.GetAxis ("Horizontal")==0 && Input.GetAxis ("Vertical")==0) {
 						if (BasicFunctions.amountPlayers > 1)
 							networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "NoWalk");
@@ -519,7 +519,7 @@ public class playerController : MonoBehaviour
 						if (BasicFunctions.amountPlayers > 1)
 							networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
 					}
-				}
+				}*/
 
 				rigidbody.velocity = New_Velocity;
 
@@ -532,11 +532,11 @@ public class playerController : MonoBehaviour
 								rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
 								AudioSource.PlayClipAtPoint (jump_sound, transform.position);
 								JumpTime = Time.time;
-								if(!BasicFunctions.playOffline)
+								/*if(!BasicFunctions.playOffline)
 								{
 									if (BasicFunctions.amountPlayers > 1)
 										networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
-								}
+								}*/
 								break;
 							}
 						}
