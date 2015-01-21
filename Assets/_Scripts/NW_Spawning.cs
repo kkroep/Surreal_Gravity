@@ -208,7 +208,6 @@ public class NW_Spawning : MonoBehaviour {
 	public void quitGame (bool gameEnded)
 	{
 		serverHasQuit = true;
-		Debug.Log("TROLL");
 		if (!gameEnded)
 		{
 			serverQuitText.SetActive(true);

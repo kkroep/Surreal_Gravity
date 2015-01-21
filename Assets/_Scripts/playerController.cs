@@ -433,7 +433,7 @@ public class playerController : MonoBehaviour
 					spawnScript.closeServer (true);
 				}
 			}
-			else if (Network.isClient && networkView.isMine)
+			else if (Network.isClient || networkView.isMine)
 			{
 				Debug.Log("ISGEENSERVER");
 				if (spawnScript.serverHasQuit)
