@@ -232,17 +232,17 @@ public class ScoreScreen : MonoBehaviour
 		networkView.RPC("UpdateInfo", RPCMode.All, enc_kills, enc_deaths, enc_score);
 	}
 
-	public void deleteEntry ()
+	public void changeEntry (int Number)
 	{
-		for (int j = 0; j < playersT.Count; j++)
-		{
-			playersT[j].gameObject.SetActive(false);
-		}
-		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
+		playersT[Number-1].color = Color.black;
+		killsT[Number-1].color = Color.black;
+		deathsT[Number-1].color = Color.black;
+		scoresT[Number-1].color = Color.black;
+		/*for (int i = 0; i < BasicFunctions.amountPlayers; i++)
 		{
 			playersT[i].gameObject.SetActive(true);
 			playersT[i].text = BasicFunctions.activeAccounts[i];
-		}
+		}*/
 		EncodeStrings();
 	}
 

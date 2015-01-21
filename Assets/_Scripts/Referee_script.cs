@@ -282,11 +282,12 @@ public class Referee_script : MonoBehaviour {
 			players[i].endGame = true;
 			for (int j = 0; j < playerCount; j++)
 			{
-				//players [j].gameObject.GetComponent<MeshRenderer> ().enabled = false;
-				players [j].gameObject.GetComponent<CapsuleCollider> ().enabled = false;
-				players [j].setEndScreenTimer(winner);
-				players [j].PlayEndGameSound();
-
+				if (players[j])
+				{
+					players [j].gameObject.GetComponent<CapsuleCollider> ().enabled = false;
+					players [j].setEndScreenTimer(winner);
+					players [j].PlayEndGameSound();
+				}
 			}
 		}
 	}

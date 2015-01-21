@@ -10,7 +10,9 @@ public class Gun : MonoBehaviour {
 	void Start ()
 	{
 		if (BasicFunctions.playOffline)
+		{
 			this.enabled = false;
+		}
 		start_local_pos = transform.localPosition;
 	}
 
@@ -31,7 +33,7 @@ public class Gun : MonoBehaviour {
 	{
 		if (!networkView.isMine)
 		{
-			transform.position = Vector3.Lerp (transform.position, TruePosition, Time.fixedDeltaTime * 5f);
+			//transform.position = Vector3.Lerp (transform.position, TruePosition, Time.fixedDeltaTime * 5f);
 			transform.rotation = Quaternion.Lerp (transform.rotation, TrueRotation, Time.fixedDeltaTime * 5f);
 		}
 	}
