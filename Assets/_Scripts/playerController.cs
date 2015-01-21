@@ -406,7 +406,10 @@ public class playerController : MonoBehaviour
 				spawnScript = GameObject.FindGameObjectWithTag ("SpawnTag").GetComponent<NW_Spawning> ();
 			}
 
-			if (Network.isServer && networkView.isMine)
+			if(BasicFunctions.playOffline){
+				Application.LoadLevel ("Menu_New");
+			}
+			else if (Network.isServer && networkView.isMine)
 			{
 				Debug.Log("ISSERVER");
 				dontDestroy = true;
@@ -453,10 +456,6 @@ public class playerController : MonoBehaviour
 				{
 					spawnScript.closeClient (false, false);
 				}
-			}
-			else if (BasicFunctions.playOffline)
-			{
-				Application.LoadLevel ("Menu_New");
 			}
 		}
 
