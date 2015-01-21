@@ -27,8 +27,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.1672678, y: 2.89980054, z: 14.7640057}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 15.9175196, y: 5.3633604, z: 9.3527174}
   m_LocalScale: {x: .150000006, y: .150000006, z: .150000006}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,7 +45,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 7bf8017b52335eb4caa71fef53705b99, type: 2}
+  - {fileID: 2100000, guid: d3414174811cb644b97a3ca71bc6dc0e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -59,7 +59,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 2b4e350e45d628c43868a6c88e9b91d6, type: 3}
+  m_Mesh: {fileID: 4300002, guid: fcdce705feaae7d4c843c43c03aee883, type: 3}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -85,8 +85,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotSpeed: 5
-  starting: 0
+  reset: 0
   arrived: 0
+  moving: 0
+  rotating: 0
+  rotatingcompleted: 1
+  movinginitiate: 0
+  rotatinginit: 0
+  destroyTarget: 0
+  vectorPath: []
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,11 +107,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foundTarget: 0
   baseMovementCost: 10
-  level: {fileID: 11400000, guid: 64da3590bb8efa642a057889a1905172, type: 2}
+  level: {fileID: 0}
   tracedBack: 0
   robotmovement: {fileID: 0}
   findPath: 0
   reset: 1
+  nodeGridInitialised: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
