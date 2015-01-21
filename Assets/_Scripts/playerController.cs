@@ -459,6 +459,12 @@ public class playerController : MonoBehaviour
 				Application.LoadLevel ("Menu_New");
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.C))
+		{
+			Screen.lockCursor = true;
+			Screen.showCursor = false;
+		}
 	}
 
 	void FixedUpdate ()

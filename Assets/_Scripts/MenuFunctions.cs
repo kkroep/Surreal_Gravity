@@ -68,6 +68,9 @@ public class MenuFunctions : MonoBehaviour {
 			BasicFunctions.ForkModus = true;
 		}
 
+		Screen.showCursor = true;
+		Screen.lockCursor = false;
+
 		using (StreamReader sread = new StreamReader("Settings.txt"))
 		{
 			sread.ReadLine();
