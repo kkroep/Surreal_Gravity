@@ -236,13 +236,13 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			refScript = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
 		}
-		scoreScreen.kills.RemoveAt((Number-1));
+		/*scoreScreen.kills.RemoveAt((Number-1));
 		scoreScreen.deaths.RemoveAt((Number-1));
 		scoreScreen.scores.RemoveAt((Number-1));
 		refScript.lives.RemoveAt((Number-1));
 		refScript.players.RemoveAt((Number-1));
-		refScript.playerCount -= 1;
-		scoreScreen.deleteEntry();
+		refScript.playerCount -= 1;*/
+		//scoreScreen.deleteEntry();
 		if (BasicFunctions.amountPlayers > 2)
 			networkView.RPC("deleteUNClientsInGame", RPCMode.Others, UN, Number, BasicFunctions.amountPlayers);
 	}
@@ -261,13 +261,13 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			refScript = GameObject.FindGameObjectWithTag("Referee_Tag").GetComponent<Referee_script>();
 		}
-		scoreScreen.kills.RemoveAt((Number-1));
+		/*scoreScreen.kills.RemoveAt((Number-1));
 		scoreScreen.deaths.RemoveAt((Number-1));
 		scoreScreen.scores.RemoveAt((Number-1));
 		refScript.lives.RemoveAt((Number-1));
 		refScript.players.RemoveAt((Number-1));
 		refScript.playerCount -= 1;
-		scoreScreen.deleteEntry();
+		scoreScreen.deleteEntry();*/
 	}
 	/* Set the amount of players currently connected
 	 */
