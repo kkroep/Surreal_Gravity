@@ -3,6 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RobotMovement : MonoBehaviour {
+	public Texture frame1;
+	public Texture frame2;
+	public Texture frame3;
+	public Texture frame4;
+	public Texture frame5;
+	public Texture frame6;
+
+	public float frames_per_image = 3;
+	private float frame_counter;
+	private float current_frame = 1;
+
+
+
 	private Pathfinder pathfind;
 	private RobotScript robotscript;
 
@@ -35,6 +48,7 @@ public class RobotMovement : MonoBehaviour {
 
 
 	void Start(){
+		frame_counter = frames_per_image;
 		reset = false;
 		pathfind = this.GetComponent<Pathfinder>();
 		robotscript = this.GetComponent<RobotScript>();
@@ -46,6 +60,7 @@ public class RobotMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+
 		if(Network.isServer){
 			if(reset){
 				path = pathfind.path;
@@ -147,6 +162,33 @@ public class RobotMovement : MonoBehaviour {
 
 
 		if(destroyTarget == true){
+
+			if (frame_counter == 0) {
+				frame_counter = frames_per_image;
+				if (current_frame == 1) {
+					transform.GetChild(0).transform.renderer.material.mainTexture = frame1;
+					current_frame = 2;
+				} else if (current_frame == 2) {
+					transform.GetChild(0).transform.renderer.material.mainTexture = frame2;
+					current_frame = 3;
+				} else if (current_frame == 3) {
+					transform.GetChild(0).transform.renderer.material.mainTexture = frame3;
+					current_frame = 4;
+				} else if (current_frame == 4) {
+					transform.GetChild(0).transform.renderer.material.mainTexture = frame4;
+					current_frame = 5;
+				} else if (current_frame == 5) {
+					transform.GetChild(0).transform.renderer.material.mainTexture = frame5;
+					current_frame = 6;
+				} else {
+					transform.GetChild(0).transform.renderer.material.mainTexture = frame6;
+					current_frame = 1;
+				}
+			} else
+				frame_counter--;
+
+
+
 
 			Vector3 relativePos = vectorPath[vectorPath.Count-1] - transform.position;
 			Quaternion tolerp = Quaternion.LookRotation(relativePos,Vector3.up);
