@@ -579,7 +579,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 		}while(checkresult>0 && safecounter>0);
 		randomspawn = new Vector3(x,y,z);
 		if(safecounter == 0){
-			randomspawn = new Vector3(levelWidth,levelHeight,levelDepth);
+			randomspawn = new Vector3(levelWidth-1,levelHeight-1,levelDepth-1);
 		}
 		
 		return randomspawn;
