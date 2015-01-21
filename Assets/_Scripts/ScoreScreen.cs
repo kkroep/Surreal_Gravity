@@ -201,7 +201,7 @@ public class ScoreScreen : MonoBehaviour
 		}
 		if (Network.connections.Length >= 1)
 		{
-			networkView.RPC("UpdateInfo", RPCMode.All, encodedKills, encodedDeaths, encodedScore);
+			networkView.RPC("UpdateInfo", RPCMode.AllBuffered, encodedKills, encodedDeaths, encodedScore);
 		}
 	}
 
@@ -215,7 +215,7 @@ public class ScoreScreen : MonoBehaviour
 			encodedScore2 += " " + scores[i];
 		}
 
-		networkView.RPC("UpdateInfoDB", RPCMode.All, encodedDeaths2, encodedScore2);
+		networkView.RPC("UpdateInfoDB", RPCMode.AllBuffered, encodedDeaths2, encodedScore2);
 	}
 
 	public void showScoreLiveS ()

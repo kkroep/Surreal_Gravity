@@ -82,20 +82,12 @@ public class NW_Spawning : MonoBehaviour {
 	}
 	/* Leave game gracefully as client
 	 */ 
-	public void closeClientIngame ()
+	public void closeClient (bool serverQuit, bool endGame)
 	{
-		//networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
-		networkView.RPC("changeEntry", RPCMode.Others, BasicFunctions.activeAccount.Number);
-		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
-		BasicFunctions.amountPlayers = 0;
-		BasicFunctions.activeAccounts.Clear ();
-		BasicFunctions.accountNumbers.Clear ();
-		Network.Disconnect();
-		playerController.dontDestroy = true;
-		Application.LoadLevel("Menu_New");
-	}
-	public void closeClient (bool serverQuit)
-	{
+		if (!endGame)
+		{
+			networkView.RPC("changeEntry", RPCMode.Others, BasicFunctions.activeAccount.Number);
+		}
 		if (!serverQuit)
 		{
 			networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
