@@ -271,13 +271,13 @@ public class playerController : MonoBehaviour
 	public void PlayDead ()
 	{
 		if (networkView.isMine)
-			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position, 4.0f);
+			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position, 2.0f);
 	}
 
 	public void PlayShotDead ()
 	{
 		if (networkView.isMine)
-			AudioSource.PlayClipAtPoint (shot_death_sound, transform.position, 3.0f);
+			AudioSource.PlayClipAtPoint (shot_death_sound, transform.position, 2.0f);
 	}
 
 	public void PlayEndGameSound ()
@@ -569,8 +569,17 @@ public class playerController : MonoBehaviour
 					time2death -= Time.fixedDeltaTime;
 					if (time2death <= 3f) {
 						if (!spawnChosen) {
-							int index = Random.Range (0, spawnScript.respawnLocations.Count - 1); //Take random integer
-							Vector3 randomSpawnPoint = spawnScript.respawnLocations [index];
+							Vector3 randomSpawnPoint;
+							if (!BasicFunctions.playOffline)
+							{
+								int index = Random.Range (0, spawnScript.respawnLocations.Count - 1); //Take random integer
+								randomSpawnPoint = spawnScript.respawnLocations [index];
+							}
+							else
+							{
+								int index = Random.Range (0, spawnScript.spawnLocations.Count - 1); //Take random integer
+								randomSpawnPoint = spawnScript.spawnLocations [index];
+							}
 							transform.position = randomSpawnPoint;//new Vector3(-1f, -1f, -1f);
 							spawnChosen = true;
 						}
