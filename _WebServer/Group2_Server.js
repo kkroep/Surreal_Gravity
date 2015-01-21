@@ -178,7 +178,8 @@ app.get("/UnityAccountInfo",function (req,res){
     var totalWinsPlayerQuery = "SELECT Total from `totalPlayerWins` WHERE WinnaarNaam='"+playerName+"';";
     connection.query(totalWinsPlayerQuery,function (err,rows,fields){
       if(err) res.send("no games played");
-      else totalWinsPlayer = rows[0]["Total"];
+      if(rows.length>0){
+      totalWinsPlayer = rows[0]["Total"];
       if(totalGamesPlayer>totalWinsPlayer){
         WinToLose = totalWinsPlayer/(totalGamesPlayer-totalWinsPlayer);
       }
@@ -187,6 +188,10 @@ app.get("/UnityAccountInfo",function (req,res){
       }
       sendstring += totalWinsPlayer + "," + WinToLose;
       res.send(sendstring);
+    }
+    else{
+      res.send(0,0,0);
+    }
     });
     }
     else{
