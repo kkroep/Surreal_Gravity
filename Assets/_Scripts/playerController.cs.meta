@@ -21,6 +21,7 @@ MonoImporter:
   - Leven3: {instanceID: 0}
   - endfork_sound: {fileID: 8300000, guid: f21c2c2e260d9554cac58a2f71239592, type: 3}
   - endrailgun_sound: {fileID: 8300000, guid: 2507328258434a74e924f5d8e604f885, type: 3}
+  - shot_death_sound: {fileID: 8300000, guid: e23dd11f06fdc5b49a6835ab8e5709f4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
