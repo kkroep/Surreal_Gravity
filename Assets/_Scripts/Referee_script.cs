@@ -79,7 +79,11 @@ public class Referee_script : MonoBehaviour {
 			networkView.RPC("showWPanel", RPCMode.All, target);
 			//respawn player
 			networkView.RPC("KillPlayer", RPCMode.All, target);
+			if (BasicFunctions.ForkModus) {
 			networkView.RPC("PlayDead", RPCMode.All, target);
+			}
+			else {networkView.RPC("PlayShotDead", RPCMode.All, target);
+			}
 
 			lives [target-1] = Lives_count;
 			scoreScreen.UpdateScore(shooter, target);
@@ -175,6 +179,18 @@ public class Referee_script : MonoBehaviour {
 			if (players[i].activeAccount.Number == target)
 			{
 				players[i].PlayDead();
+			}
+		}
+	}
+
+	[RPC]
+	public void PlayShotDead (int target)
+	{
+		for (int i = 0; i < playerCount; i++)
+		{
+			if (players[i].activeAccount.Number == target)
+			{
+				players[i].PlayShotDead();
 			}
 		}
 	}

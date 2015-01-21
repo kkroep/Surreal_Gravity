@@ -89,6 +89,7 @@ public class playerController : MonoBehaviour
 
 	public AudioClip endfork_sound;
 	public AudioClip endrailgun_sound;
+	public AudioClip shot_death_sound;
 
 	#endregion
 
@@ -255,6 +256,12 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine)
 			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
+	}
+
+	public void PlayShotDead ()
+	{
+		if (networkView.isMine)
+			AudioSource.PlayClipAtPoint (shot_death_sound, transform.position);
 	}
 
 	public void PlayEndGameSound ()

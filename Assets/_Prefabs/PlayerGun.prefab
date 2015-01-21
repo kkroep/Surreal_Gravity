@@ -1443,13 +1443,14 @@ MonoBehaviour:
   boundary_death_sound: {fileID: 8300000, guid: d294498da43ac594994ed5ec5aa854f6,
     type: 3}
   respawn_sound: {fileID: 8300000, guid: 21fec11ecf6a53d41807001d39213d0c, type: 3}
-  getting_hit_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
+  getting_hit_sound: {fileID: 8300000, guid: e23dd11f06fdc5b49a6835ab8e5709f4, type: 3}
   showWP: 0
   Leven1: {fileID: 0}
   Leven2: {fileID: 0}
   Leven3: {fileID: 0}
   endfork_sound: {fileID: 0}
   endrailgun_sound: {fileID: 8300000, guid: 2507328258434a74e924f5d8e604f885, type: 3}
+  shot_death_sound: {fileID: 8300000, guid: e23dd11f06fdc5b49a6835ab8e5709f4, type: 3}
 --- !u!114 &11432808
 MonoBehaviour:
   m_ObjectHideFlags: 1
