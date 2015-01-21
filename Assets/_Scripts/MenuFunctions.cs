@@ -112,7 +112,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToAccount ()
 	{
-		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 50f);
 		Main_Menu.SetActive(false);
 		Account_Menu.SetActive(true);
 		if (BasicFunctions.activeAccount != null)
