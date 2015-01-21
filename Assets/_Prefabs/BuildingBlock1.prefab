@@ -101,6 +101,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d5f949995a450904891244cf4d03b166, type: 2}
   - {fileID: 2100000, guid: f04a2bffbcb02b7448b535d5dcf7e923, type: 2}
   - {fileID: 2100000, guid: 4004919fe7b226346bdc49b8fd2b1f57, type: 2}
+  - {fileID: 2100000, guid: 385c9fe1e36b96a4f8a66b6b2451326a, type: 2}
+  - {fileID: 2100000, guid: 2b7df1d58b880bc4e85984648a5527e9, type: 2}
 --- !u!148 &14814444
 NetworkView:
   m_ObjectHideFlags: 1
