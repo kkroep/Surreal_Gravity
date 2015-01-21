@@ -1,2 +1,2 @@
 Sensitivity
-20
+10

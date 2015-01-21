@@ -119,7 +119,7 @@ public class playerController : MonoBehaviour
 			JumpTime = Time.time;
 
 			if(!BasicFunctions.playOffline)
-				networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
+				networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
 			//anim.SetBool("Walk", true);
 		}
 	}
@@ -513,10 +513,11 @@ public class playerController : MonoBehaviour
 
 				if(!BasicFunctions.playOffline){
 					if (Input.GetAxis ("Horizontal")==0 && Input.GetAxis ("Vertical")==0) {
-						networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "NoWalk");
+						if (BasicFunctions.amountPlayers > 1)
+							networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "NoWalk");
 					} else {
-
-						networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
+						if (BasicFunctions.amountPlayers > 1)
+							networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
 					}
 				}
 
@@ -532,7 +533,10 @@ public class playerController : MonoBehaviour
 								AudioSource.PlayClipAtPoint (jump_sound, transform.position);
 								JumpTime = Time.time;
 								if(!BasicFunctions.playOffline)
-									networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.AllBuffered, "Walk");
+								{
+									if (BasicFunctions.amountPlayers > 1)
+										networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
+								}
 								break;
 							}
 						}
