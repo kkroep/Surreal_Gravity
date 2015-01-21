@@ -43,6 +43,7 @@ MonoBehaviour:
   buildingBlock1: {fileID: 114444, guid: de6641d66001c0c49a3ddde42ebdb239, type: 2}
   buildingBlock2: {fileID: 156308, guid: 7782260d9a52013438268d15c38e9798, type: 2}
   buildingBlock3: {fileID: 158096, guid: 579e4aebda13d7247bc4433b11766d2e, type: 2}
+  buildingBlock4: {fileID: 114066, guid: 5a68fc179489a324abc74eda25aceeb2, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
   numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
@@ -62,7 +63,7 @@ MonoBehaviour:
   plusz: 0
   negz: 0
   smoothen: 15
-  blocktypes: 3
+  blocktypes: 4
   gridinitialised: 0
   spawnradius: 2
 --- !u!148 &14800000
