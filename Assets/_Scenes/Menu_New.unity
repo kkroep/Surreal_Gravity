@@ -5693,7 +5693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &487461001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9067,7 +9067,7 @@ RectTransform:
   m_Father: {fileID: 329230914}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .259259254, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -12206,7 +12206,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1799212323}
-        m_MethodName: setPoints
+        m_MethodName: setRobots
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20423,8 +20423,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 495773991}
   m_RootOrder: 0
-  m_AnchorMin: {x: .300000012, y: 0}
-  m_AnchorMax: {x: .300000012, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -24039,8 +24039,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1366165239}
   m_RootOrder: 0
-  m_AnchorMin: {x: .259259254, y: 0}
-  m_AnchorMax: {x: .259259254, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -26240,7 +26240,7 @@ RectTransform:
   m_Father: {fileID: 1594136892}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .300000012, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -29683,7 +29683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1862472428
 RectTransform:
   m_ObjectHideFlags: 0
