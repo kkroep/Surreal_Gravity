@@ -30,18 +30,19 @@ public class Wapen : MonoBehaviour {
 		{
 			this.enabled = false;
 		}
-	
-		//Debug.Log("S: " + playerScript.playerNumber);
 	}
 
 	void OnSerializeNetworkView (BitStream stream, NetworkMessageInfo info)
 	{
-		if (stream.isWriting) {
+		if (stream.isWriting)
+		{
 			TruePosition = transform.position;
 			TrueRotation = transform.rotation;
 			stream.Serialize (ref TruePosition);
 			stream.Serialize (ref TrueRotation);
-		} else {
+		}
+		else
+		{
 			stream.Serialize (ref TruePosition);
 			stream.Serialize (ref TrueRotation);
 		}
@@ -49,7 +50,6 @@ public class Wapen : MonoBehaviour {
 
 	void Update()
 	{
-		//transform.localRotation = transform.parent.transform.localRotation;
 		transform.localPosition = start_local_pos+transform.localRotation*stab_vector*stabbing;
 		if (networkView.isMine || BasicFunctions.playOffline) 
 		{

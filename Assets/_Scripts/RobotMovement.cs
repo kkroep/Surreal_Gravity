@@ -14,8 +14,6 @@ public class RobotMovement : MonoBehaviour {
 	private float frame_counter;
 	private float current_frame = 1;
 
-
-
 	private Pathfinder pathfind;
 	private RobotScript robotscript;
 
@@ -44,10 +42,8 @@ public class RobotMovement : MonoBehaviour {
 	private float dz;
 	private float timer;
 
-
-
-
-	void Start(){
+	void Start()
+	{
 		frame_counter = frames_per_image;
 		reset = false;
 		pathfind = this.GetComponent<Pathfinder>();
@@ -59,62 +55,50 @@ public class RobotMovement : MonoBehaviour {
 		timer = 0;
 	}
 
-	void FixedUpdate() {
-
-		if(Network.isServer){
-			if(reset){
+	void FixedUpdate()
+	{
+		if(Network.isServer)
+		{
+			if(reset)
+			{
 				path = pathfind.path;
 				string pathstring = routeToString (path);
 				networkView.RPC ("resetFunction",RPCMode.All,pathstring);
 			}
 		}
 
-		/*
-		if(pathfind.tracedBack == true){
-			moving = true;
-			pathfind.tracedBack = false;
-			reset = true;
-			rotatingcompleted = false;
-		}
-		*/
-
-		/*
-		if(reset){
-			resetFunction();
-			reset = false;
-		}
-		*/
-
-		if(!rotatingcompleted){
+		if(!rotatingcompleted)
+		{
 			dx = end.x - start.x;
 			dy = end.y - start.y;
 			dz = end.z - start.z;
 			
-			if(Mathf.Abs(dx)>0 || Mathf.Abs(dy)>0 || Mathf.Abs (dz)>0){
+			if(Mathf.Abs(dx)>0 || Mathf.Abs(dy)>0 || Mathf.Abs (dz)>0)
+			{
 				rotating = true;
 				rotatinginit = true;
 				moving = false;	
 			}		
 		}
 
-		if(movinginitiate){
+		if(movinginitiate)
+		{
 			startTime = Time.time;
 			movinginitiate = false;
 		}
 
-		if(moving){
-
-
-
-
+		if(moving)
+		{
 			float distCovered = (Time.time - startTime) * speed;
 			float fracJourney = distCovered / length;
 
-			if(vectorPath.Count>2){
+			if (vectorPath.Count>2)
+			{
 				this.transform.position = Vector3.Lerp(start, end, fracJourney);
 			}
 
-			if (target>=(vectorPath.Count-2) && fracJourney>0.90){
+			if (target>=(vectorPath.Count-2) && fracJourney>0.90)
+			{
 				destroyTarget = true;
 				moving = false;
 				rotating = false;
@@ -122,21 +106,23 @@ public class RobotMovement : MonoBehaviour {
 				rotatingcompleted = true;
 			}
 
-			if (fracJourney>0.90 && target<(vectorPath.Count-2)){
+			if (fracJourney>0.90 && target<(vectorPath.Count-2))
+			{
 				selectNext ();
 				rotatingcompleted = false;
 			}
 		}
 
-
-
-		if(rotating == true && moving == false){
-			if(rotatinginit == true){
+		if (rotating == true && moving == false)
+		{
+			if (rotatinginit == true)
+			{
 
 			}
 			Quaternion tolerp = Quaternion.LookRotation(new Vector3(dx*90,dy*90,dz*90),Vector3.up);
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
-			if(Quaternion.Angle (this.transform.rotation,tolerp)<20){
+			if (Quaternion.Angle (this.transform.rotation,tolerp)<20)
+			{
 				moving = true;
 				rotating = true;
 				rotatingcompleted = true;
@@ -145,57 +131,70 @@ public class RobotMovement : MonoBehaviour {
 			}
 		}
 
-		if(rotating == true && moving == true){
-			if(rotatinginit == true){
+		if (rotating == true && moving == true)
+		{
+			if (rotatinginit == true)
+			{
 				
 			}
 			Quaternion tolerp = Quaternion.LookRotation(new Vector3(dx*90,dy*90,dz*90),Vector3.up);
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
-			if(Quaternion.Angle (this.transform.rotation,tolerp)<1){
+			if (Quaternion.Angle (this.transform.rotation,tolerp)<1)
+			{
 				moving = true;
 				rotating = false;
 				rotatingcompleted = true;
-				//movinginitiate = true;
 				
 			}
 		}
 
-
-		if(destroyTarget == true){
-
-			if (frame_counter == 0) {
+		if(destroyTarget == true)
+		{
+			if (frame_counter == 0)
+			{
 				frame_counter = frames_per_image;
-				if (current_frame == 1) {
+				if (current_frame == 1)
+				{
 					transform.GetChild(0).transform.renderer.material.mainTexture = frame1;
 					current_frame = 2;
-				} else if (current_frame == 2) {
+				}
+				else if (current_frame == 2)
+				{
 					transform.GetChild(0).transform.renderer.material.mainTexture = frame2;
 					current_frame = 3;
-				} else if (current_frame == 3) {
+				}
+				else if (current_frame == 3)
+				{
 					transform.GetChild(0).transform.renderer.material.mainTexture = frame3;
 					current_frame = 4;
-				} else if (current_frame == 4) {
+				}
+				else if (current_frame == 4)
+				{
 					transform.GetChild(0).transform.renderer.material.mainTexture = frame4;
 					current_frame = 5;
-				} else if (current_frame == 5) {
+				}
+				else if (current_frame == 5)
+				{
 					transform.GetChild(0).transform.renderer.material.mainTexture = frame5;
 					current_frame = 6;
-				} else {
+				}
+				else
+				{
 					transform.GetChild(0).transform.renderer.material.mainTexture = frame6;
 					current_frame = 1;
 				}
-			} else
+			}
+			else
 				frame_counter--;
-
-
-
 
 			Vector3 relativePos = vectorPath[vectorPath.Count-1] - transform.position;
 			Quaternion tolerp = Quaternion.LookRotation(relativePos,Vector3.up);
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation,tolerp,Time.deltaTime*rotSpeed);
-			if(Quaternion.Angle (this.transform.rotation,tolerp)<5 && Network.isServer){
+			if (Quaternion.Angle (this.transform.rotation,tolerp)<5 && Network.isServer)
+			{
 				timer += Time.deltaTime;
-				if(timer>4){
+				if (timer>4)
+				{
 					robotscript.target.SendMessage("Kill");	
 					timer = 0;
 					destroyTarget = false;
@@ -205,12 +204,12 @@ public class RobotMovement : MonoBehaviour {
 					rotating = false;
 				}
 			}
-
 		}
 	}
 
 
-	void selectNext(){
+	void selectNext()
+	{
 		target++;
 		start = vectorPath[target-1];
 		end = vectorPath[target];
@@ -218,8 +217,10 @@ public class RobotMovement : MonoBehaviour {
 	}
 
 	[RPC]
-	void resetFunction(string inpath){
-		if(Network.isServer){
+	void resetFunction(string inpath)
+	{
+		if(Network.isServer)
+		{
 			pathfind.tracedBack = false;
 		}
 		moving = true;
@@ -235,40 +236,28 @@ public class RobotMovement : MonoBehaviour {
 		length = Vector3.Distance(start, end);
 	}
 
-	/*
-	void DestroyTarget(){
-		Quaternion oldpos = transform.rotation;
-		this.transform.LookAt(robotscript.target.transform);
-		Quaternion newpos = transform.rotation;
-		this.transform.rotation = Quaternion.Slerp (oldpos,newpos,Time.time*rotSpeed);
-	}
-	*/
-
-	string routeToString(List<Node> inpath){
+	string routeToString(List<Node> inpath)
+	{
 		string temp = System.String.Empty;
-		for(int i=path.Count-1;i>=0;i--){
+		for( int i=path.Count-1;i>=0;i--)
+		{
 			temp = temp + inpath[i].xPosition + "," + inpath[i].yPosition + "," + inpath[i].zPosition + ";";
 		}
 		return temp;
-
 	}
 
-	List<Vector3> routeParser(string instring){
+	List<Vector3> routeParser(string instring)
+	{
 		vectorPath.Clear ();
 		string[] positions = instring.Split(';');
 		string[] coords;
 		Vector3 tempCoord;
-		for(int i=0;i<positions.Length-1;i++){
+		for (int i=0;i<positions.Length-1;i++)
+		{
 			coords = positions[i].Split(',');
 			tempCoord = new Vector3(float.Parse(coords[0]),float.Parse(coords[1]),float.Parse (coords[2]));
 			vectorPath.Add(tempCoord);
 		}
 		return vectorPath;
 	}
-
-
-	
-
-
-
 }

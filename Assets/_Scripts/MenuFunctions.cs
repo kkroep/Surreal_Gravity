@@ -475,10 +475,10 @@ public class MenuFunctions : MonoBehaviour {
 			string[] local_data = www.text.Split(',');
 			AmountPlayed.text = local_data[0];
 			AmountWon.text = local_data[1];
-			if (local_data[2].Length > 5)
-				WLRatio.text = local_data[2].Substring(0, 5);
-			else
+			if (local_data[2].StartsWith("P") || local_data[2].Length <= 5)
 				WLRatio.text = local_data[2];
+			else
+				WLRatio.text = local_data[2].Substring(0, 5);
 		}
 	}
 }

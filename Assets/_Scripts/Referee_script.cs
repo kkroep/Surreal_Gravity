@@ -278,18 +278,12 @@ public class Referee_script : MonoBehaviour {
 	{
 		yield return www;
 		
-		if (www.error == null) {
-			/*
-			if (www.text.Equals ("Succesfully Registered Game")) {
-				Debug.Log ("Succesfully logged");
-				
-			} else {
-				Debug.Log ("Failed to log");
-			}
-			*/
+		if (www.error == null)
+		{
 		}
 
-		for(int i=0;i<BasicFunctions.startingAccounts.Count-1;i++){
+		for(int i=0;i<BasicFunctions.startingAccounts.Count-1;i++)
+		{
 			string urlParticipant = "http://drproject.twi.tudelft.nl:8082/ParticipantsRegister?SERVER="+BasicFunctions.activeAccount.Name + "&PLAYER="+BasicFunctions.startingAccounts[i];
 			WWW www2 = new WWW(urlParticipant);
 			StartCoroutine (WaitForParticipantRegister(www2));
@@ -304,14 +298,8 @@ public class Referee_script : MonoBehaviour {
 	{
 		yield return www;
 		
-		if (www.error == null) {
-			/*
-			if (www.text.Equals ("succesfully logged participant")) {
-				Debug.Log ("Succesfully logged participant");
-			} else {
-				Debug.Log ("Failed to log participant");
-			}
-			*/
+		if (www.error == null)
+		{
 		}
 	}
 }
