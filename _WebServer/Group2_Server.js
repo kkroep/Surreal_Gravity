@@ -85,6 +85,7 @@ app.get("/Register",function(req,res){
 });
 
 app.get("/GameRegister",function(req,res){
+  console.log("registering game");
   var query = url.parse(req.url,true).query;
   var Server = _escapeString((query["Server"]!=undefined ? query["Server"] : "UndefinedServer"));
   var ServerIDquery = "SELECT PLAYER_Id FROM `Players` WHERE Naam='"+Server+"'";
@@ -190,7 +191,7 @@ app.get("/UnityAccountInfo",function (req,res){
       res.send(sendstring);
     }
     else{
-      res.send(0,0,0);
+      res.send(sendstring + "0,0");
     }
     });
     }
