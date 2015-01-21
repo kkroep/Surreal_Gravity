@@ -97,18 +97,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Button_Idle: {r: .117647052, g: 1, b: .727508605, a: 1}
   Button_Active: {r: 1, g: 1, b: 1, a: 1}
+  currentUname: {fileID: 0}
   HoverEffects: 1
   MultiPlayer: 0
+  SinglePlayer: 0
   Back: 0
   QuitGame: 0
   StartServer: 0
   Refresh: 0
   Disconnect: 0
+  startGame: 0
   Account: 0
+  Register: 0
+  Login: 0
+  Instructions: 0
+  Settings: 0
+  Credits: 0
   Main_Menu: {fileID: 0}
   Multiplayer_Menu: {fileID: 0}
   Server_Menu: {fileID: 0}
   Account_Menu: {fileID: 0}
+  Client_Menu: {fileID: 0}
+  Settings_Menu: {fileID: 0}
+  Instructions_Menu: {fileID: 0}
+  Credits_Menu: {fileID: 0}
+  multiBtn: {fileID: 0}
+  regU: {fileID: 0}
+  regP: {fileID: 0}
+  regPC: {fileID: 0}
+  logU: {fileID: 0}
+  logP: {fileID: 0}
+  AccManager: {fileID: 0}
+  serverStuff: {fileID: 0}
+  menu_click_sound: {fileID: 8300000, guid: 3c8d281be741d704fbca2c522a3428b3, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
