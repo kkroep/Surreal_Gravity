@@ -270,13 +270,13 @@ public class playerController : MonoBehaviour
 	public void PlayDead ()
 	{
 		if (networkView.isMine)
-			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
+			AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position, 2.0f);
 	}
 
 	public void PlayShotDead ()
 	{
 		if (networkView.isMine)
-			AudioSource.PlayClipAtPoint (shot_death_sound, transform.position);
+			AudioSource.PlayClipAtPoint (shot_death_sound, transform.position, 2.0f);
 	}
 
 	public void PlayEndGameSound ()
@@ -543,7 +543,7 @@ public class playerController : MonoBehaviour
 						for (int i=0; i<hitColliders.Length; i++) {
 							if (hitColliders [i].tag == "level") {
 								rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
-								AudioSource.PlayClipAtPoint (jump_sound, transform.position);
+								AudioSource.PlayClipAtPoint (jump_sound, transform.position, 2.0f);
 								JumpTime = Time.time;
 								if(!BasicFunctions.playOffline)
 								{
@@ -646,7 +646,7 @@ public class playerController : MonoBehaviour
 	{
 		if (networkView.isMine || BasicFunctions.playOffline) {
 			if (collisionInfo.gameObject.tag == "DeathBoundary") {
-				AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position);
+				AudioSource.PlayClipAtPoint (boundary_death_sound, transform.position, 2.0f);
 				if (!BasicFunctions.playOffline)
 				{
 					if (!referee) {
