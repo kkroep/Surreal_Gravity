@@ -11,12 +11,14 @@ public class MenuFunctions : MonoBehaviour {
 	public GameObject Server_Menu;
 	public GameObject Client_Menu;
 	public GameObject Account_Menu;
+	public GameObject Stats_Menu;
 	public GameObject Control_Menu;
 	public GameObject Settings_Menu;
 	public GameObject Credits_Menu;
 	public GameObject CantMulti_Text;
 
 	public Text currentUname;
+	public Text statsUname;
 	public Toggle chooseModus;
 	public Toggle Music_button;
 	public Toggle chooseLoginModus;
@@ -35,6 +37,12 @@ public class MenuFunctions : MonoBehaviour {
 	public Slider sensitivitySlider;
 	public Button Multiplayer_Button;
 	public Text Multiplayer_Text;
+	public Text TotalPlayed;
+	public Text MostPlayed;
+	public Text MostWon;
+	public Text AmountPlayed;
+	public Text AmountWon;
+	public Text WLRatio;
 
 	public bool isLoggedIn = false;
 
@@ -132,6 +140,18 @@ public class MenuFunctions : MonoBehaviour {
 		{
 			chooseLoginModus.isOn = false;
 		}
+	}
+
+	public void goToStats ()
+	{
+		if (BasicFunctions.MusicOn)
+		{
+			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
+		}
+		if (BasicFunctions.activeAccount != null)
+			statsUname.text = BasicFunctions.activeAccount.Name + ":";
+		Main_Menu.SetActive(false);
+		Stats_Menu.SetActive(true);
 	}
 
 	public void goToSettings ()
@@ -282,6 +302,7 @@ public class MenuFunctions : MonoBehaviour {
 		errorMessage.gameObject.SetActive(false);
 		Account_Menu.SetActive(false);
 		Multiplayer_Menu.SetActive(false);
+		Stats_Menu.SetActive(false);
 		Settings_Menu.SetActive(false);
 		NW_Server.showServers = false;
 		Main_Menu.SetActive(true);
