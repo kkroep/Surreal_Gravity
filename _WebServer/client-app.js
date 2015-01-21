@@ -5,17 +5,38 @@ var main = function () {
     //console.log("Fetching the todo list from the server.");
     //$.getJSON("todos", addTodosToList);
   //}, 10000);
-  $.getJSON("Players", addPlayersToList);
-  submitButton();
-  deleteButton();
-  editButton();
+  $.getJSON("Games", addGamesToList);
+  $.getJSON("Participants",addParticipantsToList);
+  $.getJSON("Players",addPlayersToList);
 }
 $(document).ready(main);
 
 
 //Load Todos
-var addPlayersToList = function (Players) {
-  console.log(Players);
+var addGamesToList = function (Players) {
+  Players.forEach(function(player){
+    var tr = document.createElement("tr");
+    var $where = $(".Games");
+    var td1 = document.createElement("td");
+    td1.innerHTML = player["Wanneer"];
+    var td2 = document.createElement("td");
+    td2.innerHTML = player["Server"];
+    var td3 = document.createElement("td");
+    td3.innerHTML = player["Winnaar"];
+    var td4 = document.createElement("td");
+    td4.innerHTML = player["Finished"];
+    var td5 = document.createElement("td");
+    td5.innerHTML = player["Gamemode"];
+    var td6 = document.createElement("td");
+    td6.innerHTML = player["GAME_Id"];
+    tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);
+    tr.appendChild(td4);tr.appendChild(td5);tr.appendChild(td6);
+    $where.append(tr);
+  })
+
+  //td1.innerHTML = 
+
+  /*
   var todolist = document.getElementById("todo-list");
   var keys = [];
   $(".done").each(function(){keys.push($(this).attr('name'))});
@@ -28,6 +49,59 @@ var addPlayersToList = function (Players) {
   }
   //updateRadiobuttons();
   //updateCheckbuttons();
+  */
+};
+
+var addParticipantsToList = function (Players) {
+  Players.forEach(function(player){
+    var tr = document.createElement("tr");
+    var $where = $(".Participants");
+    var td1 = document.createElement("td");
+    td1.innerHTML = player["PLAYER_Id"];
+    var td2 = document.createElement("td");
+    td2.innerHTML = player["GAME_Id"];
+    var td3 = document.createElement("td");
+    td3.innerHTML = player["PARTICIPANTS_Id"];
+
+    tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);
+    $where.append(tr);
+  })
+
+
+};
+
+var addPlayersToList = function (Players) {
+  Players.forEach(function(player){
+    var tr = document.createElement("tr");
+    var $where = $(".Players");
+    var td1 = document.createElement("td");
+    td1.innerHTML = player["Naam"];
+    var td2 = document.createElement("td");
+    td2.innerHTML = player["Paswoord"];
+    var td5 = document.createElement("td");
+    td5.innerHTML = player["Wanneer"];
+    var td6 = document.createElement("td");
+    td6.innerHTML = player["PLAYER_Id"];
+    tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td5);tr.appendChild(td6);
+    $where.append(tr);
+  })
+
+  //td1.innerHTML = 
+
+  /*
+  var todolist = document.getElementById("todo-list");
+  var keys = [];
+  $(".done").each(function(){keys.push($(this).attr('name'))});
+  for (var key in Players) {
+    var todo = todos[key];
+    if (keys.indexOf(key) < 0){
+      //console.log(todo.Wanneer);
+      todolist.appendChild(formatTable("hoi1","hoi2", "hoi3")); //todo.Wat, todo.Wanneer, todo.TODO_Id));
+    }
+  }
+  //updateRadiobuttons();
+  //updateCheckbuttons();
+  */
 };
 
 /*var getInputFields = function (form){
@@ -39,34 +113,6 @@ var addPlayersToList = function (Players) {
   return returnee;
 };*/
 
-var formatTable = function (wat, wanneer, key){
-  console.log(key);
-  var tr = document.createElement("tr");
-  var tableSelect = document.createElement("td");
-  var tableWat = document.createElement("td");
-  var tableWanneer = document.createElement("td");
-  var tableEdit = document.createElement("td");
-  var button = document.createElement("input");
-  var radio = document.createElement("input");
-  button.type = "checkbox";
-  button.name = key;
-  button.className = 'done';
-
-  radio.type = "radio";
-  radio.name = "select"
-
-  tableSelect.appendChild(button);
-  tableEdit.appendChild(radio);
-  tableWat.innerHTML = wat;
-  tableWat.id = "wat";
-  tableWanneer.innerHTML = wanneer;
-  tableWanneer.id = "wanneer";
-  tr.appendChild(tableSelect);
-  tr.appendChild(tableWat);
-  tr.appendChild(tableWanneer);
-  tr.appendChild(tableEdit);
-  return tr;
-};
 
 /*var submitButton = function(){
   $("#submitbutton").click(function(){
