@@ -7,6 +7,7 @@ public class BasicFunctions : MonoBehaviour {
 	public static bool playOffline;
 	public static bool firstStart = true;
 	public static bool ForkModus = true;
+	public static bool JumpModus = true;
 	public static bool loginServer;
 	public static bool MusicOn = true;
 	public static int amountPlayers;

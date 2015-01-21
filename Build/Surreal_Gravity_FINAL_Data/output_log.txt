@@ -12,7 +12,7 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.093 seconds
+- Completed reload, in  0.074 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -22,11 +22,11 @@ Sens: 10
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 192.168.0.166:12003
+Received pong from 192.168.56.1:6784
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.56.1:12003
+Received pong from 192.168.0.166:6784
  
 (Filename:  Line: 836)
 
@@ -55,11 +55,23 @@ Received pong from 192.168.56.1:12003
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-UnloadTime: 2.855851 ms
+UnloadTime: 4.357850 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3993.
-Total: 4.509121 ms (FindLiveObjects: 0.126728 ms CreateObjectMapping: 0.027219 ms MarkObjects: 0.396249 ms  DeleteObjects: 0.759031 ms)
+Total: 2.615335 ms (FindLiveObjects: 0.145916 ms CreateObjectMapping: 0.027219 ms MarkObjects: 0.462737 ms  DeleteObjects: 0.732704 ms)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 has not yet found all players
  
@@ -118,6 +130,20 @@ has found all players
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Shooter: 1, Target: 1
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+ISGEENSERVER
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 9.991909 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 415 unused Assets to reduce memory usage. Loaded Objects now: 957.
+Total: 7.327936 ms (FindLiveObjects: 0.053100 ms CreateObjectMapping: 0.025434 ms MarkObjects: 0.672909 ms  DeleteObjects: 5.389080 ms)
+
+Sens: 10
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

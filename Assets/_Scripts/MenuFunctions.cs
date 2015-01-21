@@ -20,11 +20,14 @@ public class MenuFunctions : MonoBehaviour {
 	public Text currentUname;
 	public Text statsUname;
 	public Toggle chooseModus;
+	public Toggle chooseJump;
 	public Toggle Music_button;
 	public Toggle chooseLoginModus;
 	public Text Music_text;
 	public Text chooseModusLabelServer;
 	public Text chooseModusLabelClient;
+	public Text chooseJumpLabelServer;
+	public Text chooseJumpLabelClient;
 	public Text chooseLoginLabel;
 	public Text robotsText;
 	public Text pointsText;
@@ -206,6 +209,26 @@ public class MenuFunctions : MonoBehaviour {
 				chooseModusLabelServer.text = "RailGun";
 				networkView.RPC("SetGameMode", RPCMode.AllBuffered, false);
 				networkView.RPC("SetGameModeText", RPCMode.OthersBuffered, false);
+			}
+		}
+	}
+
+	public void ChooseJump ()
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
+		if (Network.isServer)
+		{
+			if (chooseJump.isOn)
+			{
+				chooseJumpLabelServer.text = "Jump";
+				networkView.RPC("SetJumpMode", RPCMode.AllBuffered, true);
+				networkView.RPC("SetJumpModeText", RPCMode.OthersBuffered, true);
+			}
+			else
+			{
+				chooseJumpLabelServer.text = "No-Jump";
+				networkView.RPC("SetJumpMode", RPCMode.AllBuffered, false);
+				networkView.RPC("SetJumpModeText", RPCMode.OthersBuffered, false);
 			}
 		}
 	}
@@ -433,6 +456,32 @@ public class MenuFunctions : MonoBehaviour {
 		else
 		{
 			chooseModusLabelClient.text = "RailGun";
+		}
+	}
+
+	[RPC]
+	public void SetJumpMode (bool jump)
+	{
+		if (jump)
+		{
+			BasicFunctions.JumpModus = true;
+		}
+		else
+		{
+			BasicFunctions.JumpModus = false;
+		}
+	}
+	
+	[RPC]
+	public void SetJumpModeText (bool jump)
+	{
+		if (jump)
+		{
+			chooseJumpLabelClient.text = "Off";
+		}
+		else
+		{
+			chooseJumpLabelClient.text = "On";
 		}
 	}
 

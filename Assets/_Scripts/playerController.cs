@@ -84,6 +84,7 @@ public class playerController : MonoBehaviour
 	private float ColorChangeTime;
 	private bool ColorRed;
 	private bool isWalking = true;
+	private bool jumpMode = BasicFunctions.JumpModus;
 	public Gun gunscript;
 
 	public AudioClip endfork_sound;
@@ -540,7 +541,7 @@ public class playerController : MonoBehaviour
 				rigidbody.velocity = New_Velocity;
 
 				if (Input.GetKeyDown("space")){
-				    if(isAlive && !endGame && (JumpTime + 0.35f) < Time.time) {
+					if(isAlive && jumpMode && !endGame && (JumpTime + 0.35f) < Time.time) {
 					Collider[] hitColliders = Physics.OverlapSphere (transform.position + Gravity_Direction * 0.6f, Sphere_collider_radius);
 					
 						for (int i=0; i<hitColliders.Length; i++) {
