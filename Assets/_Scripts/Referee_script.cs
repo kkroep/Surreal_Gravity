@@ -79,14 +79,8 @@ public class Referee_script : MonoBehaviour {
 			networkView.RPC("showWPanel", RPCMode.All, target);
 			//respawn player
 			networkView.RPC("KillPlayer", RPCMode.All, shooter, target);
-			if (BasicFunctions.ForkModus)
-			{
-				networkView.RPC("PlayDead", RPCMode.All, target);
-			}
-			else
-			{
-				networkView.RPC("PlayShotDead", RPCMode.All, target);
-			}
+			networkView.RPC("PlayDead", RPCMode.All, target);
+			players[shooter-1].PlayShotDead();
 
 			lives [target-1] = Lives_count;
 			players[shooter-1].setKillTimer(target);
