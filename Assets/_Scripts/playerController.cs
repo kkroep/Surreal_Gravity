@@ -221,7 +221,7 @@ public class playerController : MonoBehaviour
 		networkView.RPC ("fireKillLaser", RPCMode.Others, pos1, pos2, shooter);
 	}
 
-	public void setScreenTimer ()
+	public void setScreenTimer (int shooter)
 	{
 		if (networkView.isMine)
 		{
@@ -229,7 +229,21 @@ public class playerController : MonoBehaviour
 			{
 				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 			}
+			scoreScreen.shooter = shooter;
 			scoreScreen.time2show = time2death;
+		}
+	}
+
+	public void setKillTimer (int target)
+	{
+		if (networkView.isMine)
+		{
+			if (!scoreScreen)
+			{
+				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+			}
+			scoreScreen.target = target;
+			scoreScreen.showKill = 2f;
 		}
 	}
 
@@ -567,7 +581,7 @@ public class playerController : MonoBehaviour
 				rigidbody.velocity = new Vector3 (0f, 0f, 0f);
 				if (!isAlive && !endGame) {
 					time2death -= Time.fixedDeltaTime;
-					if (time2death <= 1f) {
+					if (time2death <= 3f) {
 						if (!spawnChosen) {
 							int index = Random.Range (0, spawnScript.respawnLocations.Count - 1); //Take random integer
 							Vector3 randomSpawnPoint = spawnScript.respawnLocations [index];

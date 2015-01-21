@@ -10259,7 +10259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4ed0c043003a6479b4febd47378d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRobots: 1
+  numberRobots: 3
   robot: {fileID: 100000, guid: 42f56b3ec0a3c53489a5f44867a4288d, type: 2}
   robots: []
   level: {fileID: 0}
@@ -14310,7 +14310,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 260}
@@ -19127,8 +19127,6 @@ MonoBehaviour:
   Main_Camera: {fileID: 1863724708}
   Gravity_Shift_Time: 12
   axes: 1
-  sensitivityX: 10
-  sensitivityY: 10
   minimumX: -360
   maximumX: 360
   minimumY: -90
@@ -19159,6 +19157,9 @@ MonoBehaviour:
   Leven1: {fileID: 0}
   Leven2: {fileID: 0}
   Leven3: {fileID: 0}
+  endfork_sound: {fileID: 0}
+  endrailgun_sound: {fileID: 0}
+  shot_death_sound: {fileID: 0}
 --- !u!54 &729522527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19470,7 +19471,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 100, y: 20}
@@ -26112,6 +26113,7 @@ MonoBehaviour:
   Bullet_Speed: 200
   Gravity_Switch_Timer: 0
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
+  GunTransform: {fileID: 0}
   kill_shot_sound: {fileID: 0}
   gravity_shot_sound: {fileID: 0}
   bullet_hit_sound: {fileID: 0}
@@ -28922,6 +28924,72 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1674507610}
   m_GameObject: {fileID: 1113533130}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1120630060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1120630061}
+  - 222: {fileID: 1120630063}
+  - 114: {fileID: 1120630062}
+  m_Layer: 5
+  m_Name: YouShot_Screen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1120630061
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120630060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1376536812}
+  m_RootOrder: 5
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -199.999985}
+  m_SizeDelta: {x: 550, y: 36.4000015}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1120630062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120630060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .117647059, g: 1, b: .729411781, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: You killed
+--- !u!222 &1120630063
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120630060}
 --- !u!1 &1121981353
 GameObject:
   m_ObjectHideFlags: 0
@@ -29867,6 +29935,72 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1674507610}
   m_GameObject: {fileID: 1153466937}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1155574405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1155574406}
+  - 222: {fileID: 1155574408}
+  - 114: {fileID: 1155574407}
+  m_Layer: 5
+  m_Name: GetShot_Screen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1155574406
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155574405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1376536812}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -1.8119812e-05, y: -199.999985}
+  m_SizeDelta: {x: 550, y: 36.4000015}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1155574407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155574405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .117647059, g: 1, b: .729411781, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f61353507bfa38d4ba098766743d61d0, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Killed By DeathBoundary
+--- !u!222 &1155574408
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155574405}
 --- !u!1 &1161569513
 GameObject:
   m_ObjectHideFlags: 0
@@ -36009,6 +36143,8 @@ RectTransform:
   - {fileID: 1388610410}
   - {fileID: 2134406175}
   - {fileID: 2121156851}
+  - {fileID: 1155574406}
+  - {fileID: 1120630061}
   - {fileID: 741614704}
   - {fileID: 1873282139}
   - {fileID: 1757875242}
@@ -38293,6 +38429,7 @@ MonoBehaviour:
   buildingBlock1: {fileID: 114444, guid: de6641d66001c0c49a3ddde42ebdb239, type: 2}
   buildingBlock2: {fileID: 156308, guid: 7782260d9a52013438268d15c38e9798, type: 2}
   buildingBlock3: {fileID: 158096, guid: 579e4aebda13d7247bc4433b11766d2e, type: 2}
+  buildingBlock4: {fileID: 114066, guid: 5a68fc179489a324abc74eda25aceeb2, type: 2}
   MainRobotSettings: {fileID: 100000, guid: 52231b29c8af7df48b6ce7596b358c52, type: 2}
   numberOfLargeSpawns: 6
   numberOfSmallSpawns: 0
@@ -38311,9 +38448,10 @@ MonoBehaviour:
   negx: 0
   plusz: 0
   negz: 0
-  smoothen: 10
-  blocktypes: 3
+  smoothen: 15
+  blocktypes: 4
   gridinitialised: 0
+  spawnradius: 2
 --- !u!1 &1449029281
 GameObject:
   m_ObjectHideFlags: 0
@@ -40731,8 +40869,6 @@ MonoBehaviour:
   Main_Camera: {fileID: 1003792148}
   Gravity_Shift_Time: 12
   axes: 1
-  sensitivityX: 10
-  sensitivityY: 10
   minimumX: -360
   maximumX: 360
   minimumY: -90
@@ -40763,6 +40899,9 @@ MonoBehaviour:
   Leven1: {fileID: 0}
   Leven2: {fileID: 0}
   Leven3: {fileID: 0}
+  endfork_sound: {fileID: 0}
+  endrailgun_sound: {fileID: 0}
+  shot_death_sound: {fileID: 0}
 --- !u!54 &1533106390
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46425,7 +46564,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 360, y: 20}
@@ -49014,6 +49153,7 @@ MonoBehaviour:
   Bullet_Speed: 30
   Gravity_Switch_Timer: 0
   Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
+  GunTransform: {fileID: 0}
   kill_shot_sound: {fileID: 0}
   gravity_shot_sound: {fileID: 0}
   bullet_hit_sound: {fileID: 0}
@@ -49274,7 +49414,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1376536812}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 230, y: 20}
@@ -49425,13 +49565,23 @@ MonoBehaviour:
   score3: {fileID: 1651642450}
   score4: {fileID: 144835846}
   endScreen: {fileID: 2121156852}
+  shotByScreen: {fileID: 1155574407}
+  youShotScreen: {fileID: 1120630062}
   maxPointsText: {fileID: 1175528977}
   gameModeText: {fileID: 1069041179}
+  p1: {r: .0588235296, g: 0, b: 1, a: 1}
+  p2: {r: 1, g: 0, b: 0, a: 1}
+  p3: {r: 0, g: 1, b: .0313725509, a: 1}
+  p4: {r: .839215696, g: 0, b: .890196085, a: 1}
   kills: 
   deaths: 
   scores: 
+  pColors: []
   time2show: 0
+  showKill: 0
   winner: 0
+  shooter: 0
+  target: 0
   gamemode: 
   offline: 0
   showScreen: 0
@@ -55705,8 +55855,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 2.28879999e-05, y: -200}
-  m_SizeDelta: {x: 400, y: 36.4000015}
+  m_AnchoredPosition: {x: -1.81198102e-05, y: -200}
+  m_SizeDelta: {x: 550, y: 36.4000015}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2121156852
 MonoBehaviour:
