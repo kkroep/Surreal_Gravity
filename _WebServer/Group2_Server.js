@@ -54,7 +54,7 @@ app.get("/Authenticate",function(req,res){
   var query = url.parse(req.url,true).query;
   var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
   var playerPassword = _escapeString((query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword"));
-  console.log("LOGGING IN playername: " + playerName + "  playerpassword: " + playerPassword);
+  //console.log("LOGGING IN playername: " + playerName + "  playerpassword: " + playerPassword);
   var querystring = "SELECT DISTINCT * FROM Players WHERE BINARY Naam = \"" + playerName + "\" AND BINARY Paswoord = \"" + playerPassword + "\";";
   connection.query(querystring,function(err,rows,fields){
     if(err) res.send("Unauthorized");
@@ -72,7 +72,7 @@ app.get("/Register",function(req,res){
   var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
   if(playerName.length>0){
     var playerPassword = _escapeString((query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword"));
-    console.log("REGISTERING playername: " + playerName + "  playerpassword: " + playerPassword);
+    //console.log("REGISTERING playername: " + playerName + "  playerpassword: " + playerPassword);
     var querystring = "INSERT INTO `ewi3620tu2`.`Players` (`Naam`, `Paswoord`, `Wanneer`, `PLAYER_Id`) VALUES ('" + playerName + "', '" + playerPassword + "', NOW(), NULL);";
     connection.query(querystring,function(err,result,fields){
       if(err) res.send("Registering failed");
@@ -171,7 +171,6 @@ app.get("/UnityAccountInfo",function (req,res){
   connection.query(totalGamesPlayerQuery,function (err,rows,fields){
     if(err) res.send("no games played");
     if(rows.length>0){
-      console.log(rows.length);
 
     totalGamesPlayer = rows[0]["Total"];
     sendstring += totalGamesPlayer + ",";
