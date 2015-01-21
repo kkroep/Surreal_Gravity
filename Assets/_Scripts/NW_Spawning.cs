@@ -84,7 +84,7 @@ public class NW_Spawning : MonoBehaviour {
 	 */ 
 	public void closeClientIngame ()
 	{
-		networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+		//networkView.RPC ("deleteUNServerInGame", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
 		networkView.RPC("makePlayerInvis", RPCMode.All, player.networkView.viewID);
 		BasicFunctions.amountPlayers = 0;
 		BasicFunctions.activeAccounts.Clear ();
@@ -222,12 +222,12 @@ public class NW_Spawning : MonoBehaviour {
 	[RPC]
 	void deleteUNServerInGame (string UN, int Number)
 	{
-		BasicFunctions.activeAccounts.Remove(UN);
-		BasicFunctions.accountNumbers.Remove(Number);
-		if (BasicFunctions.amountPlayers > 2)
-			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, false);
-		else
-			BasicFunctions.amountPlayers = 1;
+		//BasicFunctions.activeAccounts.Remove(UN);
+		//BasicFunctions.accountNumbers.Remove(Number);
+		//if (BasicFunctions.amountPlayers > 2)
+			//networkView.RPC ("setAmountPlayers", RPCMode.All, false);
+		//else
+			//BasicFunctions.amountPlayers = 1;
 		if (!scoreScreen)
 		{
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
@@ -252,7 +252,7 @@ public class NW_Spawning : MonoBehaviour {
 	{
 		BasicFunctions.activeAccounts.Remove(UN);
 		BasicFunctions.accountNumbers.Remove(Number);
-		BasicFunctions.amountPlayers = amountPlayers;
+		//BasicFunctions.amountPlayers = amountPlayers;
 		if (!scoreScreen)
 		{
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
