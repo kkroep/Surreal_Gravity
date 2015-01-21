@@ -129,7 +129,7 @@ public class Referee_script : MonoBehaviour {
 	public void EndGame (int shooter)
 	{
 		networkView.RPC("finishGame", RPCMode.All, shooter);
-		if (BasicFunctions.loginServer && Network.isServer)
+		if (BasicFunctions.loginServer)
 		{
 			Debug.Log("WINNEND");
 			string winnerLog = BasicFunctions.activeAccounts[winner-1];
