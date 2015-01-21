@@ -6,7 +6,6 @@ public class Gun : MonoBehaviour {
 
 	private Vector3 TruePosition;
 	private Quaternion TrueRotation;
-	private Vector3 start_local_pos;
 
 	void Start ()
 	{
@@ -14,7 +13,6 @@ public class Gun : MonoBehaviour {
 		{
 			this.enabled = false;
 		}
-		start_local_pos = transform.localPosition;
 	}
 
 	void OnSerializeNetworkView (BitStream stream, NetworkMessageInfo info)

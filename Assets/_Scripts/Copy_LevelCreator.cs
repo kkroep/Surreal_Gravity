@@ -36,7 +36,6 @@ public class Copy_LevelCreator : MonoBehaviour {
 	private int seedint;
 	private int ratio = 20;
 
-	
 	// Use this for initialization
 	void Start () 
 	{
@@ -73,28 +72,20 @@ public class Copy_LevelCreator : MonoBehaviour {
 			resetMatrix();
 
 			gridinitialised = true;
-
-			/*
-			if (Network.isServer)
-			{
-				networkView.RPC("generateLevel", RPCMode.OthersBuffered, seedint);
-			}
-			*/
 		}
 	}
 
 	void smoothLevel(){
 		int[,,] gridCopy = new int[levelWidth,levelHeight,levelDepth];
-		//int removedCounter = 0;
 		for(int width=1;width<levelWidth-1;width++)
 		{
 			for (int height=1;height<levelHeight-1;height++)
 			{
 				for (int depth=1;depth<levelDepth-1;depth++)
 				{
-
 					int counter = 0;
-					if(grid[width,height,depth]>0){
+					if(grid[width,height,depth]>0)
+					{
 						gridCopy[width,height,depth] = grid[width,height,depth];
 						if(grid[width+1,height,depth]>0)
 							counter++;
@@ -109,13 +100,11 @@ public class Copy_LevelCreator : MonoBehaviour {
 						if(grid[width,height,depth-1]>0)
 							counter++;
 
-						if(counter<=1){
-							//removedCounter++;
+						if(counter<=1)
+						{
 							gridCopy[width,height,depth]=0;
 						}
-
 					}
-				
 				}
 			}
 		}
@@ -129,143 +118,126 @@ public class Copy_LevelCreator : MonoBehaviour {
 					int counter = 0;
 					List<int> blockt = new List<int>();
 					blockt.Add (0);blockt.Add (0);blockt.Add (0);blockt.Add (0);
-					if(grid[width,height,depth]==0){
-
-						if(grid[width+1,height,depth]>0){
+					if(grid[width,height,depth]==0)
+					{
+						if(grid[width+1,height,depth]>0)
+						{
 							counter += ratio;
 							blockt[grid[width+1,height,depth]-1] += 1;
 						}
-						if(grid[width-1,height,depth]>0){
+						if(grid[width-1,height,depth]>0)
+						{
 							counter += ratio;
 							blockt[grid[width-1,height,depth]-1] += 1;
 						}
-						if(grid[width,height+1,depth]>0){
+						if(grid[width,height+1,depth]>0)
+						{
 							counter += ratio;
 							blockt[grid[width,height+1,depth]-1] += 1;
 						}
-						if(grid[width,height-1,depth]>0){
+						if(grid[width,height-1,depth]>0)
+						{
 							counter += ratio;
 							blockt[grid[width,height-1,depth]-1] += 1;
 						}
-						if(grid[width,height,depth+1]>0){
+						if(grid[width,height,depth+1]>0)
+						{
 							counter += ratio;
 							blockt[grid[width,height,depth+1]-1] += 1;
 						}
-						if(grid[width,height,depth-1]>0){
+						if(grid[width,height,depth-1]>0)
+						{
 							counter += ratio;
 							blockt[grid[width,height,depth-1]-1] += 1;
 						}
-						if(grid[width+1,height+1,depth]>0){
+						if(grid[width+1,height+1,depth]>0)
+						{
 							counter++;
 							blockt[grid[width+1,height+1,depth]-1] += 1;
 						}
-						if(grid[width+1,height-1,depth]>0){
+						if(grid[width+1,height-1,depth]>0)
+						{
 							counter++;
 							blockt[grid[width+1,height-1,depth]-1] += 1;
 						}
-						if(grid[width-1,height+1,depth]>0){
+						if(grid[width-1,height+1,depth]>0)
+						{
 							counter++;
 							blockt[grid[width-1,height+1,depth]-1] += 1;
 						}
-						if(grid[width-1,height-1,depth]>0){
+						if(grid[width-1,height-1,depth]>0)
+						{
 							counter++;
 							blockt[grid[width-1,height-1,depth]-1] += 1;
 						}
-						if(grid[width+1,height,depth+1]>0){
+						if(grid[width+1,height,depth+1]>0)
+						{
 							counter++;
 							blockt[grid[width+1,height,depth+1]-1] += 1;
 						}
-						if(grid[width+1,height,depth-1]>0){
+						if(grid[width+1,height,depth-1]>0)
+						{
 							counter++;
 							blockt[grid[width+1,height,depth-1]-1] += 1;
 						}
-						if(grid[width-1,height,depth+1]>0){
+						if(grid[width-1,height,depth+1]>0)
+						{
 							counter++;
 							blockt[grid[width-1,height,depth+1]-1] += 1;
 						}
-						if(grid[width-1,height,depth-1]>0){
+						if(grid[width-1,height,depth-1]>0)
+						{
 							counter++;
 							blockt[grid[width-1,height,depth-1]-1] += 1;
 						}
-						if(grid[width,height+1,depth+1]>0){
+						if(grid[width,height+1,depth+1]>0)
+						{
 							counter++;
 							blockt[grid[width,height+1,depth+1]-1] += 1;
 						}
-						if(grid[width,height+1,depth-1]>0){
+						if(grid[width,height+1,depth-1]>0)
+						{
 							counter++;
 							blockt[grid[width,height+1,depth-1]-1] += 1;
 						}
-						if(grid[width,height-1,depth+1]>0){
+						if(grid[width,height-1,depth+1]>0)
+						{
 							counter++;
 							blockt[grid[width,height-1,depth+1]-1] += 1;
 						}
-						if(grid[width,height-1,depth-1]>0){
+						if(grid[width,height-1,depth-1]>0)
+						{
 							counter++;
 							blockt[grid[width,height-1,depth-1]-1] += 1;
 						}
 
-
-						if(counter>=60 /*&& removedCounter>0*/){
-							//removedCounter--;
+						if(counter>=60)
+						{
 							gridCopy[width,height,depth]=1;
-							if(blockt[1]>blockt[0]){
+							if(blockt[1]>blockt[0])
+							{
 								gridCopy[width,height,depth]=2;
 							}
-							if(blockt[2]>blockt[0] && blockt[2]>blockt[1]){
+							if(blockt[2]>blockt[0] && blockt[2]>blockt[1])
+							{
 								gridCopy[width,height,depth]=3;
 
 							}
-							if(blockt[3]>blockt[2] && blockt[3]>blockt[1] && blockt[3]>blockt[0]){
+							if(blockt[3]>blockt[2] && blockt[3]>blockt[1] && blockt[3]>blockt[0])
+							{
 								gridCopy[width,height,depth]=4;
 							}
 						}
-						
 					}
-					
 				}
 			}
 		}
 		grid = gridCopy;
-
-
-
 	}
-	/*
-
-	[RPC]
-	public void generateLevel (int seed)
-	{
-		if (Network.isClient)
-		{
-			Random.seed = seed;
-			grid = new int[levelWidth,levelHeight,levelDepth];
-			
-			//Fills the grid matrix with 1s, representing large spawns
-			//createLargeSpawn() is called numberOfLargeSpawns times, each time creating a separate spawn
-			for(int i = 0; i<numberOfLargeSpawns;i++)
-			{
-				createMainSpawn(approxBlocksPerLargeStack);
-			}
-			
-			//fills the grid matrix with 1s, representing small spawns
-			//createSmallSpawn() is called numberOfSmallSpawns times, each time creating a separate spawn
-			for(int i = 0; i<numberOfSmallSpawns;i++)
-			{
-				createMainSpawn(approxBlocksPerSmallStack);			
-			}
-			
-			//loop through the grid matrix, drawing a building block every time a 1 is encountered
-			//draw(levelWidth, levelHeight, levelDepth, grid);
-			draw ();
-		}
-	}
-	*/
-
 	//function responsible for filling the grid matrix with spawns
 	void createMainSpawn(int approxBlocks){
 		int checkResult;
 		int blocktype = Random.Range (1,blocktypes+1);
-
 		
 		//random offset for the blocks per spawn
 		int delta = Random.Range (Mathf.FloorToInt (approxBlocks * -0.1f), Mathf.CeilToInt (approxBlocksPerLargeStack * 0.1f+1f));
@@ -277,22 +249,17 @@ public class Copy_LevelCreator : MonoBehaviour {
 			targetPosition = new int[3]{Random.Range(1,levelWidth-1),Random.Range(1,levelHeight-1),Random.Range(1,levelDepth-1)};
 			checkResult = grid[targetPosition[0],targetPosition[1],targetPosition[2]];
 			iterations++;
-			
-			
-		}while (checkResult>0 && iterations<50);
+
+		} while (checkResult>0 && iterations<50);
 		
 		//Make the grid at position targetposition equal to 1
 		grid [targetPosition[0],targetPosition[1],targetPosition[2]] = blocktype;
 		
 		//Create the secondary spawns for the main spawn
-		for(int i=0; i<Blocks; i++){
+		for(int i=0; i<Blocks; i++)
+		{
 			createSpawn(blocktype);
-			
 		}
-		
-		
-		
-		
 	}
 
 	//function responsible for creating secondary spawn
@@ -408,7 +375,8 @@ public class Copy_LevelCreator : MonoBehaviour {
 				{
 					if(grid[width,height,depth]==1)
 					{
-						if(BasicFunctions.playOffline){
+						if(BasicFunctions.playOffline)
+						{
 							Instantiate (buildingBlock1, new Vector3(width,height,depth), Quaternion.identity);
 						}
 						else{
@@ -418,7 +386,8 @@ public class Copy_LevelCreator : MonoBehaviour {
 					}
 					else if(grid[width,height,depth]==2)
 					{
-						if(BasicFunctions.playOffline){
+						if(BasicFunctions.playOffline)
+						{
 							Instantiate (buildingBlock2, new Vector3(width,height,depth), Quaternion.identity);
 						}
 						else{
@@ -428,53 +397,36 @@ public class Copy_LevelCreator : MonoBehaviour {
 					}
 					else if(grid[width,height,depth]==3)
 					{
-						if(BasicFunctions.playOffline){
+						if(BasicFunctions.playOffline)
+						{
 							Instantiate (buildingBlock3, new Vector3(width,height,depth), Quaternion.identity);
 						}
-						else{
+						else
+						{
 							Network.Instantiate (buildingBlock3, new Vector3(width,height,depth), Quaternion.identity,0);
 						}
 					}
 					else if(grid[width,height,depth]==4)
 					{
-						if(BasicFunctions.playOffline){
+						if(BasicFunctions.playOffline)
+						{
 							Instantiate (buildingBlock4, new Vector3(width,height,depth), Quaternion.identity);
 						}
-						else{
+						else
+						{
 							Network.Instantiate (buildingBlock4, new Vector3(width,height,depth), Quaternion.identity,0);
 						}
 					}
-					/*if(grid[width,height,depth]>0){
-						spawnblock(new Vector3(width,height,depth));
-					}
-
-					else if(floor && height ==0){
-						spawnblock(new Vector3(width,height,depth));
-					}
-					else if(ceiling && height == levelHeight-1){
-						spawnblock(new Vector3(width,height,depth));
-					}
-					else if(plusx && width == levelWidth-1){
-						spawnblock(new Vector3(width,height,depth));
-						
-					}
-					else if(negx && width == 0){
-						spawnblock(new Vector3(width,height,depth));
-					}
-					else if(plusz && depth == levelDepth-1){
-						spawnblock(new Vector3(width,height,depth));
-					}
-					else if(negz && depth == 0){
-						spawnblock(new Vector3(width,height,depth));
-					}*/
 				}
 			}
 		}
 	}
 
 	//function that determines if a certain cube in a certain position is an edge cube
-	public bool isEdge(Vector3 position){
-		if(grid != null){
+	public bool isEdge(Vector3 position)
+	{
+		if(grid != null)
+		{
 			int x = Mathf.RoundToInt(position.x);
 			int y = Mathf.RoundToInt(position.y);
 			int z = Mathf.RoundToInt(position.z);
@@ -491,31 +443,35 @@ public class Copy_LevelCreator : MonoBehaviour {
 			return false;
 	}
 
-	public int[,,] getGrid(){
+	public int[,,] getGrid()
+	{
 		return grid;
 	}
 	
-	public void setGrid(int x, int y, int z, int to){
+	public void setGrid(int x, int y, int z, int to)
+	{
 		this.grid[x,y,z] = to;
 	}
 
-	public void resetMatrix(){
+	public void resetMatrix()
+	{
 		for(int width=1;width<levelWidth-1;width++)
 		{
 			for (int height=1;height<levelHeight-1;height++)
 			{
 				for (int depth=1;depth<levelDepth-1;depth++)
 				{
-					if(grid[width,height,depth]>1){
+					if(grid[width,height,depth]>1)
+					{
 						grid[width,height,depth]=1;
 					}
 				}
 			}
 		}
-
 	}
 
-	public Vector3 getSpawn(){
+	public Vector3 getSpawn()
+	{
 		Vector3 randomspawn;
 		int checkresult;
 		int x;
@@ -525,32 +481,36 @@ public class Copy_LevelCreator : MonoBehaviour {
 		do{
 			checkresult = 10;
 			x = Random.Range (spawnradius+1,(levelWidth-spawnradius-1));y = Random.Range (spawnradius+2,(levelHeight-spawnradius-1));z = Random.Range (spawnradius+1,(levelDepth-spawnradius-1));
-			if (grid[x,y-1,z] > 0 && grid[x,y,z] == 0){
+			if (grid[x,y-1,z] > 0 && grid[x,y,z] == 0)
+			{
 				checkresult = 0;
-				for(int i=x;i<=x+spawnradius;i++){
-					for(int j=y;i<=y+spawnradius;i++){
-						for(int k=z;i<=z+spawnradius;i++){
-							if (grid[i,j,k]>0){
+				for(int i=x;i<=x+spawnradius;i++)
+				{
+					for(int j=y;i<=y+spawnradius;i++)
+					{
+						for(int k=z;i<=z+spawnradius;i++)
+						{
+							if (grid[i,j,k]>0)
+							{
 								checkresult++;
 							}
 						}
 					}
 				}
 			}
-
-
 			//checkresult = Physics.OverlapSphere(randomspawn,2).Length;
 			safecounter--;
-		}while(checkresult>0 && safecounter>0);
+		} while(checkresult>0 && safecounter>0);
 		randomspawn = new Vector3(x,y,z);
-		if(safecounter == 0){
+		if(safecounter == 0)
+		{
 			randomspawn = new Vector3(levelWidth,levelHeight,levelDepth);
 		}
-
 		return randomspawn;
 	}
 
-	public Vector3 getRobotSpawn(){
+	public Vector3 getRobotSpawn()
+	{
 		Vector3 randomspawn;
 		int checkresult;
 		int x;
@@ -560,29 +520,31 @@ public class Copy_LevelCreator : MonoBehaviour {
 		do{
 			checkresult = 10;
 			x = Random.Range (spawnradius+2,(levelWidth-spawnradius-2));y = Random.Range (spawnradius+2,(levelHeight-spawnradius-2));z = Random.Range (spawnradius+2,(levelDepth-spawnradius-2));
-			if (grid[x,y-1,z] > 0 && grid[x,y,z] == 0){
+			if (grid[x,y-1,z] > 0 && grid[x,y,z] == 0)
+			{
 				checkresult = 0;
-				for(int i=x;i<=x+spawnradius;i++){
-					for(int j=y;i<=y+spawnradius;i++){
-						for(int k=z;i<=z+spawnradius;i++){
-							if (grid[i,j,k]>0){
+				for(int i=x;i<=x+spawnradius;i++)
+				{
+					for(int j=y;i<=y+spawnradius;i++)
+					{
+						for(int k=z;i<=z+spawnradius;i++)
+						{
+							if (grid[i,j,k]>0)
+							{
 								checkresult++;
 							}
 						}
 					}
 				}
 			}
-			
-			
 			//checkresult = Physics.OverlapSphere(randomspawn,2).Length;
 			safecounter--;
-		}while(checkresult>0 && safecounter>0);
+		} while(checkresult>0 && safecounter>0);
 		randomspawn = new Vector3(x,y,z);
-		if(safecounter == 0){
+		if(safecounter == 0)
+		{
 			randomspawn = new Vector3(levelWidth-1,levelHeight-1,levelDepth-1);
 		}
-		
 		return randomspawn;
 	}
-
 }

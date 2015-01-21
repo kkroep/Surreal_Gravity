@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MainRobotSettings : MonoBehaviour {
-	
-	public int numberRobots;
+
 	public GameObject robot;
 	public List<GameObject> robots;
 
@@ -24,7 +23,7 @@ public class MainRobotSettings : MonoBehaviour {
 	void Update(){
 
 		if(Network.isServer && !BasicFunctions.playOffline && !hasspawned && level.gridinitialised){
-			for(int i=0;i<numberRobots;i++){
+			for(int i=0;i<BasicFunctions.maxRobots;i++){
 				Network.Instantiate (robot, level.getRobotSpawn (), Quaternion.identity,0);
 			}
 			hasspawned = true;

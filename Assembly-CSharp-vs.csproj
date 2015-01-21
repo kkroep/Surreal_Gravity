@@ -52,12 +52,10 @@
      <Compile Include="Assets\_Scripts\AccountManagement.cs" />
      <Compile Include="Assets\_Scripts\BasicFunctions.cs" />
      <Compile Include="Assets\_Scripts\BlockDestroy.cs" />
-     <Compile Include="Assets\_Scripts\BlockSelector.cs" />
      <Compile Include="Assets\_Scripts\Bullet_Controller.cs" />
      <Compile Include="Assets\_Scripts\Camera_Control.cs" />
      <Compile Include="Assets\_Scripts\CharacterView.cs" />
      <Compile Include="Assets\_Scripts\Copy_LevelCreator.cs" />
-     <Compile Include="Assets\_Scripts\DestroyAnimation.cs" />
      <Compile Include="Assets\_Scripts\GameController_Script.cs" />
      <Compile Include="Assets\_Scripts\Gravity_trace_script.cs" />
      <Compile Include="Assets\_Scripts\Gun.cs" />
@@ -79,7 +77,6 @@
      <Compile Include="Assets\_Scripts\TargetScript.cs" />
      <Compile Include="Assets\_Scripts\Wapen.cs" />
      <Compile Include="Assets\_Scripts\playerController.cs" />
-     <Compile Include="Assets\_Scripts\webInteractionTest.cs" />
      <Compile Include="Assets\_Scripts_Backup\TestBeunScriptUnit.cs" />
      <None Include="Assets\_Shaders\BuildingBlock_Shader.shader" />
  <Reference Include="UnityEngine.UI">

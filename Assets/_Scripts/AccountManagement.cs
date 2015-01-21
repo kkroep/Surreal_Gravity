@@ -29,7 +29,6 @@ public class AccountManagement : MonoBehaviour {
 		}
 		if (BasicFunctions.firstStart)
 		{
-			//BasicFunctions.activeAccount = new Account("Debug", "-");
 			loggedIn = false;
 		}
 		

@@ -67,7 +67,6 @@ public class playerController : MonoBehaviour
 	private float multiplier;
 	public float time2death = 0f;
 	public float Sphere_collider_radius = 0.6f;
-	private bool Can_Jump = false;
 	private float JumpTime;
 	public GameObject ScoreScreen;
 	public AudioClip boundary_death_sound;
@@ -75,8 +74,6 @@ public class playerController : MonoBehaviour
 	public AudioClip getting_hit_sound;
 	private bool quitting;
 	private ScoreScreen scoreScreen;
-	private float timer = 2f;
-	private bool canAnim = false;
 	public bool showWP = false;
 	private float WoundedTimer = 0.2f;
 	public GameObject Leven1;

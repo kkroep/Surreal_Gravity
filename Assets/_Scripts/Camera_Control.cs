@@ -39,37 +39,37 @@ public class Camera_Control : MonoBehaviour {
 	#endregion
 	#region [init other]
 	public playerController player;
-	public GameObject playercam;
 	public Referee_script referee;
+
+	public GameObject playercam;
+
+	public Rigidbody Gravity_Bullet;
+
+	public Transform GunTransform;
+
+	public AudioClip bullet_hit_sound;
+
+	public int VerticesPerUnit;
+
 	public float reloadTime = 0f;
 	public float Bullet_Speed = 5f;
 	public float Gravity_Switch_Timer= 0f;
-	public Rigidbody Gravity_Bullet;
-	public Transform GunTransform;
-
+	public float Gibrange;
+	
 	public AudioClip kill_shot_sound;
 	public AudioClip gravity_shot_sound;
 
 	private Account activeAccount = BasicFunctions.activeAccount;
-	private float lastShot;
 
-	//public AudioClip kill_point_sound;
-	//public AudioClip gravity_switch_sound;
-	public AudioClip bullet_hit_sound;
-
-	//new
 	private int vertexsize;
-	public int VerticesPerUnit;
-	public float Gibrange;
+
 	private float multiplier;
-	//\new
 	#endregion
 	
 	void Start()
 	{
 		if (networkView.isMine || BasicFunctions.playOffline)
 		{
-			lastShot = Time.time;
 			transform.rotation = player.transform.rotation;
 		}
 		else
@@ -77,63 +77,8 @@ public class Camera_Control : MonoBehaviour {
 			GetComponent<Camera_Control>().enabled = false;
 			GetComponent<AudioListener>().enabled = false;
 			GetComponent<Camera>().enabled = false;
-			//playercam.SetActive(false);
 		}
 	}
-	
-	/*void Fire_Kill_Bullet()
-	{
-		if (networkView.isMine)
-		{
-			if (Time.time > reloadTime + lastShot)
-				Debug.Log("Fired");
-			{
-				//Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
-				Rigidbody instantiatedProjectile = (Rigidbody)Network.Instantiate( Kill_Bullet, transform.position, transform.rotation, 2 );
-				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
-				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
-				lastShot = Time.time;
-				networkView.RPC("fireKillBulletS", RPCMode.Others, transform.position, transform.forward); //instantiatedProjectile.networkView.viewID
-			}
-		}
-		else if (BasicFunctions.playOffline)
-		{
-			if (Time.time > reloadTime + lastShot)
-				Debug.Log ("Fired");
-			{
-				Rigidbody instantiatedProjectile = (Rigidbody)Instantiate( Kill_Bullet, transform.position, transform.rotation );
-				instantiatedProjectile.velocity = transform.forward*Bullet_Speed;
-				Physics.IgnoreCollision( instantiatedProjectile.collider, player.transform.root.collider );
-				lastShot = Time.time;
-			}
-		}
-	}
-
-	[RPC]
-	void fireKillBulletS(Vector3 pos, Vector3 dir)
-	{
-		NetworkView bulletN = NetworkView.Find(id);
-		Rigidbody cloneB = bulletN.rigidbody;
-		if (cloneB != null)
-		{
-			cloneB.velocity = dir*Bullet_Speed;
-		}
-		//networkView.RPC("fireKillBulletC", RPCMode.Others, startPos, dir);
-		//Rigidbody instantiatedProjectileN = (Rigidbody)Instantiate( Kill_Bullet, pos, transform.rotation );
-		Rigidbody instantiatedProjectileN = (Rigidbody)Network.Instantiate( Kill_Bullet, pos, transform.rotation, 2 );
-		instantiatedProjectileN.velocity = dir*Bullet_Speed;
-		Physics.IgnoreCollision( instantiatedProjectileN.collider, player.transform.root.collider );
-		lastShot = Time.time;
-	}
-	
-	/*[RPC]
-	void fireKillBulletC(Vector3 startPos, Vector3 dir)
-	{
-		GameObject instantiatedProjectile = Object.Instantiate( Kill_Bullet, startPos, transform.rotation ) as GameObject;
-		instantiatedProjectile.rigidbody.velocity = dir*Bullet_Speed;
-		Physics.IgnoreCollision( instantiatedProjectile.rigidbody.collider, player.transform.root.collider );
-		lastShot = Time.time;
-	}*/
 	
 	void Fire_Gravity_Bullet()
 	{
@@ -143,12 +88,7 @@ public class Camera_Control : MonoBehaviour {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
-				//Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer LightningLineCurrent = (LineRenderer)Instantiate(LightningLine.GetComponent<LineRenderer>());
-				//LightningLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
-				//LightningLineCurrent.SetPosition(0, hit.point);
-				
-				//\new
 				float Distance = Mathf.Sqrt((GunTransform.position - hit.point).sqrMagnitude);
 				float floatvertexsize = VerticesPerUnit * Distance;
 				vertexsize = (int) floatvertexsize;
@@ -163,12 +103,10 @@ public class Camera_Control : MonoBehaviour {
 					LightningLineCurrent.SetPosition(i, (multiplier*(GunTransform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 				}
 				LightningLineCurrent.SetPosition(0, hit.point);
-				//\new
 				
 				if (!BasicFunctions.playOffline)
 					player.Fire_Grav_Bullet(GunTransform.position+new Vector3(0.01f,-0.01f,0.01f),hit.point);
 				if(hit.collider.tag=="level"){
-				//AudioSource.PlayClipAtPoint(gravity_switch_sound, transform.position);
 					player.Switch_Gravity(hit.normal*-1f, hit.point);
 				}
 			}
@@ -183,13 +121,8 @@ public class Camera_Control : MonoBehaviour {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
 			if (Physics.Raycast(ray, out hit)) {
-				//Debug.Log(hit.collider.tag);
-				//Vector3 incomingVec = hit.point - transform.position;
 				LineRenderer KillLineCurrent = (LineRenderer)Instantiate(KillLine.GetComponent<LineRenderer>());
-				//KillLineCurrent.SetPosition(1, transform.position+new Vector3(0.01f,-0.01f,0.01f));
-				//KillLineCurrent.SetPosition(0, hit.point);
-				
-				//new
+
 				float Distance = Mathf.Sqrt((GunTransform.position - hit.point).sqrMagnitude);
 				float floatvertexsize = VerticesPerUnit * Distance;
 				vertexsize = (int) floatvertexsize;
@@ -204,7 +137,6 @@ public class Camera_Control : MonoBehaviour {
 					KillLineCurrent.SetPosition(i, (multiplier*(GunTransform.position - hit.point)) + hit.point + new Vector3 (Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange),Random.Range(-Gibrange, Gibrange)));			
 				}
 				KillLineCurrent.SetPosition(0, hit.point);
-				//\new
 	
 				if (!BasicFunctions.playOffline)
 				{
@@ -277,9 +209,5 @@ public class Camera_Control : MonoBehaviour {
 			float yMin = (Screen.height / 2) - (crosshairImage.height / 2);
 			GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
 		}
-	}
-	
-	void Gravity_Switch(){
-		
 	}
 }

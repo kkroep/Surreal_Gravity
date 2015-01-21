@@ -29,7 +29,6 @@ public class NW_Spawning : MonoBehaviour {
 	private GameObject player;
 	private GameObject referee;
 	private Vector3 randomSpawnPoint;
-	private bool refreshing = false;
 	private bool playOffline;
 	private bool canSpawn;
 	private bool canInitLevel = true;
