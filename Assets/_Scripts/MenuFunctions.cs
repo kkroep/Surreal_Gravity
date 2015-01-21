@@ -128,7 +128,7 @@ public class MenuFunctions : MonoBehaviour {
 	}
 
 	public void goToStats ()
-	{(
+	{
 		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
 		if (BasicFunctions.activeAccount != null)
 			statsUname.text = BasicFunctions.activeAccount.Name + ":";
