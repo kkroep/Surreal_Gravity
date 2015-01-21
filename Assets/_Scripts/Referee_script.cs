@@ -182,18 +182,6 @@ public class Referee_script : MonoBehaviour {
 	}
 
 	[RPC]
-	public void PlayShotDead (int target)
-	{
-		for (int i = 0; i < playerCount; i++)
-		{
-			if (players[i].activeAccount.Number == target)
-			{
-				players[i].PlayShotDead();
-			}
-		}
-	}
-
-	[RPC]
 	public void showRedPlayer (int target)
 	{
 		for (int i = 0; i < playerCount; i++)

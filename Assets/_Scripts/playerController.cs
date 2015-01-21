@@ -354,7 +354,6 @@ public class playerController : MonoBehaviour
 	[RPC]
 	void fireKillLaser (Vector3 pos1, Vector3 pos2, int Pnumber)
 	{
-		AudioSource.PlayClipAtPoint (kill_shot_sound, transform.position);
 		LineRenderer KillLineCurrent = (LineRenderer)Instantiate (KillLine.GetComponent<LineRenderer> ());
 		KillLineCurrent.GetComponent<Gravity_trace_script> ().shooterNumber = Pnumber;
 		//KillLineCurrent.SetPosition(1, pos1);
