@@ -384,20 +384,6 @@ public class playerController : MonoBehaviour
 
 	void Update ()
 	{
-		if (timer > 0)
-			timer -= Time.deltaTime;
-		if (timer <= 0)
-		{
-			timer = 0;
-			canAnim = true;
-		}
-
-		/*if (canAnim)
-		{
-			networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
-			canAnim = false;
-		}*/
-
 		if (ColorRed && Time.time > ColorChangeTime)
 		{
 			hitColorRegular();
