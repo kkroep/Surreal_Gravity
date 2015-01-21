@@ -25,31 +25,25 @@ connection.connect();
 connection.query('use ewi3620tu2');
 
 app.get("/Players", function (req, res) {
-  //res.json(connection.query('select * from todos'));
   var querystring = "SELECT * FROM Players;";
   connection.query(querystring, function(err, rows, fields) {
     if (err) throw err;
-    //res.json(rows);
     res.send(rows);
   });
 });
 
 app.get("/Participants", function (req, res) {
-  //res.json(connection.query('select * from todos'));
   var querystring = "SELECT * FROM Participants;";
   connection.query(querystring, function(err, rows, fields) {
     if (err) throw err;
-    //res.json(rows);
     res.send(rows);
   });
 });
 
 app.get("/Games", function (req, res) {
-  //res.json(connection.query('select * from todos'));
   var querystring = "SELECT * FROM Games;";
   connection.query(querystring, function(err, rows, fields) {
     if (err) throw err;
-    //res.json(rows);
     res.send(rows);
   });
 });
@@ -124,26 +118,6 @@ app.get("/GameRegister",function(req,res){
       });      
     }    
   });
-
-
-  /*
-  var Winnaar = _escapeString((query["Winnaar"]!=undefined ? query["Winnaar"] : "UndefinedWinnaar"));
-  var Finished = _escapeString((query["Finished"]!=undefined ? query["Finished"] : "UndefinedFinished"));
-  var Gamemode = _escapeString((query["Gamemode"]!=undefined ? query["Gamemode"] : "UndefinedGamemode"));
-  var querystring;
-  if(Winnaar == "UndefinedWinnaar"){
-    querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+ServerID+"', NULL, b'0', '"+Gamemode+"', NULL);";
-    console.log(querystring);
-  }
-  else{
-    querystring = "INSERT INTO `ewi3620tu2`.`Games` (`Wanneer`, `Server`, `Winnaar`, `Finished`, `Gamemode`, `GAME_Id`) VALUES (NOW(), '"+ServerID+"', '"+Winnaar+"', b'1', '"+Gamemode+"', NULL);";
-  }
-
-  connection.query(querystring,function(err,result,fields){
-    if(err) throw err;
-    else res.send("Succesfully Registered Game")
-  });
-*/
 });
 
 app.get("/UnityGlobalInfo", function (req,res){
@@ -183,8 +157,6 @@ app.get("/UnityGlobalInfo", function (req,res){
       });
     });
   });
-
-
 });
 
 app.get("/UnityAccountInfo",function (req,res){
@@ -205,7 +177,12 @@ app.get("/UnityAccountInfo",function (req,res){
     connection.query(totalWinsPlayerQuery,function (err,rows,fields){
       if(err) throw err;
       else totalWinsPlayer = rows[0]["Total"];
-      WinToLose = totalWinsPlayer/(totalGamesPlayer-totalWinsPlayer);
+      if(totalGamesPlayer>totalWinsPlayer){
+        WinToLose = totalWinsPlayer/(totalGamesPlayer-totalWinsPlayer);
+      }
+      else{
+        WinToLose = "Perfect!";
+      }
       sendstring += totalWinsPlayer + "," + WinToLose;
       res.send(sendstring);
     });
@@ -217,7 +194,6 @@ app.get("/ParticipantsRegister",function(req,res){
   var query = url.parse(req.url,true).query;
   var PLAYER = _escapeString((query["PLAYER"]!=undefined ? query["PLAYER"] : "UndefinedPLAYER"));
   var SERVER = _escapeString((query["SERVER"]!=undefined ? query["SERVER"] : "UndefinedSERVER"))
-  //var GAME_Id = _escapeString((query["GAME_Id"]!=undefined ? query["GAME_Id"] : "UndefinedGAME_Id"));
 
   var PlayerIDquery = "SELECT PLAYER_Id FROM `Players` WHERE Naam='"+PLAYER+"'";
   var PLAYER_Id;
@@ -278,16 +254,7 @@ app.get("/Addgespeeld",function(req,res){
   });
 });
 
-/*
-app.get("/ShowDatabase",function(req,res){
-  var querystring = "SELECT DISTINCT Naam FROM Players;";
-  connection.query(querystring, function(err, rows, fields) {
-    if (err) throw err;
-    //res.json(rows);
-    res.render('Static/Database',{games_array: rows});
-  });
-})
-*/
+
 
 
 
@@ -317,53 +284,3 @@ function _escapeString (str) {
     });
 }
 
-/*
-app.post("/check", function(req, res) {
-  var post = req.body;
-  console.log(post);
-  var val;
-  if (post.value){
-    val = "True";
-  }
-  else {
-    val = "False";
-  }
-  var query = 'UPDATE Todos SET Klaar="' + val + '" WHERE TODO_Id=' + post.key + ";";
-  connection.query(query, function(err, rows, fields){
-    if (err) throw err;
-  });
-  res.end();
-});
-
-
-app.get("/new-todo", function (req, res) {
-  var url_parts = url.parse(req.url, true);
-  var query = url_parts.query;
-  var addstring = 'insert into Todos values("' + query["Wat"] + '", "' + query["Wanneer"] + '", "'+ query["Commentaar"] + '", ' + List_Id + ", NULL);";
-  connection.query(addstring, function(err,rows,fields) {
-    if (err) throw err;
-  });
-  res.end();
-});
-
-app.post("/update-todo", function (req, res) {
-  var post = req.body.data;
-  var updatestring = 'UPDATE Todos SET Wat="' + post.Wat + '", Wanneer="' + post.Wanneer + '", Commentaar="' + post.Commentaar + '" WHERE TODO_Id=' + post.key + ";";
-  connection.query(updatestring, function(err, rows, fields) {
-    if (err) throw err;
-  });
-  res.end();
-});
-
-app.post("/delete-todo", function (req, res) {
-  var post = req.body.data;
-  for (var key in post){
-    connection.query('DELETE FROM Todos Where TODO_Id = ' + post[key]);
-  }
-  res.end();
-});
-
-var getRInt = function(bottom, top){
-  return Math.floor((Math.random() * top) + bottom);
-};
-*/
