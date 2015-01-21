@@ -86,6 +86,7 @@ public class playerController : MonoBehaviour
 	private float ColorChangeLength = 0.3f;
 	private float ColorChangeTime;
 	private bool ColorRed;
+	private bool isWalking = true;
 
 	public AudioClip endfork_sound;
 	public AudioClip endrailgun_sound;
@@ -445,15 +446,15 @@ public class playerController : MonoBehaviour
 				Debug.Log("ISGEENSERVER");
 				if (spawnScript.serverHasQuit)
 				{
-					spawnScript.closeClient (true);
+					spawnScript.closeClient (true, true);
 				}
 				else if (endGame)
 				{
-					spawnScript.closeClient (false);
+					spawnScript.closeClient (false, true);
 				}
 				else
 				{
-					spawnScript.closeClientIngame ();
+					spawnScript.closeClient (false, false);
 				}
 			}
 			else if (BasicFunctions.playOffline)
@@ -518,15 +519,21 @@ public class playerController : MonoBehaviour
 				New_Velocity += transform.forward * speed * speed_multiplier * Input.GetAxis ("Vertical");
 				New_Velocity += Vector3.Cross (transform.up, transform.forward) * speed * speed_multiplier * Input.GetAxis ("Horizontal");
 
-				/*if(!BasicFunctions.playOffline){
+				if(!BasicFunctions.playOffline){
 					if (Input.GetAxis ("Horizontal")==0 && Input.GetAxis ("Vertical")==0) {
-						if (BasicFunctions.amountPlayers > 1)
+						if (isWalking)
+						{
 							networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "NoWalk");
+							isWalking = false;
+						}
 					} else {
-						if (BasicFunctions.amountPlayers > 1)
+						if (!isWalking)
+						{
 							networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
+							isWalking = true;
+						}
 					}
-				}*/
+				}
 
 				rigidbody.velocity = New_Velocity;
 
@@ -539,11 +546,17 @@ public class playerController : MonoBehaviour
 								rigidbody.velocity += (Gravity_Direction * jumpSpeed * -1f);
 								AudioSource.PlayClipAtPoint (jump_sound, transform.position);
 								JumpTime = Time.time;
-								/*if(!BasicFunctions.playOffline)
+								if(!BasicFunctions.playOffline)
 								{
 									if (BasicFunctions.amountPlayers > 1)
-										networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
-								}*/
+									{
+										if (!isWalking)
+										{
+											networkView.RPC ("Loop_toch_naar_de_tering", RPCMode.All, "Walk");
+											isWalking = true;
+										}
+									}
+								}
 								break;
 							}
 						}

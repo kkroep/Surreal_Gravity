@@ -201,7 +201,7 @@ public class ScoreScreen : MonoBehaviour
 		}
 		if (Network.connections.Length >= 1)
 		{
-			networkView.RPC("UpdateInfo", RPCMode.All, encodedKills, encodedDeaths, encodedScore);
+			networkView.RPC("UpdateInfo", RPCMode.AllBuffered, encodedKills, encodedDeaths, encodedScore);
 		}
 	}
 
@@ -215,7 +215,7 @@ public class ScoreScreen : MonoBehaviour
 			encodedScore2 += " " + scores[i];
 		}
 
-		networkView.RPC("UpdateInfoDB", RPCMode.All, encodedDeaths2, encodedScore2);
+		networkView.RPC("UpdateInfoDB", RPCMode.AllBuffered, encodedDeaths2, encodedScore2);
 	}
 
 	public void showScoreLiveS ()
@@ -234,15 +234,15 @@ public class ScoreScreen : MonoBehaviour
 
 	public void changeEntry (int Number)
 	{
-		playersT[Number-1].color = Color.black;
-		killsT[Number-1].color = Color.black;
-		deathsT[Number-1].color = Color.black;
-		scoresT[Number-1].color = Color.black;
-		/*for (int i = 0; i < BasicFunctions.amountPlayers; i++)
-		{
-			playersT[i].gameObject.SetActive(true);
-			playersT[i].text = BasicFunctions.activeAccounts[i];
-		}*/
+		Color newC;
+		newC.a = playersT[Number-1].color.a - 0.75f;
+		newC.r = playersT[Number-1].color.r;
+		newC.g = playersT[Number-1].color.g;
+		newC.b = playersT[Number-1].color.b;
+		playersT[Number-1].color = newC;
+		killsT[Number-1].color = newC;
+		deathsT[Number-1].color = newC;
+		scoresT[Number-1].color = newC;
 		EncodeStrings();
 	}
 
