@@ -132,8 +132,6 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToStats ()
 	{
-
-
 		string urlGlobal = "http://drproject.twi.tudelft.nl:8082/UnityGlobalInfo";
 		WWW www = new WWW (urlGlobal);
 		StartCoroutine (WaitForGlobalStats (www));

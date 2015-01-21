@@ -3,11 +3,13 @@ using System.Collections;
 
 public class Node{
 
-
-
 	public int hValue = 0;
 	public int gValue = 0;
 	public int totalValue = 0;
+	public int xPosition;
+	public int yPosition;
+	public int zPosition;
+
 	public Node parentNode = null;
 	public Node widthneg = null;
 	public Node widthpos = null;
@@ -16,14 +18,10 @@ public class Node{
 	public Node depthneg = null;
 	public Node depthpos = null;
 
-
-	public int xPosition;
-	public int yPosition;
-	public int zPosition;
-
 	public bool canPass;
 
-	public Node(int x, int y, int z){
+	public Node(int x, int y, int z)
+	{
 		parentNode = null;
 		widthneg = null;
 		widthpos = null;
@@ -34,12 +32,10 @@ public class Node{
 		xPosition = x;
 		yPosition = y;
 		zPosition = z;
-
 	}
 
-	public void calculatetotalValue(){
+	public void calculatetotalValue()
+	{
 		totalValue = hValue + gValue;
 	}
-
-
 }

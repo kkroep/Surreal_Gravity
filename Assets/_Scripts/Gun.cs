@@ -17,12 +17,15 @@ public class Gun : MonoBehaviour {
 
 	void OnSerializeNetworkView (BitStream stream, NetworkMessageInfo info)
 	{
-		if (stream.isWriting) {
+		if (stream.isWriting)
+		{
 			TruePosition = transform.position;
 			TrueRotation = transform.rotation;
 			stream.Serialize (ref TruePosition);
 			stream.Serialize (ref TrueRotation);
-		} else {
+		}
+		else
+		{
 			stream.Serialize (ref TruePosition);
 			stream.Serialize (ref TrueRotation);
 		}
@@ -32,7 +35,6 @@ public class Gun : MonoBehaviour {
 	{
 		if (!networkView.isMine)
 		{
-			//transform.position = Vector3.Lerp (transform.position, TruePosition, Time.fixedDeltaTime * 5f);
 			transform.rotation = Quaternion.Lerp (transform.rotation, TrueRotation, Time.fixedDeltaTime * 5f);
 		}
 	}

@@ -66,10 +66,6 @@ public class NW_Server : MonoBehaviour {
 		MasterServer.RegisterHost (gameTypeName, gameName, "Testing the ALPHA-Game"); //Registreer de Server
 	}
 
-	void OnFailedToConnect ()
-	{
-	}
-
 	public void closeServer ()
 	{
 		networkView.RPC("clearAccounts", RPCMode.All);
@@ -138,8 +134,6 @@ public class NW_Server : MonoBehaviour {
 		}
 		else
 		{
-			//menuBtns.Multiplayer_Menu.SetActive(false);
-			//menuBtns.Client_Menu.SetActive(true);
 			menuFunct.goToClient();
 			BasicFunctions.activeAccount.Number = BasicFunctions.amountPlayers + 1;
 			networkView.RPC ("setAmountPlayers", RPCMode.AllBuffered, true); //Verhoog het aantal spelers

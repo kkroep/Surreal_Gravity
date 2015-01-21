@@ -6,15 +6,15 @@ public class Killbytime : MonoBehaviour {
 	public float Time2Live = 0.5f;
 	private float Time2Live_left;
 
-	void Start () {
-
+	void Start ()
+	{
 		Time2Live_left = Time2Live;
 	}
 
-	void Update () {
+	void Update ()
+	{
 		Time2Live_left -= Time.fixedDeltaTime;
-		//Debug.Log (Time2Live_left);
-		if(Time2Live_left<0)
+		if (Time2Live_left < 0)
 			Destroy (gameObject);
 	}
 }
