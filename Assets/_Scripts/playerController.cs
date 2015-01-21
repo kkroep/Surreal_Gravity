@@ -221,7 +221,7 @@ public class playerController : MonoBehaviour
 		networkView.RPC ("fireKillLaser", RPCMode.Others, pos1, pos2, shooter);
 	}
 
-	public void setScreenTimer ()
+	public void setScreenTimer (int shooter)
 	{
 		if (networkView.isMine)
 		{
@@ -229,7 +229,21 @@ public class playerController : MonoBehaviour
 			{
 				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 			}
+			scoreScreen.shooter = shooter;
 			scoreScreen.time2show = time2death;
+		}
+	}
+
+	public void setKillTimer (int target)
+	{
+		if (networkView.isMine)
+		{
+			if (!scoreScreen)
+			{
+				scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
+			}
+			scoreScreen.target = target;
+			scoreScreen.showKill = 2f;
 		}
 	}
 
@@ -340,7 +354,6 @@ public class playerController : MonoBehaviour
 	[RPC]
 	void fireKillLaser (Vector3 pos1, Vector3 pos2, int Pnumber)
 	{
-		AudioSource.PlayClipAtPoint (kill_shot_sound, transform.position);
 		LineRenderer KillLineCurrent = (LineRenderer)Instantiate (KillLine.GetComponent<LineRenderer> ());
 		KillLineCurrent.GetComponent<Gravity_trace_script> ().shooterNumber = Pnumber;
 		//KillLineCurrent.SetPosition(1, pos1);
@@ -371,20 +384,6 @@ public class playerController : MonoBehaviour
 
 	void Update ()
 	{
-		if (timer > 0)
-			timer -= Time.deltaTime;
-		if (timer <= 0)
-		{
-			timer = 0;
-			canAnim = true;
-		}
-
-		/*if (canAnim)
-		{
-			networkView.RPC("WalkAnim", RPCMode.All, BasicFunctions.activeAccount.Number, true);
-			canAnim = false;
-		}*/
-
 		if (ColorRed && Time.time > ColorChangeTime)
 		{
 			hitColorRegular();
@@ -567,7 +566,7 @@ public class playerController : MonoBehaviour
 				rigidbody.velocity = new Vector3 (0f, 0f, 0f);
 				if (!isAlive && !endGame) {
 					time2death -= Time.fixedDeltaTime;
-					if (time2death <= 1f) {
+					if (time2death <= 3f) {
 						if (!spawnChosen) {
 							int index = Random.Range (0, spawnScript.respawnLocations.Count - 1); //Take random integer
 							Vector3 randomSpawnPoint = spawnScript.respawnLocations [index];

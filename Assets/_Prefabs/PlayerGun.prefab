@@ -1443,7 +1443,7 @@ MonoBehaviour:
   boundary_death_sound: {fileID: 8300000, guid: d294498da43ac594994ed5ec5aa854f6,
     type: 3}
   respawn_sound: {fileID: 8300000, guid: 21fec11ecf6a53d41807001d39213d0c, type: 3}
-  getting_hit_sound: {fileID: 8300000, guid: e23dd11f06fdc5b49a6835ab8e5709f4, type: 3}
+  getting_hit_sound: {fileID: 8300000, guid: d429da2e756bb0b42b370add8e49d214, type: 3}
   showWP: 0
   Leven1: {fileID: 0}
   Leven2: {fileID: 0}
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   gravity_shot_sound: {fileID: 8300000, guid: cfa5d7a6a23df8f4bb462c0d6b69376d, type: 3}
   bullet_hit_sound: {fileID: 8300000, guid: d8d43fadd6caa574db27cf5a280db59f, type: 3}
-  VerticesPerUnit: 150
+  VerticesPerUnit: 50
   Gibrange: .00999999978
 --- !u!114 &11432812
 MonoBehaviour:

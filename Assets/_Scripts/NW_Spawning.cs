@@ -33,7 +33,7 @@ public class NW_Spawning : MonoBehaviour {
 	private bool playOffline;
 	private bool canSpawn;
 	private bool canInitLevel = true;
-	private int amountSpawnPoints = 10;
+	private int amountSpawnPoints = 20;
 	private Referee_script refScript;
 	private ScoreScreen scoreScreen;
 

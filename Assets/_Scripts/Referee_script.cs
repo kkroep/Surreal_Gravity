@@ -10,7 +10,7 @@ public class Referee_script : MonoBehaviour {
 	public List<int> lives = new List<int>();
 	public NW_Spawning spawnScript;
 	public List<playerController> players;
-	public float respawnTimer = 1.5f; //seconds 
+	public float respawnTimer = 5f; //seconds 
 	public GameObject[] tmp;
 
 	public int winner;
@@ -78,14 +78,12 @@ public class Referee_script : MonoBehaviour {
 			networkView.RPC("updateLives", RPCMode.Others, 1, (target-1));
 			networkView.RPC("showWPanel", RPCMode.All, target);
 			//respawn player
-			networkView.RPC("KillPlayer", RPCMode.All, target);
-			if (BasicFunctions.ForkModus) {
+			networkView.RPC("KillPlayer", RPCMode.All, shooter, target);
 			networkView.RPC("PlayDead", RPCMode.All, target);
-			}
-			else {networkView.RPC("PlayShotDead", RPCMode.All, target);
-			}
+			players[shooter-1].PlayShotDead();
 
 			lives [target-1] = Lives_count;
+			players[shooter-1].setKillTimer(target);
 			scoreScreen.UpdateScore(shooter, target);
 
 			//encode scores to send with RPC
@@ -108,7 +106,6 @@ public class Referee_script : MonoBehaviour {
 				networkView.RPC("updateLives", RPCMode.Others, 2, (target-1));
 			}
 			networkView.RPC("PlayGetHit", RPCMode.All, target);
-			//networkView.RPC("showRedPlayer", RPCMode.All, target);
 			players[target-1].hitColorRed();
 			lives [target-1]--;
 			encodedLives = lives[0].ToString();
@@ -128,7 +125,7 @@ public class Referee_script : MonoBehaviour {
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
 		players[target-1].PlayDead();
-		networkView.RPC("KillPlayer", RPCMode.All, target);
+		networkView.RPC("KillPlayer", RPCMode.All, 0, target);
 		scoreScreen.UpdateScoreDB (target);
 	}
 
@@ -179,18 +176,6 @@ public class Referee_script : MonoBehaviour {
 			if (players[i].activeAccount.Number == target)
 			{
 				players[i].PlayDead();
-			}
-		}
-	}
-
-	[RPC]
-	public void PlayShotDead (int target)
-	{
-		for (int i = 0; i < playerCount; i++)
-		{
-			if (players[i].activeAccount.Number == target)
-			{
-				players[i].PlayShotDead();
 			}
 		}
 	}
@@ -259,11 +244,11 @@ public class Referee_script : MonoBehaviour {
 	/* Called when a player is killed
 	 */
 	[RPC]
-	public void KillPlayer(int target)
+	public void KillPlayer(int shooter, int target)
 	{
 		players[target-1].isAlive = false;
 		players[target-1].time2death = respawnTimer;
-		players[target-1].setScreenTimer();
+		players[target-1].setScreenTimer(shooter);
 		players[target-1].gameObject.GetComponent<CapsuleCollider> ().enabled = false;
 		if (!players[target-1].networkView.isMine)
 		{

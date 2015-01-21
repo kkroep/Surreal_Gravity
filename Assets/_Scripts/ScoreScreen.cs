@@ -28,15 +28,26 @@ public class ScoreScreen : MonoBehaviour
 	public Text score4;
 
 	public Text endScreen;
+	public Text shotByScreen;
+	public Text youShotScreen;
 	public Text maxPointsText;
 	public Text gameModeText;
+
+	public Color p1;
+	public Color p2;
+	public Color p3;
+	public Color p4;
 	
 	public List<int> kills;
 	public List<int> deaths;
 	public List<int> scores;
+	public List<Color> pColors;
 
 	public float time2show;
+	public float showKill;
 	public int winner;
+	public int shooter;
+	public int target;
 	public string gamemode;
 
 	public bool offline;
@@ -83,6 +94,10 @@ public class ScoreScreen : MonoBehaviour
 		scoresT.Add (score2);
 		scoresT.Add (score3);
 		scoresT.Add (score4);
+		pColors.Add (p1);
+		pColors.Add (p2);
+		pColors.Add (p3);
+		pColors.Add (p4);
 
 		winner = 0;
 
@@ -115,10 +130,11 @@ public class ScoreScreen : MonoBehaviour
 	public void showScoreScreen ()
 	{
 		showScreen = true;
+		shotByScreen.gameObject.SetActive(false);
+		youShotScreen.gameObject.SetActive(false);
 		scoreScreen.SetActive(true);
 		if (winner != 0)
 		{
-			Debug.Log("W: " + winner);
 			endScreen.enabled = true;
 			endScreen.gameObject.SetActive(true);
 			endScreen.text = "Winner: " + BasicFunctions.activeAccounts[winner-1];
@@ -130,17 +146,47 @@ public class ScoreScreen : MonoBehaviour
 	{
 		if (!showScreen && !BasicFunctions.playOffline)
 		{
-			if(time2show > 0)
+			if (time2show > 0)
 			{
-				time2show-=Time.deltaTime;
-				if(time2show<=0){
-					time2show=0;
+				time2show -= Time.deltaTime;
+				if (time2show <= 0)
+				{
+					time2show = 0;
+					shotByScreen.gameObject.SetActive(false);
 					scoreScreen.SetActive (false);
-				}else
-				scoreScreen.SetActive (true);
+				}
+				else
+				{
+					if (shooter == 0)
+					{
+						shotByScreen.text = "Killed by DeathBoundary";
+					}
+					else
+					{
+						shotByScreen.color = pColors[shooter-1];
+						shotByScreen.text = "Killed by " + BasicFunctions.activeAccounts[shooter-1];
+					}
+					shotByScreen.gameObject.SetActive(true);
+					scoreScreen.SetActive (true);
+				}
 			}
 			else
 			{
+				if (showKill > 0)
+				{
+					showKill -= Time.deltaTime;
+					if (showKill <= 0)
+					{
+						showKill = 0;
+						youShotScreen.gameObject.SetActive(false);
+					}
+					else
+					{
+						youShotScreen.gameObject.SetActive(true);
+						youShotScreen.color = pColors[target-1];
+						youShotScreen.text = "You killed " + BasicFunctions.activeAccounts[target-1];
+					}
+				}
 				if (Input.GetKeyDown (KeyCode.Tab)) {
 					scoreScreen.SetActive (true);
 				}
