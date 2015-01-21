@@ -7,6 +7,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 	public GameObject buildingBlock1;
 	public GameObject buildingBlock2;
 	public GameObject buildingBlock3;
+	public GameObject buildingBlock4;
 	public GameObject MainRobotSettings;
 	public int numberOfLargeSpawns;
 	public int numberOfSmallSpawns;
@@ -127,7 +128,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 				{
 					int counter = 0;
 					List<int> blockt = new List<int>();
-					blockt.Add (0);blockt.Add (0);blockt.Add (0);
+					blockt.Add (0);blockt.Add (0);blockt.Add (0);blockt.Add (0);
 					if(grid[width,height,depth]==0){
 
 						if(grid[width+1,height,depth]>0){
@@ -213,6 +214,9 @@ public class Copy_LevelCreator : MonoBehaviour {
 							if(blockt[2]>blockt[0] && blockt[2]>blockt[1]){
 								gridCopy[width,height,depth]=3;
 
+							}
+							if(blockt[3]>blockt[2] && blockt[3]>blockt[1] && blockt[3]>blockt[0]){
+								gridCopy[width,height,depth]=4;
 							}
 						}
 						
@@ -412,7 +416,7 @@ public class Copy_LevelCreator : MonoBehaviour {
 
 						}
 					}
-					if(grid[width,height,depth]==2)
+					else if(grid[width,height,depth]==2)
 					{
 						if(BasicFunctions.playOffline){
 							Instantiate (buildingBlock2, new Vector3(width,height,depth), Quaternion.identity);
@@ -422,13 +426,22 @@ public class Copy_LevelCreator : MonoBehaviour {
 
 						}
 					}
-					if(grid[width,height,depth]==3)
+					else if(grid[width,height,depth]==3)
 					{
 						if(BasicFunctions.playOffline){
 							Instantiate (buildingBlock3, new Vector3(width,height,depth), Quaternion.identity);
 						}
 						else{
 							Network.Instantiate (buildingBlock3, new Vector3(width,height,depth), Quaternion.identity,0);
+						}
+					}
+					else if(grid[width,height,depth]==4)
+					{
+						if(BasicFunctions.playOffline){
+							Instantiate (buildingBlock4, new Vector3(width,height,depth), Quaternion.identity);
+						}
+						else{
+							Network.Instantiate (buildingBlock4, new Vector3(width,height,depth), Quaternion.identity,0);
 						}
 					}
 					/*if(grid[width,height,depth]>0){
