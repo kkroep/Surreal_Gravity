@@ -234,15 +234,15 @@ public class ScoreScreen : MonoBehaviour
 
 	public void changeEntry (int Number)
 	{
-		playersT[Number-1].color = Color.black;
-		killsT[Number-1].color = Color.black;
-		deathsT[Number-1].color = Color.black;
-		scoresT[Number-1].color = Color.black;
-		/*for (int i = 0; i < BasicFunctions.amountPlayers; i++)
-		{
-			playersT[i].gameObject.SetActive(true);
-			playersT[i].text = BasicFunctions.activeAccounts[i];
-		}*/
+		Color newC;
+		newC.a = playersT[Number-1].color.a - 0.75f;
+		newC.r = playersT[Number-1].color.r;
+		newC.g = playersT[Number-1].color.g;
+		newC.b = playersT[Number-1].color.b;
+		playersT[Number-1].color = newC;
+		killsT[Number-1].color = newC;
+		deathsT[Number-1].color = newC;
+		scoresT[Number-1].color = newC;
 		EncodeStrings();
 	}
 
