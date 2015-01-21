@@ -124,7 +124,6 @@ public class Referee_script : MonoBehaviour {
 		{
 			scoreScreen = GameObject.FindGameObjectWithTag("ScoreScreen").GetComponent<ScoreScreen>();
 		}
-		players[target-1].PlayDead();
 		networkView.RPC("KillPlayer", RPCMode.All, 0, target);
 		scoreScreen.UpdateScoreDB (target);
 	}
