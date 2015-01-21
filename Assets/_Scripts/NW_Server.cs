@@ -63,7 +63,7 @@ public class NW_Server : MonoBehaviour {
 		bool NAT = !Network.HavePublicAddress();
 		Network.InitializeServer (4, serverPort, NAT); //Initialiseer Server; max connecties  = 4
 		Network.maxConnections = maxPlayers;
-		MasterServer.RegisterHost (gameTypeName, gameName, "Testing the ALPHA-Game"); //Registreer de Server
+		MasterServer.RegisterHost (gameTypeName, gameName, "SurrealGravity_FinalGame"); //Registreer de Server
 	}
 
 	public void closeServer ()
@@ -84,6 +84,7 @@ public class NW_Server : MonoBehaviour {
 	public void closeClient ()
 	{
 		networkView.RPC("deleteUNServer", RPCMode.Server, BasicFunctions.activeAccount.Name, BasicFunctions.activeAccount.Number);
+		networkView.RPC ("assignNumbers", RPCMode.Others);
 		clearTexts(false);
 		BasicFunctions.amountPlayers = 0;
 		BasicFunctions.activeAccounts.Clear ();
@@ -176,6 +177,7 @@ public class NW_Server : MonoBehaviour {
 		BasicFunctions.accountNumbers.Clear();
 		if (Network.isClient)
 		{
+			clearTexts (false);
 			Network.Disconnect();
 		}
 	}
@@ -256,7 +258,20 @@ public class NW_Server : MonoBehaviour {
 			BasicFunctions.startingAccounts.Remove(UN);
 			BasicFunctions.accountNumbers.Remove(Number);
 			clearTexts(false);
-			setTextsC();
+			//setTextsC();
+		}
+	}
+
+	[RPC]
+	public void assignNumbers ()
+	{
+		for (int i = 0; i < BasicFunctions.amountPlayers; i++)
+		{
+			if (BasicFunctions.activeAccounts[i].Equals(BasicFunctions.activeAccount.Name))
+			{
+				BasicFunctions.activeAccount.Number = i+1;
+				setTextsC();
+			}
 		}
 	}
 	/* Zet de text op de Server

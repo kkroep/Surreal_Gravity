@@ -27,7 +27,6 @@ public class NW_Spawning : MonoBehaviour {
 	public bool serverHasQuit = false;
 
 	private GameObject player;
-	private GameObject referee;
 	private Vector3 randomSpawnPoint;
 	private bool playOffline;
 	private bool canSpawn;
@@ -42,7 +41,7 @@ public class NW_Spawning : MonoBehaviour {
 		{
 			if (Network.isServer)
 			{
-				referee = Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0) as GameObject; //Spawn referee
+				Network.Instantiate (refereePrefab, new Vector3(0,0,0), Quaternion.identity, 0); //Spawn referee
 			}
 		}
 	}
