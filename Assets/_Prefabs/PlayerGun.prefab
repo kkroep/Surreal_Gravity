@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300002}
   - 23: {fileID: 2300000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 33: {fileID: 3300004}
   - 23: {fileID: 2300002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 23: {fileID: 2300004}
   - 95: {fileID: 9500000}
   - 122: {fileID: 12200000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpaceBulletFix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - 65: {fileID: 6500002}
   - 148: {fileID: 14800002}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - 114: {fileID: 11432808}
   - 33: {fileID: 3300000}
   - 136: {fileID: 13600000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerGun
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432756}
   - 137: {fileID: 13732812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - 114: {fileID: 11432810}
   - 114: {fileID: 11432812}
   - 148: {fileID: 14832812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Cam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ShoulderL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperArmL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerArmL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HandL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ThumbL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ShoulderR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperArmR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerArmR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HandR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11495864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - 23: {fileID: 2332808}
   - 95: {fileID: 9532812}
   - 122: {fileID: 12232812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpaceBulletFix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - 4: {fileID: 432790}
   - 33: {fileID: 3332810}
   - 23: {fileID: 2332810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - 4: {fileID: 432792}
   - 33: {fileID: 3332812}
   - 23: {fileID: 2332812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ThumbR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|MidBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HeupL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperLegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerLegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|FeetL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HeupR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperLegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerLegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|FeetR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1489,18 +1489,18 @@ MonoBehaviour:
   can_rotate: 1
   rotationY: 0
   player: {fileID: 11432806}
-  playercam: {fileID: 132758}
   referee: {fileID: 0}
+  playercam: {fileID: 132758}
+  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
+  GunTransform: {fileID: 432786}
+  bullet_hit_sound: {fileID: 8300000, guid: d8d43fadd6caa574db27cf5a280db59f, type: 3}
+  VerticesPerUnit: 50
   reloadTime: 10
   Bullet_Speed: 200
   Gravity_Switch_Timer: 0
-  Gravity_Bullet: {fileID: 5400000, guid: 8e5dd9b1fa8c2f54f8d51c8f8b7889a0, type: 2}
-  GunTransform: {fileID: 432786}
+  Gibrange: .00999999978
   kill_shot_sound: {fileID: 8300000, guid: 6c6a641a2b6e4224e943d25ea6155308, type: 3}
   gravity_shot_sound: {fileID: 8300000, guid: cfa5d7a6a23df8f4bb462c0d6b69376d, type: 3}
-  bullet_hit_sound: {fileID: 8300000, guid: d8d43fadd6caa574db27cf5a280db59f, type: 3}
-  VerticesPerUnit: 50
-  Gibrange: .00999999978
 --- !u!114 &11432812
 MonoBehaviour:
   m_ObjectHideFlags: 1
