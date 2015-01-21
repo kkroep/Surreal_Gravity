@@ -922,7 +922,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 213059730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1342,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 263943275}
   - 137: {fileID: 263943276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1429,7 @@ GameObject:
   - 65: {fileID: 272591737}
   - 148: {fileID: 272591736}
   - 114: {fileID: 272591735}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2157,7 +2157,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479263720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ShoulderL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3388,7 +3388,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 613052705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerLegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3484,7 +3484,7 @@ GameObject:
   - 4: {fileID: 616217642}
   - 33: {fileID: 616217644}
   - 23: {fileID: 616217643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3856,7 +3856,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 656317998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|MidBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4193,7 +4193,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 704892271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerArmR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5513,7 +5513,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 873541680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperLegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6293,7 +6293,7 @@ GameObject:
   - 4: {fileID: 969122616}
   - 33: {fileID: 969122618}
   - 23: {fileID: 969122617}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6417,7 +6417,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 987871976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|FeetR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7075,7 +7075,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1072572401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7760,7 +7760,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1183934872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7859,7 +7859,7 @@ GameObject:
   - 114: {fileID: 1196195018}
   - 33: {fileID: 1196195017}
   - 136: {fileID: 1196195016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerGun
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8167,7 +8167,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1223236563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperArmR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8522,7 +8522,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1302031816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperLegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8550,7 +8550,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1302051197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8766,7 +8766,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1333848042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8793,7 +8793,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1336734127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ShoulderR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8948,7 +8948,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1347070882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerArmL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10258,7 +10258,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1544189407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ThumbR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10940,7 +10940,7 @@ GameObject:
   - 114: {fileID: 1628325600}
   - 114: {fileID: 1628325599}
   - 148: {fileID: 1628325598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Cam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -11465,7 +11465,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1653588940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HeupR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12158,7 +12158,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1708174432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|FeetL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12255,7 +12255,7 @@ GameObject:
   - 4: {fileID: 1719216205}
   - 33: {fileID: 1719216207}
   - 23: {fileID: 1719216206}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12377,7 +12377,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1724125779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|LowerLegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12622,7 +12622,7 @@ GameObject:
   - 23: {fileID: 1732974033}
   - 95: {fileID: 1732974032}
   - 122: {fileID: 1732974031}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpaceBulletFix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13042,7 +13042,7 @@ GameObject:
   - 23: {fileID: 1766982721}
   - 95: {fileID: 1766982720}
   - 122: {fileID: 1766982719}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpaceBulletFix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13130,7 +13130,7 @@ GameObject:
   - 4: {fileID: 1776657753}
   - 33: {fileID: 1776657755}
   - 23: {fileID: 1776657754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13418,7 +13418,7 @@ GameObject:
   - 65: {fileID: 1805780686}
   - 148: {fileID: 1805780685}
   - 114: {fileID: 1805780684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13577,7 +13577,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1811726177}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HandR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14045,7 +14045,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1880790034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HandL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14659,7 +14659,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2003941456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|HeupL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14687,7 +14687,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2010962844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|ThumbL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15292,7 +15292,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2067573027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature|UpperArmL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

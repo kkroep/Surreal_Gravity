@@ -12,101 +12,21 @@ Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.109 seconds
+- Completed reload, in  0.093 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.057 seconds
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.Core.dll (this message is harmless)
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
 Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.dll (this message is harmless)
 Sens: 10
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.059 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.Core.dll (this message is harmless)
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.dll (this message is harmless)
-Sens: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 630M            (ID=0xde9)
-    Vendor:   NVIDIA
-    VRAM:     1994 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.061 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.Core.dll (this message is harmless)
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.dll (this message is harmless)
-Sens: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.Core.dll (this message is harmless)
-WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
-Platform assembly: C:\Users\Roby\Documents\TU Delft\Minor\UnityProjects\Surreal_Gravity\Build\Surreal_Gravity_FINAL_Data\Managed\System.dll (this message is harmless)
-Sens: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Server: AB's Server registered
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.56.1:28262
+Received pong from 192.168.0.166:12003
  
 (Filename:  Line: 836)
 
-Received pong from 192.168.0.166:28262
+Received pong from 192.168.56.1:12003
  
 (Filename:  Line: 836)
 
@@ -134,756 +54,12 @@ Received pong from 192.168.0.166:28262
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Received pong from 192.168.56.1:28262
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.0.166:28262
- 
-(Filename:  Line: 836)
-
-0: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/Standal0neP:ay rAeBrat
-ed/UniamEeg:n DC:u/BupildAneent/)w
-o
-rk0:613
-d
-fc6385190b60/aBritifacts/Stan/d6lodneP3layerGenerated/UtnityEngineDeebaug.cpp Line: 49)
-
-EngineDebu0.: p
- 
-Line: 49)
-C1: uKleAest/w
-ork/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)En
-gineD0: ABpp 
-Line: 4me
-:
-1: 2
- 
-(Fileename: C:/BuildAgent/work/d63dfc6s3S85190b60/artifaGtseSneraated/UnityEngineDebug.cpp Line: 49)g
-0p: L1
- e
-:File)
-
-me0 C:/Bu
-il
-dAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-1: Keesine
-: 49)am
-e: C:
-/B
-uiilename: oC:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebu
-g
-1: 2
- n(F 49)am
-e: Ceesild
-Agent/work/d63dfc6d385190b60/artifacts/StandalonePlayerGenerated/neiPlEagyerGenerated/UnityEngin
-e
-De0ug.cpp
- L
-ine: 49):
-1: 2i Agent/work/ C:/Buc6385190b60/artifacts/Standalon/ePlafyerGeStanderoaePed/UnityEngineDebug.cpp Line: u49)
-p
-0: 1: 4
-9)le
-na0e: C:/
-Bu
-ildlename/: C:/BuildAgent/90b60/6rtfi6fa5cts/6t0n/artifacates/SntantdalonitPlnaynerGbngerpated/UnityEn
-g
-i1: Kbug.
-c
- (Fie: 49leam
-0: 1/Bu
-ildAenamew:r Cd:3/Bc6385190b60/artifacts/63t85d190b60/artifanerated/UnitynEngayeerGenerat Ldinne: 49)ne
-Deb1g: 2 Li
-ne:le9na
-
-me: C: KeuesdA
- g
-(einentm/:wo:rBuild3Agent/w19rk/d63dtifact6/Stan90b60/ePtifactGentendalonePlayerGeinraeDdeUbug.EcgineDebug.cpp 
-L
-ine2 49)
-
-oe1:
- 2
-Fil
-ename: mC::/B/BluildAgent/w/orkdfc6d3c6519509b660/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 449)
-
-2:  A
-yy
-oebena
-mFileCname: C:/BuildAgent/work/3d613dbfc/638519ct0/bta0ndatifacPla/yerGenerated/UnityEngineDebug.cpp Line: 4g).
-c
-pp Line: 49)
-
-2: 3
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.56.1:28262
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.0.166:28262
- 
-(Filename:  Line: 836)
-
-0: AB
- 
-(Filleaamee C C:/uiildAgAgent/rw/or3dkc63/5d96b30dfc6ifacts/60anrtlifaPcts/St nABalon
-(F/leiteramneireCee/Uuu.ipt yEnngidAe9)
-
-gge 1n L/
-weork/am
-
-30 cC385B
-u0
-iF0Aleat/tifa dC/:/fc638519e0b/wroenrka/ed63dStfyE6gi8neP90bug.cen Liante: U4i9n
-d
-aloneePla0ep 1ei
- n
-e: de/Un
-iC:t/BEin
-gi
-Agent/wor:k/d/Buil64A)51
-t/1or/aKeifsc63/8t5F1le9amb:ay:/GeneratgenUnityk/gineDeb38.5pr9ab60d r4nityts
-ngineD0:oAn
- p 
-ayenennamat:
-d
-1: /2ui
-l
-(nFeDlweunacmedp 6L85190b60/
-a
-1tifr
-k/
-s/Standal:nePlayerGeAgecnt/StarndalonePlayerGenerated/UnityE
-
-0t:i n1Deb
-ug.cpp Li:a Cd:/B
-u
-2:EAngoineDe
-bug.cpp 6ine: 49)da2r:/tirfaoets/S
-3t5le0blo0/PlrayelfGecnts/teanda3dnePlayeeGeeer/urgifccps/Stganede4b)u
-g
-e:P laes
- Ge
-)e
-i
-2aena3: :/yBiglinnmen: bugk/pp dfA6e: t190
-b
-62/:ar3t
-6f
-a85t1enta6n:aatlfactuiatdAgenlorntrPk/nye6rdfc6ereaD0ebb0nag.ycfpgp /SeDe:da49lu
-o
-nePlap
- 
-( iraned/: 9)/Bil
-dAgU:ti yrEn
- i3deDc6leg.mpp 6Linuae: gent
-/
-/Srt/andalBn
-3ay
-(eirGl6nnaraefedc/tuityAgeni/noek/ed6g3defepa ed/1ne:b60gi
-
-rtifacg.cSp an
-id
-aFe:e aame
-
-e Gen
-e
-rualted/UnityEngindDegb6u8g51rp/6 /L3incac8599)b0/
-l0r 1
-fa
-ctil/etanda/oUnniPtyEynenrnGenkerated/Unity Linngei: f49)u.
-0: 1ndal4i9)l
-yerGeKeesldA/U
-(eintty/nor kneD3ifg63c8p 9L/bo6:0/da6
-3
-dffaKees9 a6
-/aaorltiaaeeceneS/Btildd/APlateyEweng/e63dDc/Un.5p1y 0gi0eD/bur
-t
-1f Keansct
-4/
-SFai
-aen: e2Ce:
-(Fuilname:t iC://d6ldnAgcnt85w19 Lkbd6ndec6ar8419)ab
-610:/aa
- al
-oFfleclma:yCe:ndBnlioteg/ntityEk/da63Dd/fcn6ity5Enein4D9)ug
-1:cts
-Li
-tnandalon
-e
-2C y/BGild
- enFeidrlenamyEcng3in5eDAe0bg/./artdf6i3ds /6S3
-8
-2: 0A6yoyonbeaPl
-a/erennaalende/PUlniierGEnn/eoraDde3df/6.i8pp 9LiineD 49)ct
-2/Standa 4
-n
-(
-i
-l: 3
- ne
-(r/Beid/mAegyntn/gun/dDA3de.c6pp8 Line: 49)81
-facts/
-St
-afndetso/S e:/laylnrGenerwtenkedU3dfct3ed1/0n60iartnifneinbug.c)pp
- 
-oL: 3e:rG4
-9)leted/UnAty/EunBdA
-e
-(Fwirl/d63def:63859)bl
-6d/artgenABtrs
-/F/Stdfame8 Ce/lb6e0G/gertief/Utd6ttyEng38nePDebe6Gg./aatLi/ets49St
-
-gnnedebouePlapypr 
-en
-enera emeU:
-i
-t0E/Bui
-le
-deAugentawprmL:in3dfc6385
-1
-90: 1
-a
-(tFfalden/at8e:dal6n/uilafacts/Strandea/lUnit51y90Gbn6er0/earUtiiyEagcits/
-tb0g.ac1p P ne: 4e)n
-a
-mr:: edeeUsiA En
-gF/noekDeabmfe6. cCp:p 0/iartAg9ensSaw1:lKons
-la(F6i38e51atb6d0//ariliAfacg/s/eStda3ndcal8o1nebnla:rt9iG
-
-1cratedand
-alonePlnae: C:/Builtede:t 49y)k
-n1: b26385190b60
- ptFianes/Stan
-d
-aBu l2l
- neGt/iretam6/:f it:51uiildAgen.tip Ltn/d6a43df
-o
-nePl21
-90
-b6enenamfe: Cn/ittniddaglno/woDrekbuGg3ecafteid/:U519
-ybEn Ayiief
- au
-gF.clpennaine:P 4/9uil
-r
-2enAyntotwdoU
-nk
-(/iy6n3md:fnc:/Builcdp0Ageearwti
-
-2:d6yydfac63
-8F5l1n9e0Ge: C:rti/fnitynn/woeDko/d63afcrLi51:940b6d/Un
-t
-2: 3g
-ineaDillonePl:y rCe:n4Bua
-
-lddA/
-Un
-tiworEn/di3dfceb8ui9.cp0/eatritoik/d)t3
-d
-f2c638l5n1e
-Plal0ermG:enCe:/SBaudi/UnitlayeorkeDeaue.d6/ULi51ye0gi6)/aur.tpi fiae0ts/At
-B
-a
-nd
-: oAnBae:P
-C:ayerGengeCttedw/dUn/dt3wnfc6n3eD19bubg60carpi aLtsac:ts9aS
-l
-a3n Konae
-Pr
-lanyeatednUertyEngiAgent/workp 63ngf.6c p4p b
-L
-6:01
- 9
-)t
-fnc:e 1 C:/
-(Filename: C:/BuildAgent/work/d6/arc6fa8ct9s/Standa
-l
-facts
-/S
-yarGdnarelaoteedPldAgentenerk/d63dfiptyEngineDebar
-1: KeesS 
-(F4ale
-n
-1m:e:e C
-:
-/niuerltedACgeButElgige/nbtg/cporLine: 49)38
-51f90b60/artifacts/SatarndnalaoenePlayeErGieenebra.ted LinityE9ng
-i
-ne 2e
- b
-(FglenamLinC: /9)u
-
-dAgen
-t
-/wioerkm/:dC:dfc63dAgent/w0ork/if3acts38t5n1a90bePlay6rG/arrtifacUnityEngineDebug.cpp Line: 49)
-n
-2t: Ayyoebbug
-.cpp Line: C49)
-i
-2: Ayyoeb
- 
-(Filename: C:/b6i0/Aaertifacts/StandalonePlayerGenerated/UnityEngineDebug.ecepp Line: ty)E
-n
-g2: 3e
- .cpp Line:: 9C:
-/
-Bu2: 3
- 
-(Filename: C:/Buil90gb60/artifacts/StandalonePlayeirGcenerated/UnityEngineDebug.cpp Line: 49)
-D
-e3: Kwok
- 
-(Filen)a
-m
-3: Kwok
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerineDebuge.cpp Line: 49)bu
-3.: 4
- 
-(Filenam
-e
-3 : 4
- 
-(Filename: C:/BuildAgent/wb60/artifacts/Standa/artifacesrGenerated/UniteyEengrinee/DnebuEncpip Lebug 4cppL
-ne: 49)
-
-Server disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Server disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalSeerver disconnected
- yEngineDeb:ug.cpp Line: 49)rk
-/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Server disconnected
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Server: AB's Server registered
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.0.166:506
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.56.1:506
- 
-(Filename:  Line: 836)
-
-0: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-0: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-0: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-0: 1
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-1: Kwok
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-1: 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.0.166:506
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.56.1:506
- 
-(Filename:  Line: 836)
-
-0: AB
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/U0i:yEngn Db(g.Fpilename: C:/
-B
-ui0: 1
-nt
-(/ilernam6ed: C:/B1u0lbA6en/a/work/t63dfcan85d9abl0/ontefPcta/StrGenerateed/UnityEngineDebug.cyEpgineDne: 49)p 
-Lin0:  9)
- 
-(Fi lenam
- 
-(C:l/nBmuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDenbiueg.cpp Line: 49)49
-)
-
-10: A
-B
- ilename:nCa/muied: C:/BuildAgendt/w3ork/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cp
-p
- L0: AB
- 
-
-F0: 1me:
- C:/BuameAge:t wC:k/BuildAgent/work/d63dfc63851S9a0b60/artifacts/StandalonePlyayerGenerated/UnityEngineD
-e
-0: 1pp 
-Line: 49) C
-1: Kwokgen
-t/work/d63dfc63851d9ge6nt/work/d63dfc6385190eb60/artifacts/StandalonePlayerGe.nerated/UnityE
-n
-gineDebu
-g
-.cpp Line: 49)ui
-1: 2nt/
-work/d63dfc6385190b60/artifacts/StandalonePlayerGeneaated/UnityEngineDaeebuenerated/UnityEng
-i
-1: 2
- .cpp Line: 49)Bu
-il0: AB/wo
-rk/lename: C:/BuildAgrtifacts/Standalo8nePlayerGenerated/UnityEngineDebug.cpp Line: 49)y
-E
-0gineDe
-bu
-g.cpp Line: 49)il
-0: 1
- work/d6a3dfc6385190dbgent/rwioarks/Sd63dafcn6PlayerGenerated/UnityEngndeaebug.cpp Line: 49)d/
-0: 1Eng
-ineDebug.c Cp/pu Linee 4nt/
-wo
-1:/Kd6k3
-df
-(c63e8ame5 C:/BuildAginacts/StandalfonePlayerG0/errated/UnityEdaloenePlg.cppGeineer4at
-e
-d1: ityEn
- in
-e(ugi.ecape: C:neBuildAg
-
-n1/wo rk
- 
-(Filename5:9 bC0/artifacgent/work/d63dfc6385190b60/artnitacEn/Standaloge.cayerinn: ated
-/
-Uni1:En2g
-in
-eDebug.cpp Line: 49)en
-2/woryyoe63
-df
-c6385190b60/artifactgsn/SwtandalonePlayerG0neratar/UnitfEacins/eSut.cpp Line: 49)
-G
-enerAayoebUni
-tyEngineDebug.cpp Line: /49)/d
-62:f 6385
-19
-0b60/artifacts//tuanddalonePlra/yerGenerated/UnityEngineDebutg.cpp Line: 4rGen
-e
-2: 3/Un
-itylename: C:/Buil dAgent4work
-/
-d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Received pong from 192.168.0.166:506
- 
-(Filename:  Line: 836)
-
-Received pong from 192.168.56.1:506
- 
-(Filename:  Line: 836)
-
-0: AB
- 
-0Fi le
-n
-aF0l:nC:
-Bui: 
-(geiAlgontk/d63ofrBuk386g3ndfc6385193d6tc6/385ad0tbonetPaladalGneneantreldoUnaPled/UnitnyeEaten eDneybugg)
-
-De :u ne: 4
-9ne)ena
-m
-:e::
- 
-C
- /Bualme: C:/B:/Bk/igelndt/ewo/rk/d/d663iffc638/59t00d6a//atrtiacetstse/aStdanonePlngineDerGe.npd/atnityUngitn
-yenD0buD.ce
-pb
-uig.cpp Li
- 
-C1:Buio
-k
-1
-: 
-Kwilerka
-me: C:/mBe1il Ag:nt/work/s/3t/fdc638eP1l90a6y/9aGr6tifact/Unia/nStaalonePlayerGenerated/U
-n
-0tyEnyEi
-neDebne.c:pp. BLindAgent/w
-)
-r:
-12
- d23 51
-9ame:/artiuilds/Sttndalon/dlayerG38519ted60bitti/fatcts/StandalonePlaP4la
-y
-eer aetn
-d/
-ated/EngineDe/Buildp AientLi ne9d6
-4
-9)638y Abb6
-0bFil
-ename:a C:/Bu/BuildAgent/work/d63d385389gi9e0/arg.aifa cctss/4S)a
-a
-ndaal
-oe
-ePlaayame: rraateddUgnnt/wErk/d63dfc6385p90ine: r4if)
-c
-s/
-S2:
- 3
-
- o
-nePlayerGe/Buitld/Angennt//work/d63dpcc63ine:b 460/at
-if0c: /BSta
-nFtalnonaeonlayayerGenerated/UnitygingDebug.cpp Lp ne: s49)a
-d
-a
-l0n0:AAye
-r
-
-(
-nerename: CtyEngiledeAgue.cpporkd/d63d9fc9
-0
-300 9r6i
-0Fit/naSe: a:/rutiaanednSt/onrdalonePlyerG1ene6rataedi/Ucti/StandalogineDebuGecp4ep
-
-t0:nUn1it9)
-
-(iFnei
-e
-ug.ce: Ce:/CB 4BldAgent/work/u6id
-f
-Ag38 ew190
-w
-(r/Frtl6famce/3: C9a0onu60iarlidyceerGeanedalondd/la3yty9GEn6rinereeb/uni.cypEnganeDeeP)
-pep1e:irwotek) tEng1nemwek  :(Fiuiname9)
-
-/Build
-Ag
-eFfce6ame/5 639dfbl638ent/wo0//d63dac638/StandalonePlayerGenerated/UeDelugycpr eenener49e)/
-U
-1: 49ng
-F1l: 2. c
-ppiLiuei lmeA
-g
-2: Ayyoebe63wofk/d6mefc 63851ritb60eacrtifacts/afc6385190b60/artifacts/StandalonePlayerGenLine: i/e:ty
-2: 
-i
-2: Abu
-oe
-.c
-pl
- einanm e4:9)Cu
-/
-ilidA
- g
-(nt/wookme6d6d3fcf3c5690860/artifa3rdfScf6385190b60/artifacts/StandalonePlayerug.cpateid/Un49y)gi
-2eDebug
-2:p3p
- me: C:/9)uil
-CdA0:ilAdAor
-en//d63dfc63:8f51i90b60/a/work/d63dtc6n8d19lon0/aPrltrfaetneraand/UnitylEnngineDeabbgugnptpLp nLene: 49
-Lin0:: AB
- 
-0
-:Fil
-le
-name: C:/BuildAgiltdAgent/w3rk/d63dfc6385190b60/artifacts/StandalonePlayerGend/UnityEnginengineDebug.cpp Line
-
-0: 1
- 
-
-((Filk
-e
-nnammea:e: /BuBiildnA/eont/rk/d636f385c6985bb90/ar/aarts//SandalonePllayerGeyeeraeter/UiitdE/yinenegnn.gpbueDebug49pp)
- 
-i1ne 2
-
-1
-(F
-oke K
-ame:
- C
-nameildAgBnt/work/d6wont/w63d90c63d/6rt51acbs/0t/ndrltnefP/ltasySeanGalnoenGelnaeeraited/Uid/tnityEngeDeDebug.cpp
- 
-Li2:4 9 )
-
-y1
-oe1
- :
-(2ille
-(naFme:leCnaBule: ACen/t/kuoi6ldAgent53805k1d60difac6s3S85ndalonePlayenePlsr/aSeterdUaileo/nniePylan.erpeDine: 49) L
-itneE:
-n4
-g)nen
-2mug.cppBui
- d
-(:t/49)me
-: 2: AyyoeAgeb
-6F/artifacts/S/BandalonePlayfrGe6s3dfaeda85190la0/artifacts/StaLdtlynEPngy
-n
-3DeKeebu
-ag
-tced /ainety:9Bngd
-2n: ebu
-gr
-k/d63dfc638519
-B
-6uialdA e
-(F/Stand63dfC:P85190b60/artwirkaU/tdy63dfdelDebugacpye LGenerated
-a
-3: 4Eng
-ineDenam.cpC:/BuildAgen
-t
-/wo0k/ug.c
-pc
-(Filenam6: C
-:
-/Bu0ldAABan
-work/d63dfc6385190b60/ar/iwnorg/inanDfal6ocn85P19e: 49)
-nteractsd/StitdylEneginyeDGebug.cpp ULinyen 49)
-e0ug1.
-c
-(Finen:m 4 9)Bu
-il dA
- g
-(ent/nwoer k:/du63dfc6385190b60/artifa85190b60/arlifaonePlayerGenerated/UGenernityEngineDebug.cpp Line: 49): 
-1: K
-w
-1: 
-Kw
-oklen
-ame: C:/BuiC:/BuildAnt/workork/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp ne: 49)9)
-1
-
-12:
- 2
-(
- enFilename: C:/BuildAgent/work/d638d1f0b608/artifacts/StandalonePlayenrGlayerGenerated/UnityEngineDebug.cpp Line
-:
-2: Ay
-y
-o:eAbo 
-
- 
-(enlanam:  C:/BuuldAgent/work/d/3dwork/d160bd60/a85r90tif/artiSatandSaaloaePllyornenerated/UnityEnginUeDtebnuig.cepug.inp L: e4 9))
-
-
-22 3:
-  
-(F3lnam
-e: C:/BuildAgent/work/dt/worck/d63d0b60/a19i0b60/artifaactnsP/aSetGandalonePlayerGeneneDeed/UnityEngne: 49).c
-p3: Kees
- 
-(F
-
-3enaKme:
- C
-:/iuildeneat/work/d63dld6Ag5e9nbt//aorkif63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngin
-e
-3: 4.cp
-p Line: 49):/
-3: 4A g
-ent/work/d63dfc6385Agent/work/d63dfc6385190b60/artifacts/StandalonePlngineGDebug.cpp Line: 49)
-D
-ebug.cpp Line: 49)
-
-UnloadTime: 4.903139 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3999.
-Total: 3.850937 ms (FindLiveObjects: 0.163765 ms CreateObjectMapping: 0.030343 ms MarkObjects: 0.5243U6nml  DdTime:O4b2j4e5c ms:
- 1.097271 ms)
-
-UnloadTime: 3.466289 ms
-Unloading 4 Unused Serialized files (Serialized files nowUloaded: 0 / Dirty serialized f files (S
-e
-rialized files now loadetsed: reduce memory usage. Loaded Objects
- 
-now: 3993.
-4o unused Assets to reduce memory usa0.134760 ms CreateObjectMappin
-g: 0.030789 ms MarkObjects: 0.394910 ms  DeleteObjrects: 0.754123 ms)
-0
-.036144 ms MarkObjects: 0.427931 ms  DeleteObjects: 0.755908 ms)
-
-has not yet found all players
- 
-(hilennamey:  C:/Bu ildAgenteros/ 
-(dfc6n38e5 1:/BuildAgent/cts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)ty
-EngineDebug.cpp Line: 49)
-
-has not yet found all players
- h
-(Fase nmot  y/eti fAount/work/dl6y3dfc
-63
-85190b60/arCifaButsdAgent/work/Pl3ayerGenerated/UnityEngineDebug.cpp Line: 49)at
-ed/UnityEngineDhbuas no Lite: ye)t
- 
-found all players
- 
-(Fiheas not yet fouAgent/work/d63s
- 
-(Filen0b60/art/Buits/StandalonePlayerGenerated/UnityEngineDebug.cpp Line:e G49e)te
-d/UnityEngineDebug.cpp Line: 49)
-
-has nothyatsf uno t lyelt foun
-d 
-all playee r:suil
-(Fginlenark/d63dfB6u8ildAgent/work/d63dfc6385190bPlayerGtifactts//SitaEndalonePlayerGenerated/Un
-i
-tyEngineDebug.cpp Line: 49)
-
-has not yee t fnounll aplapleasy
- e
-rFsl
-na
-(Fil Ca:e/ B:/BluildnAgeor/wodrk/d63dfc638b16006/aarttficts/Sttsd/StandaaleoneeePalea/ynetrEGeineDratedcpnityEngin49)ug
-.cpp Line: 49)
-
-haa not s not uny ell opnlayersp
- y
-(Fi
- l
-eFilename: C:/BdAldnA/goen/t63dfc6/d63dfc60/artifacts/rStandaslotnndalayerGenerated/UnityEngineDebug.cppuLig.cpp Li
-n
-e: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all hlayseros
- 
-(ti efamued: lC:/BuildAg
-en
-(t/lwork/d6Cd/fuc6d38ent90b60k//6arftifacts/Standalonects/StaPdlaonerGleynerated/UnityEinyEgginneeDebug.pcpp Line: 4
-
-9)
-
-UnloadTime: 3.513589 ms
+WARNING: Shader Unsupported: 'Reflective/VertexLit' - Pass '' shader state not supported
+UnloadTime: 2.855851 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3993.
-Total: 2.534121 mhaaFinndoti  ft foousnd aa3l43l14 ers
- 
-(Fe(ieOlencaMmepineg :: B0i.dA2entn/w okr/a/rkOdfc6ct5:b601 0b60a2ts/2 ansa lSeletlOajectsenreen762/U0i/Umisy)Degiug.ebu .Lpp Lini: n9)
-
-e: 49)
+Total: 4.509121 ms (FindLiveObjects: 0.126728 ms CreateObjectMapping: 0.027219 ms MarkObjects: 0.396249 ms  DeleteObjects: 0.759031 ms)
 
 has not yet found all players
  
@@ -903,17 +79,6 @@ has not yet found all players
 
 has not yet found all players
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngihas not yept notndyeltl
-f
-ound all 
-pl
-ayersame
-: C:/Build C:/B/ildAgk/td6odk/d38dfc90b60/3rt8fact0sbSt0/artifaatsnSdandallnenePalarGreenerraet/UnitytyEEngineebbug..cp p iin: 49e
-:
- 49)
-
-has not yet found all players
- 
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 has not yet found all players
@@ -922,30 +87,7 @@ has not yet found all players
 
 has not yet found all players
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/Stahdaaose lnyort nyeat dfUnni ayEngliners
-bu
-g.cpp Lmei ne/Bui no
- gee not/w rk/l 3dafecs6
- 3
-(8i5en9meb:0 artifactsAgent/alork/d63ercGe8nerab60/artifaEngi/neDebulonePlayer:Gener
-a
-ted/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63hfas3 n1o0t6 yaeti acts/S all players
- 
-Geinerate: C:/Buihdagsn nwotrke/d63dfc6a8
-1
-90b60/ar
-ti
-facts/StandalonePlayerGenerated/UnityEngin0eDe/ar.cfppt LSinndel: 49)
-
-erGenerated/UnityEngineDebug.cpp Line: 49)
 
 has not yet found all players
  
@@ -959,59 +101,15 @@ has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-has not yet found has nloyt ye
-t 
-fFilename: C:/yBuil
- geFi/loename: C:6385ildAg0enttifac/d6S3dnd63onePlay0/aenifecrsattaedaloithyays nnteyDeed/.cpia L ingeaiye)rbs
-. p
-(Lileenam9e
-:
- C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebughcpp  oLiyntef:u d49)l
-
-layers
- 
-(Filename: C:/BuildAgent/work/d63dfc638h1asb 0/not yet found dal playersr
-Ge
-nerated/UnityEngineDebug.cpp Ldne: 3dfc
-6
-385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yht aound a yet llu playerpsae 
-
-(
-FFileeana:mCe/B CildAgent/wo:k/Bdi63Agen6t/w1rk/d690fcb385/a1t0b60/artfactts/StandalooePPlayerGenerated/UnityEnngniDnbugecpp Line:bhg4s)n 
- ine: 49)
- 
-hla s nyots
-y
-etilound all :/laBuril
-d
-(Feilename: C:/Bu6l38519t0b60/artifacts/StandalonePlayerGenerated/UnitayEnginerDted/Unitp Line: 49)g.
-cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BhilaA nent ywetk f6oufn6d8 1alb6 p/latierss/S
-tandalonePlayerGeneAgentd/worty/d63nec6385190b60/artifact
-s
-/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has noh ast ofoyet foual a playererss
- Filename: C:/BuBldAigeAnet//woork/d63dfc6385190b60/atitiftactts/SaaondalayneGenyerGateed/eUninityEngienebuDecbpugi.ec pp) 
-
-Line: 49)
-
 has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 has not yet found all players
  
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEnginehebasgn.c yet ifoun4d)al players
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+has not yet found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -1019,318 +117,7 @@ has found all players
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-has nhtaseto fyet found all play
-er
-s
- e(aFilename: C:/BuildAgekt/6wofrk3/d160360/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: b9ug
-.
-cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filename: C:/Buildhgeat nork/d63 dfc6385190b60/arti
-fa
-cts/Stand: C:/PBauirGengera/terd//U3nict3yEn90bne/aebiug.cppS Linalon49)a
-yerGenerhted/UnityEngineDeburg.
- c
-pFi Linee: C49)il
-dAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-has not yet found alh players
- 
-(Filename: C:/BuildA
-ge
-nt/work/d63dfc6385190b60/artifacts/StandalonePlayerGeneratedn/aUnniPlyaygerGDeberactp Line: 49)
-
-neDebug.cpp Line: 49)
-
-has not yet found all players
- 
-(Filenahe:  Co: yet foune tall kplayder6s85
-19
-0b60/artef:c sC:t/nBuliledAageenet/rwtor/U/dt63ndifec6385190b60/artifac
-t
-s/Stahdas nfPound aellr playUrni
- 
-(Fngilenemb:uCg.Bcpp Linet:work 49)fc
-6385190b60/artifacts/haasd foune all players
- d/UnityaEn:iC:neDebug.cptp ork/d63dfc6Li3e:8451
-0
-b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-ISGEENSERVER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 10.274371 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 327 unused Assets to reduce memory usage. Loaded Objects now: 1135.
-Total: 6.871446 ms (FindLiveObjects: 0.063364 ms CreateObjectMapping: 0.027666 ms MarkObjects: 0.996424 ms  DeleteObjects: 4.537680 ms)
-
-Sens: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-ISGEENSERVER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 12.152094 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 329 unused Assets to reduce memory usage. Loaded Objects now: 1135.
-Total: 5.996395 ms (FindLiveObjects: 0.069165 ms CreateObjectMapping: 0.028112 ms MarkObjects: 1.059788 ms  DeleteObjects: 3.578292 ms)
-
-Sens: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-ISSERVER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Succesfully logged game
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Succesfully logged participant
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Succesfully logged participant
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.Component:InternalGetGameObject ()
-  at UnityEngine.Component.get_gameObject () [0x00000] in <filename unknown>:0 
-  at Referee_script.EndGameQuit () [0x00000] in <filename unknown>:0 
-  at NW_Spawning.quitGame (Boolean gameEnded) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-The server has disconnected from the client. Most likely the server has shut down.
- 
-(Filename:  Line: 745)
-
-UnloadTime: 10.545676 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 330 unused Assets to reduce memory usage. Loaded Objects now: 1135.
-Total: 11.893282 ms (FindLiveObjects: 0.096384 ms CreateObjectMapping: 0.041499 ms MarkObjects: 1.008026 ms  DeleteObjects: 9.457776 ms)
-
-Sens: 10
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-Can't send RPC function since no connection was started.
- 
-(Filename:  Line: 2463)
-
-ISGEENSERVER
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 10.869637 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 369 unused Assets to reduce memory usage. Loaded Objects now: 1135.
-Total: 8.186922 ms (FindLiveObjects: 0.055332 ms CreateObjectMapping: 0.030789 ms MarkObjects: 0.605529 ms  DeleteObjects: 5.835307 ms)
-
-Sens: 10
+Shooter: 1, Target: 1
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
