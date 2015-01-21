@@ -63,7 +63,7 @@ app.get("/Authenticate",function(req,res){
   console.log("LOGGING IN playername: " + playerName + "  playerpassword: " + playerPassword);
   var querystring = "SELECT DISTINCT * FROM Players WHERE BINARY Naam = \"" + playerName + "\" AND BINARY Paswoord = \"" + playerPassword + "\";";
   connection.query(querystring,function(err,rows,fields){
-    if(err) throw err;
+    if(err) res.send("Unauthorized");
     if(rows.length >= 1){
       res.send("Succesfully Authorized");
     }
@@ -76,11 +76,10 @@ app.get("/Authenticate",function(req,res){
 app.get("/Register",function(req,res){
   var query = url.parse(req.url,true).query;
   var playerName = _escapeString((query["playerName"]!=undefined ? query["playerName"] : "UndefinedName"));
-  console.log(playerName);
   if(playerName.length>0){
     var playerPassword = _escapeString((query["playerPassword"]!=undefined ? query["playerPassword"] : "UndefinedPassword"));
     console.log("REGISTERING playername: " + playerName + "  playerpassword: " + playerPassword);
-    var querystring = "INSERT INTO `ewi3620tu2`.`Players` (`Naam`, `Paswoord`, `Gespeeld`, `Gewonnen`, `Wanneer`, `PLAYER_Id`) VALUES ('" + playerName + "', '" + playerPassword + "', '0', '0', NOW(), NULL);";
+    var querystring = "INSERT INTO `ewi3620tu2`.`Players` (`Naam`, `Paswoord`, `Wanneer`, `PLAYER_Id`) VALUES ('" + playerName + "', '" + playerPassword + "', NOW(), NULL);";
     connection.query(querystring,function(err,result,fields){
       if(err) res.send("Registering failed");
       else res.send("Succesfully Registered");
