@@ -131,6 +131,7 @@ public class Referee_script : MonoBehaviour {
 		networkView.RPC("finishGame", RPCMode.All, shooter);
 		if (BasicFunctions.loginServer && Network.isServer)
 		{
+			Debug.Log("WINNEND");
 			string winnerLog = BasicFunctions.activeAccounts[winner-1];
 			string url = "http://drproject.twi.tudelft.nl:8082/GameRegister?Server=" + BasicFunctions.activeAccounts[0] + "&Finished=1" + "&Gamemode=" + scoreScreen.gamemode + "&Winnaar=" + winnerLog;
 
