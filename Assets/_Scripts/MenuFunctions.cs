@@ -75,11 +75,8 @@ public class MenuFunctions : MonoBehaviour {
 	}
 
 	public void goToMultiplayer ()
-		{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+	{
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		if (AccountManagement.loggedIn)
 		{
 			BasicFunctions.ForkModus = true;
@@ -91,10 +88,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToSingleplayer ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		BasicFunctions.playOffline = true;
 		BasicFunctions.ForkModus = false;
 		BasicFunctions.firstStart = false;
@@ -103,10 +97,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToServer ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		serverStuff.startServer();
 		Multiplayer_Menu.SetActive(false);
 		Server_Menu.SetActive(true);
@@ -114,20 +105,14 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToClient ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Multiplayer_Menu.SetActive(false);
 		Client_Menu.SetActive(true);
 	}
 
 	public void goToAccount ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Main_Menu.SetActive(false);
 		Account_Menu.SetActive(true);
 		if (BasicFunctions.activeAccount != null)
@@ -144,10 +129,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToStats ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		if (BasicFunctions.activeAccount != null)
 			statsUname.text = BasicFunctions.activeAccount.Name + ":";
 		Main_Menu.SetActive(false);
@@ -156,10 +138,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToSettings ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Main_Menu.SetActive(false);
 		Settings_Menu.SetActive(true);
 		if (BasicFunctions.MusicOn)
@@ -176,39 +155,27 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void goToControls ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Settings_Menu.SetActive(false);
 		Control_Menu.SetActive(true);
 	}
 
 	public void goToCredits ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Settings_Menu.SetActive(false);
 		Credits_Menu.SetActive(true);
 	}
 
 	public void Refresh ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		serverStuff.refreshHost();
 	}
 
 	public void ChooseModus ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		if (Network.isServer)
 		{
 			if (chooseModus.isOn)
@@ -228,10 +195,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void Music_On_OFF ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		if (Music_button.isOn)
 		{
 			Music_text.text = "ON";
@@ -246,10 +210,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void ChooseLoginMode ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		if (chooseLoginModus.isOn)
 		{
 			chooseLoginLabel.text = "Webserver";
@@ -264,19 +225,13 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void StartGame ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		serverStuff.startGame();
 	}
 
 	public void Disconnect ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		if (Network.isServer)
 		{
 			serverStuff.closeServer();
@@ -295,10 +250,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void Back ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		errorMessage.gameObject.SetActive(false);
 		Account_Menu.SetActive(false);
 		Multiplayer_Menu.SetActive(false);
@@ -310,10 +262,7 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void BackSettings ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Control_Menu.SetActive(false);
 		Credits_Menu.SetActive(false);
 		Settings_Menu.SetActive(true);
@@ -321,28 +270,19 @@ public class MenuFunctions : MonoBehaviour {
 
 	public void QuitGame ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		Application.Quit ();
 	}
 
 	public void Register ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		AccManager.registerAccount();
 	}
 	
 	public void Login ()
 	{
-		if (BasicFunctions.MusicOn)
-		{
-			AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.1F);
-		}
+		AudioSource.PlayClipAtPoint(menu_click_sound, transform.position, 0.5F);
 		AccManager.loginAccount();
 	}
 
