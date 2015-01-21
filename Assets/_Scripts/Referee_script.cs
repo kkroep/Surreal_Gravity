@@ -282,17 +282,12 @@ public class Referee_script : MonoBehaviour {
 		if (www.error == null)
 		{
 		}
-
-		for(int i=0;i<BasicFunctions.startingAccounts.Count-1;i++)
+		for(int i=0;i<BasicFunctions.startingAccounts.Count;i++)
 		{
-			string urlParticipant = "http://drproject.twi.tudelft.nl:8082/ParticipantsRegister?SERVER="+BasicFunctions.activeAccount.Name + "&PLAYER="+BasicFunctions.startingAccounts[i];
+			string urlParticipant = "http://drproject.twi.tudelft.nl:8082/ParticipantsRegister?SERVER="+BasicFunctions.activeAccounts[0] + "&PLAYER="+BasicFunctions.startingAccounts[i];
 			WWW www2 = new WWW(urlParticipant);
-			StartCoroutine (WaitForParticipantRegister(www2));
+			yield return StartCoroutine (WaitForParticipantRegister(www2));
 		}
-		
-		string finalurlparticipant = "http://drproject.twi.tudelft.nl:8082/ParticipantsRegister?SERVER="+BasicFunctions.activeAccount.Name + "&PLAYER="+BasicFunctions.startingAccounts[BasicFunctions.startingAccounts.Count-1];
-		WWW www3 = new WWW(finalurlparticipant);
-		yield return StartCoroutine (WaitForParticipantRegister(www3));
 	}
 	
 	IEnumerator WaitForParticipantRegister (WWW www)
