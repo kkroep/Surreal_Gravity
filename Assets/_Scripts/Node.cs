@@ -24,6 +24,13 @@ public class Node{
 	public bool canPass;
 
 	public Node(int x, int y, int z){
+		parentNode = null;
+		widthneg = null;
+		widthpos = null;
+		heightneg = null;
+		heightpos = null;
+		depthneg = null;
+		depthpos = null;
 		xPosition = x;
 		yPosition = y;
 		zPosition = z;
