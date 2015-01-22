@@ -58,6 +58,10 @@ You can exit the game at any time, while playing the game, by pressing the escap
 **********
 You can disable/enable the music in the settings menu. You can also change (and save) your mouse sensitivity in-game.
 
+*******
+*STATS*
+*******
+In the Stats Menu, you can find some fun global data (like total games played), and some data of your account specifically (amount of wins etc). Make sure to check it out, as long as the webserver is open!
 
 ***disclaimer***
-We recommend to not use the same usernames if you are logging in via the webserver. It should work, but it will mess up your stats most likely.
+We recommend to not use the same accounts if you are logging in via the webserver. It should work, but it will mess up your stats most likely.
