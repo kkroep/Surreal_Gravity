@@ -252,6 +252,10 @@ public class Referee_script : MonoBehaviour {
 			players[target-1].gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
 		}
 		players[target-1].gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+		if (!BasicFunctions.ForkModus)
+		{
+			players[target-1].gunTorus.SetActive(false);
+		}
 	}
 	/* When game is over, make all the players invisible and prevent them from moving
 	 */

@@ -50,6 +50,7 @@
      <Compile Include="Assets\_Scripts\Account.cs" />
      <Compile Include="Assets\_Scripts\AccountList.cs" />
      <Compile Include="Assets\_Scripts\AccountManagement.cs" />
+     <Compile Include="Assets\_Scripts\AccountScore.cs" />
      <Compile Include="Assets\_Scripts\BasicFunctions.cs" />
      <Compile Include="Assets\_Scripts\BlockDestroy.cs" />
      <Compile Include="Assets\_Scripts\Bullet_Controller.cs" />

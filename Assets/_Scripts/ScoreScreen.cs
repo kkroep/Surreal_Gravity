@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ScoreScreen : MonoBehaviour
 {
@@ -41,8 +42,9 @@ public class ScoreScreen : MonoBehaviour
 	
 	public List<int> kills;
 	public List<int> deaths;
-	public List<int> scores;
+	//public List<int> scores;
 	public List<Color> pColors;
+	public List<AccountScore> accScores;
 
 	public float time2show;
 	public float showKill;
@@ -59,6 +61,8 @@ public class ScoreScreen : MonoBehaviour
 	private string encodedDeaths2;
 	private string encodedScore;
 	private string encodedScore2;
+	private string encodedAccScore;
+	private string encodedAccScore2;
 
 	private List<Text> playersT;
 	private List<Text> killsT;
@@ -74,7 +78,8 @@ public class ScoreScreen : MonoBehaviour
 
 		kills = new List<int> ();
 		deaths = new List<int> ();
-		scores = new List<int> ();
+		//scores = new List<int> ();
+		accScores = new List<AccountScore> ();
 		playersT = new List<Text> ();
 		killsT = new List<Text> ();
 		deathsT = new List<Text> ();
@@ -124,7 +129,8 @@ public class ScoreScreen : MonoBehaviour
 		for (int i=0; i<BasicFunctions.amountPlayers; i++) {
 			kills.Add (0);
 			deaths.Add (0);
-			scores.Add (0);
+			//scores.Add (0);
+			accScores.Add (new AccountScore (BasicFunctions.accountNumbers[i], 0));
 		}
 	}
 
@@ -207,10 +213,27 @@ public class ScoreScreen : MonoBehaviour
 		}
 		deaths [target-1] += 1;
 		kills [shooter-1] += 1;
-		scores[shooter-1] += 1;
+		//scores[shooter-1] += 1;
+		for (int i = 0; i < accScores.Count; i++)
+		{
+			if (accScores[i].Numb == shooter)
+			{
+				accScores[i].Score += 1;
+				if (accScores[i].Score >= BasicFunctions.maxPoints)
+				{
+					if (BasicFunctions.ForkModus) {
+						gamemode = "FORK";
+					} else {
+						gamemode = "RAILGUN";
+					}
+					referee.EndGame(shooter);
+				}
+				break;
+			}
+		}
 		Debug.Log("Shooter: " + kills[shooter-1] + ", Target: " + deaths[target-1]);
 
-		if (scores[shooter-1] >= BasicFunctions.maxPoints)
+		/*if (scores[shooter-1] >= BasicFunctions.maxPoints)
 		{
 			if (BasicFunctions.ForkModus) {
 				gamemode = "FORK";
@@ -218,20 +241,35 @@ public class ScoreScreen : MonoBehaviour
 				gamemode = "RAILGUN";
 			}
 			referee.EndGame(shooter);
-		}
+		}*/
 	}
-	public void UpdateScoreScreen(){
+	public void UpdateScoreScreen()
+	{
+		List<AccountScore> SortedList = accScores.OrderByDescending(o=>o.Score).ToList();
 		for (int i = 0; i < BasicFunctions.amountPlayers; i++) {
-			deathsT [i].text = "" + deaths[i];
-			killsT [i].text = "" + kills[i];
-			scoresT [i].text = "" + scores[i];
+			playersT [i].color = pColors[SortedList[i].Numb-1];
+			deathsT [i].color = pColors[SortedList[i].Numb-1];
+			killsT [i].color = pColors[SortedList[i].Numb-1];
+			scoresT [i].color = pColors[SortedList[i].Numb-1];
+			playersT [i].text = "" + BasicFunctions.activeAccounts[SortedList[i].Numb-1];
+			deathsT [i].text = "" + deaths[SortedList[i].Numb-1];
+			killsT [i].text = "" + kills[SortedList[i].Numb-1];
+			scoresT [i].text = "" + SortedList[i].Score;//accScores[i].Score;//scores[i];
 		}
 	}
 
 	public void UpdateScoreDB (int target)
 	{
 		deaths[target-1] += 1;
-		scores[target-1] -= 1;
+		//scores[target-1] -= 1;
+		for (int i = 0; i < accScores.Count; i++)
+		{
+			if (accScores[i].Numb == target)
+			{
+				accScores[i].Score -= 1;
+				break;
+			}
+		}
 		EncodeStringsDB ();
 	}
 
@@ -239,45 +277,51 @@ public class ScoreScreen : MonoBehaviour
 	{
 		encodedKills = kills[0].ToString();
 		encodedDeaths = deaths[0].ToString();
-		encodedScore = scores[0].ToString();
+		//encodedScore = scores[0].ToString();
+		encodedAccScore = accScores[0].ToString();
 
 		for(int i=1; i<BasicFunctions.amountPlayers; i++)
 		{
 			encodedKills += " " + kills[i];
 			encodedDeaths += " " + deaths[i];
-			encodedScore += " " + scores[i];
+			//encodedScore += " " + scores[i];
+			encodedAccScore += " " + accScores[i].ToString();
 		}
 		if (Network.connections.Length >= 1)
 		{
-			networkView.RPC("UpdateInfo", RPCMode.AllBuffered, encodedKills, encodedDeaths, encodedScore);
+			networkView.RPC("UpdateInfo", RPCMode.AllBuffered, encodedKills, encodedDeaths, /*encodedScore,*/ encodedAccScore);
 		}
 	}
 
 	public void EncodeStringsDB ()
 	{
 		encodedDeaths2 = deaths[0].ToString();
-		encodedScore2 = scores[0].ToString();
+		//encodedScore2 = scores[0].ToString();
+		encodedAccScore2 = accScores[0].ToString();
 		for(int i = 1; i < BasicFunctions.amountPlayers; i++)
 		{
 			encodedDeaths2 += " " + deaths[i];
-			encodedScore2 += " " + scores[i];
+			//encodedScore2 += " " + scores[i];
+			encodedAccScore2 += " " + accScores[i].ToString();
 		}
 
-		networkView.RPC("UpdateInfoDB", RPCMode.AllBuffered, encodedDeaths2, encodedScore2);
+		networkView.RPC("UpdateInfoDB", RPCMode.AllBuffered, encodedDeaths2, /*encodedScore2,*/ encodedAccScore2);
 	}
 
 	public void showScoreLiveS ()
 	{
 		string enc_kills = kills[0].ToString ();
 		string enc_deaths = deaths[0].ToString ();
-		string enc_score = scores[0].ToString ();
+		//string enc_score = scores[0].ToString ();
+		string enc_accScores = accScores[0].ToString ();
 		for (int i = 1; i < BasicFunctions.amountPlayers; i++)
 		{
 			enc_kills += " " + kills[i];
 			enc_deaths += " " + deaths[i];
-			enc_score += " " + scores[i];
+			//enc_score += " " + scores[i];
+			enc_accScores += " " + accScores[i].ToString();
 		}
-		networkView.RPC("UpdateInfo", RPCMode.All, enc_kills, enc_deaths, enc_score);
+		networkView.RPC("UpdateInfo", RPCMode.All, enc_kills, enc_deaths, /*enc_score,*/ enc_accScores);
 	}
 
 	public void changeEntry (int Number)
@@ -295,29 +339,46 @@ public class ScoreScreen : MonoBehaviour
 	}
 
 	[RPC]
-	public void UpdateInfo(string encodedKills_update, string encodedDeaths_update, string encodedScore_update)
+	public void UpdateInfo(string encodedKills_update, string encodedDeaths_update, /*string encodedScore_update,*/ string encodedAccScore_update)
 	{
 		string[] kills_update = encodedKills_update.Split(' ');
 		string[] deaths_update = encodedDeaths_update.Split(' ');
-		string[] scores_update = encodedScore_update.Split(' ');
-		for (int i = 0; i < scores.Count; i++)
+		//string[] scores_update = encodedScore_update.Split(' ');
+		string[] accScores_update = encodedAccScore_update.Split(' ');
+
+		for (int i = 0; i < kills.Count; i++)
 		{
 			kills[i] = int.Parse(kills_update[i]);
 			deaths[i] = int.Parse(deaths_update[i]);
-			scores[i] = int.Parse(scores_update[i]);
+			//scores[i] = int.Parse(scores_update[i]);
+		}
+		accScores[0].Numb = int.Parse(accScores_update[0]);
+		accScores[0].Score = int.Parse(accScores_update[1]);
+		for (int k = 2; k < (2*kills.Count - 1); k = k + 2)
+		{
+			accScores[k/2].Numb = int.Parse(accScores_update[k]);
+			accScores[k/2].Score = int.Parse(accScores_update[k+1]);
 		}
 		UpdateScoreScreen();
 	}
 
 	[RPC]
-	public void UpdateInfoDB (string encodedDeaths_update, string encodedScore_update)
+	public void UpdateInfoDB (string encodedDeaths_update, /*string encodedScore_update,*/ string encodedAccScore_update)
 	{
 		string[] deaths_update = encodedDeaths_update.Split(' ');
-		string[] scores_update = encodedScore_update.Split(' ');
-		for (int i = 0; i < scores.Count; i++)
+		//string[] scores_update = encodedScore_update.Split(' ');
+		string[] accScores_update = encodedAccScore_update.Split(' ');
+		for (int i = 0; i < deaths.Count; i++)
 		{
 			deaths[i] = int.Parse(deaths_update[i]);
-			scores[i] = int.Parse(scores_update[i]);
+			//scores[i] = int.Parse(scores_update[i]);
+		}
+		accScores[0].Numb = int.Parse(accScores_update[0]);
+		accScores[0].Score = int.Parse(accScores_update[1]);
+		for (int k = 2; k < (2*deaths.Count - 1); k = k + 2)
+		{
+			accScores[k/2].Numb = int.Parse(accScores_update[k]);
+			accScores[k/2].Score = int.Parse(accScores_update[k+1]);
 		}
 		UpdateScoreScreen();
 	}

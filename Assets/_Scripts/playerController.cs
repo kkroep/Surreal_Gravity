@@ -86,6 +86,7 @@ public class playerController : MonoBehaviour
 	private bool isWalking = true;
 	private bool jumpMode = BasicFunctions.JumpModus;
 	public Gun gunscript;
+	public GameObject gunTorus;
 
 	public AudioClip endfork_sound;
 	public AudioClip endrailgun_sound;
@@ -620,6 +621,10 @@ public class playerController : MonoBehaviour
 		}
 		gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
 		gameObject.GetComponent<CapsuleCollider> ().enabled = true;
+		if (!BasicFunctions.ForkModus)
+		{
+			gunTorus.SetActive(true);
+		}
 		if (networkView.isMine)
 		{
 			if (!Leven1)
